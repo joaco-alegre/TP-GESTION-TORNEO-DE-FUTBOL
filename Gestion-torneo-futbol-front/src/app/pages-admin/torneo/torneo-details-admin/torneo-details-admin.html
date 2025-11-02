@@ -1,0 +1,42 @@
+@if (torneo) {
+  <div class="card-detalle-admin">
+
+    <h2>{{ torneo.nombre }}</h2>
+
+    <div class="detalle-imagenes">
+      
+      <div class="imagen-box">
+        <h3>Logo del Torneo</h3>
+        <img [src]="torneo.logo" [alt]="'Logo de ' + torneo.nombre">
+      </div>
+      
+        <h3>Último Campeón</h3>
+        <img [src]="torneo.ultimoCampeon" [alt]="'Escudo de ' + torneo.ultimoCampeon">
+          <p class="campeon-nombre">{{ torneo.ultimoCampeon}}</p>
+
+      </div>
+
+    <div class="detalle-datos">
+      <h3>Detalles del Torneo</h3>
+      <ul class="info-lista">
+        <li>
+          <b>ID:</b> {{ torneo.id }}
+        </li>
+        <li>
+          <b>Nombre:</b> {{ torneo.nombre }}
+        </li>
+        <li>
+          <b>Estado:</b> {{ torneo.estadoTorneo }}
+        </li>
+        <li>
+          <b>Fecha de Inicio:</b> {{ torneo.fechaInicio}}
+        </li>
+        <li>
+          <b>Fecha de Finalización:</b> {{ torneo.fechaFin}}
+        </li>
+      </ul>
+    </div>
+</div>
+} @else {
+  <p class="empty-list">Cargando datos del torneo...</p>
+}

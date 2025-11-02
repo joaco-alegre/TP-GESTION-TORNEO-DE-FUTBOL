@@ -32,7 +32,7 @@ export class TorneoService{
     return this.http.put<Torneo>(`${this.url}/${torneo.id}`, torneo);
   }
 
-  deleteTorneo(id: number): Observable<void> {
+  deleteTorneo(id: string): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 

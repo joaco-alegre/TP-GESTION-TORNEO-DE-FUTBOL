@@ -27,7 +27,7 @@ export class TorneoList implements OnInit{
         this.torneos = data});
     }
   
-    deletTorneos(id: number): void {
+    deletTorneos(id: string): void {
     
         this.torneoService.deleteTorneo(id).subscribe(() => this.getTorneos());
       

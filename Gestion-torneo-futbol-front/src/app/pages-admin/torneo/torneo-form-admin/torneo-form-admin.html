@@ -1,0 +1,35 @@
+
+<h2>{{ torneoID ? 'Editar Torneo' : 'Agregar Torneo' }}</h2>
+
+<form [formGroup]="torneoForm" (ngSubmit)="onSubmit()">
+
+        <label for="nombre">Nombre: </label>
+  <input id="nombre" type="text" formControlName="nombre">
+
+    <label for="logo">Logo: </label>
+  <input id="logo" type="file" formControlName="logo">
+
+  <label for="ultimoCampeon">Ultimo Campeon: </label>
+  <input id="ultimoCampeon" type="file" formControlName="ultimoCampeon">
+  
+  <!-- @if(torneoForm.get('titulo')?.invalid && movieForm.get('titulo')?.touched){
+    <p class="validation-error" >El título es obligatorio.</p>
+  } -->
+
+  <label for="estado">Estado: </label>
+  <input id="estado" type="text" formControlName="estado">
+  <!-- @if(movieForm.get('anio')?.invalid && movieForm.get('anio')?.touched){
+    <p class="validation-error">El año es obligatorio y debe ser mayor a 1900.</p>
+  } -->
+
+    <label for="fechaInicio">Fecha de Inicio: </label>
+  <input id="fechaInicio" type="date" formControlName="fechaInicio">
+
+    <label for="fechaFin">Fecha de Finalizacion: </label>
+  <input id="fechaFin" type="date" formControlName="fechaFin">
+
+
+
+
+  <button type="submit">{{ torneoID ? 'Actualizar' : 'Agregar' }}</button>
+</form>

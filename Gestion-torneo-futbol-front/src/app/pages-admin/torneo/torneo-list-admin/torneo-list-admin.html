@@ -1,0 +1,17 @@
+<h2>Lista de Torneos</h2>
+
+<ul>
+    @for (torneo of torneos; track torneo.id) {
+    <li [routerLink]="['/es/torneos/', torneo.id]">
+      {{torneo.nombre}}
+        <button [routerLink]="['/torneo-details-admin', torneo.id]">Detalles</button>
+        <button [routerLink]="['/torneo-formulario-admin/', torneo.id]">Editar</button>
+        <button (click)="deleteTorneo(torneo.id!)">Eliminar</button>
+    </li>
+    } @empty {
+    <p>No hay torneos registrados en este momento.</p>
+  }
+</ul>
+
+<button class="btn-add-torneo" [routerLink]="['/torneo-formulario-admin']">Agregar Torneo</button>
+
