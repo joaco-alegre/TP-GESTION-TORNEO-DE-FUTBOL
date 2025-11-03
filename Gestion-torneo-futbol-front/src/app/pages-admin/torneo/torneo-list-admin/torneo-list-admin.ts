@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterModule } from "@angular/router";
+import { Router, RouterLink, RouterModule } from "@angular/router";
 import Torneo from '../../../model/torneo';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import { CommonModule } from '@angular/common';
@@ -14,7 +14,9 @@ export class TorneoListAdmin implements OnInit{
 
     torneos: Torneo[] = [];
 
-  constructor(private torneoService: TorneoService) {}
+  constructor(private torneoService: TorneoService,
+              private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.cargarTorneo();
@@ -32,5 +34,11 @@ export class TorneoListAdmin implements OnInit{
       this.torneoService.deleteTorneo(id).subscribe(() => this.cargarTorneo());
     
   }
+
+  verEquipos(torneoId: string) {
+    this.router.navigate(['/equipos-admin', torneoId]);
+  }
+
+  
 
 }

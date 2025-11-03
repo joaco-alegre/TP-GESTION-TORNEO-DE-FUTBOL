@@ -2,10 +2,10 @@
 
 <ul>
     @for (torneo of torneos; track torneo.id) {
-    <li [routerLink]="['/es/torneos/', torneo.id]">
+    <li [routerLink]="['/equipo-admin/', torneo.id]">
       {{torneo.nombre}}
         <button [routerLink]="['/torneo-details-admin', torneo.id]">Detalles</button>
-        <button [routerLink]="['/torneo-formulario-admin/', torneo.id]">Editar</button>
+        <button [routerLink]="['/torneo-formulario-admin', torneo.id]">Editar</button>
         <button (click)="deleteTorneo(torneo.id!)">Eliminar</button>
     </li>
     } @empty {

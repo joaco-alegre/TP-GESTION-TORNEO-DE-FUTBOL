@@ -1,0 +1,28 @@
+@if (equipo) {
+  <div class="card-detalle-admin">
+
+    <h2>{{ equipo.nombre }}</h2>
+      
+      <div class="imagen-box">
+        <h3>Logo del Equipo</h3>
+        <img [src]="equipo.escudo" [alt]="'Escudo de ' + equipo.nombre">
+
+    <div class="detalle-datos">
+      <h3>Detalles del Equipo</h3>
+      <ul class="info-lista">
+        <li>
+          <b>ID:</b> {{ equipo.id }}
+        </li>
+        <li>
+          <b>Nombre:</b> {{ equipo.nombre }}
+        </li>
+        <li>
+          <b>Torneo:</b> {{ equipo.nombreTorneo }}
+        </li>
+      </ul>
+    </div>
+    </div>
+</div>
+} @else {
+  <p class="empty-list">Cargando datos del equipo...</p>
+}

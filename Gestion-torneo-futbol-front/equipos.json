@@ -1,64 +1,58 @@
 {
   "equipos": [
-  {
-    "id": "e-001",
-    "nombre": "Los Halcones",
-    "nombreTorneo": "Copa del Rey",
-    "idTorneo": "t-001"
-  },
-  {
-    "id": "e-002",
-    "nombre": "Titanes FC",
-    "nombreTorneo": "Copa del Rey",
-    "idTorneo": "t-001"
-  },
-  {
-    "id": "e-003",
-    "nombre": "Real Deportivo",
-    "nombreTorneo": "Copa del Rey",
-    "idTorneo": "t-001"
-  },
-  {
-    "id": "e-004",
-    "nombre": "Gladiadores",
-    "nombreTorneo": "Liga Anual de Verano",
-    "idTorneo": "t-002"
-  },
-  {
-    "id": "e-005",
-    "nombre": "El Ciclón",
-    "nombreTorneo": "Liga Anual de Verano",
-    "idTorneo": "t-002"
-  },
-  {
-    "id": "e-006",
-    "nombre": "Atlético Central",
-    "nombreTorneo": "Liga Metropolitana",
-    "idTorneo": "t-006"
-  },
-  {
-    "id": "e-007",
-    "nombre": "Defensores del Barrio",
-    "nombreTorneo": "Liga Metropolitana",
-    "idTorneo": "t-006"
-  },
-  {
-    "id": "e-008",
-    "nombre": "Sporting Club",
-    "nombreTorneo": "Liga Metropolitana",
-    "idTorneo": "t-006"
-  },
-  {
-    "id": "e-009",
-    "nombre": "La Furia",
-    "nombreTorneo": "Torneo Relámpago",
-    "idTorneo": "t-004"
-  },
-  {
-    "id": "e-010",
-    "nombre": "Impacto Veloz",
-    "nombreTorneo": "Torneo Relámpago",
-    "idTorneo": "t-004"
-  }
-]
+    {
+      "id": "e-001",
+      "nombre": "Los Halcones",
+      "nombreTorneo": "Copa del Rey",
+      "idTorneo": "t-001"
+    },
+    {
+      "id": "e-002",
+      "nombre": "Titanes FC",
+      "nombreTorneo": "Copa del Rey",
+      "idTorneo": "t-001"
+    },
+    {
+      "id": "e-003",
+      "nombre": "Real Deportivo",
+      "nombreTorneo": "Copa del Rey",
+      "idTorneo": "t-001"
+    },
+    {
+      "id": "e-004",
+      "nombre": "Gladiadores",
+      "nombreTorneo": "Liga Anual de Verano",
+      "idTorneo": "t-002"
+    },
+    {
+      "id": "e-005",
+      "nombre": "El Ciclón",
+      "nombreTorneo": "Liga Anual de Verano",
+      "idTorneo": "t-002"
+    },
+    {
+      "id": "e-006",
+      "nombre": "Atlético Central",
+      "nombreTorneo": "Liga Metropolitana",
+      "idTorneo": "t-006"
+    },
+    {
+      "id": "e-007",
+      "nombre": "Defensores del Barrio",
+      "nombreTorneo": "Liga Metropolitana",
+      "idTorneo": "t-006"
+    },
+    {
+      "id": "e-008",
+      "nombre": "Sporting Club",
+      "nombreTorneo": "Liga Metropolitana",
+      "idTorneo": "t-006"
+    },
+    {
+      "id": "e-009",
+      "nombre": "La Furia",
+      "nombreTorneo": "Torneo Relámpago",
+      "idTorneo": "t-004"
+    }
+  ]
 }

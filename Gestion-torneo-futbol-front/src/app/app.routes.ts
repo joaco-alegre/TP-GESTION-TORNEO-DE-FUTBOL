@@ -15,6 +15,12 @@ import { TorneoAdmin } from './pages/admin/torneo-admin/torneo-admin';
 import { TorneoListAdmin } from './pages-admin/torneo/torneo-list-admin/torneo-list-admin';
 import { TorneoDetailsAdmin } from './pages-admin/torneo/torneo-details-admin/torneo-details-admin';
 import { TorneoFormAdmin } from './pages-admin/torneo/torneo-form-admin/torneo-form-admin';
+import { EquipoAdmin } from './pages/admin/equipo-admin/equipo-admin';
+import { EquipoListAdmin } from './pages-admin/equipo/equipo-list-admin/equipo-list-admin';
+import { EquipoDetailsAdmin } from './pages-admin/equipo/equipo-details-admin/equipo-details-admin';
+import { EquipoFormAdmin } from './pages-admin/equipo/equipo-form-admin/equipo-form-admin';
+import { JugadorListAdmin } from './pages-admin/jugadores/jugador-list-admin/jugador-list-admin';
+import { JugadorDetailsAdmin } from './pages-admin/jugadores/jugador-details-admin/jugador-details-admin';
 
 export const routes: Routes = [
     {path: 'es', 
@@ -31,16 +37,25 @@ export const routes: Routes = [
     {path: 'es/equipos/:id', component: EquipoDetails},
     {path: 'es/jugadores/:id', component: JugadorDetails},
     {path: 'es/fixture/:id', component: FixtureDetails},
+    {path: 'usuario-home', component: UsuarioHome},
     {path: 'torneos-admin', component: TorneoListAdmin},
     {path: 'torneo-details-admin/:id', component: TorneoDetailsAdmin},
     {path: 'torneo-formulario-admin/:id', component: TorneoFormAdmin},
     {path: 'torneo-formulario-admin', component: TorneoFormAdmin},
+    {path: 'equipo-admin/:id', component: EquipoListAdmin},
+    {path: 'equipo-details-admin/:id', component: EquipoDetailsAdmin},
+    {path: 'equipo-formulario-admin/:id', component: EquipoFormAdmin},
+    {path: 'equipo-formulario-admin', component: EquipoFormAdmin},
+    {path: 'jugador-lista-admin/:id', component: JugadorListAdmin},
+    {path: 'jugador-detalles-admin/:id', component: JugadorDetailsAdmin},
+
+
+
     {path: 'equipo/formulario', component: EquipoForm},
     {path: ' ', redirectTo: 'home', pathMatch: 'full'},
     {path: '**', redirectTo: 'home'},
     {path: 'es/inicio-sesion',
     title: 'Iniciar sesion - Goal Manager',
     component: UsuarioLogin},
-    {path: 'usuario-home', component: UsuarioHome,},
     {path:' ', redirectTo: 'home'}
 ];
