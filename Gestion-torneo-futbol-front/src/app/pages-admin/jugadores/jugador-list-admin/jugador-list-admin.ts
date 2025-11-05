@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import Jugador from '../../../model/jugador';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
+import DT from '../../../model/dt';
+import { DtService } from '../../../service/dt-service/dt-service';
 
 @Component({
   selector: 'app-jugador-list',
@@ -12,9 +14,13 @@ import { JugadorService } from '../../../service/jugador-service/jugador-service
 })
 export class JugadorListAdmin implements OnInit{
 
+      dt?: DT;
       jugadores: Jugador[] = [];
   
-    constructor(private jugadorService: JugadorService) {}
+    constructor(private jugadorService: JugadorService,
+                private route: Route,
+                private dtService: DtService
+    ) {}
   
     ngOnInit(): void {
       this.cargarJugador();
@@ -32,6 +38,6 @@ export class JugadorListAdmin implements OnInit{
         this.jugadorService.deleteJugador(id).subscribe(() => this.cargarJugador());
       
     }
-
+     
 
 }
