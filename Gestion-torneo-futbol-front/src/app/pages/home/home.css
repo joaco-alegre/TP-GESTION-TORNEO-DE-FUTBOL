@@ -260,6 +260,7 @@ h2 {
     #fff 80%, 
     transparent
   );
+  background-color: #fff;
 }
 
 .logo-scroller-inner {
@@ -316,7 +317,8 @@ h2 {
 }
 
 .seccion-clara {
-  background-color: #f4f4f4;
+  /*background-color: #f4f4f4;*/
+  background-color: transparent;
   padding: 50px 0;
 }
 

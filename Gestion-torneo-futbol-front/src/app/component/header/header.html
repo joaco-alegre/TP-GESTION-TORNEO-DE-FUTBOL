@@ -1,65 +1,4 @@
-<!-- <nav class="navbar" [ngClass]="{'navbar-scrolled': isScrolled}">
-  
-  <div class="navbar-logo">
-    <a routerLink="/es">
-      <img src="/assets/img/logo.png" alt="Goal Manager Logo">
-    </a>
-  </div>
-
-  <ul class="navbar-links">
-    <li><a class="nav-link" routerLink="/es">Inicio</a></li>
-    <li><a class="nav-link" routerLink="/es" fragment="noticias">Noticias</a></li>
-    <li><a class="nav-link" routerLink="/es" fragment="nosotros">Nosotros</a></li>
-    <li><a class="nav-link" routerLink="/es" fragment="contactos">Contactos</a></li>
-  </ul>
-
-  <div class="navbar-lang">
-    <span>ES </span> | <span> EN</span>
-  </div>
-
-  <button class="navbar-menu-btn">
-    <span class="material-icons">
-      m
-    </span>
-  </button>
-
-</nav> 
-
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-  <div class="container-fluid">
-    
-    <a class="navbar-brand" routerLink="/es">
-      <img src="/assets/img/logo.png" alt="Logo" height="50">
-    </a>
-
-    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed"
-      [attr.aria-expanded]="!isMenuCollapsed" aria-controls="navbarContent">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarContent">
-      
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/es" fragment="inicio" (click)="isMenuCollapsed = true">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/es" fragment="noticias" (click)="isMenuCollapsed = true">Noticias</a>
-        </li>
-      </ul>
-      
-      <span class="navbar-text text-white ms-3">
-        ES | EN
-      </span>
-
-    </div>
-  </div>
-</nav>
-
--->
-
-<nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="{'navbar-scrolled': isScrolled}">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="{'navbar-scrolled': isScrolled}">
   
   <div class="container-fluid">
     
@@ -95,9 +34,11 @@
         </li>
       </ul>
 
-      <span class="navbar-text text-white me-3">
-        ES | EN
-      </span>
+      <div class="language-switcher">
+        <button (click)="cambiarIdioma('es')">ES</button>
+        <span>|</span>
+        <button (click)="cambiarIdioma('en')">EN</button>
+      </div>
 
         <div class="contenedor-menu">
 
@@ -111,6 +52,67 @@
           </nav>
 
         </div>
+
+    </div>
+  </div>
+</nav> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="{'navbar-scrolled': isScrolled}">
+ 
+  <div class="container-fluid">
+    
+    <a class="navbar-brand" routerLink="/es">
+      <div class="navbar-logo">
+        <img src="/assets/img/logo.png" alt="Goal Manager Logo">
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" 
+      [attr.aria-expanded]="!isMenuCollapsed" aria-controls="navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" id="navbarContent">
+      
+      <ul class="navbar-nav mx-auto">
+      
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link" routerLink="/es" (click)="isMenuCollapsed = true">{{ 'header.inicio' | transloco }}</a>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link" routerLink="/es" fragment="noticias" (click)="isMenuCollapsed = true">{{ 'header.noticias' | transloco }}</a>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link" routerLink="/es" fragment="nosotros" (click)="isMenuCollapsed = true">{{ 'header.nosotros' | transloco }}</a>
+        </li>
+
+        <li class="nav-item ms-lg-3">
+          <a class="nav-link" routerLink="/es" fragment="contactos" (click)="isMenuCollapsed = true">{{ 'header.contactos' | transloco }}</a>
+        </li>
+      </ul>
+
+
+      <div class="language-switcher">
+        <button (click)="cambiarIdioma('es')">ES</button>
+        <span>|</span>
+        <button (click)="cambiarIdioma('en')">EN</button>
+      </div>
+
+      <div class="contenedor-menu">
+
+        <button (click)="toggleMenu()">{{ 'header.menu' | transloco }}</button>
+
+        <nav id="menu-desplegable" [class.visible]="menuVisible">
+          <ul>
+            <li><a [routerLink]="['/es/inicio-sesion']">{{ 'header.iniciarSesion' | transloco }}</a></li>
+            <li><a href="#">{{ 'header.modoOscuro' | transloco }}</a></li>
+          </ul>
+        </nav>
+
+      </div>
 
     </div>
   </div>

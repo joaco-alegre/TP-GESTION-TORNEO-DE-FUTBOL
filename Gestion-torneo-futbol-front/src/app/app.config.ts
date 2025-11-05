@@ -1,16 +1,26 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withComponentInputBinding, withAnchorScrolling } from '@angular/router';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection, isDevMode } from '@angular/core';
+import { provideRouter, withComponentInputBinding} from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { TranslocoHttpLoader } from './transloco-loader';
+import { provideTransloco } from '@ngneat/transloco';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, 
-      withComponentInputBinding(),
-      withAnchorScrolling()
+      withComponentInputBinding()
     ),
-    provideHttpClient()
+    provideHttpClient(), provideHttpClient(), provideTransloco({
+        config: { 
+          availableLangs: ['es', 'en'],
+          defaultLang: 'es',
+          // Remove this option if your application doesn't support changing language in runtime.
+          reRenderOnLangChange: true,
+          prodMode: !isDevMode(),
+        },
+        loader: TranslocoHttpLoader
+      })
   ]
 };

@@ -1,0 +1,55 @@
+{
+  "header": {
+    "inicio": "Inicio",
+    "noticias": "Noticias",
+    "nosotros": "Nosotros",
+    "contactos": "Contactos",
+    "menu": "Menú",
+    "iniciarSesion": "Iniciar Sesión",
+    "modoOscuro": "Modo Oscuro"
+  },
+  "footer": {
+    "navegacion": "Navegación",
+    "email": "Email:",
+    "telefono": "Teléfono:",
+    "seguinos": "Seguinos",
+    "derechosReservados": "Todos los derechos reservados",
+    "proyectoFinal": "Proyecto Final - Tecnicatura en Programación"
+  },
+  "home": {
+    "hero": {
+      "titulo": "Los mejores torneos de futbol en un mismo lugar!",
+      "subtitulo": "Exploralos todos aca!",
+      "boton": "Ver Torneos"
+    },
+    "nuestrosTorneos": "Nuestros torneos",
+    "noticias": {
+      "titulo": "Noticias",
+      "noticia1": "La Selección Argentina se prepara para la última gira del 2025",
+      "noticia2": "Lionel Messi explicó por qué renovó su contrato con Inter Miami: \"Me siento feliz viviendo acá\"",
+      "noticia3": "Cristiano Ronaldo convirtió el gol 950 y agigantó su leyenda",
+      "noticia4": "Lionel Messi recibió la Bota de Oro y la revalidó con dos goles en Inter vs. Nashville"
+    },
+    "nosotros": {
+      "titulo": "Nosotros",
+      "descripcion": "Nuestra misión en Goal Manager es revolucionar la gestión de torneos de fútbol profesionales. Que todos tengan la posibilidad de estar informados. Creemos que la pasión merece una plataforma moderna y fácil de usar, que conecte a organizadores, equipos y jugadores.",
+      "equipo": {
+        "nombre1": "[Tu Nombre]",
+        "rol1": "Scrum Master y Desarrollador",
+        
+        "nombre2": "[Nombre Compañero 1]",
+        "rol2": "Product Owner y Desarrollador",
+        
+        "nombre3": "[Nombre Compañero 2]",
+        "rol3": "Desarrollador"
+      }
+    },
+    "contactos": {
+      "titulo": "Contactos",
+      "placeholderNombre": "Nombre Completo",
+      "placeholderMail": "Mail",
+      "placeholderConsulta": "Tu consulta",
+      "botonEnviar": "Enviar Consulta"
+    }
+  }
+}

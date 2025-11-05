@@ -18,7 +18,6 @@ export class JugadorListAdmin implements OnInit{
       jugadores: Jugador[] = [];
   
     constructor(private jugadorService: JugadorService,
-                private route: Route,
                 private dtService: DtService
     ) {}
   

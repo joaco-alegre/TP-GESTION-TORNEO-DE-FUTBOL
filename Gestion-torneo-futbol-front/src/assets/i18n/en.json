@@ -1,0 +1,55 @@
+{
+  "header": {
+    "inicio": "Home",
+    "noticias": "News",
+    "nosotros": "About Us",
+    "contactos": "Contact",
+    "menu": "Menu",
+    "iniciarSesion": "Login",
+    "modoOscuro": "Dark Mode"
+  },
+  "footer": {
+    "navegacion": "Navigation",
+    "email": "Email:",
+    "telefono": "Phone:",
+    "seguinos": "Follow Us",
+    "derechosReservados": "All rights reserved",
+    "proyectoFinal": "Final Project - Programming Technicature"
+  },
+  "home": {
+    "hero": {
+      "titulo": "The best soccer tournaments all in one place!",
+      "subtitulo": "Explore them all here!",
+      "boton": "View Tournaments"
+    },
+    "nuestrosTorneos": "Our Tournaments",
+    "noticias": {
+      "titulo": "News",
+      "noticia1": "Argentina National Team prepares for the last tour of 2025",
+      "noticia2": "Lionel Messi explained why he renewed his contract with Inter Miami: \"I feel happy living here\"",
+      "noticia3": "Cristiano Ronaldo scored goal 950 and magnified his legend",
+      "noticia4": "Lionel Messi received the Golden Boot and validated it with two goals in Inter vs. Nashville"
+    },
+    "nosotros": {
+      "titulo": "About Us",
+      "descripcion": "Our mission at Goal Manager is to revolutionize the management of professional soccer tournaments. So that everyone has the chance to be informed. We believe passion deserves a modern, easy-to-use platform that connects organizers, teams, and players.",
+      "equipo": {
+        "nombre1": "[Your Name]",
+        "rol1": "Scrum Master & Developer",
+        
+        "nombre2": "[Teammate 1 Name]",
+        "rol2": "Product Owner & Developer",
+        
+        "nombre3": "[Teammate 2 Name]",
+        "rol3": "Developer"
+      }
+    },
+    "contactos": {
+      "titulo": "Contact",
+      "placeholderNombre": "Full Name",
+      "placeholderMail": "Email",
+      "placeholderConsulta": "Your inquiry",
+      "botonEnviar": "Send Inquiry"
+    }
+  }
+}

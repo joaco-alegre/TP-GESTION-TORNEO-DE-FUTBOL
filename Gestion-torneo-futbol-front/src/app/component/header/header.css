@@ -1,297 +1,3 @@
-/* 
-nav{
-  font-size: 18px;
-}
-
-:host {
-  display: block; 
-  width: 100%;
-  height: 120px;
-}
-
-.navbar {
-  display: flex;
-  align-items: center; 
-  background-color: #00334e; 
-  color: white; 
-  font-family: Arial, sans-serif;
-  height: 120px; 
-  padding: 0 20px;
-  transition: height 0.3s ease, background-color 0.3s ease;
-  z-index: 1000;
-  width: 100%;
-  flex-wrap: nowrap;
-}
-
-.navbar-logo img {
-  height: 20px;
-  width: auto;
-  display: block;
-  transition: height 0.3s ease; 
-}
-
-.navbar-links {
-  margin-left: 4rem;
-  display: flex;
-  list-style: none; 
-  padding: 0;
-}
-
-.navbar-links li {
-  padding: 0 10px; 
-}
-
-
-.navbar-links a {
-  text-decoration: none; 
-  color: white;
-  font-weight: bold;
-  padding: 6px 4px;
-  display: inline-block;
-  border-radius: 5px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.navbar-lang {
-  cursor: pointer;
-  font-weight: bold;
-  display: flex; 
-  align-items: center;
-  margin-left: 30px;
-}
-
-.navbar-lang span:hover {
-  background-color: rgba(255, 255, 255, 0.1);  
-  transform: scale(1.1); 
-  color: white;
-}
-
-.navbar-lang span {
-
-  padding: 8px 2px; 
-  display: inline-block;
-  border-radius: 5px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-  cursor: pointer;
-}
-
-
-.navbar-menu-btn {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: auto;
-}
-
-.navbar-menu-btn .material-icons {
-  font-size: 28px; 
-}
-
-.navbar-links a:hover,
-.navbar-menu-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: scale(1.1); 
-  color: white;
-}
-
-.navbar-logo img {
-  height: 200px; 
-  width: auto;
-  display: block;
-  transition: opacity 0.3s ease;
-}
-
-.navbar-logo img:hover {
-  opacity: 0.8; 
-  cursor: pointer;
-  border-radius: 50%; 
-border-radius: 8px; 
-}
-
-.navbar-logo img:hover {
-  filter: grayscale(100%); 
-  filter: brightness(1.2); 
-}
-
-.navbar-scrolled {
- position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px; 
-  background-color: rgba(0, 51, 78, 0.60);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-.navbar-scrolled .navbar-logo img {
-  height: 100px; 
-}
-
-.navbar-scrolled:hover {
-  background-color: #00334e;
-} */
-
-/*
-
-.navbar {
-  background-color: var(--color-fondo-oscuro);
-}
-
-
-:host {
-  display: block;
-  background-color: var(--color-fondo-claro);
-  color: var(--color-texto-secundario);
-  padding: 40px 20px;
-}
-
-h2 {
-   color: var(--color-texto-secundario);
-   border-bottom-color: var(--color-acento-naranja);
-}
-
-
-*/
-
-
-
-
-
-
-/*
-
-:host {
-  display: block;
-  height: 120px; 
-  width: 100%;
-}
-
-
-.navbar {
-  display: flex;         
-  align-items: center;   
-  width: 100%;
-  padding: 0 20px;       
-  font-family: Arial, sans-serif;
-  z-index: 1000;       
-
-
-  height: 120px;
-  background-color: #00334e; 
-  
-
-  transition: height 0.3s ease, background-color 0.3s ease;
-}
-
-
-.navbar-logo img {
-  height: 200px; 
-  width: auto;
-  display: block;
-  transition: height 0.3s ease; 
-}
-
-.navbar-links {
-  display: flex;
-  list-style: none;
-  padding: 0;
-
-  margin-left: 25%;
-}
-
-.navbar-links a {
-  display: inline-block;
-  padding: 8px 15px;
-  margin: 0 5px; 
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-
-.navbar-lang {
-  display: flex;
-  font-weight: bold;
-  color: white;
-
-  margin-left: 30px; 
-}
-
-
-.navbar-menu-btn {
-  margin-left: auto;
-
-
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-
-.navbar-links a:hover,
-.navbar-menu-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  transform: scale(1.1); 
-}
-
-
-.navbar-scrolled {
-  position: fixed;
-  top: 0;
-  left: 0;
-  
-  height: 60px; 
-  background-color: rgba(0, 51, 78, 0.85); 
-  
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-
-.navbar-scrolled .navbar-logo img {
-  height: 100px; 
-}
-
-.navbar-scrolled:hover {
-  background-color: #00334e;
-}
-
-
-
-@media (max-width: 992px) {
-
-
-  .navbar-links,
-  .navbar-lang {
-    display: none;
-  }
-  
-
-  .navbar-logo img {
-    height: 150px; 
-  }
-
-  .navbar-scrolled .navbar-logo img {
-    height: 80px;
-  }
-
-  
-}*/
-
-
 /* --- 1. ESPACIADOR --- */
 /* (Tuyo, está perfecto) Define la altura del header grande */
 :host {
@@ -459,4 +165,67 @@ h2 {
 /* Una línea divisoria */
 #menu-desplegable hr {
   margin: 0.
+}
+
+
+
+
+
+
+
+/* --- 1. Estilo Base (para TODOS los links y botones) --- */
+/* Agrupamos los enlaces (a.nav-link) y los botones
+  (language-switcher button, contenedor-menu > button)
+  para que compartan el mismo estilo.
+*/
+.navbar .nav-link,
+.language-switcher button,
+.contenedor-menu > button {
+  
+  /* --- Estilos de Apariencia --- */
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  
+  /* --- Estilos de Caja (del código que te gustó) --- */
+  padding: 6px 4px; 
+  margin: 0 5px; 
+  border-radius: 5px;
+  
+  /* --- Reseteo para los botones --- */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+  /* --- Animación --- */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* --- 2. Efecto Hover (para TODOS) --- */
+/* Aplicamos el efecto hover a todos los elementos
+  del grupo anterior.
+*/
+.navbar .nav-link:hover,
+.language-switcher button:hover,
+.contenedor-menu > button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1); 
+  color: #ffffff; /* Aseguramos que siga blanco */
+}
+
+/* --- 3. Estilos Específicos (Separadores) --- */
+
+/* La separación que ya teníamos */
+.language-switcher {
+  margin-right: 35px; 
+}
+
+/* Estilo para el separador "|" */
+.language-switcher span {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 0 3px;
+  /* Evita que se seleccione el texto del separador */
+  user-select: none;
 }
