@@ -1,33 +1,42 @@
-<h2>Lista de equipos</h2>
+<div class="admin-container">
 
-<ul>
-  @for (equipo of equipos; track equipo.id) {
-    <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable">
-      
-      <span class="item-nombre">{{equipo.nombre}}</span>
-      
-      <div class="action-buttons">
-        <button class="btn-detalles"
-                [routerLink]="['/equipo-details-admin', equipo.id]" 
-                (click)="$event.stopPropagation()">
-          Detalles
-        </button>
-        
-        <button class="btn-editar"
-                [routerLink]="['/equipo-formulario-admin/', equipo.id]" 
-                (click)="$event.stopPropagation()">
-          Editar
-        </button>
-        
-        <button class="btn-eliminar" 
-                (click)="deleteEquipo(equipo.id!); $event.stopPropagation()">
-          Eliminar
-        </button>
-      </div>
-    </li>
-  } @empty {
-    <p class="empty-list">No hay equipos registrados en este torneo.</p>
-  }
-</ul>
+  <h2>Lista de equipos</h2>
 
-<button class="btn-agregar" [routerLink]="['/equipo-formulario-admin']">Agregar Equipo</button>
+  <ul>
+    @for (equipo of equipos; track equipo.id) {
+      <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable">
+        
+        <div class="item-info">
+          <img [src]="equipo.escudo" [alt]="equipo.nombre" class="item-logo">
+          <span class="item-nombre">{{equipo.nombre}}</span>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn-detalles"
+                  [routerLink]="['/equipo-details-admin', equipo.id]" 
+                  (click)="$event.stopPropagation()">
+            Detalles
+          </button>
+          
+          <button class="btn-editar"
+                  [routerLink]="['/equipo-formulario-admin/', equipo.id]" 
+                  (click)="$event.stopPropagation()">
+            Editar
+          </button>
+          
+          <button class="btn-eliminar" 
+                  (click)="deleteEquipo(equipo.id!); $event.stopPropagation()">
+            Eliminar
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <p class="empty-list">No hay equipos registrados en este torneo.</p>
+    }
+  </ul>
+
+  <div class="agregar-container">
+    <button class="btn-agregar" [routerLink]="['/equipo-formulario-admin']">Agregar Equipo</button>
+  </div>
+
+</div>

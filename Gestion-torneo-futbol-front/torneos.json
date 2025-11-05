@@ -34,13 +34,6 @@
       "fechaInicio": "2025-08-15T12:00:00Z",
       "fechaFin": "2025-10-15T12:00:00Z",
       "estadoTorneo": "Finalizado"
-    },
-    {
-      "id": "t-006",
-      "nombre": "Liga Metropolitana",
-      "fechaInicio": "2025-10-01T15:00:00Z",
-      "fechaFin": "2026-03-01T15:00:00Z",
-      "estadoTorneo": "En Curso"
     }
   ]
 }

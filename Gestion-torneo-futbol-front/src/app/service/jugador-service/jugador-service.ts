@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 
 export class JugadorService{
 
-      private url = 'http://localhost:3002/jugadores'; 
+      private url = 'http://localhost:3001/jugadores'; 
     private nextId   = 1;
 
   constructor(private http: HttpClient) {}

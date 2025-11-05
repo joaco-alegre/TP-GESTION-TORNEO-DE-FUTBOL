@@ -1,96 +1,150 @@
-/* Estilo general para la lista de torneos */
-h2 {
-  font-size: 1.8rem;
-  color: #333;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+/* Título: Centrado y "más lindo" (más grande, con un acento) 
+*/
+
+.admin-container {
+  max-width: 900px; /* El ancho que tenía tu lista */
+  margin: 0 auto;  /* Centra todo el bloque */
+  
+  /* Espacio con el header y footer */
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
+h2 {
+  font-size: 2rem;
+  color: #00334e;
+  text-align: center;
+  font-weight: 600;
+  margin: 0; /* Quitamos márgenes extra */
+  padding-bottom: 15px; /* Espacio entre texto y línea */
+  margin-bottom: 30px;
+  
+  /* LÍNEA: Ahora que el h2 está DENTRO del container,
+    el border-bottom tendrá el ancho correcto.
+  */
+  border-bottom: 2px solid #00334e;
+}
+
+/* Lista (ul): Más corta (max-width) y centrada (margin: auto)
+*/
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 1px solid #ddd;
+  max-width: 900px;
+  /* border: 1px solid #ddd;
   border-radius: 8px;
-  overflow: hidden; /* Para que el radio se aplique a los items */
+  overflow: hidden; */
 }
 
-li {
+/* Items (li): Más altos (padding) y con layout flex
+*/
+li.fila-clickeable {
   display: flex;
-  justify-content: space-between; /* Clave: nombre a la izq, botones a la der */
+  justify-content: space-between; /* Izquierda vs Derecha */
   align-items: center;
   
-  padding: 16px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #f0f0f0;
+  /* Tu petición: "Más alta" */
+  padding: 20px; 
   
-  font-size: 1.1rem;
+  background-color: #ffffff;
+  /* border-bottom: 1px solid #f0f0f0; */
+transition: background-color 0.2s, transform 0.3s ease-out;
+  cursor: pointer;
+  margin-bottom: 20px; /* <-- ESTE ES EL ESPACIO ENTRE CADA ITEM */
+  border-radius: 8px; /* <-- Bordes redondeados para cada item */
+  border: 1px solid #ddd;
+}
+
+li.fila-clickeable:last-child {
+  /* border-bottom: none;
+   */
+   margin-bottom: 0;
+}
+
+li.fila-clickeable:hover {
+  background-color: #f9f9f9;
+  transform: scale(1.03);
+}
+
+/* NUEVO: Lado izquierdo (Logo y Nombre) 
+*/
+.torneo-info {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espacio entre logo y nombre */
+}
+
+.torneo-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* Para que los logos no se deformen */
+  border-radius: 8px;
+  background-color: #f4f4f4; /* Fondo por si el logo es transparente */
+}
+
+.torneo-nombre {
+  font-size: 1.2rem;
   font-weight: 600;
   color: #444;
-  
-  transition: background-color 0.2s;
 }
 
-/* El último item no necesita borde inferior */
-li:last-child {
-  border-bottom: none;
-}
-
-/* Sombra al pasar el mouse (ya que el <li> es un routerLink) */
-li:hover {
-  background-color: #f9f9f9;
-  cursor: pointer;
-}
-
-/* Contenedor para los botones de acción (opcional, pero recomendado) */
-li .action-buttons {
+/* NUEVO: Lado derecho (Botones) 
+*/
+.action-buttons {
   display: flex;
-  gap: 8px; /* Espacio entre botones */
+  gap: 8px; /* Botones uno al lado del otro */
 }
 
-/* Estilo de los botones dentro de la lista */
+/* Estilo de los botones (ahora usando clases) */
 li button {
   font-size: 0.9rem;
   padding: 6px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.1s;
   color: white;
+  
+  /* 1. TRANSICIÓN: 
+     Le dice que la animación del "transform" dure 0.15 segundos 
+     (para que no sea instantánea y brusca)
+  */
+  transition: transform 0.15s ease-out, background-color 0.2s;
+}
+
+li button:hover {
+  /* scale(1.1) = Agrandar el botón al 110% de su tamaño original.
+    Puedes usar 1.05 (más sutil) o 1.2 (más grande).
+  */
+  transform: scale(1.1);
 }
 
 li button:active {
-  transform: scale(0.98); /* Efecto de clic */
+  transform: scale(1.0); /* Vuelve al 100% (o 0.98 si prefieres) */
 }
 
-/* Estilos específicos para cada botón. 
-  RECOMENDACIÓN: Es mucho mejor si les pones clases (ej: .btn-detalles, .btn-editar).
-  Pero si no puedes, puedes usar nth-of-type (no es ideal si cambias el orden).
-*/
-
-/* Botón 1: Detalles (Azul) */
-li button:nth-of-type(1) {
-  background-color: #007bff; /* Azul */
+.btn-detalles {
+  background-color: #0069d9; /* Azul más intenso */
+  border: 1px solid #0062cc; /* Borde sutil para profundidad */
 }
-li button:nth-of-type(1):hover {
-  background-color: #0056b3;
+.btn-detalles:hover {
+  background-color: #0056b3; /* Más oscuro al pasar el mouse */
 }
 
-/* Botón 2: Editar (Amarillo) */
-li button:nth-of-type(2) {
-  background-color: #ffc107; /* Amarillo */
-  color: #212529; /* Texto oscuro para contraste */
+.btn-editar {
+  background-color: #ffb60a; /* Naranja/Amarillo */
+  color: #212529;
+  border: 1px solid #e0a000;
 }
-li button:nth-of-type(2):hover {
-  background-color: #e0a800;
+.btn-editar:hover {
+  background-color: #e0a000;
 }
 
-/* Botón 3: Eliminar (Rojo) */
-li button:nth-of-type(3) {
-  background-color: #dc3545; /* Rojo */
+.btn-eliminar {
+  background-color: #d93025; /* Rojo de Google */
+  border: 1px solid #c82333;
 }
-li button:nth-of-type(3):hover {
+.btn-eliminar:hover {
   background-color: #c82333;
 }
 
@@ -101,28 +155,39 @@ p.empty-list {
   color: #777;
 }
 
+/* NUEVO: Contenedor para centrar el botón "Agregar" 
+*/
+.agregar-container {
+  text-align: center; /* Centra el botón */
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
 
-
-
-/* Botón principal "Agregar Torneo" */
-.btn-add-torneo { /* Cambia esta clase si quieres, ej: .btn-agregar */
+/* Botón principal "Agregar Torneo" (tu estilo original) */
+.btn-add-torneo { 
   display: inline-block;
-  margin-top: 20px;
   padding: 12px 20px;
-  
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  
-  background-color: #28a745; /* Verde para "Agregar" */
+  background-color: #28a745; /* Verde */
   color: white;
-  
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: transform 0.15s ease-out, background-color 0.2s;
+
 }
 
+/* 2. MODIFICA EL :hover (para que también cambie el fondo) */
 .btn-add-torneo:hover {
   background-color: #218838;
+  
+  /* 3. AÑADE EL scale() (1.05 es más sutil para un botón grande) */
+  transform: scale(1.05);
+}
+
+/* 4. Opcional: efecto al hacer clic */
+.btn-add-torneo:active {
+  transform: scale(1.0);
 }

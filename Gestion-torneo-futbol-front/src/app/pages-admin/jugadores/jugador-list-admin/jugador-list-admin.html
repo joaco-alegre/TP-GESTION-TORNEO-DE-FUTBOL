@@ -1,32 +1,42 @@
-<h2>Lista de Jugadores</h2>
+<div class="admin-container">
 
-<ul>
-  @for (jugador of jugadores; track jugador.id) {
-    <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable">
-      
-      <span class="item-nombre">{{jugador.nombre}}</span>
-      
-      <div class="action-buttons">
-        <button class="btn-detalles"
-        [routerLink]="['/jugador-detalles-admin/', jugador.id]" 
-        (click)="$event.stopPropagation()">
-          Detalles
-        </button>
-        <button class="btn-editar"
-                [routerLink]="['/jugador-formulario-admin/', jugador.id]" 
-                (click)="$event.stopPropagation()">
-          Editar
-        </button>
+  <h2>Lista de Jugadores</h2>
+
+  <ul>
+    @for (jugador of jugadores; track jugador.id) {
+      <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable">
         
-        <button class="btn-eliminar" 
-                (click)="deleteJugador(jugador.id!); $event.stopPropagation()">
-          Eliminar
-        </button>
-      </div>
-    </li>
-  } @empty {
-    <p class="empty-list">No hay jugadores registrados en este torneo.</p>
-  }
-</ul>
+        <div class="item-info">
+          <img [src]="jugador.foto" [alt]="jugador.nombre" class="item-logo item-foto-jugador">
+          <span class="item-nombre">{{jugador.nombre}}</span>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn-detalles"
+                  [routerLink]="['/jugador-details-admin/', jugador.id]" 
+                  (click)="$event.stopPropagation()">
+            Detalles
+          </button>
+          
+          <button class="btn-editar"
+                  [routerLink]="['/jugador-formulario-admin/', jugador.id]" 
+                  (click)="$event.stopPropagation()">
+            Editar
+          </button>
+          
+          <button class="btn-eliminar" 
+                  (click)="deleteJugador(jugador.id!); $event.stopPropagation()">
+            Eliminar
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <p class="empty-list">No hay jugadores registrados en este torneo.</p>
+    }
+  </ul>
 
-<button class="btn-agregar" [routerLink]="['/jugador-formulario-admin']">Agregar Jugador</button>
+  <div class="agregar-container">
+    <button class="btn-agregar" [routerLink]="['/jugador-formulario-admin']">Agregar Jugador</button>
+  </div>
+
+</div>

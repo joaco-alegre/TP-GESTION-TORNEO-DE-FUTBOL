@@ -1,87 +1,130 @@
-/* Título de la sección */
-h2 {
-  font-size: 1.8rem;
-  color: #333;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+/* Contenedor principal (centra todo y da espacio) */
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto 40px auto;
 }
 
-/* Contenedor de la lista */
+/* Título (centrado, línea de acento) */
+h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1.5px solid #00334e; 
+}
+
+/* Lista (ul) - solo es un contenedor */
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
-/* Fila de la lista (el <li>) */
+/* Fila/Tarjeta (li) - separada, con borde y animación */
 li.fila-clickeable {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
-  padding: 16px;
+  padding: 20px; 
   background-color: #ffffff;
-  border-bottom: 1px solid #f0f0f0;
-  
-  /* CLAVE: El cursor le dice al usuario que toda la fila es clickeable */
-  cursor: pointer; 
-  transition: background-color 0.2s;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.3s ease-out; 
+  margin-bottom: 15px; 
+  border-radius: 8px; 
+  border: 1px solid #ddd; 
 }
 
 li.fila-clickeable:last-child {
-  border-bottom: none;
+  margin-bottom: 0; 
 }
 
+/* Efecto hover: se agranda suavemente */
 li.fila-clickeable:hover {
-  background-color: #f9f9f9; /* Efecto hover */
+  background-color: #f9f9f9;
+  transform: scale(1.02);
 }
+
+/* Lado izquierdo (Logo/Foto y Nombre) */
+.item-info {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+.item-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* Default para logos */
+  border-radius: 8px;
+  background-color: #f4f4f4;
+}
+
+/* === MODIFICACIÓN PARA JUGADORES === */
+/* Esto hace que las fotos de jugadores sean redondas y 
+   se ajusten mejor (cover) sin afectar los logos de equipos */
+.item-foto-jugador {
+  border-radius: 50%; /* Redondo */
+  object-fit: cover; /* Mejor para retratos */
+}
+/* ================================== */
 
 .item-nombre {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #444;
-  user-select: none;
 }
 
-/* Contenedor de botones */
+/* Lado derecho (Botones) */
 .action-buttons {
   display: flex;
-  gap: 8px; /* Espacio entre botones */
+  gap: 8px; 
 }
 
-/* Estilo base para los botones de acción */
+/* Estilo base de los botones */
 li button {
   font-size: 0.9rem;
   padding: 6px 12px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s;
   color: white;
+  transition: transform 0.15s ease-out, background-color 0.2s;
 }
 
-/* 1. CSS para tu botón "Detalles" (Azul) */
+li button:hover {
+  transform: scale(1.1);
+}
+
+li button:active {
+  transform: scale(1.0);
+}
+
+/* Botón "Detalles" (Azul Fuerte) */
 .btn-detalles {
-  background-color: #007bff; /* Azul */
+  background-color: #0069d9;
+  border: 1px solid #0062cc;
 }
 .btn-detalles:hover {
   background-color: #0056b3;
 }
 
-/* Colores específicos para cada botón */
+/* Botón "Editar" (Naranja Fuerte) */
 .btn-editar {
-  background-color: #ffc107; /* Amarillo */
+  background-color: #ffb60a;
   color: #212529;
+  border: 1px solid #e0a000;
 }
 .btn-editar:hover {
-  background-color: #e0a800;
+  background-color: #e0a000;
 }
 
+/* Botón "Eliminar" (Rojo Fuerte) */
 .btn-eliminar {
-  background-color: #dc3545; /* Rojo */
+  background-color: #d93025;
+  border: 1px solid #c82333;
 }
 .btn-eliminar:hover {
   background-color: #c82333;
@@ -94,22 +137,32 @@ li button {
   color: #777;
 }
 
-/* Botón principal "Agregar Jugador" */
-.btn-agregar {
+/* Contenedor para centrar el botón "Agregar" */
+.agregar-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Botón "Agregar" (Verde) */
+.btn-agregar { 
   display: inline-block;
-  margin-top: 20px;
   padding: 12px 20px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  background-color: #28a745; /* Verde */
+  background-color: #28a745;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: transform 0.15s ease-out, background-color 0.2s;
 }
 
 .btn-agregar:hover {
   background-color: #218838;
+  transform: scale(1.05); 
+}
+
+.btn-agregar:active {
+  transform: scale(1.0);
 }
