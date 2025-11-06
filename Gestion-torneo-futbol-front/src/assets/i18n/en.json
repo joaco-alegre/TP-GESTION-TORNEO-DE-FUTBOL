@@ -92,5 +92,13 @@
     "etiquetaEstado": "Status:",
     "etiquetaFecha": "Date:",
     "cargando": "Loading match details..."
+  },
+  "login": {
+    "titulo": "Login",
+    "soyUsuario": "I am a User",
+    "soyDt": "I am a Coach",
+    "etiquetaEmail": "Email",
+    "etiquetaPassword": "Password",
+    "botonIngresar": "Login"
   }
 }

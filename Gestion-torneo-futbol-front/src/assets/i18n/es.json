@@ -92,5 +92,13 @@
     "etiquetaEstado": "Estado:",
     "etiquetaFecha": "Fecha:",
     "cargando": "Cargando detalles del partido..."
+  },
+  "login": {
+    "titulo": "Iniciar Sesión",
+    "soyUsuario": "Soy Usuario",
+    "soyDt": "Soy DT",
+    "etiquetaEmail": "Email",
+    "etiquetaPassword": "Contraseña",
+    "botonIngresar": "Ingresar"
   }
 }

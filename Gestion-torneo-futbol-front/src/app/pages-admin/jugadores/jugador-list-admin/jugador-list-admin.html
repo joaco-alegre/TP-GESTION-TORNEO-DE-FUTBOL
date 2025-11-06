@@ -7,7 +7,7 @@
       <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable">
         
         <div class="item-info">
-          <img [src]="jugador.foto" [alt]="jugador.nombre" class="item-logo item-foto-jugador">
+          <img  [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'"  [alt]="jugador.nombre" class="item-logo item-foto-jugador">
           <span class="item-nombre">{{jugador.nombre}}</span>
         </div>
         

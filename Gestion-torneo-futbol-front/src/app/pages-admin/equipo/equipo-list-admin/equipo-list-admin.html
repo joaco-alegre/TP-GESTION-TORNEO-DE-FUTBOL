@@ -7,7 +7,7 @@
       <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable">
         
         <div class="item-info">
-          <img [src]="equipo.escudo" [alt]="equipo.nombre" class="item-logo">
+          <img [src]="equipo?.escudo ? equipo?.escudo : 'assets/icons/icono.png'"  [alt]="equipo.nombre" class="item-logo">
           <span class="item-nombre">{{equipo.nombre}}</span>
         </div>
         
