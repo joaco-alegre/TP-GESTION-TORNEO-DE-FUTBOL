@@ -2,80 +2,87 @@
 
   <h2 class="titulo-torneo">{{equipo?.nombre}}</h2>
 
-<h3 class="section-title">Detalles del equipo</h3>
+  <h3 class="section-title">{{ 'equipoDetalles.tituloDetalles' | transloco }}</h3>
 
-@if(equipo){
-  <div class="details-card-wrapper"> <div class="equipo-card">
-      
-      <img [src]="equipo.escudo || 'ruta/a/placeholder.png'" [alt]="'Escudo de ' + equipo.nombre" class="equipo-card-logo">
-      
-      <div class="equipo-card-info">
-        <h4>{{ equipo.nombre }}</h4>
-        <p><b>Torneo:</b> {{ equipo.nombreTorneo }}</p>
-      </div>
+  @if(equipo){
+    <div class="details-card-wrapper"> <div class="equipo-card">
+        
+        <img 
+          [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
+          [alt]="'Escudo de ' + equipo.nombre" 
+          class="equipo-card-logo">
+        
+        <div class="equipo-card-info">
+          <h4>{{ equipo.nombre }}</h4>
+          <p><b>{{ 'equipoDetalles.etiquetaTorneo' | transloco }}</b> {{ equipo.nombreTorneo }}</p>
+        </div>
 
-    </div>
-  </div>
-}
-
-  <h3 class="section-title">Director Técnico</h3>
-
-  @if(dt){
-    <div class="dt-card-wrapper">
-      <div class="dt-card">
-        <img [src]="dt.foto || 'ruta/a/placeholder.png'" alt="Foto de {{dt?.nombre}}" class="dt-foto">
-        <div class="dt-info">
-          <h4>{{ dt?.nombre }}</h4>
-          <p><b>Estilo:</b> {{ dt?.estiloJuego}}</p>
-          </div>
       </div>
     </div>
   }
 
-  <!-- } @empty {
-      <p class="empty-list">No hay un DT asignado a este equipo.</p>
-  } -->
+  <h3 class="section-title">{{ 'equipoDetalles.tituloDt' | transloco }}</h3>
 
-  <h2 class="section-title">Lista de Jugadores</h2>
+  @if(dt){
+    <div class="dt-card-wrapper">
+      <div class="dt-card">
+        <img 
+          [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'" 
+          alt="Foto de {{dt?.nombre}}" 
+          class="dt-foto">
+          
+        <div class="dt-info">
+          <h4>{{ dt?.nombre }}</h4>
+          <p><b>{{ 'equipoDetalles.etiquetaEstilo' | transloco }}</b> {{ dt?.estiloJuego}}</p>
+          </div>
+      </div>
+    </div>
+  } 
+
+  <h2 class="section-title">{{ 'equipoDetalles.tituloJugadores' | transloco }}</h2>
 
   <div class="jugador-list-wrapper">
     <ul class="jugador-list">
       @for (jugador of filtrarJugadores; track jugador.id) {
         <li class="jugador-item" [routerLink]="['/es/jugadores/', jugador.id]">
+          
           <img 
-            [src]="jugador?.foto" 
+            [src]="(jugador?.foto ? jugador.foto : 'assets/icons/persona.png')" 
             [alt]="'Foto de ' + jugador?.nombre" 
             class="jugador-foto"> 
+            
           <span class="jugador-name">{{ jugador.nombre }}</span>
         </li>
       } @empty {
-        <p class="empty-list">No hay jugadores registrados en este equipo.</p>
+        <p class="empty-list">{{ 'equipoDetalles.jugadoresEmpty' | transloco }}</p>
       }
     </ul>
   </div>
 
-<h2 class="section-title">Fixture</h2>
+  <h2 class="section-title">{{ 'equipoDetalles.tituloFixture' | transloco }}</h2>
 
-<div class="fixture-list-wrapper">
-  <ul class="fixture-list">
-    @for (fixture of fixtures; track fixture.id) {
-      <li class="fixture-item" [routerLink]="['/es/fixture/', fixture.id]">
+  <div class="fixture-list-wrapper">
+    <ul class="fixture-list">
+      @for (fixture of fixtures; track fixture.id) {
+        <li class="fixture-item" [routerLink]="['/es/fixture/', fixture.id]">
 
-        <img [src]="getEscudo(fixture.equipoLocalID)" 
-             [alt]="fixture.equipoLocalID">
+          <img [src]="getEscudo(fixture.equipoLocalID)" 
+               [alt]="fixture.equipoLocalID">
 
-        <div class="fixture-marcador">
-          <span class="fixture-goles">{{ fixture.golesEquipo1 }}</span>
-          <span class="fixture-estado">{{ fixture.estadoPartido }}</span>
-          <span class="fixture-goles">{{ fixture.golesEquipo2 }}</span>
-        </div>
+          <div class="fixture-marcador">
+            <span class="fixture-goles">{{ fixture.golesEquipo1 }}</span>
+            <span class="fixture-estado">{{ fixture.estadoPartido }}</span>
+            <span class="fixture-goles">{{ fixture.golesEquipo2 }}</span>
+          </div>
 
-        <img [src]="getEscudo(fixture.equipoVisitaID)" 
-             [alt]="fixture.equipoVisitaID">
+          <img [src]="getEscudo(fixture.equipoVisitaID)" 
+               [alt]="fixture.equipoVisitaID">
 
-      </li>
-    } @empty {
-      <p class="empty-list">No hay fixtures cargados para este equipo.</p>
-    }
-  </ul> 
+        </li>
+      } @empty {
+        <p class="empty-list">{{ 'equipoDetalles.fixtureEmpty' | transloco }}</p>
+      }
+    </ul> 
+  </div>
+
 </div>

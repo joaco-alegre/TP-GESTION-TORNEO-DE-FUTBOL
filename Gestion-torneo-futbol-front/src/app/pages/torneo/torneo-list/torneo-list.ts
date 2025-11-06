@@ -3,10 +3,11 @@ import Torneo from '../../../model/torneo';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-torneo-list',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslocoPipe],
   templateUrl: './torneo-list.html',
   styleUrl: './torneo-list.css'
 })

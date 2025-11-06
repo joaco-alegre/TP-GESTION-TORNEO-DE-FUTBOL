@@ -6,10 +6,11 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import Torneo from '../../../model/torneo';
 import { Title } from '@angular/platform-browser';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslocoPipe],
   templateUrl: './torneo-details.html',
   styleUrl: './torneo-details.css'
 })

@@ -38,7 +38,7 @@
 }
 
 .torneo-logo {
-  max-height: 150px;
+  max-height: 200px;
   width: auto;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra sutil */
@@ -83,7 +83,7 @@
 }
 
 .campeon-img {
-  max-width: 550px; /* <-- Achicamos el ancho de la imagen */
+  max-width: 700px; /* <-- Achicamos el ancho de la imagen */
   height: auto;
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);

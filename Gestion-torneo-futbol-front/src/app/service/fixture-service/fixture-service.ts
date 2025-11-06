@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class FixtureService {
 
   
-      private url = 'http://localhost:3004/fixtures'; 
+      private url = 'http://localhost:3003/fixtures'; 
     //private nextId   = 1;
 
   constructor(private http: HttpClient) {}

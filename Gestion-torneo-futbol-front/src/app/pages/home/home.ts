@@ -10,6 +10,8 @@ import { TranslocoPipe } from '@ngneat/transloco';
   styleUrl: './home.css'
 })
 export class Home {
+  
+  
 
 
 }

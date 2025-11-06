@@ -1,11 +1,12 @@
-<h2>Lista de Torneos</h2>
+<h2>{{ 'torneos.titulo' | transloco }}</h2>
 
 <ul>
-    @for (torneo of torneos; track torneo.id) {
-    <li [routerLink]="['/es/torneos/', torneo.id]">
-      {{torneo.nombre}}
+  @for (torneo of torneos; track torneo.id) {
+    <li [routerLink]="['/es/torneos/', torneo.id]" 
+    [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + (torneo.ultimoCampeon ? torneo.ultimoCampeon : 'assets/icons/gente.png') + ')'">
+      {{torneo.nombre}} 
     </li>
-    } @empty {
-    <p>No hay torneos registrados en este momento.</p>
+  } @empty {
+    <p>{{ 'torneos.empty' | transloco }}</p>
   }
 </ul>

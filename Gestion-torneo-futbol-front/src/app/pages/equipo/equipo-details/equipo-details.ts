@@ -10,10 +10,11 @@ import { Title } from '@angular/platform-browser';
 import Jugador from '../../../model/jugador';
 import Fixture from '../../../model/fixture';
 import DT from '../../../model/dt';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-details',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslocoPipe],
   templateUrl: './equipo-details.html',
   styleUrl: './equipo-details.css'
 })
@@ -117,7 +118,7 @@ getEscudo(equipoID: string): string {
   if (equipo && equipo.escudo) {
     return equipo.escudo;
   }
-  return 'assets/escudos/default.png'; 
+  return 'assets/icons/icono.png'; 
 }
 
 }

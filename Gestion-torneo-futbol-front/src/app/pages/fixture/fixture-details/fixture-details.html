@@ -1,5 +1,4 @@
-
-<button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
 
 <div *ngIf="fixture && equipoLocal && equipoVisitante" class="detalle-container">
 
@@ -7,17 +6,24 @@
 
   <div class="equipo-info local">
     <a [routerLink]="['/es/equipos', equipoLocal.id]">
-      <img [src]="equipoLocal.escudo" [alt]="equipoLocal.nombre">
+      <img 
+        [src]="equipoLocal.escudo ? equipoLocal.escudo : 'assets/icons/icono.png'" 
+        [alt]="equipoLocal.nombre">
     </a>
     <h2 class="equipo-nombre">{{ equipoLocal.nombre }}</h2>
   </div>
 
   <div class="score">
-    </div>
+    <span class="goles">{{ fixture?.golesEquipo1 }}</span>
+    <span class="separador">-</span>
+    <span class="goles">{{ fixture?.golesEquipo2 }}</span>
+  </div>
 
   <div class="equipo-info visitante">
     <a [routerLink]="['/es/equipos', equipoVisitante.id]">
-      <img [src]="equipoVisitante.escudo" [alt]="equipoVisitante.nombre">
+      <img 
+        [src]="equipoVisitante.escudo ? equipoVisitante.escudo : 'assets/icons/icono.png'" 
+        [alt]="equipoVisitante.nombre">
     </a>
     <h2 class="equipo-nombre">{{ equipoVisitante.nombre }}</h2>
   </div>
@@ -26,15 +32,15 @@
 
   <div class="info-adicional">
     <p>
-      <strong>Estado:</strong> {{ fixture?.estadoPartido }}
+      <strong>{{ 'fixtureDetalles.etiquetaEstado' | transloco }}</strong> {{ fixture?.estadoPartido }}
     </p>
     <p>
-      <strong>Fecha:</strong> {{ fixture?.fechaPartido}} hs
+      <strong>{{ 'fixtureDetalles.etiquetaFecha' | transloco }}</strong> {{ fixture?.fechaPartido | date: 'dd/MM/yyyy HH:mm' }} hs
     </p>
   </div>
 
 </div>
 
 <div *ngIf="!fixture" class="loading">
-  <p>Cargando detalles del partido...</p>
+  <p>{{ 'fixtureDetalles.cargando' | transloco }}</p>
 </div>

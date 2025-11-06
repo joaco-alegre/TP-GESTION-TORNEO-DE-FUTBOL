@@ -6,10 +6,12 @@ import EstadisticaGoleador from '../../../model/estadistica-goleador';
 import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { EstadisticaGoleadorService } from '../../../service/estadistica-goleador-service/estadistica-goleador-service';
+import { TranslocoPipe } from '@ngneat/transloco';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-jugador-details',
-  imports: [RouterModule],
+  imports: [RouterModule, TranslocoPipe, CommonModule],
   templateUrl: './jugador-details.html',
   styleUrl: './jugador-details.css'
 })

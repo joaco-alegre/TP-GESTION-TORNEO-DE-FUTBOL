@@ -51,5 +51,46 @@
       "placeholderConsulta": "Tu consulta",
       "botonEnviar": "Enviar Consulta"
     }
+  },
+  "torneos": {
+    "titulo": "Lista de Torneos",
+    "empty": "No hay torneos registrados en este momento."
+  },
+  "torneoDetalles": {
+    "tituloSeccionDetalles": "Detalles del torneo",
+    "etiquetaTorneo": "Torneo:",
+    "etiquetaInicia": "Inicia:",
+    "etiquetaFinaliza": "Finaliza:",
+    "etiquetaEstado": "Estado:",
+    "tituloUltimoCampeon": "Último Campeón",
+    "tituloEquipos": "Equipos de",
+    "equiposEmpty": "No hay equipos registrados en este torneo."
+  },
+  "equipoDetalles": {
+    "tituloDetalles": "Detalles del equipo",
+    "etiquetaTorneo": "Torneo:",
+    "tituloDt": "Director Técnico",
+    "etiquetaEstilo": "Estilo:",
+    "dtEmpty": "No hay un DT asignado a este equipo.",
+    "tituloJugadores": "Lista de Jugadores",
+    "jugadoresEmpty": "No hay jugadores registrados en este equipo.",
+    "tituloFixture": "Fixture",
+    "fixtureEmpty": "No hay fixtures cargados para este equipo."
+  },
+  "jugadorDetalles": {
+    "tituloDetalles": "Detalles del Jugador",
+    "etiquetaEdad": "Edad:",
+    "etiquetaNacimiento": "Nacimiento:",
+    "etiquetaEquipo": "Equipo:",
+    "etiquetaCamiseta": "Camiseta:",
+    "tituloEstadisticas": "Estadísticas del Jugador",
+    "etiquetaGoles": "Goles Totales:",
+    "cargando": "Cargando datos del jugador..."
+  },
+  "fixtureDetalles": {
+    "botonVolver": "Volver",
+    "etiquetaEstado": "Estado:",
+    "etiquetaFecha": "Fecha:",
+    "cargando": "Cargando detalles del partido..."
   }
 }

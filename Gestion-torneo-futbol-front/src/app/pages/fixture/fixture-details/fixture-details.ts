@@ -5,10 +5,11 @@ import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import Equipo from '../../../model/equipo';
 import Fixture from '../../../model/fixture';
 import { CommonModule, Location } from '@angular/common';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-fixture-details',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslocoPipe],
   templateUrl: './fixture-details.html',
   styleUrl: './fixture-details.css'
 })

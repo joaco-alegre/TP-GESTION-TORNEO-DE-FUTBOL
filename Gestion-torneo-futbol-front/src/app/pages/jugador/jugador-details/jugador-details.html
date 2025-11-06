@@ -7,45 +7,49 @@
     <div class="card card-detalles">
       
       <div class="card-foto">
-        <img [src]="jugador.foto" [alt]="'Foto de ' + jugador.nombre">
+        <img 
+          [src]="jugador.foto ? jugador.foto : 'assets/icons/persona.png'" 
+          [alt]="'Foto de ' + jugador.nombre">
       </div>
 
       <div class="card-info">
-        <h3>Detalles del Jugador</h3>
+        <h3>{{ 'jugadorDetalles.tituloDetalles' | transloco }}</h3>
         <ul class="info-lista">
           <li>
-            <b>Edad:</b> {{ jugador.edad }}
+            <b>{{ 'jugadorDetalles.etiquetaEdad' | transloco }}</b> {{ jugador.edad }}
           </li>
           <li>
-            <b>Nacimiento:</b> {{ jugador.fechaNacimiento}}
+            <b>{{ 'jugadorDetalles.etiquetaNacimiento' | transloco }}</b> {{ jugador.fechaNacimiento | date:'dd/MM/yyyy' }}
           </li>
 
           <li>
-            <b>Equipo:</b>
+            <b>{{ 'jugadorDetalles.etiquetaEquipo' | transloco }}</b>
             <a [routerLink]="['/es/equipos/', equipoDelJugador?.id]">
               {{ equipoDelJugador?.nombre }}
             </a>
           </li>
 
           <li>
-            <b>Camiseta:</b> N° {{ jugador.numeroCamiseta }}
+            <b>{{ 'jugadorDetalles.etiquetaCamiseta' | transloco }}</b> N° {{ jugador.numeroCamiseta }}
           </li>
-</ul>
+        </ul>
       </div>
     </div>
 
+    @if(estadisticaGoleador){
       <div class="card card-estadisticas">
-        <h3>Estadísticas del Jugador</h3>
+        <h3>{{ 'jugadorDetalles.tituloEstadisticas' | transloco }}</h3>
         <ul class="stats-lista">
           <li>
-            <b>Goles Totales:</b>
-            <span class="stat-numero">{{ estadisticaGoleador?.cantidadGoles}}</span>
+            <b>{{ 'jugadorDetalles.etiquetaGoles' | transloco }}</b>
+            <span class="stat-numero">{{ estadisticaGoleador.cantidadGoles }}</span>
           </li>
-          </ul>
+        </ul>
       </div>
+    }
 
   </div>
 
 } @else {
-  <p class="empty-list">Cargando datos del jugador...</p>
+  <p class="empty-list">{{ 'jugadorDetalles.cargando' | transloco }}</p>
 }

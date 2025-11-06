@@ -51,5 +51,46 @@
       "placeholderConsulta": "Your inquiry",
       "botonEnviar": "Send Inquiry"
     }
+  },
+  "torneos": {
+    "titulo": "Tournament List",
+    "empty": "There are no registered tournaments at this time."
+  },
+  "torneoDetalles": {
+    "tituloSeccionDetalles": "Tournament Details",
+    "etiquetaTorneo": "Tournament:",
+    "etiquetaInicia": "Starts:",
+    "etiquetaFinaliza": "Ends:",
+    "etiquetaEstado": "Status:",
+    "tituloUltimoCampeon": "Last Champion",
+    "tituloEquipos": "Teams in",
+    "equiposEmpty": "No teams registered in this tournament yet."
+  },
+  "equipoDetalles": {
+    "tituloDetalles": "Team Details",
+    "etiquetaTorneo": "Tournament:",
+    "tituloDt": "Head Coach",
+    "etiquetaEstilo": "Style:",
+    "dtEmpty": "No Head Coach assigned to this team.",
+    "tituloJugadores": "Player List",
+    "jugadoresEmpty": "No players registered for this team.",
+    "tituloFixture": "Fixture",
+    "fixtureEmpty": "No fixtures loaded for this team."
+  },
+  "jugadorDetalles": {
+    "tituloDetalles": "Player Details",
+    "etiquetaEdad": "Age:",
+    "etiquetaNacimiento": "Birthdate:",
+    "etiquetaEquipo": "Team:",
+    "etiquetaCamiseta": "Jersey:",
+    "tituloEstadisticas": "Player Statistics",
+    "etiquetaGoles": "Total Goals:",
+    "cargando": "Loading player data..."
+  },
+  "fixtureDetalles": {
+    "botonVolver": "Back",
+    "etiquetaEstado": "Status:",
+    "etiquetaFecha": "Date:",
+    "cargando": "Loading match details..."
   }
 }
