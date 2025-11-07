@@ -1,39 +1,29 @@
-/* --- 1. ESPACIADOR --- */
-/* (Tuyo, está perfecto) Define la altura del header grande */
 :host {
   display: block; 
   width: 100%;
   height: 120px;
-  background-color: #00334e;
+  background-color:var(--color-header);
 }
 
-/* --- 2. ESTADO INICIAL (GRANDE, OPACO) --- */
-/* Aplicamos tus estilos al .navbar de Bootstrap */
 .navbar {
   height: 120px; 
-  background-color: #00334e; 
+  background-color:var(--color-header); 
   transition: height 0.3s ease, background-color 0.3s ease;
   z-index: 1000;
-  /* El z-index, width, etc. ya los maneja Bootstrap */
+  color: var(--color-texto-header);
 }
 
-/* Estilo para tu logo GRANDE */
 .navbar-logo img {
-  height: 110px; /* Tu logo grande que desborda */
+  height: 110px; 
   width: auto;
   display: block;
   transition: height 0.3s ease; 
 }
 
-/* Limpiamos el padding del link del logo */
 .navbar-brand {
   padding-top: 0;
   padding-bottom: 0;
 }
-
-
-/* --- 3. ESTADO SCROLLED (CHICO, TRANSPARENTE) --- */
-/* (Tuyo, está perfecto) */
 
 .navbar-scrolled {
   position: fixed;
@@ -41,29 +31,24 @@
   left: 0;
   width: 100%;
   height: 60px; 
-  background-color: rgba(0, 51, 78, 0.60);
+  background-color: var(--color-header-scrolled);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .navbar-scrolled .navbar-logo img {
-  height: 65px; /* Tu logo chico que desborda */
+  height: 65px; 
 }
 
 .navbar-scrolled:hover {
-  background-color: #00334e;
+  background-color: var(--color-header);
 }
 
-
-/* --- 4. EFECTOS HOVER PERSONALIZADOS --- */
-/* (Tuyo, los mantenemos) */
-
-/* Damos un estilo custom a los links de Bootstrap */
 .navbar .nav-link {
   transition: transform 0.2s ease, background-color 0.2s ease;
   border-radius: 5px;
   font-weight: bold;
-  padding: 6px 4px; /* Tu padding custom */
-  margin: 0 5px; /* Espacio entre links */
+  padding: 6px 4px; 
+  margin: 0 5px; 
 }
 
 .navbar .nav-link:hover {
@@ -71,7 +56,6 @@
   transform: scale(1.1); 
 }
 
-/* (Opcional) Estilo hover para el botón de menú custom */
 .navbar .btn-outline-light:hover {
   background-color: rgba(255, 255, 255, 0.1);
   transform: scale(1.1);
@@ -90,31 +74,23 @@
 .navbar .nav-link:hover {
   background-color: rgba(255, 255, 255, 0.1);
   transform: scale(1.1); 
-  color: #ffffff; /* Aseguramos que siga blanco en hover */
+  color: #ffffff; 
 }
 
 .navbar .btn {
   font-size: 1.1rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-/* 1. El contenedor: necesario para posicionar el menú */
 .contenedor-menu {
-  position: relative; /* El menú se posicionará relativo a esto */
-  display: inline-block; /* Para que no ocupe todo el ancho */
+  position: relative; 
+  display: inline-block; 
 }
 
-/* 2. El menú desplegable (OCULTO por defecto) */
+
+
+
+
+
 #menu-desplegable {
   /* Posicionamiento */
   position: absolute;
@@ -170,14 +146,6 @@
 
 
 
-
-
-
-/* --- 1. Estilo Base (para TODOS los links y botones) --- */
-/* Agrupamos los enlaces (a.nav-link) y los botones
-  (language-switcher button, contenedor-menu > button)
-  para que compartan el mismo estilo.
-*/
 .navbar .nav-link,
 .language-switcher button,
 .contenedor-menu > button {

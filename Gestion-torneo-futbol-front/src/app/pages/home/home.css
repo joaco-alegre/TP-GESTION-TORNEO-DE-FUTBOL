@@ -1,146 +1,4 @@
 
-/*.home-container {
-  background-image: url('/assets/img/mario-klassen-70YxSTWa2Zw-unsplash.jpg'); 
-  background-size: cover; 
-  background-position: center center; 
-  background-repeat: no-repeat; 
-  min-height: 105vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center;
-  color: white; 
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-
-.home-container h1 {
-  font-size: 3.5em;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-}
-
-.home-container p {
-  font-size: 1.2em;
-  max-width: 700px;
-  line-height: 1.5;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-}
-
-.btn-primary {
-  display: inline-block; 
-  padding: 20px 36px; 
-  font-size: 1.4em;
-  font-weight: bold;
-  color: white; 
-  background-color: #034c69;  
-  border: none;
-  border-radius: 5px; 
-  text-decoration: none; 
-  text-align: center;
-  cursor: pointer;
-  margin-top: 20px; 
-  transition: background-color 0.3s ease; 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
-  transition: background-color 0.3s ease, transform 0.1s ease;
-}
-
-.btn-primary:hover {
-  background-color: #00263a; 
-  color: white;
-  transform: scale(1.11);
-}
-
-h2 {
-  font-size: 2.5em;
-  text-align: center;
-  margin-bottom: 30px;
-  color: #333; 
-}
-
-.logo-scroller {
-  max-width: 90%; 
-  margin: 0 auto;
-  overflow: hidden; 
-  -webkit-mask-image: linear-gradient(
-    90deg, 
-    transparent, 
-    #fff 20%, 
-    #fff 80%, 
-    transparent
-  );
-  mask-image: linear-gradient(
-    90deg, 
-    transparent, 
-    #fff 20%, 
-    #fff 80%, 
-    transparent
-  );
-}
-
-.logo-scroller-inner {
-  display: flex;
-  flex-wrap: nowrap;
-  width: max-content; 
-
-  animation: scroll 35s linear infinite;
-}
-
-.logo-scroller-inner ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.logo-scroller-inner li {
-  padding: 0 30px; 
-}
-
-.logo-scroller-inner img {
-  height: 140px;
-  width: auto;
-  opacity: 0.8; 
-  transition: opacity 0.3s ease;
-}
-
-.logo-scroller-inner img:hover {
-  opacity: 1; 
-}
-
-.logo-scroller:hover .logo-scroller-inner {
-  animation-play-state: paused;
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.seccion-oscura {
-  background-color: #21293c; 
-  padding: 60px 0; 
-  clip-path: polygon(0 100%, 0 0, 100% 100%, 0 100%);
-}
-
-.seccion-clara {
-  background-color: #f4f4f4;
-  padding: 50px 0;
-}
-
-*/
-
-
-
-
-/* --- 1. SECCIÓN HOME (CON BLUR Y FUENTES NUEVAS) --- */
-
 .home-container {
   background-image: url('/assets/img/mario-klassen-70YxSTWa2Zw-unsplash.jpg'); 
   background-size: cover; 
@@ -157,65 +15,29 @@ h2 {
   box-sizing: border-box;
 }
 
-
-
-
-/*
-.home-container {
-  min-height: 105vh; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  text-align: center;
-  color: white; 
-  padding: 20px;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden; 
-}
-
-
-.home-container::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1;
-  background-image: url('/assets/img/mario-klassen-70YxSTWa2Zw-unsplash.jpg'); 
-  background-size: cover; 
-  background-position: center center; 
-  background-repeat: no-repeat; 
-  filter: blur(20px);
-  transform: scale(1.02); 
-}*/
-
-/* Texto mejorado */
 .home-container h1 {
-  font-family: 'Montserrat', sans-serif; /* Fuente nueva */
-  font-size: 4.4rem; /* Más grande */
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 4.4rem; 
   font-weight: 700;
   margin-bottom: 10px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
 }
 
-/* Párrafo mejorado */
 .home-container p {
-  font-family: 'Montserrat', sans-serif; /* Fuente nueva */
-  font-size: 1.7rem; /* Más grande */
+  font-family: 'Montserrat', sans-serif; 
+  font-size: 1.7rem; 
   max-width: 700px;
   line-height: 1.5;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
-/* --- 2. BOTÓN "VER TORNEOS" (SIN CAMBIOS) --- */
-/* (Tu CSS, está perfecto) */
 .btn-primary {
   display: inline-block; 
   padding: 20px 36px; 
   font-size: 1.4em;
   font-weight: bold;
   color: #fff; 
-  background-color: #034c69; 
+  background-color: var(--color-boton); 
   border: none;
   border-radius: 5px; 
   text-decoration: none; 
@@ -227,19 +49,16 @@ h2 {
 }
 
 .btn-primary:hover {
-  background-color: #00263a; 
+  background-color: var(--color-boton-hover); 
   color: #fff;
   transform: scale(1.11);
 }
 
-/* --- 3. SECCIÓN CARRUSEL DE LOGOS (SIN CAMBIOS) --- */
-/* (Tu CSS, está perfecto) */
-
-h2 {
+h2{
   font-size: 2.5em;
   text-align: center;
   margin-bottom: 30px;
-  color: #333; 
+  color: var(--color-texto); 
 }
 
 .logo-scroller {
@@ -260,7 +79,7 @@ h2 {
     #fff 80%, 
     transparent
   );
-  background-color: #f4f4f4;
+  background-color: var(--color-fondo);
 }
 
 .logo-scroller-inner {
@@ -306,101 +125,66 @@ h2 {
   }
 }
 
-/* --- 4. SECCIONES DIAGONALES --- */
-/* (Tu CSS, corregí el clip-path que estaba mal) */
+.noticias-section{
+  background-color: transparent;
+}
 
 .seccion-oscura {
-  background-color: #21293c; 
+  background-color: var(--color-linea); 
   padding: 60px 0; 
-  /* 👇 Corregí tu clip-path, el que tenías estaba roto */
   clip-path: polygon(0 100%, 0 0, 100% 100%, 0 100%);
 }
 
 .seccion-clara {
-  /*background-color: #f4f4f4;*/
   background-color: transparent;
   padding: 50px 0;
 }
 
-
-/* --- Estilos para Títulos de Sección (h2) --- */
-/* (Pega esto en home.component.css) */
-
-/* * Esto aplica a todos los <h2> dentro del :host (tu componente)
- * EXCEPTO el que ya tiene la clase .contact-title
-*/
 :host h2 {
   margin-top: 0.1rem;
   font-family: 'Montserrat', sans-serif;
-  font-size: 2.6rem; /* Tamaño grande */
-  font-weight: 700;  /* Bold */
+  font-size: 2.6rem; 
+  font-weight: 700;  
   text-align: center;
-  margin-bottom: 2rem; /* Espacio antes del contenido */
-  padding-bottom: 1rem; /* Espacio para la línea */
-  
-  /* Color de texto oscuro (para fondos claros) */
-  color: #222; 
-  
-  /* Línea decorativa inferior */
-  border-bottom: 3px solid #21293c; /* El mismo color dorado del form */
-  
-  /* Hacemos que la línea no ocupe todo el ancho */
+  margin-bottom: 2rem; 
+  padding-bottom: 1rem; 
+  color: var(--color-texto); 
+  border-bottom: 3px solid var(--color-texto); 
   width: 50%;
   max-width: 400px;
-  
-  /* Centramos la línea (ya que el texto está centrado) */
   margin-left: auto;
   margin-right: auto;
 }
-
-
 
 .mejorar-titulo {
   margin-top: 2.7rem !important;
 }
 
-
-
-
-/* (Opcional) Ajuste para celulares */
 @media (max-width: 576px) {
   :host h2:not(.contact-title) {
-    font-size: 2.2rem; /* Un poco más chico en móvil */
+    font-size: 2.2rem; 
     width: 80%;
   }
 }
 
-
-
-/* --- Estilos Sección Noticias --- */
-
-/* 1. La tarjeta personalizada */
 .news-card {
-  border: none; /* Quitamos el borde feo de Bootstrap */
-  border-radius: 10px; /* Bordes más suaves */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
-  overflow: hidden; /* Para que la imagen respete los bordes */
-  
-  /* 👇 ¡LA ANIMACIÓN! */
+  border: none; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+  overflow: hidden; 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 2. El efecto hover que pediste */
 .news-card:hover {
-  /* 👇 Se agranda un 5% */
   transform: scale(1.06);
-  
-  /* Sombra más pronunciada al hacer hover */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* 3. Estilo de la imagen */
 .news-card .card-img-top {
-  height: 250px; /* Altura fija para todas las imágenes */
-  object-fit: cover; /* Evita que la imagen se deforme */
+  height: 250px; 
+  object-fit: cover; 
 }
 
-/* 4. Estilo del cuerpo y título */
 .news-card .card-body {
   text-align: center;
   padding: 1.5rem 1.2rem;
@@ -409,45 +193,31 @@ h2 {
 .news-card .card-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  color: #333; /* El color del título (oscuro) */
+  color: #333; 
   font-size: 1.25rem;
 }
 
-/* 5. (Opcional) Quita el subrayado del link */
 .card-link {
   text-decoration: none;
 }
 
-
-
-
-/* --- Estilos Sección Nosotros --- */
-
 .team-card {
   border: none;
   border-radius: 10px;
-  /* Usamos la misma transición que en las noticias */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-card:hover {
-  /* Usamos el mismo efecto de las noticias */
   transform: scale(1.05);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo para la foto (avatar) */
 .team-avatar {
-  /* Hacemos la imagen redonda */
   border-radius: 50%; 
-  
-  /* La achicamos y centramos */
   width: 150px;
   height: 150px;
   object-fit: cover;
-  margin: 20px auto 0 auto; /* Espacio arriba y la centra */
-  
-  /* Borde sutil */
+  margin: 20px auto 0 auto; 
   border: 4px solid #f4f4f4;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
@@ -458,27 +228,23 @@ h2 {
   color: #333;
 }
 
-
+.lead{
+  font-size: 1.25rem; 
+  color: var(--color-texto);
+  font-size: 1.5rem;
+}
 
 .contact-section {
-  /* 1. Variables de Color (¡AHORA SÍ!) */
-  /*--color-acento: #aebfc9;     /* <-- Tu naranja del header */
-  
-  /* (El resto de las variables están bien) */
-  --color-input: rgba(13, 0, 58, 0.178);
-  --color-borde: rgba(2, 2, 2, 0.452);
-  --color-placeholder: #c0c0c0;
-  --color-texto: rgb(0, 0, 0);
   overflow: hidden;
 }
 
-/* 2. Título (Automáticamente usa el --color-acento) */
 .contact-title {
   position: relative;
   display: inline-block;
   font-size: 2.5rem;
   font-weight: 600;
   padding-left: 20px;
+  color: var(--color-texto); 
 }
 
 .contact-title::before {
@@ -489,46 +255,49 @@ h2 {
   transform: translateY(-50%);
   height: 80%;
   width: 5px;
-  /*background-color: var(--color-acento); /* <-- Ahora será naranja */
+  background-color: var(--color-accent);
 }
 
-
-/* 3. Estilo de los campos (Con más profundidad) */
 .form-custom {
-  background-color: var(--color-input);
-  border: 3px solid rgba(2, 2, 2, 0.452);
-  color: #fff;
+  background-color: var(--color-form-input-bg);
+  border: 3px solid var(--color-form-input-border);
+  color: var(--color-form-input-text);
   padding: 12px 15px;
   border-radius: 0.375rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* 4. Foco (Sin el brillo de color) */
 .form-custom:focus {
-  /* Mantenemos el fondo un poco más oscuro */
-  /*background-color: rgba(0, 0, 0, 0.3);*/
-  color: #000;
-  
-  /* 👇 1. Quitamos el borde de color (vuelve al original) */
-  border-color: var(--color-borde); 
-  
-  /* 👇 2. Quitamos el "brillo" (glow) por completo */
-  box-shadow: 0 0 0 0.16rem rgba(0, 4, 61, 0.384);
+  color: var(--color-form-input-text);
+  border-color: var(--color-accent); 
+  box-shadow: 0 0 0 0.16rem var(--color-form-focus-shadow);
+  outline: none; 
 }
 
+.form-custom::placeholder {
+  color: var(--color-form-input-placeholder);
+  opacity: 1;
+}
 
-/* 5. Estilo del Botón (Hover mejorado) */
+.form-custom:-ms-input-placeholder { 
+  color: var(--color-form-input-placeholder);
+}
+
+.form-custom::-ms-input-placeholder { 
+  color: var(--color-form-input-placeholder);
+}
+
 .btn-custom-submit {
 color: #fff; 
-  background-color: #034c69; 
+  background-color: var(--color-boton); 
   padding: 12px 35px;
   font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .btn-custom-submit:hover {
-  background-color: #00263a; 
+  background-color:var(--color-boton-hover);
   color: #fff;
   transform: scale(1.11);
 }
@@ -538,8 +307,6 @@ color: #fff;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-
-/* 6. Responsive (Sin cambios) */
 @media (max-width: 576px) {
   .contact-title {
     font-size: 2rem;
@@ -550,11 +317,8 @@ color: #fff;
   }
 }
 
-
 #noticias {
-  /* 1. Crea un contexto de apilamiento */
   position: relative;
-  
-  /* 2. Lo pone en una capa MUY inferior a la del header (1000) */
   z-index: 1; 
 }
+

@@ -23,7 +23,7 @@ import { JugadorListAdmin } from './pages-admin/jugadores/jugador-list-admin/jug
 import { JugadorDetailsAdmin } from './pages-admin/jugadores/jugador-details-admin/jugador-details-admin';
 
 export const routes: Routes = [
-    {path: 'es', 
+    {path: '', 
     component: Home,
     title: 'Inicio - Goal Manager'},
     {path: 'en', 
@@ -53,9 +53,9 @@ export const routes: Routes = [
 
     {path: 'equipo/formulario', component: EquipoForm},
     {path: ' ', redirectTo: 'home', pathMatch: 'full'},
-    {path: '**', redirectTo: 'home'},
+    /*{path: '**', redirectTo: 'home'},*/
     {path: 'es/inicio-sesion',
     title: 'Iniciar sesion - Goal Manager',
     component: UsuarioLogin},
-    {path:' ', redirectTo: 'home'}
+    // {path:' ', redirectTo: 'home'}
 ];

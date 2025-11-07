@@ -1,18 +1,16 @@
-/* --- 1. Contenedor Principal --- */
 .detalle-container {
   max-width: 900px;
   margin: 30px auto;
   padding: 0 15px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  color: #333;
+  color: var(--color-texto);
 }
 
-/* --- 2. Títulos --- */
 .titulo-torneo {
   text-align: center;
-  font-size: 2.8rem;
+  font-size: 3.8rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: var(--color-texto);
   margin-bottom: 30px;
 }
 
@@ -20,45 +18,42 @@
   text-align: center; 
   font-size: 1.8rem;
   font-weight: 600;
-  color: #333;
-  max-width: 700px; /* <-- El ancho que te gustó */
+  color: var(--color-texto);
+  max-width: 700px; 
   margin: 40px auto 20px auto; 
-  border-bottom: 1.5px solid #00334e;
+  border-bottom: 2px solid var(--color-texto);
   padding-bottom: 10px;
 }
 
-/* --- 3. Wrappers de Tarjetas (Para Centrar) --- */
-/* (Estos divs envuelven las tarjetas para centrarlas) */
 .details-card-wrapper,
 .dt-card-wrapper {
   display: flex;
   justify-content: center;
 }
 
-/* --- 4. Tarjeta Detalles del Equipo --- */
 .equipo-card {
   display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  align-items: center;     /* Centra todo (logo e info) */
+  flex-direction: column; 
+  align-items: center;     
   background: #ffffff;
   border-radius: 10px;
   padding: 25px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  max-width: 550px; /* Mismo ancho que la tarjeta de DT */
+  max-width: 550px; 
   width: 100%;
 }
 
 .equipo-card-logo {
-  width: 300px;  /* Mismo tamaño que la foto del DT */
-  height: 300px; /* Mismo tamaño que la foto del DT */
-  border-radius: 10px; /* Cuadrado con bordes suaves */
-  object-fit: contain; /* 'contain' es mejor para logos que 'cover' */
+  width: 300px;  
+  height: 300px; 
+  border-radius: 10px; 
+  object-fit: contain;
   border: 3px solid #eee;
-  margin-bottom: 15px; /* Separa el logo del texto de abajo */
+  margin-bottom: 15px;
 }
 
 .equipo-card-info {
-  text-align: center; /* Centra el texto */
+  text-align: center; 
 }
 
 .equipo-card-info h4 {
@@ -69,7 +64,7 @@
 
 .equipo-card-info p {
   margin: 0;
-  font-size: 1.1rem; /* Un poco más grande que el del DT */
+  font-size: 1.1rem; 
   color: #555;
 }
 
@@ -78,11 +73,10 @@
   color: #333;
 }
 
-/* --- 5. Tarjeta Director Técnico --- */
 .dt-card {
   display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  align-items: center;     /* Centra todo (la foto y el texto) */
+  flex-direction: column; 
+  align-items: center;     
   
   background: #ffffff;
   border-radius: 10px;
@@ -93,16 +87,16 @@
 }
 
 .dt-foto {
-  width: 300px;  /* <-- Dejaste esto en 300px */
-  height: 300px; /* <-- Dejaste esto en 300px */
-  border-radius: 10px; /* Foto cuadrada (con bordes suaves) */
+  width: 300px;  
+  height: 300px; 
+  border-radius: 10px; 
   object-fit: cover; 
   border: 3px solid #eee;
-  margin-bottom: 15px; /* Separa la foto del texto de abajo */
+  margin-bottom: 15px; 
 }
 
 .dt-info {
-  text-align: center; /* Centra el texto del nombre/estilo */
+  text-align: center; 
 }
 
 .dt-info h4 {
@@ -116,7 +110,6 @@
   color: #555;
 }
 
-/* --- 6. Lista de Jugadores --- */
 .jugador-list-wrapper {
   display: flex;
   justify-content: center;
@@ -127,7 +120,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  max-width: 700px; /* <-- El ancho que te gustó */
+  max-width: 700px; 
   width: 100%;
 }
 
@@ -153,7 +146,7 @@
 .jugador-foto {
   width: 40px;
   height: 40px;
-  border-radius: 50%; /* Redondo para fotos de jugadores */
+  border-radius: 50%; 
   object-fit: cover;
   border: 2px solid #eee;
 }
@@ -163,8 +156,6 @@
   font-size: 1.1rem;
   font-weight: 600;
 }
-
-/* la parte del fixture*/
 
 .fixture-item {
   display: flex;
@@ -186,37 +177,30 @@
 }
 
 .fixture-item img {
-  /* Dales un tamaño fijo a los escudos */
   width: 40px;
   height: 40px;
-  object-fit: contain; /* Para que la imagen no se deforme */
+  object-fit: contain; 
 }
 
 .fixture-marcador {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 16px; /* Espacio entre los goles y el estado */
-  
-  /* Opcional: le damos un ancho fijo para que no se mueva
-     si el texto del estado es corto o largo */
+  gap: 16px;
   min-width: 150px; 
   text-align: center;
 }
 
 .fixture-goles {
-  font-size: 1.3rem;  /* Más grandes */
-  font-weight: 700; /* En negrita */
-  width: 30px; /* Ancho fijo para alinear */
+  font-size: 1.3rem;  
+  font-weight: 700; 
+  width: 30px; 
   text-align: center;
 }
 
 .fixture-estado {
-  /* Estilos para el texto del medio */
   font-size: 0.9rem;
   font-weight: 600;
   color: #333;
-  
-  /* Opcional: para asegurarnos de que no se pegue a los escudos 
-  margin: 0 10px; */
+  margin: 0 10px; 
 }

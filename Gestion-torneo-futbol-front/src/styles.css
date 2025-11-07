@@ -9,68 +9,67 @@ html, body {
     color: #333333;
 }
 
-
 :root {
-  --color-fondo: #f4f4f4; /* El gris claro que tienes ahora */
-  --color-texto: #333333; /* El texto oscuro */
-  --color-tarjeta: #ffffff; /* El fondo de tus tarjetas (blanco) */
-  --color-borde: #ddd; /* El borde de tus tarjetas */
-  --color-header: #022031; /* El azul oscuro de tu header */
-  --color-texto-header: #ffffff; /* El texto blanco del header */
+  --color-fondo: #f4f4f4;
+  --color-texto: #00334e; 
+  --color-tarjeta: #ffffff; 
+  --color-borde: #ddd; 
+  --color-header: #00334e; 
+  --color-texto-header: #ffffff;
+  --color-header-scrolled: rgba(0, 51, 78, 0.60);
+  --color-boton: #034c69; 
+  --color-texto-boton: #ffffff;
+  --color-boton-hover: #00263a;
+  --color-linea: #21293c;
+  --color-form-input-bg: rgba(255, 255, 255, 0.7);
+  --color-form-input-border: rgba(255, 255, 255, 0.8);
+  --color-form-input-text: #212529; 
+  --color-form-input-placeholder: #6c757d; 
+  --color-borde-lista: #00334e;
+
+
 }
 
-/* 2. Colores para el Modo Oscuro */
 body.dark-mode {
-  --color-fondo: #121212; /* Fondo oscuro (no negro puro) */
-  --color-texto: #e0e0e0; /* Texto claro */
-  --color-tarjeta: #1e1e1e; /* Tarjetas oscuras */
-  --color-borde: #444; /* Bordes más oscuros */
-  --color-header: #1e1e1e; /* Header oscuro */
-  --color-texto-header: #e0e0e0; /* Texto claro */
+  --color-fondo: #121212; 
+  --color-texto: #e0e0e0; 
+  --color-tarjeta: #1e1e1e; 
+  --color-borde: #444; 
+  --color-header: #1e1e1e; 
+  --color-texto-header: #e0e0e0; 
+  --color-header-scrolled: rgba(30, 30, 30, 0.85);
+  --color-boton: #1e1e1e; 
+  --color-texto-boton: #212529;
+  --color-boton-hover: #333333;
+  --color-linea: #e0e0e0;
+  --color-form-input-bg: rgba(42, 42, 42, 0.7);
+  --color-form-input-border: rgba(150, 150, 150, 0.7);
+  --color-form-input-text: #e0e0e0; 
+  --color-form-input-placeholder: #888;
+  --color-borde-lista: #ffffff;
+  --color-borde-lista-hover: #00334e;
 }
 
-/* 3. Transición suave */
+
 body, .card, .fila-clickeable, .navbar {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.9s ease, color 0.9s ease;
 }
 
-/* ANTES */
-body {
-  background-color: #f4f4f4;
-  color: #333333;
-}
-
-/* DESPUÉS */
 body {
   background-color: var(--color-fondo);
   color: var(--color-texto);
 }
 
 
-
 html{
   scroll-behavior: smooth;
 }
-
-
 
 body,
 html {
   width: 100%;
   height: 100%;
 }
-
-/* body {
-  background: radial-gradient(circle, rgb(10 60 202) 0%, #042e52 100%);
-} */
-/* 
-svg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-} */
-
 
 svg {
   position: fixed; 
@@ -83,13 +82,8 @@ svg {
   z-index: -1; 
 }
 
-/* 2. Añade esta NUEVA regla para 'app-root' */
 app-root {
-  /* Esto asegura que tu app cree su propio "contexto" 
-     y se quede por delante del fondo */
   position: relative;
   z-index: 1;
-  
-  /* Esto hace que el contenido ocupe espacio (opcional pero recomendado) */
   display: block; 
 }
