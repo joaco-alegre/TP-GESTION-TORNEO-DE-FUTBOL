@@ -1,5 +1,5 @@
 import { CommonModule, NgClass } from '@angular/common';
-import { Component, HostListener } from '@angular/core';
+import { Component, DOCUMENT, HostListener, Inject} from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
@@ -12,7 +12,8 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 })
 export class Header {
 
-    constructor(private translocoService: TranslocoService) {}
+    constructor(@Inject(DOCUMENT) private document: Document,
+                private translocoService: TranslocoService) {}
 
   isScrolled = false;
 
@@ -38,6 +39,14 @@ export class Header {
 
   cambiarIdioma(lang: string) {
     this.translocoService.setActiveLang(lang);
+  }
+
+
+  toggleDarkMode(): void {
+
+    this.document.body.classList.toggle('dark-mode');
+    this.isMenuCollapsed = true;
+
   }
 
 }

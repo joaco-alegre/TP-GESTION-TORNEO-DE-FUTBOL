@@ -9,6 +9,45 @@ html, body {
     color: #333333;
 }
 
+
+:root {
+  --color-fondo: #f4f4f4; /* El gris claro que tienes ahora */
+  --color-texto: #333333; /* El texto oscuro */
+  --color-tarjeta: #ffffff; /* El fondo de tus tarjetas (blanco) */
+  --color-borde: #ddd; /* El borde de tus tarjetas */
+  --color-header: #022031; /* El azul oscuro de tu header */
+  --color-texto-header: #ffffff; /* El texto blanco del header */
+}
+
+/* 2. Colores para el Modo Oscuro */
+body.dark-mode {
+  --color-fondo: #121212; /* Fondo oscuro (no negro puro) */
+  --color-texto: #e0e0e0; /* Texto claro */
+  --color-tarjeta: #1e1e1e; /* Tarjetas oscuras */
+  --color-borde: #444; /* Bordes más oscuros */
+  --color-header: #1e1e1e; /* Header oscuro */
+  --color-texto-header: #e0e0e0; /* Texto claro */
+}
+
+/* 3. Transición suave */
+body, .card, .fila-clickeable, .navbar {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ANTES */
+body {
+  background-color: #f4f4f4;
+  color: #333333;
+}
+
+/* DESPUÉS */
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+
+
 html{
   scroll-behavior: smooth;
 }
@@ -34,15 +73,14 @@ svg {
 
 
 svg {
-  position: fixed; /* 'fixed' es mejor que 'absolute' para fondos */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
   
-  /* ESTA ES LA LÍNEA CLAVE: */
-  z-index: -1; /* Envía el SVG a la capa de fondo (detrás de todo) */
+  z-index: -1; 
 }
 
 /* 2. Añade esta NUEVA regla para 'app-root' */

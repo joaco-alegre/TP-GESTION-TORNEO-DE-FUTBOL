@@ -108,7 +108,11 @@
         <nav id="menu-desplegable" [class.visible]="menuVisible">
           <ul>
             <li><a [routerLink]="['/es/inicio-sesion']">{{ 'header.iniciarSesion' | transloco }}</a></li>
-            <li><a href="#">{{ 'header.modoOscuro' | transloco }}</a></li>
+            <li>
+                <button (click)="toggleDarkMode()">
+                {{ 'header.modoOscuro' | transloco }}
+                </button>
+    </li>
           </ul>
         </nav>
 
