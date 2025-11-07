@@ -26,6 +26,8 @@ html, body {
   --color-form-input-text: #212529; 
   --color-form-input-placeholder: #6c757d; 
   --color-borde-lista: #00334e;
+  --color-boton-login: #00334e;
+
 
 
 }
@@ -48,6 +50,7 @@ body.dark-mode {
   --color-form-input-placeholder: #888;
   --color-borde-lista: #ffffff;
   --color-borde-lista-hover: #00334e;
+  --color-boton-login: #1e1e1e;
 }
 
 

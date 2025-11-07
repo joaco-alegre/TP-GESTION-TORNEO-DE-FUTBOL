@@ -1,4 +1,3 @@
-/* Contenedor principal */
 .detalle-jugador-container {
   width: 90%;
   max-width: 800px;
@@ -7,31 +6,31 @@
 }
 
 .titulo-pagina {
-  border-bottom: 1.5px solid #00334e;
+  font-size: 2.5rem;
+  border-bottom: 1.5px solid var(--color-texto);
   padding-bottom: 10px;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--color-texto);
   text-align: center;
 }
 
-/* Estilo base de las tarjetas */
 .card {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
-  overflow: hidden; /* Importante para que la imagen no se desborde */
+  overflow: hidden; 
 }
 
 .card-foto {
-  flex-basis: 200px; /* Ancho fijo para la foto */
+  flex-basis: 200px; 
   flex-shrink: 0;
   background-color: #f4f4f4; 
-  display: flex; /* <-- Hacemos el contenedor flex */
-  justify-content: center; /* <-- Centra la imagen horizontalmente */
-  align-items: center; /* <-- Centra la imagen verticalmente */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
   
-  padding: 10px;/* Color de fondo mientras carga la img */
+  padding: 10px;
 }
 
 .card-foto img {
@@ -56,7 +55,6 @@
   padding-bottom: 8px;
 }
 
-/* Lista de información (edad, etc.) */
 .info-lista {
   list-style: none;
   padding: 0;
@@ -71,10 +69,9 @@
 .info-lista li b {
   color: #333;
   width: 120px;
-  display: inline-block; /* Para alinear los valores */
+  display: inline-block; 
 }
 
-/* Tarjeta de estadísticas */
 .card-estadisticas {
   padding: 24px;
 }
@@ -83,7 +80,7 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex; /* Para poner stats en línea si agregas más */
+  display: flex; 
   gap: 20px;
 }
 
@@ -96,16 +93,28 @@
 .stat-numero {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #0056b3; /* Un color destacado para el número */
+  color: #0056b3; 
   margin-left: 10px;
 }
 
 .info-lista li a {
-  color: #0056b3; /* Un color de enlace que combine */
+  color: #0056b3; 
   text-decoration: none;
   font-weight: 600;
 }
 
 .info-lista li a:hover {
+  text-decoration: underline;
+}
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+.btn-volver:hover {
   text-decoration: underline;
 }

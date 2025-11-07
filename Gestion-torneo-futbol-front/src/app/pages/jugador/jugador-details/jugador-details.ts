@@ -7,7 +7,7 @@ import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { EstadisticaGoleadorService } from '../../../service/estadistica-goleador-service/estadistica-goleador-service';
 import { TranslocoPipe } from '@ngneat/transloco';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 
 @Component({
   selector: 'app-jugador-details',
@@ -23,7 +23,8 @@ export class JugadorDetails implements OnInit{jugador?: Jugador;
     private route: ActivatedRoute,
     private jugadorService: JugadorService,
     private equipoService: EquipoService,
-    private estadisticaService: EstadisticaGoleadorService
+    private estadisticaService: EstadisticaGoleadorService,
+    private location: Location 
   ) { }
 
 
@@ -57,6 +58,10 @@ export class JugadorDetails implements OnInit{jugador?: Jugador;
     this.estadisticaService.getEstadisticaGoleadorById(jugadorId).subscribe(data => {
       this.estadisticaGoleador = data;
     });
+  }
+
+      goBack(): void {
+    this.location.back();
   }
 
 }

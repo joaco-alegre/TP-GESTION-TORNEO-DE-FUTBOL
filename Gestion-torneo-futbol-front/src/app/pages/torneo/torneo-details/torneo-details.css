@@ -153,3 +153,16 @@
     max-width: 90%; 
   }
 }
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
+}

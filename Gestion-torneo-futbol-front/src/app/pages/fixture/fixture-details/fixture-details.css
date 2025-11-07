@@ -23,18 +23,11 @@
   width: 35%; 
 }
 
-.equipo-info img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
 .equipo-nombre {
   font-size: 1.4rem;
   font-weight: 600;
   text-align: center;
-  color: #333;
+  color:#333;
 }
 
 .score {
@@ -57,25 +50,13 @@
 .info-adicional {
   text-align: center;
   color: #555;
-  border-top: 1.5px solid #00334e;
+  border-top: 2px solid #333;
   padding-top: 20px;
 }
 
 .info-adicional p {
   margin: 8px 0;
   font-size: 1.1rem;
-}
-
-.btn-volver {
-  background: none;
-  border: none;
-  font-size: 1rem;
-  color: #00334e;
-  cursor: pointer;
-  margin: 10px 0 0 10px;
-}
-.btn-volver:hover {
-  text-decoration: underline;
 }
 
 .loading {
@@ -85,25 +66,32 @@
   color: #888;
 }
 
-
-
-
 .equipo-info a {
-  text-decoration: none; /* Quita el subrayado del enlace */
-  display: inline-block; /* Asegura que se comporte bien */
+  text-decoration: none; 
+  display: inline-block; 
 }
 
 .equipo-info img {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
   margin-bottom: 10px;
-  
-  cursor: pointer; /* <-- Muestra la manito al pasar el mouse */
-  transition: transform 0.2s ease-out; /* <-- Efecto suave */
+  cursor: pointer; 
+  transition: transform 0.2s ease-out; 
 }
 
-/* Efecto visual al pasar el mouse sobre el escudo */
 .equipo-info a:hover img {
   transform: scale(1.05);
+}
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+.btn-volver:hover {
+  text-decoration: underline;
 }

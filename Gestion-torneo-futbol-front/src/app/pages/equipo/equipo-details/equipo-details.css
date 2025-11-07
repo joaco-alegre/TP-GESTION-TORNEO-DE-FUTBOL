@@ -192,10 +192,11 @@
 }
 
 .fixture-goles {
-  font-size: 1.3rem;  
+  font-size: 1.4rem;  
   font-weight: 700; 
   width: 30px; 
   text-align: center;
+  color: #00334e;
 }
 
 .fixture-estado {
@@ -204,3 +205,16 @@
   color: #333;
   margin: 0 10px; 
 }
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+.btn-volver:hover {
+  text-decoration: underline;
+}
+

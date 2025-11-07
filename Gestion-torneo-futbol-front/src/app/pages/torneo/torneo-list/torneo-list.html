@@ -1,12 +1,16 @@
-<h2>{{ 'torneos.titulo' | transloco }}</h2>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
 
-<ul>
-  @for (torneo of torneos; track torneo.id) {
-    <li [routerLink]="['/es/torneos/', torneo.id]" 
-    [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + (torneo.ultimoCampeon ? torneo.ultimoCampeon : 'assets/icons/gente.png') + ')'">
-      {{torneo.nombre}} 
-    </li>
-  } @empty {
-    <p>{{ 'torneos.empty' | transloco }}</p>
-  }
-</ul>
+<div class="contenedor">
+    <h2>{{ 'torneos.titulo' | transloco }}</h2>
+
+    <ul>
+      @for (torneo of torneos; track torneo.id) {
+        <li [routerLink]="['/es/torneos/', torneo.id]" 
+        [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + (torneo.ultimoCampeon ? torneo.ultimoCampeon : 'assets/icons/gente.png') + ')'">
+          {{torneo.nombre}} 
+        </li>
+      } @empty {
+        <p>{{ 'torneos.empty' | transloco }}</p>
+      }
+    </ul>
+</div>

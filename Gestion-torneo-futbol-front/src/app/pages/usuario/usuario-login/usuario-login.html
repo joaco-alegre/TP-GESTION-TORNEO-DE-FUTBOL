@@ -1,3 +1,5 @@
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
 <div class="login-container">
 
   <h2>{{ 'login.titulo' | transloco }}</h2>
@@ -28,7 +30,7 @@
     <label for="password">{{ 'login.etiquetaPassword' | transloco }}</label>
     <input id="password" formControlName="password" type="password">
 
-    <button type="submit" (click)="tuFuncion()">{{ 'login.botonIngresar' | transloco }}</button>
+    <button type="submit" (click)="FuncionLogin()">{{ 'login.botonIngresar' | transloco }}</button>
   </form>
 
 </div>

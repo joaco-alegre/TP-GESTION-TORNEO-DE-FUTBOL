@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Torneo from '../../../model/torneo';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 
@@ -16,7 +16,9 @@ export class TorneoList implements OnInit{
   
     torneos: Torneo[] = [];
   
-    constructor(private torneoService: TorneoService) {}
+    constructor(private torneoService: TorneoService,
+      private location: Location
+    ) {}
   
     ngOnInit(): void {
       this.getTorneos();
@@ -28,11 +30,11 @@ export class TorneoList implements OnInit{
         this.torneos = data});
     }
   
-    deletTorneos(id: string): void {
+        goBack(): void {
+    this.location.back();
+  }
+
     
-        this.torneoService.deleteTorneo(id).subscribe(() => this.getTorneos());
-      
-    }
     
 
 }

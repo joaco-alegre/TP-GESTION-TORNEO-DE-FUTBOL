@@ -1,3 +1,4 @@
+import { CommonModule, Location} from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
@@ -5,30 +6,26 @@ import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-usuario-login',
-  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, TranslocoPipe],
+  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, TranslocoPipe, CommonModule],
   templateUrl: './usuario-login.html',
   styleUrl: './usuario-login.css',
 })
 export class UsuarioLogin{
 
-  
   usuarioForm!: FormGroup; 
   
   selectedRole: 'usuario' | 'dt' = 'usuario'; 
 
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private location: Location
+  ) {}
 
   setRole(role: 'usuario' | 'dt') {
     this.selectedRole = role;
   }
 
-  tuFuncion() {
-    // ... aquí va tu lógica (guardar, validar, etc.)
-    
-    // ... y cuando terminas...
-    
-    // 4. Navegas a la nueva ruta
+  FuncionLogin() {
     this.router.navigate(['/usuario-home']); 
   }
 
@@ -41,15 +38,12 @@ export class UsuarioLogin{
       };
 
       console.log('Intentando iniciar sesión con:', loginData);
-      
-      // --- LÓGICA DE LOGIN AQUÍ ---
-      // (Aquí iría tu lógica de autenticación)
-      // ...
-      
-      // Si el login es exitoso, NAVEGA DESDE AQUÍ
-      // (¡Mira la nota importante al final!)
       this.router.navigate(['/usuario-home']);
     }
+  }
+
+      goBack(): void {
+    this.location.back();
   }
 }
 

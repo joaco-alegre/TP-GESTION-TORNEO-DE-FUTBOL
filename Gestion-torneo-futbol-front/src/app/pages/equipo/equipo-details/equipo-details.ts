@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { DtService } from '../../../service/dt-service/dt-service';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
 import { FixtureService } from '../../../service/fixture-service/fixture-service';
@@ -39,6 +39,7 @@ export class EquipoDetails implements OnInit{
     private jugadorService: JugadorService,
     private fixtureService: FixtureService, 
     private tituloService: Title,
+    private location: Location 
   ) { }
 
   ngOnInit(): void {
@@ -120,6 +121,10 @@ getEscudo(equipoID: string): string {
   }
   return 'assets/icons/icono.png'; 
 }
+
+    goBack(): void {
+    this.location.back();
+  }
 
 }
 

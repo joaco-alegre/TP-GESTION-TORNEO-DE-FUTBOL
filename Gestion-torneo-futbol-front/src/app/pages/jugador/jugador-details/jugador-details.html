@@ -1,5 +1,7 @@
 @if (jugador) {
 
+  <button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
   <div class="detalle-jugador-container">
 
     <h2 class="titulo-pagina">{{ jugador.nombre }}</h2>
