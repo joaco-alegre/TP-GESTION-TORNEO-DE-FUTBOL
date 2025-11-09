@@ -6,7 +6,7 @@
     <ul>
       @for (torneo of torneos; track torneo.id) {
         <li [routerLink]="['/es/torneos/', torneo.id]" 
-        [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + (torneo.ultimoCampeon ? torneo.ultimoCampeon : 'assets/icons/gente.png') + ')'">
+        [style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + (torneo.ultimoCampeon ? torneo.ultimoCampeon : 'assets/icons/gente.png') + ')'" data-aos="fade-left">
           {{torneo.nombre}} 
         </li>
       } @empty {
