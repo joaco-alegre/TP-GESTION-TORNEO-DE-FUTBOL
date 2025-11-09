@@ -1,7 +1,8 @@
 <button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
 
 <div class="contenedor">
-    <h2>{{ 'torneos.titulo' | transloco }}</h2>
+    <h2 data-aos="fade-up"
+     data-aos-anchor-placement="top-center">{{ 'torneos.titulo' | transloco }}</h2>
 
     <ul>
       @for (torneo of torneos; track torneo.id) {

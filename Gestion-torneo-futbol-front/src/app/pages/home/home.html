@@ -1,11 +1,17 @@
 
-    <div class="home-container">
-      <h1 data-aos="fade-left">{{ 'home.hero.titulo' | transloco }}</h1>
-      <p  data-aos="fade-right">{{ 'home.hero.subtitulo' | transloco }}</p>
-      <a routerLink="/es/torneos" class="btn-primary pulse" data-aos="fade-down">{{ 'home.hero.boton' | transloco }}</a>
+    <div class="home-container" data-aos="zoom-in">
+      <h1 data-aos="fade-left" 
+          data-aos-duration="3000" >{{ 'home.hero.titulo' | transloco }}</h1>
+      
+      <p data-aos="fade-right"
+         data-aos-duration="3000">{{ 'home.hero.subtitulo' | transloco }}</p>
+      
+     <a routerLink="/es/torneos" class="btn-primary pulse" 
+     data-aos="fade-left"
+     data-aos-duration="3000" >{{ 'home.hero.boton' | transloco }}</a>
     </div>
 
-    <div data-aos="fade-up-right">
+    <div data-aos="fade-left" data-aos-duration="3000">
     <h2 class="mejorar-titulo">{{ 'home.nuestrosTorneos' | transloco }}</h2>
 
     <div class="logo-scroller">
@@ -56,8 +62,7 @@
     </div>
     </div>
 
-
-      <section id="noticias" class="pb-5 noticias-section" data-aos="fade-up">
+      <section id="noticias" class="pb-5 noticias-section"  data-aos="fade-right" data-aos-duration="3000">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -117,7 +122,7 @@
 
 
 
-    <section id="nosotros" class="pb-5">
+    <section id="nosotros" class="pb-5" data-aos="fade-left" data-aos-duration="3000">
       <div class="container"> <div class="row">
           <div class="col-12">
             <h2>{{ 'home.nosotros.titulo' | transloco }}</h2>
@@ -168,12 +173,13 @@
       
       </div> </section>
     
+    <div data-aos="fade-up" data-aos-duration="3000"
+     data-aos-anchor-placement="top-bottom">
+        <section class="seccion-oscura pb-5" ></section>
+        <section class="seccion-clara "></section>
+    </div>
     
-    <section class="seccion-oscura pb-5"></section>
-    <section class="seccion-clara "></section>
-    
-    
-    <section id="contactos" class="contact-section text-light pb-5">
+    <section id="contactos" class="contact-section text-light pb-5" data-aos="fade-right" data-aos-duration="3000">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8 text-center">

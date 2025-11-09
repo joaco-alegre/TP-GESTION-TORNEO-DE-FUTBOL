@@ -2,27 +2,32 @@
 
 <div class="detalle-container">
 
-  <h2 class="titulo-torneo">{{torneo?.nombre}}</h2>
+  <h2 class="titulo-torneo" data-aos="fade-right" >{{torneo?.nombre}}</h2>
 
   <div class="logo-container">
     <img 
       [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" 
       [alt]="'Logo de ' + torneo?.nombre" 
-      class="torneo-logo">
+      class="torneo-logo" data-aos="zoom-in">
   </div>
 
-  <h3 class="section-title">{{ 'torneoDetalles.tituloSeccionDetalles' | transloco }}</h3>
 
-  @if(torneo){
-    <div class="details-card-wrapper"> <div class="details-card">
-        <p><b>{{ 'torneoDetalles.etiquetaTorneo' | transloco }}</b> {{ torneo.nombre }}</p>
-        <p><b>{{ 'torneoDetalles.etiquetaInicia' | transloco }}</b> {{ torneo.fechaInicio | date: 'dd/MM/yyyy' }}</p>
-        <p><b>{{ 'torneoDetalles.etiquetaFinaliza' | transloco }}</b> {{ torneo.fechaFin | date: 'dd/MM/yyyy' }}</p>
-        <p><b>{{ 'torneoDetalles.etiquetaEstado' | transloco }}</b> {{ torneo.estadoTorneo }}</p>
-      </div>
-    </div>
-  }
+  <div data-aos="fade-right">
+      <h3 class="section-title">{{ 'torneoDetalles.tituloSeccionDetalles' | transloco }}</h3>
 
+      @if(torneo){
+        <div class="details-card-wrapper"> <div class="details-card">
+            <p><b>{{ 'torneoDetalles.etiquetaTorneo' | transloco }}</b> {{ torneo.nombre }}</p>
+            <p><b>{{ 'torneoDetalles.etiquetaInicia' | transloco }}</b> {{ torneo.fechaInicio | date: 'dd/MM/yyyy' }}</p>
+            <p><b>{{ 'torneoDetalles.etiquetaFinaliza' | transloco }}</b> {{ torneo.fechaFin | date: 'dd/MM/yyyy' }}</p>
+            <p><b>{{ 'torneoDetalles.etiquetaEstado' | transloco }}</b> {{ torneo.estadoTorneo }}</p>
+          </div>
+        </div>
+      }
+  </div>
+
+
+  <div data-aos="fade-left">
     <h3 class="section-title">{{ 'torneoDetalles.tituloUltimoCampeon' | transloco }}</h3>
     <div class="campeon-img-wrapper"> 
       <img 
@@ -30,24 +35,28 @@
         alt="Imagen del último campeón" 
         class="campeon-img">
     </div>
+  </div>
 
-  <h2 class="section-title">{{ 'torneoDetalles.tituloEquipos' | transloco }} {{torneo?.nombre}}</h2>
 
-  <div class="equipo-list-wrapper"> <ul class="equipo-list">
-      @for (equipo of filtrarEquipos; track equipo.id) {
-        <li [routerLink]="['/es/equipos/', equipo?.id]">
-          
-          <img 
-            [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
-            [alt]="'Escudo de ' + equipo.nombre" 
-            class="team-crest">
-            
-          <span class="team-name">{{ equipo.nombre }}</span>
-        </li>
-      } @empty {
-        <p class="empty-list">{{ 'torneoDetalles.equiposEmpty' | transloco }}</p>
-      }
-    </ul>
+  <div data-aos="fade-right">
+      <h2 class="section-title">{{ 'torneoDetalles.tituloEquipos' | transloco }} {{torneo?.nombre}}</h2>
+
+      <div class="equipo-list-wrapper"> <ul class="equipo-list">
+          @for (equipo of filtrarEquipos; track equipo.id) {
+            <li [routerLink]="['/es/equipos/', equipo?.id]">
+
+              <img 
+                [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
+                [alt]="'Escudo de ' + equipo.nombre" 
+                class="team-crest">
+
+              <span class="team-name">{{ equipo.nombre }}</span>
+            </li>
+          } @empty {
+            <p class="empty-list">{{ 'torneoDetalles.equiposEmpty' | transloco }}</p>
+          }
+        </ul>
+      </div>
   </div>
 
 </div>
