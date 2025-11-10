@@ -1,1 +1,41 @@
-<p>fixture-form works!</p>
+  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+
+<div class="admin-container" data-aos="zoom-out-up">
+
+  <h2>{{ fixtureID ? 'Editar Fixture' : 'Agregar Fixture' }}</h2>
+
+  <form [formGroup]="fixtureForm" (ngSubmit)="onSubmit()">
+
+    <label for="id">ID Fixture:</label>
+    <input id="id" formControlName="id" type="text" readonly>
+    
+    <label for="equipoLocalID">ID Equipo Local:</label>
+    <input id="equipoLocalID" formControlName="equipoLocalID" type="text" readonly>
+    
+    <label for="equipoVisitaID">ID Equipo Visitante:</label>
+    <input id="equipoVisitaID" formControlName="equipoVisitaID" type="text" readonly>
+
+    <div class="goles-grid">
+      <div>
+        <label for="golesEquipo1">Goles Local</label>
+        <input id="golesEquipo1" formControlName="golesEquipo1" type="number">
+      </div>
+      <div>
+        <label for="golesEquipo2">Goles Visitante</label>
+        <input id="golesEquipo2" formControlName="golesEquipo2" type="number">
+      </div>
+    </div>
+
+    <label for="fechaPartido">Fecha del Partido:</label>
+    <input id="fechaPartido" formControlName="fechaPartido" type="datetime-local"> <label for="estadoPartido">Estado:</label>
+    <select id="estadoPartido" formControlName="estadoPartido">
+      <option value="" disabled>Selecciona un estado</option>
+      <option value="Por empezar">Pendiente</option>
+      <option value="En Curso">Empezado</option>
+      <option value="Finalizado">Terminado</option>
+    </select>
+    
+    <button type="submit" [disabled]="!fixtureForm.valid">{{ fixtureID ? 'Actualizar' : 'Agregar' }}</button>
+  </form>
+
+</div>

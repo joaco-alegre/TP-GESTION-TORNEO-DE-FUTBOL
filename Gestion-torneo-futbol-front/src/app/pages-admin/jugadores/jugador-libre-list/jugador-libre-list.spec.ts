@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FixtureDetailsAdmin } from './fixture-details-admin';
+import { JugadorLibreList } from './jugador-libre-list';
 
-describe('FixtureDetailsAdmin', () => {
-  let component: FixtureDetailsAdmin;
-  let fixture: ComponentFixture<FixtureDetailsAdmin>;
+describe('JugadorLibreList', () => {
+  let component: JugadorLibreList;
+  let fixture: ComponentFixture<JugadorLibreList>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FixtureDetailsAdmin]
+      imports: [JugadorLibreList]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FixtureDetailsAdmin);
+    fixture = TestBed.createComponent(JugadorLibreList);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

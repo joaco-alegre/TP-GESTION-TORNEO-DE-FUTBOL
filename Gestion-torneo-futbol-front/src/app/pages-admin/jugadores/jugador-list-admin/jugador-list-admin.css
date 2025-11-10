@@ -5,7 +5,7 @@
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.9rem;
   color: var(--color-texto);
   text-align: center;
   font-weight: 600;
@@ -25,6 +25,14 @@ h2::after {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+}
+
+h3{
+font-size: 1.8rem;
+  color: var(--color-texto);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
 ul {
@@ -164,13 +172,81 @@ li button:active {
   transform: scale(1.0);
 }
 
-.section-divider {
+hr{
   border: none;
   border-top: 3px solid var(--color-texto);
   margin: 40px 0; 
 }
 
 
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color:var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
+}
+
+
+
+.fixture-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.fixture-item {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 20px; 
+  background-color:  #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.3s ease-out; 
+  margin-bottom: 15px; 
+  border-radius: 8px; 
+  border: 1px solid var(--color-borde); 
+}
+
+.fixture-item:hover {
+  background-color: var(--color-tarjeta-hover, #f9f9f9);
+  transform: scale(1.02);
+}
+
+.fixture-item img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.fixture-marcador {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px; 
+  min-width: 150px; 
+  text-align: center;
+}
+
+.fixture-goles {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-texto-tarjeta);
+  width: 30px; 
+  text-align: center;
+}
+
+.fixture-estado {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-texto-tarjeta);
+}
 
 .btn-volver {
   background: none;

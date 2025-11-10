@@ -1,1 +1,35 @@
-<p>jugador-form works!</p>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
+<div class="admin-container" data-aos="zoom-out-up">
+
+  <h2>{{ jugadorID ? 'Editar Jugador' : 'Agregar Jugador' }}</h2>
+
+  <form [formGroup]="jugadorForm" (ngSubmit)="onSubmit()">
+
+    @if (jugadorID) {
+      <label for="id">ID Jugador:</label>
+      <input id="id" formControlName="id" type="text" readonly>
+    }
+
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" type="text">
+
+    <label for="edad">Edad:</label>
+    <input id="edad" formControlName="edad" type="number" readonly>
+
+    <label for="numeroCamiseta">Número de Camiseta:</label>
+    <input id="numeroCamiseta" formControlName="numeroCamiseta" type="number">
+    
+    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+    <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date">
+
+    <label for="foto">Foto:</label>
+    <input id="foto" type="file" formControlName="foto">
+
+    <label for="idEquipo">ID Equipo:</label>
+    <input id="idEquipo" formControlName="idEquipo" type="text" readonly>
+
+    <button type="submit" >{{ jugadorID ? 'Actualizar' : 'Agregar' }}</button>
+  </form>
+
+</div>

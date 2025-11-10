@@ -3,7 +3,11 @@
 
 <div class="admin-container" data-aos="fade-up">
 
-  <h2>Director Técnico</h2>
+  <h2 class="titulo-pagina-principal">{{ equipoNombre }}</h2>
+
+  <hr class="section-divider">
+
+  <h3>Director Técnico</h3>
 
 <ul>
   @if (dt) {
@@ -47,7 +51,7 @@
 
   <hr class="section-divider">
 
-  <h2>Lista de Jugadores</h2>
+  <h3>Lista de Jugadores</h3>
 
   <ul>
     @for (jugador of jugadores; track jugador.id) {
@@ -83,7 +87,37 @@
   </ul>
 
   <div class="agregar-container">
-    <button class="btn-agregar" [routerLink]="['/jugador-formulario-admin']">Agregar Jugador</button>
+    <button class="btn-agregar" [routerLink]="['/jugador-formulario-admin']"
+    [queryParams]="{ equipoID: equipoId }">Agregar Jugador</button>
   </div>
+
+
+
+  <hr class="section-divider">
+
+<h3>Fixture del Equipo</h3>
+
+<div class="fixture-list-wrapper">
+  <ul class="fixture-list">
+    @for (fixture of fixtures; track fixture.id) {
+      <li class="fixture-item" [routerLink]="['/fixture-detalles-admin/', fixture.id]">
+
+        <img [src]="getEscudo(fixture.equipoLocalID)" 
+             [alt]="fixture.equipoLocalID">
+
+        <div class="fixture-marcador">
+          <span class="fixture-goles">{{ fixture.golesEquipo1 }}</span>
+          <span class="fixture-estado">{{ fixture.estadoPartido }}</span>
+          <span class="fixture-goles">{{ fixture.golesEquipo2 }}</span>
+        </div>
+
+        <img [src]="getEscudo(fixture.equipoVisitaID)" 
+             [alt]="fixture.equipoVisitaID">
+
+      </li>
+    } @empty {
+      <p class="empty-list">No hay fixtures cargados para este equipo.</p>
+    }
+  </ul>
 
 </div>

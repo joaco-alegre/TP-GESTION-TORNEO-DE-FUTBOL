@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DtList } from './dt-list-admin';
+import { DtListAdmin } from './dt-list-admin';
 
-describe('DtList', () => {
-  let component: DtList;
-  let fixture: ComponentFixture<DtList>;
+describe('DtListAdmin', () => {
+  let component: DtListAdmin;
+  let fixture: ComponentFixture<DtListAdmin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DtList]
+      imports: [DtListAdmin]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DtList);
+    fixture = TestBed.createComponent(DtListAdmin);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

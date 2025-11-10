@@ -13,7 +13,8 @@
       "nombre": "Lionel Scaloni",
       "equipoID": "afa-seleccion-arg",
       "estiloJuego": "Equilibrado",
-      "usuario": "lscaloni"
+      "usuario": "lscaloni",
+      "foto": ""
     },
     {
       "id": "dt-pg-003",
@@ -35,6 +36,14 @@
       "equipoID": "afa-seleccion-uru",
       "estiloJuego": "Protagónico",
       "usuario": "mbielsa"
+    },
+    {
+      "id": "3a7f",
+      "nombre": "Joaquin Alegre",
+      "equipoID": "",
+      "estiloJuego": "defensivo",
+      "usuario": "joaco12",
+      "foto": ""
     }
   ]
 }

@@ -24,6 +24,10 @@ import { DtDetails } from './pages/dt/dt-details/dt-details';
 import { DtDetailsAdmin } from './pages-admin/dt/dt-details-admin/dt-details-admin';
 import { DtFormAdmin } from './pages-admin/dt/dt-form-admin/dt-form-admin';
 import { JugadorFormAdmin } from './pages-admin/jugadores/jugador-form-admin/jugador-form-admin';
+import { FixtureDetailsAdmin } from './pages-admin/fixture/fixture-details-admin/fixture-details-admin';
+import { FixtureFormAdmin } from './pages-admin/fixture/fixture-form-admin/fixture-form-admin';
+import { DtListAdmin } from './pages-admin/dt/dt-list-admin/dt-list-admin';
+import { JugadorLibreList } from './pages-admin/jugadores/jugador-libre-list/jugador-libre-list';
 
 export const routes: Routes = [
     {path: '', 
@@ -53,7 +57,17 @@ export const routes: Routes = [
     {path: 'jugador-detalles-admin/:id', component: JugadorDetailsAdmin},
     {path: 'dt-detalles-admin/:id', component: DtDetailsAdmin},
     {path: 'dt-formulario-admin/:id', component: DtFormAdmin},
+    {path: 'dt-formulario-admin', component: DtFormAdmin},
     {path: 'jugador-formulario-admin/:id', component: JugadorFormAdmin},
+    {path: 'jugador-formulario-admin', component: JugadorFormAdmin},
+    {path: 'fixture-detalles-admin/:id', component: FixtureDetailsAdmin},
+    {path: 'fixture-form-admin/:id', component: FixtureFormAdmin},
+    {path: 'dt-list-admin', component: DtListAdmin},
+    {path: 'jugadores-libres-list-admin', component: JugadorLibreList},
+
+
+
+
 
 
 

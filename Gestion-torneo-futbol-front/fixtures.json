@@ -4,11 +4,10 @@
       "id": "f-001",
       "equipoLocalID": "e-001",
       "equipoVisitaID": "e-002",
-      "golesEquipo1": "2",
-      "golesEquipo2": "1",
-      "fechaPartido": "2025-10-20T19:00:00Z",
-      "estadoPartido": "Finalizado",
-      "estadoFixture": "Completo"
+      "golesEquipo1": 5,
+      "golesEquipo2": 5,
+      "fechaPartido": "2025-11-19T23:11",
+      "estadoPartido": "Finalizado"
     },
     {
       "id": "f-002",

@@ -1,1 +1,55 @@
-<p>fixture-details works!</p>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
+<div class="admin-container"> 
+
+  <div *ngIf="fixture && equipoLocal && equipoVisitante" class="detalle-container" data-aos="zoom-in-up">
+  
+    <div class="marcador-detalle">
+  
+      <div class="equipo-info local">
+        <a [routerLink]="['/jugador-lista-admin', equipoLocal.id]">
+          <img 
+            [src]="equipoLocal.escudo ? equipoLocal.escudo : 'assets/icons/icono.png'" 
+            [alt]="equipoLocal.nombre">
+        </a>
+        <h2 class="equipo-nombre">{{ equipoLocal.nombre }}</h2>
+      </div>
+  
+      <div class="score">
+        <span class="goles">{{ fixture?.golesEquipo1 }}</span>
+        <span class="separador">-</span>
+        <span class="goles">{{ fixture?.golesEquipo2 }}</span>
+      </div>
+  
+      <div class="equipo-info visitante">
+        <a [routerLink]="['/jugador-lista-admin', equipoVisitante.id]">
+          <img 
+            [src]="equipoVisitante.escudo ? equipoVisitante.escudo : 'assets/icons/icono.png'" 
+            [alt]="equipoVisitante.nombre">
+        </a>
+        <h2 class="equipo-nombre">{{ equipoVisitante.nombre }}</h2>
+      </div>
+  
+    </div>
+  
+    <div class="info-adicional">
+      <p>
+        <strong>{{ 'fixtureDetalles.etiquetaEstado' | transloco }}</strong> {{ fixture?.estadoPartido }}
+      </p>
+      <p>
+        <strong>{{ 'fixtureDetalles.etiquetaFecha' | transloco }}</strong> {{ fixture?.fechaPartido | date: 'dd/MM/yyyy HH:mm' }} hs
+      </p>
+    </div>
+  
+    <div class="agregar-container"> <button class="btn-agregar" [routerLink]="['/fixture-form-admin', fixture.id]">
+        Editar Fixture
+      </button>
+    </div>
+  
+  </div>
+  
+  <div *ngIf="!fixture" class="loading">
+    <p>{{ 'fixtureDetalles.cargando' | transloco }}</p>
+  </div>
+
+</div>

@@ -2,12 +2,11 @@
   "jugadores": [
     {
       "id": "j-001",
-      "nombre": "Martín López",
-      "edad": 22,
+      "nombre": "Martín López pariz",
+      "idEquipo": "e-001",
+      "edad": 20,
       "fechaNacimiento": "2003-05-15T00:00:00Z",
-      "numeroCamiseta": 9,
-      "posicion": "Delantero",
-      "idEquipo": "e-001"
+      "numeroCamiseta": 9
     },
     {
       "id": "j-002",
@@ -53,6 +52,32 @@
       "numeroCamiseta": 8,
       "posicion": "Mediocampista",
       "idEquipo": "e-004"
+    },{
+      "id": "j-101",
+      "nombre": "Carlos Sánchez",
+      "foto": "assets/icons/persona.png",
+      "idEquipo": "",
+      "edad": 30,
+      "fechaNacimiento": "1994-03-22",
+      "numeroCamiseta": 5
+    },
+    {
+      "id": "j-102",
+      "nombre": "Esteban Gutiérrez",
+      "foto": "assets/icons/persona.png",
+      "idEquipo": "",
+      "edad": 28,
+      "fechaNacimiento": "1996-07-14",
+      "numeroCamiseta": 11
+    },
+    {
+      "id": "j-103",
+      "nombre": "Lucas Martínez",
+      "foto": "assets/icons/persona.png",
+      "idEquipo": "e-001",
+      "edad": 24,
+      "fechaNacimiento": "2000-01-05",
+      "numeroCamiseta": 10
     }
   ]
 }

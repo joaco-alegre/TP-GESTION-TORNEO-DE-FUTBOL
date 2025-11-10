@@ -57,7 +57,7 @@ export class DtFormAdmin implements OnInit{
   onSubmit(): void {
 
     if (this.DtForm.invalid) return;
-    const rutaDeVuelta = ['/jugador-lista-admin', this.equipoID];
+    const rutaDeVuelta = ['/dt-list-admin'];
 
     if (this.DtID) {
       const dtData: DT = { id: this.DtID, ...this.DtForm.value }; 

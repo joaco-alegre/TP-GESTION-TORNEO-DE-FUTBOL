@@ -6,6 +6,10 @@ import { JugadorService } from '../../../service/jugador-service/jugador-service
 import DT from '../../../model/dt';
 import { DtService } from '../../../service/dt-service/dt-service';
 import { TranslocoPipe } from '@ngneat/transloco';
+import Fixture from '../../../model/fixture';
+import Equipo from '../../../model/equipo';
+import { FixtureService } from '../../../service/fixture-service/fixture-service';
+import { EquipoService } from '../../../service/equipo-service/equipo-service';
 
 @Component({
   selector: 'app-jugador-list',
@@ -17,16 +21,21 @@ export class JugadorListAdmin implements OnInit{
 
   dt?: DT;
   jugadores: Jugador[] = [];
+  todosJugadores: Jugador[] = [];
+  todosDts: DT[] = [];
+  fixtures: Fixture[] = [];
+  private todosFixtures: Fixture[] = []; 
+  private todosEquipos: Equipo[] = [];
+  equipoNombre?: string;
 
-  private todosJugadores: Jugador[] = [];
-  private todosDts: DT[] = [];
-
-  private equipoId: string | null = null;
+  equipoId: string | null = null;
   
     constructor(private jugadorService: JugadorService,
                 private dtService: DtService,
                 private route: ActivatedRoute,
-                private location: Location
+                private location: Location,
+                private fixtureService: FixtureService,
+                private equipoService: EquipoService
     ) {}
   
     ngOnInit(): void {
@@ -38,10 +47,18 @@ export class JugadorListAdmin implements OnInit{
       return;
     }
 
+      this.equipoService.getEquipoById(this.equipoId).subscribe(equipoData => {
+      this.equipoNombre = equipoData.nombre;
+    });
+
     this.cargarJugadores();
     this.cargarDts();
+    this.cargarFixtures();
+    this.cargarEquipos();
     
   }
+
+
     
     cargarJugadores(): void {
     this.jugadorService.getJugadores().subscribe(data => {
@@ -72,6 +89,32 @@ export class JugadorListAdmin implements OnInit{
       );
     }
   }
+
+  cargarFixtures(): void {
+    this.fixtureService.getFixtures().subscribe(data => {
+      this.todosFixtures = data;
+      this.filtrarFixturesPorEquipo();
+    });
+  }
+
+  cargarEquipos(): void {
+    this.equipoService.getEquipos().subscribe(data => {
+      this.todosEquipos = data;
+    });
+  }
+
+  filtrarFixturesPorEquipo(): void {
+    if (this.equipoId) {
+      this.fixtures = this.todosFixtures.filter(
+        (fixture) => fixture.equipoLocalID === this.equipoId || fixture.equipoVisitaID === this.equipoId
+      );
+    }
+  }
+
+  getEscudo(equipoID: string): string {
+    const equipo = this.todosEquipos.find(e => e.id === equipoID);
+    return equipo?.escudo || 'assets/icons/icono.png'; 
+  }
   
   deleteJugador(id: string): void {
     if (!confirm("¿Estás seguro de que deseas eliminar este jugador?")) {
@@ -79,13 +122,10 @@ export class JugadorListAdmin implements OnInit{
     }
   
   this.jugadorService.deleteJugador(id).subscribe(() => {
-      // 1. Elimina de la lista completa
       const index = this.todosJugadores.findIndex(j => j.id === id);
       if (index > -1) {
         this.todosJugadores.splice(index, 1);
       }
-      
-      // 2. Vuelve a filtrar (esto actualiza la vista)
       this.filtrarJugadoresPorEquipo();
       
       alert("Jugador eliminado");

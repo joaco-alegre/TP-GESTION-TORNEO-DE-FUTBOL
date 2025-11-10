@@ -50,8 +50,7 @@ label[for="estado"] {
   font-size: 0.9rem;
 }
 
-select#estado {
-  /* Apariencia */
+select#estiloJuego {
   display: block;
   width: 100%;
   padding: 12px 15px;
@@ -65,7 +64,7 @@ select#estado {
   cursor: pointer;
 }
 
-select#estado:focus {
+select#estiloJuego:focus {
   border-color: var(--color-accent);
   box-shadow: 0 0 0 0.16rem var(--color-form-focus-shadow);
   outline: none;

@@ -5,27 +5,26 @@
 }
 
 h3 {
-  font-size: 2.5rem; 
+  font-size: 2rem;
   color: var(--color-texto);
   text-align: center;
-  font-weight: 700; 
+  font-weight: 600;
   margin: 0;
-  padding-bottom: 15px; 
-  margin-bottom: 30px; 
+  padding-bottom: 15px;
+  margin-bottom: 30px;
   position: relative; 
 }
 
 h3::after {
   content: ''; 
-  display: block; 
-  width: 700px; 
+  display: block;
+  width: 100px; 
   height: 3px; 
-  background-color: var(--color-texto); 
-  position: absolute; 
-  bottom: 0; 
-  left: 50%; 
-  transform: translateX(-50%); 
-  border-radius: 2px; 
+  background-color: var(--color-accent); 
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 ul {
@@ -39,8 +38,7 @@ li.fila-clickeable {
   justify-content: space-between; 
   align-items: center;
   padding: 20px; 
-  background-color: #fff;
-  color: var(--color-texto-tarjeta);
+  background-color: var(--color-tarjeta);
   cursor: pointer;
   transition: background-color 0.2s, transform 0.3s ease-out; 
   margin-bottom: 15px; 
@@ -71,15 +69,15 @@ li.fila-clickeable:hover {
   background-color: var(--color-fondo);
 }
 
-.item-foto-jugador { 
-  border-radius: 50%;
+.item-foto-jugador {
+  border-radius: 50%; 
   object-fit: cover; 
 }
 
 .item-nombre {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--color-texto-tarjeta);
+  color: var(--color-texto);
 }
 
 .action-buttons {
@@ -93,7 +91,7 @@ li button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: #fff;
+  color: white;
   transition: transform 0.15s ease-out, background-color 0.2s;
 }
 
@@ -135,19 +133,21 @@ li button:active {
   text-align: center;
   color: #777;
 }
+
 .agregar-container {
   text-align: center;
   margin-top: 30px;
 }
 
+/* Botón "Agregar" (Verde) */
 .btn-agregar { 
   display: inline-block;
   padding: 12px 20px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  background-color: var(--color-boton);
-  color:#fff;
+  background-color: var(--color-boton, #28a745);
+  color: var(--color-texto-boton, white);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -155,7 +155,7 @@ li button:active {
 }
 
 .btn-agregar:hover {
-  background-color: var(--color-boton-hover);
+  background-color: var(--color-boton-hover, #218838);
   transform: scale(1.05); 
 }
 
@@ -167,10 +167,11 @@ li button:active {
   background: none;
   border: none;
   font-size: 1.1rem;
-  color: var(--color-texto);
+  color:var(--color-texto);
   cursor: pointer;
   margin: 10px 0 0 10px;
 }
+
 .btn-volver:hover {
   text-decoration: underline;
 }
