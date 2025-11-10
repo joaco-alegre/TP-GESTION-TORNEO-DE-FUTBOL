@@ -13,7 +13,8 @@ html, body {
 
 :root {
   --color-fondo: #f4f4f4;
-  --color-texto: #00334e; 
+  --color-texto: #00334e;
+  --color-texto-tarjeta: #00334e;
   --color-tarjeta: #ffffff; 
   --color-borde: #ddd; 
   --color-header: #00334e; 
@@ -35,8 +36,9 @@ html, body {
 }
 
 body.dark-mode {
-  --color-fondo: #121212; 
-  --color-texto: #e0e0e0; 
+  --color-fondo: #121212;
+    --color-texto: #e0e0e0; 
+  --color-texto-tarjeta: #333; 
   --color-tarjeta: #1e1e1e; 
   --color-borde: #444; 
   --color-header: #1e1e1e; 

@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, RouterModule } from "@angular/router";
 import Torneo from '../../../model/torneo';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-torneo-list',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslocoPipe],
   templateUrl: './torneo-list-admin.html',
   styleUrl: './torneo-list-admin.css',
 })
@@ -15,7 +16,8 @@ export class TorneoListAdmin implements OnInit{
     torneos: Torneo[] = [];
 
   constructor(private torneoService: TorneoService,
-              private router: Router
+              private router: Router,
+              private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +33,9 @@ export class TorneoListAdmin implements OnInit{
 
   deleteTorneo(id: string): void {
   
-      this.torneoService.deleteTorneo(id).subscribe(() => this.cargarTorneo());
+      this.torneoService.deleteTorneo(id).subscribe(() => {this.cargarTorneo(),
+        alert("Torneo eliminado");
+      });
     
   }
 
@@ -39,6 +43,8 @@ export class TorneoListAdmin implements OnInit{
     this.router.navigate(['/equipos-admin', torneoId]);
   }
 
+    goBack(): void {
+    this.location.back();
+  }
   
-
 }

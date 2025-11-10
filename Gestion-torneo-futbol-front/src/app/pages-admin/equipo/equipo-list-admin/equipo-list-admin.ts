@@ -1,26 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
-import { RouterLink, RouterModule } from "@angular/router";
-import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Route, RouterLink, RouterModule } from "@angular/router";
+import { CommonModule, Location } from '@angular/common';
+import { TorneoService } from '../../../service/torneo-service/torneo-service';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-equipo-list',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, TranslocoPipe],
   templateUrl: './equipo-list-admin.html',
   styleUrl: './equipo-list-admin.css',
 })
 export class EquipoListAdmin implements OnInit{
 
   
-        equipos: Equipo[] = [];
+      equipos: Equipo[] = [];
+      nombreTorneo?: string;
+      private todosEquipos: Equipo[] = [];
+      torneoId: string | null = null;
     
-      constructor(private equipoService: EquipoService) {}
+      constructor(private equipoService: EquipoService,
+                private location: Location,
+                private route: ActivatedRoute,
+                private torneoService: TorneoService,
+      ) {}
     
       ngOnInit(): void {
-        this.cargarEquipo();
-      }
-    
+
+    this.torneoId = this.route.snapshot.paramMap.get('id');
+
+    if (!this.torneoId) {
+      console.error('No se encontró ID de torneo en la URL');
+      return;
+    }
+
+    this.torneoService.getTorneoById(this.torneoId).subscribe(torneoData => {
+      this.nombreTorneo = torneoData.nombre;
+    });
+
+    this.equipoService.getEquipos().subscribe(data => { 
+      this.todosEquipos = data;
+      this.filtrarEquiposPorTorneo(); 
+    });
+  }
+
       cargarEquipo(): void {
     
         this.equipoService.getEquipos().subscribe(data => {
@@ -30,10 +54,25 @@ export class EquipoListAdmin implements OnInit{
     
       deleteEquipo(id: string): void {
       
-          this.equipoService.deleteEquipo(id).subscribe(() => this.cargarEquipo());
+          this.equipoService.deleteEquipo(id).subscribe(() => {
+            alert("equipo eliminado")
+          });
         
       }
+
+      filtrarEquiposPorTorneo(): void {
+    if (this.torneoId) { 
+      this.equipos = this.todosEquipos.filter(
+        (equipo) => equipo.idTorneo === this.torneoId 
+      );
+    } else {
+      this.equipos = [];
+    }
+  }
   
+    goBack(): void {
+    this.location.back();
+  }
 
 
 }

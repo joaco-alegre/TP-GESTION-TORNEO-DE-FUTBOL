@@ -7,9 +7,8 @@ import { TorneoList } from './pages/torneo/torneo-list/torneo-list';
 import { TorneoDetails } from './pages/torneo/torneo-details/torneo-details';
 import { JugadorList } from './pages/jugador/jugador-list/jugador-list';
 import { JugadorDetails } from './pages/jugador/jugador-details/jugador-details';
-import { UsuarioForm } from './pages/usuario/usuario-form/usuario-form';
-import { UsuarioHome } from './pages/usuario/usuario-home/usuario-home';
-import { UsuarioLogin } from './pages/usuario/usuario-login/usuario-login';
+import { UsuarioHome } from './pages-admin/usuario/usuario-home/usuario-home';
+import { UsuarioLogin } from './pages-admin/usuario/usuario-login/usuario-login';
 import { FixtureDetails } from './pages/fixture/fixture-details/fixture-details';
 import { TorneoAdmin } from './pages/admin/torneo-admin/torneo-admin';
 import { TorneoListAdmin } from './pages-admin/torneo/torneo-list-admin/torneo-list-admin';
@@ -42,6 +41,8 @@ export const routes: Routes = [
     {path: 'torneo-details-admin/:id', component: TorneoDetailsAdmin},
     {path: 'torneo-formulario-admin/:id', component: TorneoFormAdmin},
     {path: 'torneo-formulario-admin', component: TorneoFormAdmin},
+
+    
     {path: 'equipo-admin/:id', component: EquipoListAdmin},
     {path: 'equipo-details-admin/:id', component: EquipoDetailsAdmin},
     {path: 'equipo-formulario-admin/:id', component: EquipoFormAdmin},

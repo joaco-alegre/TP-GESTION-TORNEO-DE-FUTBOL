@@ -4,7 +4,6 @@
 
   <h2 class="titulo-torneo" data-aos="fade-down"
      data-aos-anchor-placement="top-center">{{equipo?.nombre}}</h2>
-
   
     <div data-aos="fade-right">
       <h3 class="section-title">{{ 'equipoDetalles.tituloDetalles' | transloco }}</h3>
@@ -20,7 +19,7 @@
 
             <div class="equipo-card-info">
               <h4>{{ equipo.nombre }}</h4>
-              <p><b>{{ 'equipoDetalles.etiquetaTorneo' | transloco }}</b> {{ equipo.nombreTorneo }}</p>
+              <p><b>{{ 'equipoDetalles.etiquetaTorneo' | transloco }}</b> {{ getNombreTorneo(equipo.idTorneo) }}</p>
             </div>
           
           </div>

@@ -1,12 +1,19 @@
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
 
-<h2>{{ torneoID ? 'Editar Torneo' : 'Agregar Torneo' }}</h2>
+<h2 data-aos="fade-up"
+     data-aos-anchor-placement="top-center">{{ torneoID ? 'Editar Torneo' : 'Agregar Torneo' }}</h2>
 
-<form [formGroup]="torneoForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="torneoForm" (ngSubmit)="onSubmit()" data-aos="zoom-in">
 
-        <label for="nombre">Nombre: </label>
-  <input id="nombre" type="text" formControlName="nombre">
+  @if (torneoID) {
+    <label for="nombre">ID: </label>
+    <input id="id" type="text" formControlName="id" placeholder="id" readonly>
+  }
 
-    <label for="logo">Logo: </label>
+  <label for="nombre">Nombre: </label>
+  <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre">
+
+  <label for="logo">Logo: </label>
   <input id="logo" type="file" formControlName="logo">
 
   <label for="ultimoCampeon">Ultimo Campeon: </label>
@@ -16,8 +23,15 @@
     <p class="validation-error" >El título es obligatorio.</p>
   } -->
 
-  <label for="estado">Estado: </label>
-  <input id="estado" type="text" formControlName="estado">
+<label for="estado">Estado:</label>
+<select id="estado" formControlName="estadoTorneo">
+  
+  <option value="" disabled selected>Selecciona un estado</option>
+  <option value="por_empezar">Por empezar</option>
+  <option value="empezado">Empezado</option>
+  <option value="finalizado">Finalizado</option>
+  
+</select>
   <!-- @if(movieForm.get('anio')?.invalid && movieForm.get('anio')?.touched){
     <p class="validation-error">El año es obligatorio y debe ser mayor a 1900.</p>
   } -->
@@ -27,9 +41,6 @@
 
     <label for="fechaFin">Fecha de Finalizacion: </label>
   <input id="fechaFin" type="date" formControlName="fechaFin">
-
-
-
 
   <button type="submit">{{ torneoID ? 'Actualizar' : 'Agregar' }}</button>
 </form>

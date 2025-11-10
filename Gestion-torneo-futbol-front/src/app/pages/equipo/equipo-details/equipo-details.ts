@@ -11,6 +11,8 @@ import Jugador from '../../../model/jugador';
 import Fixture from '../../../model/fixture';
 import DT from '../../../model/dt';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { TorneoService } from '../../../service/torneo-service/torneo-service';
+import Torneo from '../../../model/torneo';
 
 @Component({
   selector: 'app-details',
@@ -31,11 +33,13 @@ export class EquipoDetails implements OnInit{
   private todosJugadores: Jugador[] = [];
   private todosFixtures: Fixture[] = [];
   private todosEquipos: Equipo[] = [];
+  private todosTorneos: Torneo[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private equipoService: EquipoService,
     private dtService: DtService,
+    private torneoService: TorneoService,
     private jugadorService: JugadorService,
     private fixtureService: FixtureService, 
     private tituloService: Title,
@@ -82,6 +86,10 @@ export class EquipoDetails implements OnInit{
       this.todosEquipos = data;
     });
 
+    this.torneoService.getTorneo().subscribe((data: Torneo[]) => {
+      this.todosTorneos = data;
+    });
+
   }
 
   filtrarDtPorEquipo(): void {
@@ -121,6 +129,15 @@ getEscudo(equipoID: string): string {
   }
   return 'assets/icons/icono.png'; 
 }
+
+getNombreTorneo(idTorneo: string): string {
+
+    const torneo = this.todosTorneos.find(t => t.id === idTorneo);
+    if (torneo) {
+      return torneo.nombre;
+    }
+    return 'Torneo no especificado';
+  }
 
     goBack(): void {
     this.location.back();

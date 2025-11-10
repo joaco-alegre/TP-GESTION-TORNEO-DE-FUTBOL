@@ -1,7 +1,10 @@
-<div class="admin-container">
-<h2>Lista de Torneos</h2>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
 
-<ul>
+<div class="admin-container" >
+<h2  data-aos="fade-down"
+     data-aos-anchor-placement="top-center">Lista de Torneos</h2>
+
+<ul data-aos="fade-left">
   @for (torneo of torneos; track torneo.id) {
     <li [routerLink]="['/equipo-admin/', torneo.id]" class="fila-clickeable">
       
@@ -12,13 +15,13 @@
       
       <div class="action-buttons">
         <button class="btn-detalles" 
-                [routerLink]="['/torneo-details-admin', torneo.id]" 
+                [routerLink]="['/torneo-details-admin/', torneo.id]" 
                 (click)="$event.stopPropagation()">
           Detalles
         </button>
         
         <button class="btn-editar" 
-                [routerLink]="['/torneo-formulario-admin', torneo.id]" 
+                [routerLink]="['/torneo-formulario-admin/', torneo.id]" 
                 (click)="$event.stopPropagation()">
           Editar
         </button>

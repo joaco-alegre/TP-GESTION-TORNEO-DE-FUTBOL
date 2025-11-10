@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EquipoForm } from './equipo-form-admin';
+import { EquipoFormAdmin } from './equipo-form-admin';
 
 describe('EquipoForm', () => {
-  let component: EquipoForm;
-  let fixture: ComponentFixture<EquipoForm>;
+  let component: EquipoFormAdmin;
+  let fixture: ComponentFixture<EquipoFormAdmin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EquipoForm]
+      imports: [EquipoFormAdmin]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EquipoForm);
+    fixture = TestBed.createComponent(EquipoFormAdmin);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

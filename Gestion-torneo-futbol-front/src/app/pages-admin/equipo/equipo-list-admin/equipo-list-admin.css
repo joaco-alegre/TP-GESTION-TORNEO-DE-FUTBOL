@@ -1,31 +1,26 @@
-/* Contenedor principal (centra todo y da espacio) */
+
 .admin-container {
   max-width: 900px;
   margin: 40px auto 40px auto;
 }
 
-/* Título (centrado, línea de acento) */
 h2 {
   font-size: 2rem;
-  color: #2c3e50;
+  color: var(--color-texto);
   text-align: center;
   font-weight: 600;
   margin: 0;
   padding-bottom: 15px;
   margin-bottom: 30px;
-  
-  /* Línea de acento corta (del ancho del contenedor) */
-  border-bottom: 1.5px solid #00334e; 
+  border-bottom: 1.9px solid var(--color-texto); 
 }
 
-/* Lista (ul) - solo es un contenedor */
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Fila/Tarjeta (li) - separada, con borde y animación */
 li.fila-clickeable {
   display: flex;
   justify-content: space-between; 
@@ -33,11 +28,7 @@ li.fila-clickeable {
   padding: 20px; 
   background-color: #ffffff;
   cursor: pointer;
-  
-  /* Animación suave (0.3s) */
   transition: background-color 0.2s, transform 0.3s ease-out; 
-  
-  /* Tarjetas separadas (15px de espacio) */
   margin-bottom: 15px; 
   border-radius: 8px; 
   border: 1px solid #ddd; 
@@ -47,17 +38,15 @@ li.fila-clickeable:last-child {
   margin-bottom: 0; 
 }
 
-/* Efecto hover: se agranda suavemente */
 li.fila-clickeable:hover {
   background-color: #f9f9f9;
-  transform: scale(1.02); /* Agrandado leve */
+  transform: scale(1.02); 
 }
 
-/* Lado izquierdo (Logo y Nombre) */
 .item-info {
   display: flex;
   align-items: center;
-  gap: 15px; /* Espacio entre logo y nombre */
+  gap: 15px; 
 }
 
 .item-logo {
@@ -74,13 +63,11 @@ li.fila-clickeable:hover {
   color: #444;
 }
 
-/* Lado derecho (Botones) */
 .action-buttons {
   display: flex;
   gap: 8px; 
 }
 
-/* Estilo base de los botones */
 li button {
   font-size: 0.9rem;
   padding: 6px 12px;
@@ -91,7 +78,6 @@ li button {
   transition: transform 0.15s ease-out, background-color 0.2s;
 }
 
-/* Efecto hover: se agrandan más */
 li button:hover {
   transform: scale(1.1);
 }
@@ -100,7 +86,6 @@ li button:active {
   transform: scale(1.0);
 }
 
-/* Botón "Detalles" (Azul Fuerte) */
 .btn-detalles {
   background-color: #0069d9;
   border: 1px solid #0062cc;
@@ -109,39 +94,36 @@ li button:active {
   background-color: #0056b3;
 }
 
-/* Botón "Editar" (Naranja Fuerte) */
 .btn-editar {
   background-color: #ffb60a;
   color: #212529;
   border: 1px solid #e0a000;
 }
+
 .btn-editar:hover {
   background-color: #e0a000;
 }
 
-/* Botón "Eliminar" (Rojo Fuerte) */
 .btn-eliminar {
   background-color: #d93025;
   border: 1px solid #c82333;
 }
+
 .btn-eliminar:hover {
   background-color: #c82333;
 }
 
-/* Mensaje de lista vacía */
 .empty-list {
   padding: 20px;
   text-align: center;
   color: #777;
 }
 
-/* Contenedor para centrar el botón "Agregar" */
 .agregar-container {
   text-align: center;
   margin-top: 30px;
 }
 
-/* Botón "Agregar" (Verde) */
 .btn-agregar { 
   display: inline-block;
   padding: 12px 20px;
@@ -158,9 +140,22 @@ li button:active {
 
 .btn-agregar:hover {
   background-color: #218838;
-  transform: scale(1.05); /* Efecto de agrandar */
+  transform: scale(1.05); 
 }
 
 .btn-agregar:active {
   transform: scale(1.0);
+}
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color:var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
 }

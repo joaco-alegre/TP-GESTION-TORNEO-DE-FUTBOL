@@ -1,20 +1,25 @@
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
 @if (torneo) {
-  <div class="card-detalle-admin">
+  <div class="card-detalle-admin" data-aos="zoom-in-up">
 
     <h2>{{ torneo.nombre }}</h2>
 
-    <div class="detalle-imagenes">
-      
-      <div class="imagen-box">
-        <h3>Logo del Torneo</h3>
-        <img [src]="torneo.logo" [alt]="'Logo de ' + torneo.nombre">
-      </div>
-      
-        <h3>Último Campeón</h3>
-        <img [src]="torneo.ultimoCampeon" [alt]="'Escudo de ' + torneo.ultimoCampeon">
-          <p class="campeon-nombre">{{ torneo.ultimoCampeon}}</p>
 
-      </div>
+<div class="detalle-imagenes">
+  
+  <div class="imagen-box">
+    <h3>Logo del Torneo</h3>
+    <img [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" [alt]="'Logo de ' + torneo.nombre">
+  </div>
+  
+  <div class="imagen-box campeon-box">
+    <h3>Último Campeón</h3>
+    <img [src]="torneo?.ultimoCampeon ? torneo?.ultimoCampeon : 'assets/icons/gente.png'" [alt]="'Escudo del último campeón'">
+  </div>
+
+</div>
+
 
     <div class="detalle-datos">
       <h3>Detalles del Torneo</h3>

@@ -1,8 +1,10 @@
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
 <div class="admin-container">
 
-  <h2>Lista de equipos</h2>
+  <h2 data-aos="fade-down">Lista de equipos de {{nombreTorneo}}</h2>
 
-  <ul>
+  <ul data-aos="zoom-out-down">
     @for (equipo of equipos; track equipo.id) {
       <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable">
         

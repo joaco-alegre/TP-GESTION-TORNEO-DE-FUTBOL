@@ -1,64 +1,42 @@
-/* Título: Centrado y "más lindo" (más grande, con un acento) 
-*/
-
 .admin-container {
-  max-width: 900px; /* El ancho que tenía tu lista */
-  margin: 0 auto;  /* Centra todo el bloque */
-  
-  /* Espacio con el header y footer */
+  max-width: 900px; 
+  margin: 0 auto;  
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
 h2 {
   font-size: 2rem;
-  color: #00334e;
+  color: var(--color-texto);
   text-align: center;
   font-weight: 600;
-  margin: 0; /* Quitamos márgenes extra */
-  padding-bottom: 15px; /* Espacio entre texto y línea */
+  margin: 0;
+  padding-bottom: 15px; 
   margin-bottom: 30px;
-  
-  /* LÍNEA: Ahora que el h2 está DENTRO del container,
-    el border-bottom tendrá el ancho correcto.
-  */
-  border-bottom: 2px solid #00334e;
+  border-bottom: 2px solid var(--color-texto);
 }
 
-/* Lista (ul): Más corta (max-width) y centrada (margin: auto)
-*/
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
   max-width: 900px;
-  /* border: 1px solid #ddd;
-  border-radius: 8px;
-  overflow: hidden; */
 }
 
-/* Items (li): Más altos (padding) y con layout flex
-*/
 li.fila-clickeable {
   display: flex;
-  justify-content: space-between; /* Izquierda vs Derecha */
+  justify-content: space-between; 
   align-items: center;
-  
-  /* Tu petición: "Más alta" */
   padding: 20px; 
-  
   background-color: #ffffff;
-  /* border-bottom: 1px solid #f0f0f0; */
-transition: background-color 0.2s, transform 0.3s ease-out;
+  transition: background-color 0.2s, transform 0.3s ease-out;
   cursor: pointer;
-  margin-bottom: 20px; /* <-- ESTE ES EL ESPACIO ENTRE CADA ITEM */
-  border-radius: 8px; /* <-- Bordes redondeados para cada item */
+  margin-bottom: 20px; 
+  border-radius: 8px; 
   border: 1px solid #ddd;
 }
 
 li.fila-clickeable:last-child {
-  /* border-bottom: none;
-   */
    margin-bottom: 0;
 }
 
@@ -67,36 +45,31 @@ li.fila-clickeable:hover {
   transform: scale(1.03);
 }
 
-/* NUEVO: Lado izquierdo (Logo y Nombre) 
-*/
 .torneo-info {
   display: flex;
   align-items: center;
-  gap: 15px; /* Espacio entre logo y nombre */
+  gap: 15px; 
 }
 
 .torneo-logo {
   width: 50px;
   height: 50px;
-  object-fit: contain; /* Para que los logos no se deformen */
+  object-fit: contain; 
   border-radius: 8px;
-  background-color: #f4f4f4; /* Fondo por si el logo es transparente */
+  background-color: #f4f4f4; 
 }
 
 .torneo-nombre {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #444;
+  color: var(--color-texto-tarjeta);
 }
 
-/* NUEVO: Lado derecho (Botones) 
-*/
 .action-buttons {
   display: flex;
-  gap: 8px; /* Botones uno al lado del otro */
+  gap: 8px; 
 }
 
-/* Estilo de los botones (ahora usando clases) */
 li button {
   font-size: 0.9rem;
   padding: 6px 12px;
@@ -104,35 +77,27 @@ li button {
   border-radius: 5px;
   cursor: pointer;
   color: white;
-  
-  /* 1. TRANSICIÓN: 
-     Le dice que la animación del "transform" dure 0.15 segundos 
-     (para que no sea instantánea y brusca)
-  */
   transition: transform 0.15s ease-out, background-color 0.2s;
 }
 
 li button:hover {
-  /* scale(1.1) = Agrandar el botón al 110% de su tamaño original.
-    Puedes usar 1.05 (más sutil) o 1.2 (más grande).
-  */
   transform: scale(1.1);
 }
 
 li button:active {
-  transform: scale(1.0); /* Vuelve al 100% (o 0.98 si prefieres) */
+  transform: scale(1.0);
 }
 
 .btn-detalles {
-  background-color: #0069d9; /* Azul más intenso */
-  border: 1px solid #0062cc; /* Borde sutil para profundidad */
+  background-color: #0069d9;
+  border: 1px solid #0062cc; 
 }
 .btn-detalles:hover {
-  background-color: #0056b3; /* Más oscuro al pasar el mouse */
+  background-color: #0056b3; 
 }
 
 .btn-editar {
-  background-color: #ffb60a; /* Naranja/Amarillo */
+  background-color: #ffb60a; 
   color: #212529;
   border: 1px solid #e0a000;
 }
@@ -141,36 +106,32 @@ li button:active {
 }
 
 .btn-eliminar {
-  background-color: #d93025; /* Rojo de Google */
+  background-color: #d93025; 
   border: 1px solid #c82333;
 }
 .btn-eliminar:hover {
   background-color: #c82333;
 }
 
-/* Mensaje de lista vacía */
 p.empty-list {
   padding: 20px;
   text-align: center;
   color: #777;
 }
 
-/* NUEVO: Contenedor para centrar el botón "Agregar" 
-*/
 .agregar-container {
-  text-align: center; /* Centra el botón */
+  text-align: center; 
   margin-top: 30px;
   margin-bottom: 40px;
 }
 
-/* Botón principal "Agregar Torneo" (tu estilo original) */
 .btn-add-torneo { 
   display: inline-block;
   padding: 12px 20px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  background-color: #28a745; /* Verde */
+  background-color: #28a745; 
   color: white;
   border: none;
   border-radius: 5px;
@@ -179,15 +140,24 @@ p.empty-list {
 
 }
 
-/* 2. MODIFICA EL :hover (para que también cambie el fondo) */
 .btn-add-torneo:hover {
   background-color: #218838;
-  
-  /* 3. AÑADE EL scale() (1.05 es más sutil para un botón grande) */
   transform: scale(1.05);
 }
 
-/* 4. Opcional: efecto al hacer clic */
 .btn-add-torneo:active {
   transform: scale(1.0);
+}
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color:var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
 }

@@ -2,8 +2,8 @@
   "equipos": [
     {
       "id": "e-001",
-      "nombre": "Los Halcones",
-      "nombreTorneo": "Copa del Rey",
+      "nombre": "Los Halcones22",
+      "escudo": "",
       "idTorneo": "t-001"
     },
     {
@@ -14,8 +14,8 @@
     },
     {
       "id": "e-003",
-      "nombre": "Real Deportivo",
-      "nombreTorneo": "Copa del Rey",
+      "nombre": "Real Deportivo 4",
+      "escudo": "",
       "idTorneo": "t-001"
     },
     {
@@ -47,12 +47,6 @@
       "nombre": "Sporting Club",
       "nombreTorneo": "Liga Metropolitana",
       "idTorneo": "t-006"
-    },
-    {
-      "id": "e-009",
-      "nombre": "La Furia",
-      "nombreTorneo": "Torneo Relámpago",
-      "idTorneo": "t-004"
     }
   ]
 }

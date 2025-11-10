@@ -57,6 +57,7 @@ ngOnInit(): void {
   });
 }
 
+
   filtrarEquiposPorTorneo(): void {
     if (this.id) {
       this.filtrarEquipos = this.todosEquipos.filter(

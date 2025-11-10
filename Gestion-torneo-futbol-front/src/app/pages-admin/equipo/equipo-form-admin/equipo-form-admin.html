@@ -3,10 +3,18 @@
 
 <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
 
-        <label for="nombre">Nombre: </label>
+  @if (equipoID) {
+  <label for="id">ID: </label>
+  <input id="id" type="text" formControlName="id" readonly>
+  }
+
+  <label for="nombre">Nombre: </label>
   <input id="nombre" type="text" formControlName="nombre">
 
-    <label for="escudo">Escudo: </label>
+  <label for="idTorneo">ID Torneo: </label>
+  <input id="idTorneo" type="text" formControlName="idTorneo" readonly>
+
+  <label for="escudo">Escudo: </label>
   <input id="escudo" type="file" formControlName="escudo">
 
   <button type="submit">{{ equipoID ? 'Actualizar' : 'Agregar' }}</button>

@@ -1,14 +1,14 @@
-/* Título del formulario */
+
 h2 {
+  font-size: 2.1rem;
   text-align: center;
-  color: #333;
-  margin-top: 0;
+  color: var(--color-texto);
+  margin: 25px 0;
   margin-bottom: 25px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid var(--color-texto);
   padding-bottom: 15px;
 }
 
-/* Contenedor principal del formulario (estilo tarjeta) */
 form {
   max-width: 600px;
   margin: 20px auto;
@@ -19,17 +19,15 @@ form {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Etiquetas (Nombre, Escudo) */
 label {
   display: block;
-  margin-top: 20px; /* Espacio entre cada campo */
+  margin-top: 20px; 
   margin-bottom: 6px;
   font-weight: 600;
   color: #555;
   font-size: 0.9rem;
 }
 
-/* Estilo base para todos los inputs */
 input[type="text"],
 input[type="file"] {
   display: block;
@@ -39,21 +37,24 @@ input[type="file"] {
   color: #333;
   border: 1px solid #ccc;
   border-radius: 5px;
-  
-  /* Importante para que el padding no rompa el ancho */
   box-sizing: border-box; 
 }
 
-/* Efecto de foco para el input de texto */
 input[type="text"]:focus {
   border-color: #007bff;
   box-shadow: 0 0 5px rgba(0,123,255,0.25);
   outline: none;
 }
 
-/* Estilo moderno para el input[type="file"] */
+input[readonly] {
+  background-color: #e9ecef; 
+  cursor: not-allowed;     
+  opacity: 0.8;             
+}
+
+
 input[type="file"] {
-  padding: 5px; /* Menos padding para el contenedor */
+  padding: 5px; 
   background-color: #f9f9f9;
 }
 
@@ -65,7 +66,7 @@ input[type="file"]::file-selector-button {
   border-right: 1px solid #ccc;
   padding: 8px 12px;
   margin-right: 12px;
-  border-radius: 5px 0 0 5px; /* Redondea solo el lado izquierdo */
+  border-radius: 5px 0 0 5px; 
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -74,17 +75,16 @@ input[type="file"]::file-selector-button:hover {
   background-color: #dde2e6;
 }
 
-/* Estilo para el botón de Submit (Agregar/Actualizar) */
 button[type="submit"] {
   display: block;
   width: 100%;
   padding: 12px;
-  margin-top: 30px; /* Espacio extra antes del botón final */
+  margin-top: 30px; 
   
   font-size: 1.1rem;
   font-weight: 600;
   
-  background-color: #28a745; /* Verde */
+  background-color: #28a745;
   color: white;
   
   border: none;
@@ -97,9 +97,9 @@ button[type="submit"]:hover {
   background-color: #218838;
 }
 
-/* Clase para mensajes de validación (si los añades) */
+
 .validation-error {
-  color: #dc3545; /* Rojo de error */
+  color: #dc3545; 
   font-size: 0.9rem;
   margin-top: 4px;
   margin-bottom: 0;

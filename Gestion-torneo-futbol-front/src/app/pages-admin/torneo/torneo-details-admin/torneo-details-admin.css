@@ -1,10 +1,11 @@
 h2 {
-  font-size: 1.8rem;
-  color: #333;
-  margin-top: 0;
+  font-size: 2.5rem;
+  color: var(--color-texto-tarjeta);
+  margin: 20px 0;
+  
+  
 }
 
-/* La tarjeta principal */
 .card-detalle-admin {
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -15,49 +16,53 @@ h2 {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* Contenedor de las imágenes (Logo y Campeón) */
 .detalle-imagenes {
-  display: flex;
-  flex-wrap: wrap; /* Para que se apilen en móviles */
-  gap: 20px;
-  justify-content: center;
-  border-top: 1px solid #f0f0f0;
-  border-bottom: 1px solid #f0f0f0;
+  display: grid; 
+  grid-template-columns: 1fr; 
+  gap: 30px;
+  justify-items: center; 
+  align-items: center;
+  border-top: 1px solid #e7d4d4;
+  border-bottom: 1px solid #e7d4d4;
   padding: 20px 0;
   margin-bottom: 20px;
 }
 
 .imagen-box {
-  flex-basis: 200px; /* Ancho base para cada imagen */
   text-align: center;
 }
 
 .imagen-box h3 {
-  font-size: 1rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: #555;
-  margin-bottom: 10px;
+  color: var(--color-texto-tarjeta);
+  margin-bottom: 15px;
 }
 
 .imagen-box img {
-  width: 150px;
-  height: 150px;
-  object-fit: contain; /* Para que se vean completos (logo y escudo) */
+width: 200px;
+  height: 200px;
+  object-fit: contain; 
   border-radius: 8px;
   background-color: #f9f9f9;
   border: 1px solid #eee;
+}
+
+.campeon-box img {
+  width: 600px;  
+  height: 400px; 
+  object-fit: cover;  
 }
 
 .campeon-nombre {
   font-size: 1.1rem;
   font-weight: 600;
   margin-top: 10px;
-  color: #333;
+  color: #000;
 }
 
-/* Sección de la lista de datos */
 .detalle-datos h3 {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: #333;
   margin-top: 0;
 }
@@ -66,11 +71,12 @@ h2 {
   list-style: none;
   padding: 0;
   margin: 0;
+    color: #000;
 }
 
 .info-lista li {
   padding: 10px;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 1px solid #e7d4d4;
   display: flex;
   font-size: 1rem;
 }
@@ -81,6 +87,20 @@ h2 {
 
 .info-lista li b {
   color: #111;
-  width: 180px; /* Ancho fijo para alinear los valores */
+  width: 180px; 
   flex-shrink: 0;
+}
+
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color:var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
 }
