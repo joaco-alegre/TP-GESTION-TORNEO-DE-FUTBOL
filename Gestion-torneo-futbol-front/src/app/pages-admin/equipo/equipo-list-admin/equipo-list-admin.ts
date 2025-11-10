@@ -52,13 +52,36 @@ export class EquipoListAdmin implements OnInit{
           this.equipos = data});
       }
     
-      deleteEquipo(id: string): void {
+      // deleteEquipo(id: string): void {
       
-          this.equipoService.deleteEquipo(id).subscribe(() => {
-            alert("equipo eliminado")
-          });
+      //     this.equipoService.deleteEquipo(id).subscribe(() => {
+      //       this.filtrarEquiposPorTorneo(),
+      //       alert("equipo eliminado")
+      //     });
         
-      }
+      // }
+
+      deleteEquipo(id: string): void {
+  
+  if (!confirm("¿Estás seguro de que deseas eliminar este equipo?")) {
+    return; 
+  }
+  this.equipoService.deleteEquipo(id).subscribe(() => {
+    const index = this.todosEquipos.findIndex(equipo => equipo.id === id);
+    if (index > -1) {
+      this.todosEquipos.splice(index, 1);
+    }
+    this.filtrarEquiposPorTorneo(); 
+    alert("Equipo eliminado");
+  }, (error) => {
+    console.error("Error al eliminar el equipo:", error);
+    alert("No se pudo eliminar el equipo.");
+  });
+}
+
+
+
+
 
       filtrarEquiposPorTorneo(): void {
     if (this.torneoId) { 

@@ -1,19 +1,66 @@
-<div class="admin-container">
+
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
+<div class="admin-container" data-aos="fade-up">
+
+  <h2>Director Técnico</h2>
+
+<ul>
+  @if (dt) {
+    <li class="fila-clickeable">
+      
+      <div class="item-info">
+          <img  [src]="dt?.foto ? dt?.foto : 'assets/icons/persona.png'"  [alt]="dt.nombre" class="item-logo item-foto-jugador">
+          <span class="item-nombre">{{dt.nombre}}</span>
+        </div>
+      
+      <div class="action-buttons">
+        <button class="btn-detalles"
+                [routerLink]="['/dt-detalles-admin/', dt.id]" 
+                (click)="$event.stopPropagation()">
+          Detalles
+        </button>
+        
+        <button class="btn-editar"
+                [routerLink]="['/dt-formulario-admin/', dt.id]" 
+                (click)="$event.stopPropagation()">
+          Editar
+        </button>
+        
+        <button class="btn-eliminar" 
+                (click)="sacarDt(dt); $event.stopPropagation()">
+          Sacar
+        </button>
+        </div>
+    </li>
+  } @else {
+    <p class="empty-list">No hay DT asignado a este equipo.</p>
+    <div class="agregar-container">
+  <button class="btn-agregar" 
+          [routerLink]="['/dt-formulario-admin']"> 
+    Asignar DT
+  </button>
+</div>
+  }
+</ul>
+
+
+  <hr class="section-divider">
 
   <h2>Lista de Jugadores</h2>
 
   <ul>
     @for (jugador of jugadores; track jugador.id) {
-      <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable">
+      <li class="fila-clickeable">
         
         <div class="item-info">
-          <img  [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'"  [alt]="jugador.nombre" class="item-logo item-foto-jugador">
+          <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" [alt]="jugador.nombre" class="item-logo item-foto-jugador">
           <span class="item-nombre">{{jugador.nombre}}</span>
         </div>
         
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/jugador-details-admin/', jugador.id]" 
+                  [routerLink]="['/jugador-detalles-admin/', jugador.id]" 
                   (click)="$event.stopPropagation()">
             Detalles
           </button>
@@ -31,7 +78,7 @@
         </div>
       </li>
     } @empty {
-      <p class="empty-list">No hay jugadores registrados en este torneo.</p>
+      <p class="empty-list">No hay jugadores registrados en este equipo.</p>
     }
   </ul>
 

@@ -8,7 +8,7 @@ import DT from '../../model/dt';
 })
 export class DtService {
 
-   private url = 'http://localhost:3004/DTs'; 
+   private url = 'http://localhost:3003/DTs'; 
     //private nextId   = 1;
 
   constructor(private http: HttpClient) {}

@@ -38,7 +38,9 @@
   </ul>
 
   <div class="agregar-container">
-    <button class="btn-agregar" [routerLink]="['/equipo-formulario-admin']">Agregar Equipo</button>
+    <button class="btn-agregar" 
+    [routerLink]="['/equipo-formulario-admin']" 
+    [queryParams]="{ idTorneo: torneoId}">Agregar Equipo</button>
   </div>
 
 </div>

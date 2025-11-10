@@ -15,7 +15,9 @@ import { CommonModule, Location } from '@angular/common';
   templateUrl: './jugador-details.html',
   styleUrl: './jugador-details.css'
 })
-export class JugadorDetails implements OnInit{jugador?: Jugador;
+export class JugadorDetails implements OnInit{
+  
+  jugador?: Jugador;
   estadisticaGoleador?: EstadisticaGoleador;
   equipoDelJugador?: Equipo;
 

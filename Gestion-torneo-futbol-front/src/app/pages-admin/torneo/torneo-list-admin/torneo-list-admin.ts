@@ -32,6 +32,10 @@ export class TorneoListAdmin implements OnInit{
   }
 
   deleteTorneo(id: string): void {
+
+      if (!confirm("¿Estás seguro de que deseas eliminar este torneo?")) {
+    return; 
+  }
   
       this.torneoService.deleteTorneo(id).subscribe(() => {this.cargarTorneo(),
         alert("Torneo eliminado");

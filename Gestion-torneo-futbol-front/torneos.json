@@ -2,10 +2,12 @@
   "torneos": [
     {
       "id": "t-001",
-      "nombre": "Copa del Rey",
+      "nombre": "Copa del Rey ",
+      "logo": "",
+      "ultimoCampeon": "",
+      "estadoTorneo": "Programado",
       "fechaInicio": "2025-11-01T18:00:00Z",
-      "fechaFin": "2025-12-15T21:00:00Z",
-      "estadoTorneo": "Programado"
+      "fechaFin": "2025-12-15T21:00:00Z"
     },
     {
       "id": "t-002",
@@ -34,15 +36,6 @@
       "fechaInicio": "2025-08-15T12:00:00Z",
       "fechaFin": "2025-10-15T12:00:00Z",
       "estadoTorneo": "Finalizado"
-    },
-    {
-      "id": "abf7",
-      "nombre": "Copa potrero",
-      "logo": "",
-      "ultimoCampeon": "",
-      "estadoTorneo": "finalizado",
-      "fechaInicio": "2025-11-16",
-      "fechaFin": "2025-12-01"
     }
   ]
 }

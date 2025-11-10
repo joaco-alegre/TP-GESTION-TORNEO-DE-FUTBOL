@@ -2,51 +2,57 @@
   "equipos": [
     {
       "id": "e-001",
-      "nombre": "Los Halcones22",
+      "nombre": "Los Halcones",
       "escudo": "",
       "idTorneo": "t-001"
     },
     {
       "id": "e-002",
       "nombre": "Titanes FC",
-      "nombreTorneo": "Copa del Rey",
+      "escudo": "",
       "idTorneo": "t-001"
     },
     {
       "id": "e-003",
-      "nombre": "Real Deportivo 4",
+      "nombre": "Real Deportivo",
       "escudo": "",
       "idTorneo": "t-001"
     },
     {
       "id": "e-004",
       "nombre": "Gladiadores",
-      "nombreTorneo": "Liga Anual de Verano",
+      "escudo": "",
       "idTorneo": "t-002"
     },
     {
       "id": "e-005",
       "nombre": "El Ciclón",
-      "nombreTorneo": "Liga Anual de Verano",
+      "escudo": "",
       "idTorneo": "t-002"
     },
     {
       "id": "e-006",
       "nombre": "Atlético Central",
-      "nombreTorneo": "Liga Metropolitana",
+      "escudo": "",
       "idTorneo": "t-006"
     },
     {
       "id": "e-007",
       "nombre": "Defensores del Barrio",
-      "nombreTorneo": "Liga Metropolitana",
+      "escudo": "",
       "idTorneo": "t-006"
     },
     {
       "id": "e-008",
       "nombre": "Sporting Club",
-      "nombreTorneo": "Liga Metropolitana",
+      "escudo": "",
       "idTorneo": "t-006"
+    },
+    {
+      "id": "2963",
+      "nombre": "Real madrid",
+      "escudo": "",
+      "idTorneo": "t-001"
     }
   ]
 }

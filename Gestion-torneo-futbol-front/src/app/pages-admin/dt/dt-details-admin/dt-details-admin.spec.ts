@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DtFormAdmin } from './dt-form-admin';
+import { DtDetailsAdmin } from './dt-details-admin';
 
-describe('DtFormAdmin', () => {
-  let component: DtFormAdmin;
-  let fixture: ComponentFixture<DtFormAdmin>;
+describe('DtDetailsAdmin', () => {
+  let component: DtDetailsAdmin;
+  let fixture: ComponentFixture<DtDetailsAdmin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DtFormAdmin]
+      imports: [DtDetailsAdmin]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DtFormAdmin);
+    fixture = TestBed.createComponent(DtDetailsAdmin);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

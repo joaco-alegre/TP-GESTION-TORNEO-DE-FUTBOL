@@ -29,7 +29,7 @@ export class TorneoFormAdmin implements OnInit{
 
     this.torneoForm = this.fb.group({
       
-      id: ['', Validators.required],
+      id: [''],
       nombre: ['', Validators.required],
       logo: ['', []],
       ultimoCampeon: ['', []],
@@ -70,6 +70,8 @@ this.torneoID = this.route.snapshot.params['id'];
     } else {
 
       const torneoData = this.torneoForm.value; 
+
+      delete torneoData.id;
       
       this.torneoService.postTorneo(torneoData).subscribe({
         next: () => {this.router.navigate(['/torneos-admin']),

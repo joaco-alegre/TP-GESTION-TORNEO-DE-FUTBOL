@@ -20,6 +20,10 @@ import { EquipoDetailsAdmin } from './pages-admin/equipo/equipo-details-admin/eq
 import { EquipoFormAdmin } from './pages-admin/equipo/equipo-form-admin/equipo-form-admin';
 import { JugadorListAdmin } from './pages-admin/jugadores/jugador-list-admin/jugador-list-admin';
 import { JugadorDetailsAdmin } from './pages-admin/jugadores/jugador-details-admin/jugador-details-admin';
+import { DtDetails } from './pages/dt/dt-details/dt-details';
+import { DtDetailsAdmin } from './pages-admin/dt/dt-details-admin/dt-details-admin';
+import { DtFormAdmin } from './pages-admin/dt/dt-form-admin/dt-form-admin';
+import { JugadorFormAdmin } from './pages-admin/jugadores/jugador-form-admin/jugador-form-admin';
 
 export const routes: Routes = [
     {path: '', 
@@ -41,14 +45,18 @@ export const routes: Routes = [
     {path: 'torneo-details-admin/:id', component: TorneoDetailsAdmin},
     {path: 'torneo-formulario-admin/:id', component: TorneoFormAdmin},
     {path: 'torneo-formulario-admin', component: TorneoFormAdmin},
-
-    
     {path: 'equipo-admin/:id', component: EquipoListAdmin},
     {path: 'equipo-details-admin/:id', component: EquipoDetailsAdmin},
     {path: 'equipo-formulario-admin/:id', component: EquipoFormAdmin},
     {path: 'equipo-formulario-admin', component: EquipoFormAdmin},
     {path: 'jugador-lista-admin/:id', component: JugadorListAdmin},
     {path: 'jugador-detalles-admin/:id', component: JugadorDetailsAdmin},
+    {path: 'dt-detalles-admin/:id', component: DtDetailsAdmin},
+    {path: 'dt-formulario-admin/:id', component: DtFormAdmin},
+    {path: 'jugador-formulario-admin/:id', component: JugadorFormAdmin},
+
+
+
 
 
 

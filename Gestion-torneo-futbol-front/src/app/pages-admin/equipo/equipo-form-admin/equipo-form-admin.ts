@@ -4,10 +4,12 @@ import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Equipo from '../../../model/equipo';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
+import { CommonModule, Location } from '@angular/common';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-equipo-form',
-  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule],
+  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, TranslocoPipe],
   templateUrl: './equipo-form-admin.html',
   styleUrl: './equipo-form-admin.css',
 })
@@ -22,7 +24,8 @@ export class EquipoFormAdmin implements OnInit{
     private equipoService: EquipoService,
     private torneoService: TorneoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -36,24 +39,27 @@ export class EquipoFormAdmin implements OnInit{
     });
 
 this.equipoID = this.route.snapshot.params['id'];
+
     if (this.equipoID) {
+
       this.equipoService.getEquipoById(this.equipoID)
         .subscribe(data => {
           const datosParaFormulario = { ...data };
           this.equipoForm.patchValue(datosParaFormulario);
+          this.torneoID = data.idTorneo;
         });
 
-this.torneoID = this.route.snapshot.params['idTorneo'];
+    }else{
+
+    this.torneoID = this.route.snapshot.queryParamMap.get('idTorneo') || undefined;
+
     if (this.torneoID) {
-      this.torneoService.getTorneoById(this.torneoID)
-        .subscribe(data => {
-          const datosParaFormulario = { ...data };
-          this.equipoForm.patchValue(datosParaFormulario);
-        })}    
+      this.equipoForm.patchValue({ idTorneo: this.torneoID });
 
-      }
-  }
+    }
+  }    
 
+}
 
 
 
@@ -61,12 +67,14 @@ this.torneoID = this.route.snapshot.params['idTorneo'];
 
 if (this.equipoForm.invalid) return;
 
+const idTorneoParaNavegar = this.equipoForm.value.idTorneo;
+
     if (this.equipoID) {
 
       const equipoData: Equipo = { id: this.equipoID, ...this.equipoForm.value }; 
 
       this.equipoService.updateEquipo(equipoData).subscribe({
-        next: () => {this.router.navigate(['/equipo-admin/', this.equipoID]),
+        next: () => {this.router.navigate(['/equipo-admin/', this.torneoID]),
             alert("Equipo actualizado!")},
         error: (e) => {console.log(e), 
             alert("error al actualizar el equipo"),
@@ -75,7 +83,9 @@ if (this.equipoForm.invalid) return;
 
     } else {
 
-      const equipoData = this.equipoForm.value; 
+      const equipoData = this.equipoForm.value;
+      
+      delete equipoData.id;
       
       this.equipoService.postEquipo(equipoData).subscribe({
         next: () => {this.router.navigate(['/equipo-admin/', this.torneoID]),
@@ -86,6 +96,10 @@ if (this.equipoForm.invalid) return;
         } });
     }
 }
+
+    goBack(): void {
+    this.location.back();
+  }
 
 
 }

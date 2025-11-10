@@ -1,0 +1,34 @@
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
+@if (dt) {
+
+  <div class="detalle-container" data-aos="zoom-in-up"> 
+    
+    <h2 class="titulo-pagina">{{ dt.nombre }}</h2>
+
+    <div class="card card-detalles">
+      
+      <div class="card-foto">
+        <img 
+          [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'" 
+          [alt]="'Foto de ' + dt.nombre">
+      </div>
+
+      <div class="card-info">
+        <h3>Detalles del Director Tecnico</h3>
+        <ul class="info-lista">
+          <li>
+            <b>Nombre:</b> {{ dt.nombre }}
+          </li>
+          <li>
+            <b>Estilo de juego:</b> {{ dt.estiloJuego }}
+          </li>
+          </ul>
+      </div>
+    </div>
+
+  </div>
+
+} @else {
+  <p class="empty-list">Cargando datos del DT...</p>
+}

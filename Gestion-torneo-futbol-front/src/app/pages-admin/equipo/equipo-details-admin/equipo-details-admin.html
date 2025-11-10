@@ -1,11 +1,16 @@
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
 @if (equipo) {
-  <div class="card-detalle-admin">
+  <div class="card-detalle-admin" data-aos="fade-up">
 
     <h2>{{ equipo.nombre }}</h2>
       
-      <div class="imagen-box">
-        <h3>Logo del Equipo</h3>
-        <img [src]="equipo.escudo" [alt]="'Escudo de ' + equipo.nombre">
+    <div class="imagen-box">
+      <h3>Logo del Equipo</h3>
+      <img 
+        [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
+        [alt]="'Escudo de ' + equipo.nombre">
+    </div>
 
     <div class="detalle-datos">
       <h3>Detalles del Equipo</h3>
@@ -17,12 +22,14 @@
           <b>Nombre:</b> {{ equipo.nombre }}
         </li>
         <li>
-          <b>Torneo:</b> {{ equipo.nombreTorneo }}
+          <b>Torneo:</b> {{ torneoDelEquipo?.nombre }}
+        </li>
+        <li>
+          <b>ID Torneo:</b> {{ equipo.idTorneo }}
         </li>
       </ul>
     </div>
-    </div>
-</div>
-} @else {
+
+  </div> } @else {
   <p class="empty-list">Cargando datos del equipo...</p>
 }

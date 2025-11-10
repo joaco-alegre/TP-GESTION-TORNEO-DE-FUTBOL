@@ -1,29 +1,38 @@
-/* Contenedor principal (centra todo y da espacio) */
+
 .admin-container {
   max-width: 900px;
   margin: 40px auto 40px auto;
 }
 
-/* Título (centrado, línea de acento) */
 h2 {
   font-size: 2rem;
-  color: #2c3e50;
+  color: var(--color-texto);
   text-align: center;
   font-weight: 600;
   margin: 0;
   padding-bottom: 15px;
   margin-bottom: 30px;
-  border-bottom: 1.5px solid #00334e; 
+  position: relative; 
 }
 
-/* Lista (ul) - solo es un contenedor */
+h2::after {
+  content: ''; 
+  display: block;
+  width: 600px; 
+  height: 2px; 
+  background-color: var(--color-texto); 
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Fila/Tarjeta (li) - separada, con borde y animación */
 li.fila-clickeable {
   display: flex;
   justify-content: space-between; 
@@ -34,56 +43,50 @@ li.fila-clickeable {
   transition: background-color 0.2s, transform 0.3s ease-out; 
   margin-bottom: 15px; 
   border-radius: 8px; 
-  border: 1px solid #ddd; 
+  border: 1px solid var(--color-borde); 
+  color: var(--color-texto);
 }
 
 li.fila-clickeable:last-child {
   margin-bottom: 0; 
 }
 
-/* Efecto hover: se agranda suavemente */
 li.fila-clickeable:hover {
-  background-color: #f9f9f9;
+  background-color: var(--color-tarjeta-hover, #f9f9f9); 
   transform: scale(1.02);
 }
 
-/* Lado izquierdo (Logo/Foto y Nombre) */
 .item-info {
   display: flex;
   align-items: center;
   gap: 15px; 
+  color: var(--color-texto-tarjeta);
 }
 
 .item-logo {
   width: 50px;
   height: 50px;
-  object-fit: contain; /* Default para logos */
+  object-fit: contain;
   border-radius: 8px;
-  background-color: #f4f4f4;
+  background-color: var(--color-fondo);
 }
 
-/* === MODIFICACIÓN PARA JUGADORES === */
-/* Esto hace que las fotos de jugadores sean redondas y 
-   se ajusten mejor (cover) sin afectar los logos de equipos */
 .item-foto-jugador {
-  border-radius: 50%; /* Redondo */
-  object-fit: cover; /* Mejor para retratos */
+  border-radius: 50%; 
+  object-fit: cover; 
 }
-/* ================================== */
 
 .item-nombre {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #444;
+  color: var(--color-texto-tarjeta);
 }
 
-/* Lado derecho (Botones) */
 .action-buttons {
   display: flex;
   gap: 8px; 
 }
 
-/* Estilo base de los botones */
 li button {
   font-size: 0.9rem;
   padding: 6px 12px;
@@ -102,7 +105,6 @@ li button:active {
   transform: scale(1.0);
 }
 
-/* Botón "Detalles" (Azul Fuerte) */
 .btn-detalles {
   background-color: #0069d9;
   border: 1px solid #0062cc;
@@ -111,7 +113,6 @@ li button:active {
   background-color: #0056b3;
 }
 
-/* Botón "Editar" (Naranja Fuerte) */
 .btn-editar {
   background-color: #ffb60a;
   color: #212529;
@@ -121,7 +122,6 @@ li button:active {
   background-color: #e0a000;
 }
 
-/* Botón "Eliminar" (Rojo Fuerte) */
 .btn-eliminar {
   background-color: #d93025;
   border: 1px solid #c82333;
@@ -130,28 +130,25 @@ li button:active {
   background-color: #c82333;
 }
 
-/* Mensaje de lista vacía */
 .empty-list {
   padding: 20px;
   text-align: center;
   color: #777;
 }
 
-/* Contenedor para centrar el botón "Agregar" */
 .agregar-container {
   text-align: center;
   margin-top: 30px;
 }
 
-/* Botón "Agregar" (Verde) */
 .btn-agregar { 
   display: inline-block;
   padding: 12px 20px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  background-color: #28a745;
-  color: white;
+  background-color: var(--color-boton);
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -159,10 +156,31 @@ li button:active {
 }
 
 .btn-agregar:hover {
-  background-color: #218838;
+  background-color: var(--color-boton-hover, #218838);
   transform: scale(1.05); 
 }
 
 .btn-agregar:active {
   transform: scale(1.0);
+}
+
+.section-divider {
+  border: none;
+  border-top: 3px solid var(--color-texto);
+  margin: 40px 0; 
+}
+
+
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color:var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
 }

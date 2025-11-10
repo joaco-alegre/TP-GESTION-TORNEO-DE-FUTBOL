@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JugadorForm } from './jugador-form-admin';
+import { JugadorFormAdmin } from './jugador-form-admin';
 
-describe('JugadorForm', () => {
-  let component: JugadorForm;
-  let fixture: ComponentFixture<JugadorForm>;
+describe('JugadorFormAdmin', () => {
+  let component: JugadorFormAdmin;
+  let fixture: ComponentFixture<JugadorFormAdmin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [JugadorForm]
+      imports: [JugadorFormAdmin]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(JugadorForm);
+    fixture = TestBed.createComponent(JugadorFormAdmin);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
