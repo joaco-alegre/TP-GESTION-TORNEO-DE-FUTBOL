@@ -8,7 +8,7 @@ import Noticia from '../../model/noticia';
 })
 export class NoticiaService {
 
-  private apiUrl = 'http://localhost:3007/noticias';
+  private apiUrl = 'http://localhost:3006/noticias';
 
 
   constructor(private http: HttpClient) { }

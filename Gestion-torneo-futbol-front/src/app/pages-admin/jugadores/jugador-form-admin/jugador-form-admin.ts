@@ -15,9 +15,9 @@ import { TranslocoPipe } from '@ngneat/transloco';
 export class JugadorFormAdmin implements OnInit{
 
   jugadorForm!: FormGroup;
-  jugadorID: string | null = null; 
-  equipoID: string | null = null; 
-  fotoActual: string | undefined; 
+  jugadorID?: string ; 
+  equipoID?: string;
+  fotoActual?: string; 
 
   constructor(
     private fb: FormBuilder,
@@ -51,7 +51,7 @@ export class JugadorFormAdmin implements OnInit{
       });
 
     } else {
-      this.equipoID = this.route.snapshot.queryParamMap.get('equipoID');
+      this.equipoID = this.route.snapshot.params['equipoID'];
       if (this.equipoID) {
         this.jugadorForm.patchValue({ idEquipo: this.equipoID });
       }
@@ -61,6 +61,7 @@ export class JugadorFormAdmin implements OnInit{
   onSubmit(): void {
 
     if (this.jugadorForm.invalid) return;
+
     const rutaDeVuelta = ['/jugador-lista-admin', this.equipoID];
 
     if (this.jugadorID) {
@@ -68,7 +69,7 @@ export class JugadorFormAdmin implements OnInit{
       const jugadorData: Jugador = { 
         ...formValues, 
         id: this.jugadorID, 
-        foto: formValues.foto || this.fotoActual // Usa la foto nueva o la vieja
+        foto: formValues.foto || this.fotoActual 
       }; 
 
       this.jugadorService.updateJugador(jugadorData).subscribe({

@@ -70,6 +70,8 @@ export const routes: Routes = [
     {path: 'panel-cotacto-admin', component: PanelContacto},
     {path: 'panel-noticias-admin', component: NoticiaList},
     {path: 'form-noticia-admin', component: NoticiaForm},
+    {path: 'form-noticia-admin/:id', component: NoticiaForm},
+
 
 
 

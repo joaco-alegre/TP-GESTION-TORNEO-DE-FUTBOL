@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NoticiaService } from '../../../service/noticia-service/noticia-service';
 import { ActivatedRoute, Router } from '@angular/router';
+import Noticia from '../../../model/noticia';
 
 @Component({
   selector: 'app-noticia-form',
@@ -15,6 +16,8 @@ export class NoticiaForm implements OnInit{
   noticiaForm!: FormGroup;
   noticiaID?: string ;
 
+  fotoActual?: string;
+
   constructor(
     private fb: FormBuilder,
     private noticiaService: NoticiaService,
@@ -25,36 +28,56 @@ export class NoticiaForm implements OnInit{
 
 
 ngOnInit(): void {
+
   this.noticiaForm = this.fb.group({
+    
     id: [''],
     titulo: ['', Validators.required],
     link: ['', Validators.required],
-    foto: ['',  Validators.required] 
+    foto: [''] 
   });
 
   this.noticiaID = this.route.snapshot.params['id'];
-  if (this.noticiaID) {
-    this.noticiaService.getNoticiaById(this.noticiaID).subscribe(data => {
 
-      console.log("Datos recibidos del servicio:", data);
-    });
+  if (this.noticiaID) {
+
+    this.noticiaService.getNoticiaById(this.noticiaID).subscribe(data => {
+      
+      this.fotoActual = data.foto; 
+      
+      const datosParaFormulario = { ...data };
+        delete datosParaFormulario.foto; 
+        this.noticiaForm.patchValue(datosParaFormulario);
+      });
+    };
   }
-}
+
+
+
+
+
 
   onSubmit(): void {
     if (this.noticiaForm.invalid) return;
 
-    const rutaDeVuelta = ['/panel-noticias'];
+    const rutaDeVuelta = ['/panel-noticias-admin'];
 
     if (this.noticiaID) {
 
-      const noticiaData = { ...this.noticiaForm.value, id: this.noticiaID };
+        const formValues = this.noticiaForm.value;
+        const noticiaData: Noticia = { 
+            ...formValues, 
+            id: this.noticiaID, 
+            foto: formValues.foto || this.fotoActual 
+        }; 
+
       this.noticiaService.updateNoticia(noticiaData).subscribe({
         next: () => {
           this.router.navigate(rutaDeVuelta);
           alert("Noticia actualizada!");
         },
-        error: (e) => console.error(e)
+        error: (e) => {console.error(e);
+          alert("Error al actualizar la noticia");}
       });
 
     } else {
