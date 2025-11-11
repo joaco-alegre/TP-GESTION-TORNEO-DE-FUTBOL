@@ -186,20 +186,21 @@
             <h2 class="contact-title mb-5">{{ 'home.contactos.titulo' | transloco }}</h2>
           </div>
         </div>
-        <form class="row g-3 justify-content-center">
+        <form class="row g-3 justify-content-center" [formGroup]="contactoForm" 
+          (ngSubmit)="onContactoSubmit()">
 
           <div class="col-md-4">
-            <input type="text" class="form-control form-custom" [placeholder]="'home.contactos.placeholderNombre' | transloco">
+            <input type="text" class="form-control form-custom" formControlName="nombre" [placeholder]="'home.contactos.placeholderNombre' | transloco">
           </div>
           <div class="col-md-4">
-            <input type="email" class="form-control form-custom" [placeholder]="'home.contactos.placeholderMail' | transloco">
+            <input type="email" class="form-control form-custom" formControlName="mail" [placeholder]="'home.contactos.placeholderMail' | transloco">
           </div>
           <div class="col-md-8">
-            <textarea class="form-control form-custom" rows="5" [placeholder]="'home.contactos.placeholderConsulta' | transloco"></textarea>
+            <textarea class="form-control form-custom" rows="5" formControlName="consulta" [placeholder]="'home.contactos.placeholderConsulta' | transloco"></textarea>
           </div>
         
           <div class="col-md-8 text-center">
-            <button type="submit" class="btn btn-custom-submit shake">{{ 'home.contactos.botonEnviar' | transloco }}</button>
+            <button type="submit" class="btn btn-custom-submit shake" [disabled]="!contactoForm.valid">{{ 'home.contactos.botonEnviar' | transloco }}</button>
           </div>
         </form>
       </div>

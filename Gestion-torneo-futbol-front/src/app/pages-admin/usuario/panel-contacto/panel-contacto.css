@@ -1,0 +1,82 @@
+
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto 40px auto;
+}
+
+h3 {
+  font-size: 2rem;
+  color: var(--color-texto);
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  position: relative; 
+}
+
+h3::after {
+  content: ''; 
+  display: block;
+  width: 700px; 
+  height: 2px; 
+  background-color: var(--color-texto); 
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li.fila-clickeable {
+  padding: 20px; 
+  background-color: #fff;
+  transition: background-color 0.2s, transform 0.3s ease-out; 
+  margin-bottom: 15px; 
+  border-radius: 8px; 
+  border: 1px solid var(--color-borde); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+li.fila-clickeable:hover {
+  background-color: var(--color-tarjeta-hover);
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+.item-nombre {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-texto-tarjeta);
+}
+
+.item-mail {
+  display: block; 
+  font-size: 0.9rem;
+  color: #777; 
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+body.dark-mode .item-mail {
+  color: #ccc;
+}
+
+.item-consulta {
+  font-size: 1rem;
+  color: #000;
+  font-weight: 400;
+  margin: 10px 0 0 0;
+  line-height: 1.5; 
+}
+
+.empty-list {
+  padding: 20px;
+  text-align: center;
+  color: #777;
+}

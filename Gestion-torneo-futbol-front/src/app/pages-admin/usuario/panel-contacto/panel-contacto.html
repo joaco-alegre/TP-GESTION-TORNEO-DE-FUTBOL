@@ -1,0 +1,21 @@
+<div class="admin-container">
+  <h3>Panel de Contacto</h3>
+
+  <ul>
+    @for (mensaje of mensajes; track mensaje.id) {
+      <li class="fila-clickeable">
+        
+        <div class="item-info">
+          <div class="mensaje-detalle">
+            <span class="item-nombre">{{ mensaje.nombre }}</span>
+            <span class="item-mail">{{ mensaje.mail }}</span>
+            <p class="item-consulta">{{ mensaje.consulta }}</p>
+          </div>
+        </div>
+      </li>
+    } @empty {
+      <p class="empty-list">No hay mensajes nuevos.</p>
+    }
+  </ul>
+
+</div>

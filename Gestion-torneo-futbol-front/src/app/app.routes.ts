@@ -28,6 +28,7 @@ import { FixtureDetailsAdmin } from './pages-admin/fixture/fixture-details-admin
 import { FixtureFormAdmin } from './pages-admin/fixture/fixture-form-admin/fixture-form-admin';
 import { DtListAdmin } from './pages-admin/dt/dt-list-admin/dt-list-admin';
 import { JugadorLibreList } from './pages-admin/jugadores/jugador-libre-list/jugador-libre-list';
+import { PanelContacto } from './pages-admin/usuario/panel-contacto/panel-contacto';
 
 export const routes: Routes = [
     {path: '', 
@@ -64,6 +65,7 @@ export const routes: Routes = [
     {path: 'fixture-form-admin/:id', component: FixtureFormAdmin},
     {path: 'dt-list-admin', component: DtListAdmin},
     {path: 'jugadores-libres-list-admin', component: JugadorLibreList},
+    {path: 'panel-cotacto-admin', component: PanelContacto},
 
 
 
