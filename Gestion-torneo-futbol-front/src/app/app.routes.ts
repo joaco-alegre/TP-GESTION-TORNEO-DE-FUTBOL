@@ -30,6 +30,7 @@ import { DtListAdmin } from './pages-admin/dt/dt-list-admin/dt-list-admin';
 import { JugadorLibreList } from './pages-admin/jugadores/jugador-libre-list/jugador-libre-list';
 import { PanelContacto } from './pages-admin/usuario/panel-contacto/panel-contacto';
 import { NoticiaList } from './pages-admin/noticia/noticia-list/noticia-list';
+import { NoticiaForm } from './pages-admin/noticia/noticia-form/noticia-form';
 
 export const routes: Routes = [
     {path: '', 
@@ -68,11 +69,7 @@ export const routes: Routes = [
     {path: 'jugadores-libres-list-admin', component: JugadorLibreList},
     {path: 'panel-cotacto-admin', component: PanelContacto},
     {path: 'panel-noticias-admin', component: NoticiaList},
-
-
-
-
-
+    {path: 'form-noticia-admin', component: NoticiaForm},
 
 
 

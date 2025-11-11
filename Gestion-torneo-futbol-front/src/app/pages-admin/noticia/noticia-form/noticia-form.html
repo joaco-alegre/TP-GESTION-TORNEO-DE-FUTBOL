@@ -1,5 +1,7 @@
-<div class="admin-container">
   <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+
+<div class="admin-container">
+
   <h2>{{ noticiaID ? 'Editar Noticia' : 'Crear Noticia' }}</h2>
 
   <form [formGroup]="noticiaForm" (ngSubmit)="onSubmit()">
@@ -24,5 +26,5 @@
     </button>
 
   </form>
-  
+
 </div>

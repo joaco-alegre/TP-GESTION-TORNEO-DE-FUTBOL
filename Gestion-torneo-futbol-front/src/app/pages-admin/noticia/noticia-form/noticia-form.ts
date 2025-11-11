@@ -29,7 +29,7 @@ ngOnInit(): void {
     id: [''],
     titulo: ['', Validators.required],
     link: ['', Validators.required],
-    foto: [''] 
+    foto: ['',  Validators.required] 
   });
 
   this.noticiaID = this.route.snapshot.params['id'];

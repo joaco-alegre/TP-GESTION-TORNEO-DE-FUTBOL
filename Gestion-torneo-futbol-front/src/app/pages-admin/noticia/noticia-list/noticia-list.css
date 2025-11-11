@@ -1,0 +1,154 @@
+/* Contenedor principal (centra todo y da espacio) */
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto 40px auto;
+}
+
+/* Título (centrado, línea de acento) */
+h3 {
+  font-size: 2rem;
+  color: var(--color-texto);
+  text-align: center;
+  font-weight: 600;
+  margin: 0;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  position: relative; 
+}
+
+/* Línea de acento corta */
+h3::after {
+  content: ''; 
+  display: block;
+  width: 100px; 
+  height: 3px; 
+  background-color: var(--color-accent); 
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Lista (ul) - solo es un contenedor */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* --- ¡CAMBIOS PRINCIPALES AQUÍ! --- */
+
+/* Fila/Tarjeta (li) - Ahora apilada verticalmente */
+li.fila-clickeable {
+  /* display: flex; (QUITAMOS ESTO) */
+  /* justify-content: space-between; (QUITAMOS ESTO) */
+  /* align-items: center; (QUITAMOS ESTO) */
+  
+  padding: 20px; 
+  background-color: var(--color-tarjeta);
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.3s ease-out; 
+  margin-bottom: 15px; 
+  border-radius: 8px; 
+  border: 1px solid var(--color-borde); 
+}
+
+li.fila-clickeable:hover {
+  background-color: var(--color-tarjeta-hover, #f9f9f9);
+  transform: scale(1.02);
+}
+
+/* Lado izquierdo (Info) - Ahora es la parte superior */
+.item-info {
+  display: flex;
+  flex-direction: column; /* ¡CAMBIO CLAVE! Apila la foto y el título */
+  align-items: center;   /* Centra la foto y el título */
+  gap: 15px; 
+  margin-bottom: 20px; /* Espacio entre la info y los botones */
+}
+
+/* Logo/Foto - La hacemos más grande */
+.item-logo {
+  width: 100%; /* Ocupa el 100% del ancho de la tarjeta */
+  height: 250px; /* Una buena altura para una noticia */
+  object-fit: cover; /* 'cover' es mejor para fotos de noticias */
+  border-radius: 8px; /* Bordes redondeados para la foto */
+  background-color: var(--color-fondo);
+}
+
+/* Nombre (Título) - Centrado */
+.item-nombre {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-texto);
+  text-align: center; /* Centra el título */
+}
+
+/* Lado derecho (Botones) - Ahora es la parte inferior */
+.action-buttons {
+  display: flex;
+  gap: 8px; 
+  justify-content: center; /* Centra los botones */
+  padding-top: 20px; /* Espacio sobre los botones */
+  border-top: 1px solid var(--color-borde); /* Línea separadora */
+}
+
+/* --- (ESTILOS DE BOTONES Y OTROS - QUEDAN IGUAL) --- */
+
+/* Estilo base de los botones */
+li button {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.15s ease-out, background-color 0.2s;
+}
+li button:hover { transform: scale(1.1); }
+li button:active { transform: scale(1.0); }
+
+/* Colores de botones */
+.btn-editar {
+  background-color: #ffb60a;
+  color: #212529;
+  border: 1px solid #e0a000;
+}
+.btn-editar:hover { background-color: #e0a000; }
+.btn-eliminar {
+  background-color: #d93025;
+  border: 1px solid #c82333;
+}
+.btn-eliminar:hover { background-color: #c82333; }
+
+/* Mensaje de lista vacía */
+.empty-list {
+  padding: 20px;
+  text-align: center;
+  color: #777;
+}
+
+/* Contenedor para centrar el botón "Agregar" */
+.agregar-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Botón "Agregar" */
+.btn-agregar { 
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: var(--color-boton, #28a745);
+  color: var(--color-texto-boton, white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out, background-color 0.2s;
+}
+.btn-agregar:hover {
+  background-color: var(--color-boton-hover, #218838);
+  transform: scale(1.05); 
+}
