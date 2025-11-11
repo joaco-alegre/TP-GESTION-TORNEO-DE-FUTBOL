@@ -19,7 +19,7 @@
     <input id="link" formControlName="link" type="text">
 
     <label for="foto">Foto (URL de la imagen):</label>
-    <input id="foto" formControlName="foto" type="text">
+    <input id="foto" formControlName="foto" type="file">
 
     <button type="submit" [disabled]="!noticiaForm.valid">
       {{ noticiaID ? 'Actualizar' : 'Guardar' }}

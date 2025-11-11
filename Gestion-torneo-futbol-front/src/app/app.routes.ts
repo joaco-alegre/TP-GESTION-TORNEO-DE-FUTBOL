@@ -31,6 +31,8 @@ import { JugadorLibreList } from './pages-admin/jugadores/jugador-libre-list/jug
 import { PanelContacto } from './pages-admin/usuario/panel-contacto/panel-contacto';
 import { NoticiaList } from './pages-admin/noticia/noticia-list/noticia-list';
 import { NoticiaForm } from './pages-admin/noticia/noticia-form/noticia-form';
+import { UsuarioList } from './pages-admin/usuario/usuario-list/usuario-list';
+import { UsuarioForm } from './pages-admin/usuario/usuario-form/usuario-form';
 
 export const routes: Routes = [
     {path: '', 
@@ -71,6 +73,12 @@ export const routes: Routes = [
     {path: 'panel-noticias-admin', component: NoticiaList},
     {path: 'form-noticia-admin', component: NoticiaForm},
     {path: 'form-noticia-admin/:id', component: NoticiaForm},
+    {path: 'usuario-list-admin', component: UsuarioList},
+    {path: 'usuario-form-admin', component: UsuarioForm},
+    {path: 'usuario-form-admin/:id', component: UsuarioForm},
+
+
+
 
 
 

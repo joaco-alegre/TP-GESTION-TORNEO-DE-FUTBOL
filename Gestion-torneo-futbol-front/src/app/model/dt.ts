@@ -1,5 +1,5 @@
 export default interface DT{
-    id?: string;
+  id?: string;
   nombre: string;
   equipoID?: string;
   estiloJuego: string,

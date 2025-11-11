@@ -1,3 +1,5 @@
+  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+
 <div class="admin-container">
   <h3>Panel de Noticias</h3>
 
@@ -5,20 +7,25 @@
     @for (noticia of noticias; track noticia.id) {
       <li class="fila-clickeable">
 
-        <div class="item-info">
-          <img [src]="noticia.foto" [alt]="noticia.titulo" class="item-logo">
-          <span class="item-nombre">{{ noticia.titulo }}</span>
-        </div>
-
+        <a [href]="noticia.link" 
+           target="_blank" 
+           class="item-info-link"
+           (click)="$event.stopPropagation()">
+          
+          <div class="item-info">
+            <img [src]="noticia.foto" [alt]="noticia.titulo" class="item-logo">
+            <span class="item-nombre">{{ noticia.titulo }}</span>
+          </div>
+        </a>
         <div class="action-buttons">
           <button class="btn-editar"
-                  [routerLink]="['/form-noticia-admin', noticia.id]" 
+                  [routerLink]="['/form-noticia-admin/', noticia.id]" 
                   (click)="$event.stopPropagation()">
             Editar
           </button>
 
           <button class="btn-eliminar" 
-                  (click)="deleteNoticia(noticia.id); $event.stopPropagation()">
+                  (click)="deleteNoticia(noticia.id!); $event.stopPropagation()">
             Eliminar
           </button>
         </div>
@@ -27,7 +34,7 @@
       <p class="empty-list">No hay noticias creadas.</p>
     }
   </ul>
-
+  
   <div class="agregar-container">
     <button class="btn-agregar" [routerLink]="['/form-noticia-admin']">
       Crear Noticia

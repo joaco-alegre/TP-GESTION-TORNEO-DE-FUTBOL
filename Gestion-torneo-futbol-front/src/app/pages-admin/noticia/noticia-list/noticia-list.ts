@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import Noticia from '../../../model/noticia';
 import { NoticiaService } from '../../../service/noticia-service/noticia-service';
 import { RouterModule } from '@angular/router';
+import { CommonModule, Location } from '@angular/common';
 
 @Component({
   selector: 'app-noticia-list',
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './noticia-list.html',
   styleUrl: './noticia-list.css',
 })
@@ -13,7 +14,7 @@ export class NoticiaList implements OnInit{
 
   noticias: Noticia[] = [];
 
-  constructor(private noticiaService: NoticiaService) {}
+  constructor(private noticiaService: NoticiaService, private location: Location) {}
 
   ngOnInit(): void {
     this.cargarNoticias();
@@ -36,5 +37,10 @@ export class NoticiaList implements OnInit{
       alert("Noticia eliminada");
     });
   }
+
+    goBack(): void {
+    this.location.back();
+  }
+
 }
 

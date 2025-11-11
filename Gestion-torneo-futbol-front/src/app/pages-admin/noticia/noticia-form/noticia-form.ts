@@ -42,12 +42,8 @@ ngOnInit(): void {
   if (this.noticiaID) {
 
     this.noticiaService.getNoticiaById(this.noticiaID).subscribe(data => {
-      
-      this.fotoActual = data.foto; 
-      
-      const datosParaFormulario = { ...data };
-        delete datosParaFormulario.foto; 
-        this.noticiaForm.patchValue(datosParaFormulario);
+  
+        this.noticiaForm.patchValue(data);
       });
     };
   }

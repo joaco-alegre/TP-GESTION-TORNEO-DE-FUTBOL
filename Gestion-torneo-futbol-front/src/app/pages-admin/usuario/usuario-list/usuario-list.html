@@ -1,0 +1,30 @@
+<div class="admin-container">
+  <h3>Lista de Administradores</h3>
+
+  <ul>
+    @for (usuario of usuarios; track usuario.id) {
+      <li class="fila-clickeable">
+        <div class="item-info">
+          <img [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" [alt]="usuario.nombre" class="item-logo item-foto-jugador">
+          <span class="item-nombre">{{ usuario.nombre }} ({{ usuario.rolUser }})</span>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn-editar"
+                  [routerLink]="['/usuario-form-admin', usuario.id]" 
+                  (click)="$event.stopPropagation()">
+            Editar
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <p class="empty-list">No hay administradores creados.</p>
+    }
+  </ul>
+
+  <div class="agregar-container">
+    <button class="btn-agregar" [routerLink]="['/usuario-form-admin']">
+      Agregar Administrador
+    </button>
+  </div>
+</div>

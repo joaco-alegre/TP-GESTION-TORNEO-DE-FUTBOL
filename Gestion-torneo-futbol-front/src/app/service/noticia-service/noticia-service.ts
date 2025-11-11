@@ -17,8 +17,8 @@ export class NoticiaService {
     return this.http.get<Noticia[]>(this.apiUrl);
   }
 
-  getNoticiaById(id: string): Observable<string> {
-    return this.http.get<string>(`${this.apiUrl}/${id}`);
+  getNoticiaById(id: string): Observable<Noticia> {
+    return this.http.get<Noticia>(`${this.apiUrl}/${id}`);
   }
 
   postNoticia(noticia: Noticia): Observable<Noticia> {
@@ -29,8 +29,8 @@ export class NoticiaService {
     return this.http.put<Noticia>(`${this.apiUrl}/${noticia.id}`, noticia);
   }
 
-  deleteNoticia(id: string): Observable<string> {
-    return this.http.delete<string>(`${this.apiUrl}/${id}`);
+  deleteNoticia(id: string): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
 

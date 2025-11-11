@@ -1,0 +1,31 @@
+<div class="admin-container">
+  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+  <h2>{{ usuarioID ? 'Editar Administrador' : 'Crear Administrador' }}</h2>
+
+  <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+
+    @if (usuarioID) {
+    <label for="id">ID:</label>
+    <input id="id" formControlName="id" type="text" readonly>
+    }
+
+    <label for="nombre">Nombre:</label>
+    <input id="nombre" formControlName="nombre" type="text">
+
+    <label for="rol">Rol (ej: Scrum Master, Developer):</label>
+    <input id="rol" formControlName="rol" type="text">
+
+    <label for="foto">Foto (URL de la imagen):</label>
+    <input id="foto" formControlName="foto" type="text">
+
+    <label for="usuario">Usuario (Email):</label>
+    <input id="usuario" formControlName="usuario" type="email">
+
+    <label for="password">Contraseña:</label>
+    <input id="password" formControlName="password" type="password">
+
+    <button type="submit" [disabled]="usuarioForm.valid">
+      {{ usuarioID ? 'Actualizar' : 'Guardar' }}
+    </button>
+  </form>
+</div>

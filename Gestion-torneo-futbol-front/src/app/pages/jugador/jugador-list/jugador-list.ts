@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-jugador-list',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './jugador-list.html',
   styleUrl: './jugador-list.css'
 })
