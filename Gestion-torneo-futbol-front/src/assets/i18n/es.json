@@ -73,6 +73,7 @@
     "etiquetaEstilo": "Estilo:",
     "dtEmpty": "No hay un DT asignado a este equipo.",
     "tituloJugadores": "Lista de Jugadores",
+    "DtEmpty": "No hay un DT registrado en este equipo",
     "jugadoresEmpty": "No hay jugadores registrados en este equipo.",
     "tituloFixture": "Fixture",
     "fixtureEmpty": "No hay fixtures cargados para este equipo."

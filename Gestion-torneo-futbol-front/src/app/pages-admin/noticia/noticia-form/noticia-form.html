@@ -1,0 +1,28 @@
+<div class="admin-container">
+  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+  <h2>{{ noticiaID ? 'Editar Noticia' : 'Crear Noticia' }}</h2>
+
+  <form [formGroup]="noticiaForm" (ngSubmit)="onSubmit()">
+
+    @if (noticiaID) {
+
+    <label for="id">ID noticia:</label>
+    <input id="id" formControlName="id" type="text" readonly>
+    }
+
+    <label for="titulo">Título:</label>
+    <input id="titulo" formControlName="titulo" type="text">
+
+    <label for="link">Link (URL) a la noticia real:</label>
+    <input id="link" formControlName="link" type="text">
+
+    <label for="foto">Foto (URL de la imagen):</label>
+    <input id="foto" formControlName="foto" type="file">
+
+    <button type="submit" [disabled]="!noticiaForm.valid">
+      {{ noticiaID ? 'Actualizar' : 'Guardar' }}
+    </button>
+
+  </form>
+  
+</div>

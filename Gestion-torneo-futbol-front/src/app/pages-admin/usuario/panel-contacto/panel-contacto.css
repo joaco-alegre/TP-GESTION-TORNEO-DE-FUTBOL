@@ -44,7 +44,6 @@ li.fila-clickeable {
 }
 
 li.fila-clickeable:hover {
-  background-color: var(--color-tarjeta-hover);
   transform: scale(1.02);
   cursor: pointer;
 }
@@ -79,4 +78,17 @@ body.dark-mode .item-mail {
   padding: 20px;
   text-align: center;
   color: #777;
+}
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color:var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
 }

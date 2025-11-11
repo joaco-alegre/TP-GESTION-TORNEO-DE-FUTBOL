@@ -73,6 +73,7 @@
     "etiquetaEstilo": "Style:",
     "dtEmpty": "No Head Coach assigned to this team.",
     "tituloJugadores": "Player List",
+    "DtEmpty": "No DT registered for this team.",
     "jugadoresEmpty": "No players registered for this team.",
     "tituloFixture": "Fixture",
     "fixtureEmpty": "No fixtures loaded for this team."

@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, ɵInternalFormsSharedModule, Reacti
 import { RouterLink } from "@angular/router";
 import { TranslocoPipe } from '@ngneat/transloco';
 import { ContactoService } from '../../service/contacto-service/contacto-service';
+import Noticia from '../../model/noticia';
+import { NoticiaService } from '../../service/noticia-service/noticia-service';
 
 @Component({
   selector: 'app-home',
@@ -14,16 +16,25 @@ import { ContactoService } from '../../service/contacto-service/contacto-service
 export class Home {
   
   contactoForm: FormGroup;
+
+  noticias: Noticia[]=[];
   
 
   constructor(
     private fb: FormBuilder,
-    private contactoService: ContactoService
+    private contactoService: ContactoService,
+    private noticiaService: NoticiaService
   ) {
     this.contactoForm = this.fb.group({
       nombre: ['', Validators.required],
       mail: ['', [Validators.required, Validators.email]],
       consulta: ['', Validators.required]
+    });
+  }
+
+  ngOnInit(): void { 
+    this.noticiaService.getNoticias().subscribe(data => {
+      this.noticias = data.slice(0, 4);
     });
   }
 
