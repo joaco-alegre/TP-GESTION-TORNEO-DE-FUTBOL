@@ -9,7 +9,7 @@ import Equipo from '../../model/equipo';
 
 export class EquipoService{
 
-      private url = 'http://localhost:3001/equipos'; 
+      private url = 'http://localhost:3000/equipos'; 
     //private nextId   = 1;
 
   constructor(private http: HttpClient) {}

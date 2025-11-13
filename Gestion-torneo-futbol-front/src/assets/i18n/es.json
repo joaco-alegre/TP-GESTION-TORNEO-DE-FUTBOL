@@ -25,14 +25,12 @@
     "nuestrosTorneos": "Nuestros torneos",
     "noticias": {
       "titulo": "Noticias",
-      "noticia1": "La Selección Argentina se prepara para la última gira del 2025",
-      "noticia2": "Lionel Messi explicó por qué renovó su contrato con Inter Miami: \"Me siento feliz viviendo acá\"",
-      "noticia3": "Cristiano Ronaldo convirtió el gol 950 y agigantó su leyenda",
-      "noticia4": "Lionel Messi recibió la Bota de Oro y la revalidó con dos goles en Inter vs. Nashville"
+       "empty": "No hay noticias para mostrar"
     },
     "nosotros": {
       "titulo": "Nosotros",
       "descripcion": "Nuestra misión en Goal Manager es revolucionar la gestión de torneos de fútbol profesionales. Que todos tengan la posibilidad de estar informados. Creemos que la pasión merece una plataforma moderna y fácil de usar, que conecte a organizadores, equipos y jugadores.",
+      "empty": "No hay administradores para mostrar",
       "equipo": {
         "nombre1": "[Tu Nombre]",
         "rol1": "Scrum Master y Desarrollador",

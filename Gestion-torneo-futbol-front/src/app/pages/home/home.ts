@@ -5,6 +5,8 @@ import { TranslocoPipe } from '@ngneat/transloco';
 import { ContactoService } from '../../service/contacto-service/contacto-service';
 import Noticia from '../../model/noticia';
 import { NoticiaService } from '../../service/noticia-service/noticia-service';
+import { UsuarioService } from '../../service/usuario-service/usuario-service';
+import Usuario from '../../model/usuario';
 
 @Component({
   selector: 'app-home',
@@ -18,12 +20,14 @@ export class Home {
   contactoForm: FormGroup;
 
   noticias: Noticia[]=[];
+  usuarios: Usuario[]=[];
   
 
   constructor(
     private fb: FormBuilder,
     private contactoService: ContactoService,
-    private noticiaService: NoticiaService
+    private noticiaService: NoticiaService,
+    private usuarioService: UsuarioService
   ) {
     this.contactoForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -35,6 +39,10 @@ export class Home {
   ngOnInit(): void { 
     this.noticiaService.getNoticias().subscribe(data => {
       this.noticias = data.slice(0, 4);
+    });
+
+    this.usuarioService.getUsuarios().subscribe(data => {
+      this.usuarios = data;
     });
   }
 

@@ -33,6 +33,7 @@ import { NoticiaList } from './pages-admin/noticia/noticia-list/noticia-list';
 import { NoticiaForm } from './pages-admin/noticia/noticia-form/noticia-form';
 import { UsuarioList } from './pages-admin/usuario/usuario-list/usuario-list';
 import { UsuarioForm } from './pages-admin/usuario/usuario-form/usuario-form';
+import { UsuarioDetails } from './pages-admin/usuario/usuario-details/usuario-details';
 
 export const routes: Routes = [
     {path: '', 
@@ -76,6 +77,8 @@ export const routes: Routes = [
     {path: 'usuario-list-admin', component: UsuarioList},
     {path: 'usuario-form-admin', component: UsuarioForm},
     {path: 'usuario-form-admin/:id', component: UsuarioForm},
+    {path: 'usuario-details-admin/:id', component: UsuarioDetails},
+
 
 
 

@@ -8,7 +8,7 @@ import Contacto from '../../model/contacto';
 })
 export class ContactoService {
 
-private apiUrl = 'http://localhost:3006/mensajes';
+private apiUrl = 'http://localhost:3000/mensajes';
 
   constructor(private http: HttpClient) { }
 

@@ -12,4 +12,6 @@ export class UsuarioHome {
 
   usuario!: Usuario;
 
+  IDgenerico: string = 'u-001';
+
 }

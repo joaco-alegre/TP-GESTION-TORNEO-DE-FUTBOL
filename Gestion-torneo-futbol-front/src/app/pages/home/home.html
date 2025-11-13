@@ -63,6 +63,16 @@
     </div>
 
 
+
+
+
+
+
+
+
+
+
+
     
       <section id="noticias" class="pb-5 noticias-section"  data-aos="fade-right" data-aos-duration="3000">
       <div class="container">
@@ -86,53 +96,65 @@
             </div>
           </a>
         </div>
+      }@empty {
+    <p class="lead">
+          {{ 'home.noticias.empty' | transloco }}
+        </p>
       }
-
         </div>
       </div>
     </section>
 
 
-<!-- 
-    <section id="nosotros" class="pb-5" data-aos="fade-left" data-aos-duration="3000">
-      <div class="admin-container">
-  <h2>{{ 'home.nosotros.titulo' | transloco }}</h2>
 
-  <ul>
-    @for (usuario of usuarios; track usuario.id) {
-      <li class="fila-clickeable">
-        <div class="item-info">
-          <img [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" [alt]="usuario.nombre" class="item-logo item-foto-jugador">
-          <span class="item-nombre">{{ usuario.nombre }} ({{ usuario.rol }})</span>
+
+
+
+
+
+  
+
+<section id="nosotros" class="pb-5" data-aos="fade-left" data-aos-duration="3000">
+  
+  <div class="container"> 
+    
+    <div class="row">
+      <div class="col-12">
+        <h2 class="mejorar-titulo">{{ 'home.nosotros.titulo' | transloco }}</h2>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-8 text-center">
+        <p class="lead">
+          {{ 'home.nosotros.descripcion' | transloco }}
+        </p>
+      </div>
+    </div>
+    
+    <div class="row mt-5 justify-content-center">
+      
+      @for (usuario of usuarios; track usuario.id) {
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="card team-card h-100 shadow-sm">
+            
+            <img 
+              [src]="usuario.foto ? usuario.foto : 'assets/img/equipo/avatar-default.png'" 
+              class="card-img-top team-avatar" 
+              [alt]="'Foto de ' + usuario.nombre">
+              
+            <div class="card-body text-center">
+              <h5 class="card-title mt-2">{{ usuario.nombre }}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{ usuario.rolUser }}</h6> 
+            </div>
+          </div>
         </div>
-
-        <div class="action-buttons">
-          <button class="btn-editar"
-                  [routerLink]="['/usuario-form-admin', usuario.id]" 
-                  (click)="$event.stopPropagation()">
-            Editar
-          </button>
-          <button class="btn-eliminar" 
-                  (click)="deleteAdmin(usuario.id!); $event.stopPropagation()">
-            Eliminar
-          </button>
+      } @empty {
+        <div class="col-12 text-center">
+          <p class="empty-list">{{ 'home.nosotros.empty' | transloco }}</p>
         </div>
-      </li>
-    } @empty {
-      <p class="empty-list">No hay administradores creados.</p>
-    }
-  </ul>
-
-  <div class="agregar-container">
-    <button class="btn-agregar" [routerLink]="['/usuario-form-admin']">
-      Agregar Administrador
-    </button>
-  </div>
-</div>
-    </section>
-     -->
-
-
+      }
+    </div> </div> </section>
 
 
 

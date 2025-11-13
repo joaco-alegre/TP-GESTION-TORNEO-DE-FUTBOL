@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class EstadisticaGoleadorService {
 
-    private url = 'http://localhost:3005/estadisticasGoleadores'; 
+    private url = 'http://localhost:3000/estadisticasGoleadores'; 
     private nextId   = 1;
 
   constructor(private http: HttpClient) {}

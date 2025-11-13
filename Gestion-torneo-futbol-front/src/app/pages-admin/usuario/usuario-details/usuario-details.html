@@ -1,1 +1,59 @@
-<p>usuario-details works!</p>
+<button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+
+<div class="admin-container"> 
+
+  @if (usuario) {
+    <div class="detalle-container">
+  
+      <h2 class="titulo-pagina">{{ usuario.nombre }}</h2>
+  
+      <div class="card card-detalles">
+        
+        <div class="card-foto">
+          <img 
+            [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" 
+            [alt]="'Foto de ' + usuario.nombre">
+        </div>
+  
+        <div class="card-info">
+          <h3>Detalles del Perfil</h3>
+          <ul class="info-lista">
+            <li>
+              <b>ID:</b> {{ usuario.id }}
+            </li>
+            <li>
+              <b>Nombre:</b> {{ usuario.nombre }}
+            </li>
+            <li>
+              <b>Usuario:</b> {{ usuario.username }}
+            </li>
+            <li>
+              <b>Rol:</b> {{ usuario.rolUser }}
+            </li>
+            <li>
+              <b>Email (Usuario):</b> {{ usuario.email }}
+            </li>
+            <li>
+              <b>Contraseña:</b> ********
+            </li>
+          </ul>
+
+          <div class="action-buttons-footer">
+            <button class="btn-editar" [routerLink]="['/usuario-form-admin', usuario.id]">
+              Editar Perfil
+            </button>
+            <button class="btn-eliminar" (click)="deleteUsuario()">
+              Eliminar mi Cuenta
+            </button>
+          </div>
+
+        </div>
+      </div>
+  
+    </div>
+  
+  } @else {
+    <p class="empty-list">Cargando perfil...</p>
+  }
+
+</div>
