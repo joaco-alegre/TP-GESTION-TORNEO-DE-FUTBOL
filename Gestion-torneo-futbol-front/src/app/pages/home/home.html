@@ -11,57 +11,40 @@
      data-aos-duration="3000" >{{ 'home.hero.boton' | transloco }}</a>
     </div>
 
-    <div data-aos="fade-left" data-aos-duration="3000">
-    <h2 class="mejorar-titulo">{{ 'home.nuestrosTorneos' | transloco }}</h2>
+<div data-aos="fade-left" data-aos-duration="3000">
+  <h2 class="mejorar-titulo">{{ 'home.nuestrosTorneos' | transloco }}</h2>
 
-    <div class="logo-scroller">
+  <div class="logo-scroller">
+    <div class="logo-scroller-inner">
 
-      <div class="logo-scroller-inner">
-
-        <ul>
-          <li><img src="/assets/img/logos/logo1.png" alt="logo 1"></li>
-          <li><img src="/assets/img/logos/logo2.png" alt="logo 2"></li>
-          <li><img src="/assets/img/logos/logo3.png" alt="logo 3"></li>
-          <li><img src="/assets/img/logos/logo4.png" alt="logo 4"></li>
-          <li><img src="/assets/img/logos/logo5.png" alt="logo 5"></li>
-          <li><img src="/assets/img/logos/logo6.png" alt="logo 6"></li>
-          <li><img src="/assets/img/logos/logo7.png" alt="logo 7"></li>
-          <li><img src="/assets/img/logos/logo8.png" alt="logo 8"></li>
-          <li><img src="/assets/img/logos/logo9.png" alt="logo 9"></li>
-          <li><img src="/assets/img/logos/logo10.png" alt="logo 10"></li>
-          <li><img src="/assets/img/logos/logo11.png" alt="logo 11"></li>
-          <li><img src="/assets/img/logos/logo12.png" alt="logo 12"></li>
-          <li><img src="/assets/img/logos/logo13.png" alt="logo 13"></li>
-          <li><img src="/assets/img/logos/logo14.png" alt="logo 14"></li>
-          <li><img src="/assets/img/logos/logo15.png" alt="logo 15"></li>
-          <li><img src="/assets/img/logos/logo16.png" alt="logo 16"></li>
-          <li><img src="/assets/img/logos/logo17.png" alt="logo 17"></li>
-          </ul>
-        
-        <ul aria-hidden="true">
-          <li><img src="/assets/img/logos/logo1.png" alt="logo 1"></li>
-          <li><img src="/assets/img/logos/logo2.png" alt="logo 2"></li>
-          <li><img src="/assets/img/logos/logo3.png" alt="logo 3"></li>
-          <li><img src="/assets/img/logos/logo4.png" alt="logo 4"></li>
-          <li><img src="/assets/img/logos/logo5.png" alt="logo 5"></li>
-          <li><img src="/assets/img/logos/logo6.png" alt="logo 6"></li>
-          <li><img src="/assets/img/logos/logo7.png" alt="logo 7"></li>
-          <li><img src="/assets/img/logos/logo8.png" alt="logo 8"></li>
-          <li><img src="/assets/img/logos/logo9.png" alt="logo 9"></li>
-          <li><img src="/assets/img/logos/logo10.png" alt="logo 10"></li>
-          <li><img src="/assets/img/logos/logo11.png" alt="logo 11"></li>
-          <li><img src="/assets/img/logos/logo12.png" alt="logo 12"></li>
-          <li><img src="/assets/img/logos/logo13.png" alt="logo 13"></li>
-          <li><img src="/assets/img/logos/logo14.png" alt="logo 14"></li>
-          <li><img src="/assets/img/logos/logo15.png" alt="logo 15"></li>
-          <li><img src="/assets/img/logos/logo16.png" alt="logo 16"></li>
-          <li><img src="/assets/img/logos/logo17.png" alt="logo 17"></li>
-          </ul>
-        
-      </div>
+      <ul>
+        @for (torneo of torneos; track torneo.id) {
+          <li>
+            <a [routerLink]="['/es/torneos', torneo.id]">
+              <img 
+                [src]="torneo.logo ? torneo.logo : 'assets/icons/icono.png'" 
+                [alt]="torneo.nombre"
+                ng-suppress-warnings="NG0913"> </a>
+          </li>
+        }
+      </ul>
+      
+      <ul aria-hidden="true">
+        @for (torneo of torneos; track torneo.id) {
+          <li>
+            <a [routerLink]="['/es/torneos', torneo.id]">
+              <img 
+                [src]="torneo.logo ? torneo.logo : 'assets/icons/icono.png'" 
+                [alt]="torneo.nombre"
+                ng-suppress-warnings="NG0913">
+            </a>
+          </li>
+        }
+      </ul>
+      
     </div>
-    </div>
-
+  </div>
+</div>
 
 
 

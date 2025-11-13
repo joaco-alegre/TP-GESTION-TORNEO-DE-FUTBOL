@@ -1,6 +1,6 @@
 import { CommonModule, Location} from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ɵInternalFormsSharedModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 
@@ -10,7 +10,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
   templateUrl: './usuario-login.html',
   styleUrl: './usuario-login.css',
 })
-export class UsuarioLogin{
+export class UsuarioLogin implements OnInit{
 
   usuarioForm!: FormGroup; 
   
@@ -18,19 +18,25 @@ export class UsuarioLogin{
 
 
   constructor(private router: Router,
-    private location: Location
+    private location: Location,
+    private fb: FormBuilder
   ) {}
+
+  ngOnInit(): void {
+    this.usuarioForm = this.fb.group({
+
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
 
   setRole(role: 'usuario' | 'dt') {
     this.selectedRole = role;
   }
 
-  FuncionLogin() {
-    this.router.navigate(['/usuario-home']); 
-  }
-
   onSubmit() {
-    if (this.usuarioForm.valid) {
+    
+    if (this.usuarioForm.valid) { 
       
       const loginData = {
         ...this.usuarioForm.value,
@@ -38,12 +44,21 @@ export class UsuarioLogin{
       };
 
       console.log('Intentando iniciar sesión con:', loginData);
-      this.router.navigate(['/usuario-home']);
+
+      if (this.selectedRole === 'dt') {
+        this.router.navigate(['/dt-home']); 
+      } else {
+        this.router.navigate(['/usuario-home']); 
+      }     
+    } else {
+      this.usuarioForm.markAllAsTouched();
     }
   }
 
-      goBack(): void {
-    this.location.back();
-  }
-}
+  goBack(): void {
 
+    this.location.back();
+
+  }
+
+}

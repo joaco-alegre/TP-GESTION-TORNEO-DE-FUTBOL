@@ -7,6 +7,8 @@ import Noticia from '../../model/noticia';
 import { NoticiaService } from '../../service/noticia-service/noticia-service';
 import { UsuarioService } from '../../service/usuario-service/usuario-service';
 import Usuario from '../../model/usuario';
+import { TorneoService } from '../../service/torneo-service/torneo-service';
+import Torneo from '../../model/torneo';
 
 @Component({
   selector: 'app-home',
@@ -21,13 +23,15 @@ export class Home {
 
   noticias: Noticia[]=[];
   usuarios: Usuario[]=[];
+  torneos: Torneo[]=[];
   
 
   constructor(
     private fb: FormBuilder,
     private contactoService: ContactoService,
     private noticiaService: NoticiaService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private torneoService: TorneoService
   ) {
     this.contactoForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -43,6 +47,11 @@ export class Home {
 
     this.usuarioService.getUsuarios().subscribe(data => {
       this.usuarios = data;
+    });
+
+
+    this.torneoService.getTorneo().subscribe(data => {
+      this.torneos = data;
     });
   }
 
