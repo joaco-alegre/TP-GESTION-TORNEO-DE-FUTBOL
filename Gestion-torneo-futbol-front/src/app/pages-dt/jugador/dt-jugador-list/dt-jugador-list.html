@@ -1,1 +1,31 @@
-<p>dt-jugador-list works!</p>
+<div class="admin-container">
+  <h3>Jugadores Libres</h3>
+
+  <ul>
+    @for (jugador of jugadoresLibres; track jugador.id) {
+      <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable">
+        
+        <div class="item-info">
+          <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" [alt]="jugador.nombre" class="item-logo item-foto-jugador">
+          <span class="item-nombre">{{jugador.nombre}}</span>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn-detalles"
+                  [routerLink]="['/dt-jugador-details/', jugador.id]" 
+                  (click)="$event.stopPropagation()">
+            Detalles
+          </button>
+          
+          <button class="btn-agregar" 
+                  (click)="agregarAlEquipo(jugador); $event.stopPropagation()">
+            Agregar a mi Equipo
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <p class="empty-list">No hay jugadores libres disponibles.</p>
+    }
+  </ul>
+
+</div>

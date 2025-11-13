@@ -1,1 +1,35 @@
-<p>dt-dt-form works!</p>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
+<h2 data-aos="fade-up"
+     data-aos-anchor-placement="top-center">{{ DtID ? 'Editar DT' : 'Agregar DT' }}</h2>
+
+<form [formGroup]="DtForm" (ngSubmit)="onSubmit()" data-aos="zoom-in">
+
+  @if (DtID) {
+    <label for="nombre">ID: </label>
+    <input id="id" type="text" formControlName="id" placeholder="id" readonly>
+  }
+
+  <label for="nombre">Nombre: </label>
+  <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre">
+
+  <label for="equipoID">Equipo ID: </label>
+  <input id="equipoID" type="text" formControlName="equipoID">
+
+  <label for="estiloJuego">Estilo de juego: </label>
+<select id="estiloJuego" formControlName="estiloJuego">
+  
+  <option value="" disabled selected>Selecciona un estilo</option>
+  <option value="defensivo">Defensivo</option>
+  <option value="equilibrado">Equilibrado</option>
+  <option value="ofensivo">Ofensivo</option>
+</select>
+
+  <label for="usuario">Usuario: </label>
+  <input id="usuario" type="text" formControlName="usuario">
+
+    <label for="foto">Foto: </label>
+  <input id="foto" type="file" formControlName="foto">
+
+  <button type="submit">{{ DtID ? 'Actualizar' : 'Agregar' }}</button>
+</form>

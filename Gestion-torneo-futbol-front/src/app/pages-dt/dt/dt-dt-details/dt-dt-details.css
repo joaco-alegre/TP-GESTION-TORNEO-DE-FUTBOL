@@ -1,0 +1,164 @@
+/* Contenedor principal (centra todo y da espacio) */
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto 40px auto;
+}
+
+/* Botón Volver */
+.btn-volver {
+  display: block; 
+  text-align: left; 
+  margin: 10px auto 0 0; 
+  width: fit-content;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-texto);
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.btn-volver:hover {
+  text-decoration: underline;
+}
+
+/* Tarjeta principal de detalles */
+.detalle-container {
+  max-width: 700px; /* Un poco más angosto para un perfil */
+  margin: 0 auto;
+}
+
+/* Título de la página (nombre del DT) */
+.titulo-pagina {
+  font-size: 2.5rem;
+  color: var(--color-texto);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  position: relative; 
+}
+
+/* Línea de acento corta */
+.titulo-pagina::after {
+  content: ''; 
+  display: block;
+  width: 100px; 
+  height: 3px; 
+  background-color: var(--color-accent); 
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Estilo base para la tarjeta */
+.card-detalles {
+  background-color: var(--color-tarjeta);
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px;
+  overflow: hidden;
+}
+
+/* Área de la foto (diseño "foto arriba") */
+.card-foto {
+  width: 100%;
+  height: 250px; 
+  background-color: var(--color-fondo);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-foto img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%; /* Foto circular */
+  object-fit: cover;  
+  border: 3px solid var(--color-borde);
+}
+
+/* Área de la información */
+.card-info {
+  padding: 24px;
+}
+
+/* Título ("Detalles del Perfil") */
+.card-info h3 {
+  font-size: 1.2rem;
+  color: var(--color-texto);
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-borde);
+  padding-bottom: 10px;
+}
+
+/* Lista de detalles (Nombre, Rol, etc.) */
+.info-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.info-lista li {
+  display: flex;
+  padding: 12px 5px;
+  border-bottom: 1px solid var(--color-borde);
+  font-size: 1rem;
+  color: var(--color-texto);
+}
+.info-lista li:last-child {
+  border-bottom: none;
+}
+.info-lista li b {
+  color: var(--color-texto);
+  font-weight: 700;
+  width: 150px; 
+  flex-shrink: 0; 
+}
+
+/* --- Botones de Acción (Editar/Eliminar) --- */
+.action-buttons-footer {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-borde);
+}
+
+.action-buttons-footer button {
+  font-size: 1rem;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.15s ease-out, background-color 0.2s;
+  font-weight: 600;
+}
+
+.btn-editar {
+  background-color: #ffb60a;
+  color: #212529;
+}
+.btn-editar:hover {
+  background-color: #e0a000;
+  transform: scale(1.05);
+}
+
+.btn-eliminar {
+  background-color: #d93025;
+}
+.btn-eliminar:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+/* Mensaje de carga */
+.empty-list {
+  padding: 40px;
+  text-align: center;
+  color: var(--color-texto);
+  font-size: 1.1rem;
+}

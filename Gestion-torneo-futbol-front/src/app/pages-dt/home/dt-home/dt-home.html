@@ -1,1 +1,9 @@
-<p>dt-home works!</p>
+<h2  data-aos="fade-right">Bienvenido {{dt?.nombre}} !!!</h2>
+
+<div class="menu-container" data-aos="zoom-out-left">
+  <ul class="admin-menu-grid">
+    <li><a [routerLink]="['/dt-mi-equipo']">Mi Equipo</a></li>
+    <li><a [routerLink]="['/dt-jugadores-libres']">Ver jugadores libres</a></li>
+    <li><a [routerLink]="['/dt-dt-details', IDgenerico]">Mis Detalles</a></li>
+  </ul>
+</div>

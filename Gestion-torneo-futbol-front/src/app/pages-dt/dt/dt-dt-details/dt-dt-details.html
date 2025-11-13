@@ -1,1 +1,59 @@
-<p>dt-dt-details works!</p>
+  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+
+<div class="admin-container">
+
+  @if (dt) {
+    <div class="detalle-container" data-aos="fade-up">
+  
+      <h2 class="titulo-pagina">{{ dt.nombre }}</h2>
+  
+      <div class="card card-detalles">
+        
+        <div class="card-foto">
+          <img 
+            [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'" 
+            [alt]="'Foto de ' + dt.nombre">
+        </div>
+  
+        <div class="card-info">
+          <h3>Detalles de mi Perfil</h3>
+          <ul class="info-lista">
+            <li>
+              <b>Nombre:</b> {{ dt.nombre }}
+            </li>
+            <li>
+              <b>Fecha de nacimiento:</b> {{ dt.fechaNacimiento }}
+            </li>
+            <li>
+              <b>Estilo de Juego:</b> {{ dt.estiloJuego }}
+            </li>
+            <li>
+              <b>Usuario (Email):</b> {{ dt.usuario }}
+            </li>
+            <li>
+              <b>Contraseña:</b> ********
+            </li>
+          </ul>
+
+          <div class="action-buttons-footer">
+            
+            <button class="btn-editar" [routerLink]="['/dt-dt-form', dt.id]">
+              Editar Perfil
+            </button>
+            
+            <button class="btn-eliminar" (click)="deleteDT()">
+              Eliminar mi Cuenta
+            </button>
+            
+          </div>
+
+        </div>
+      </div>
+  
+    </div>
+  
+  } @else {
+    <p class="empty-list">Cargando perfil...</p>
+  }
+
+</div>

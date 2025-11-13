@@ -35,6 +35,11 @@ import { UsuarioList } from './pages-admin/usuario/usuario-list/usuario-list';
 import { UsuarioForm } from './pages-admin/usuario/usuario-form/usuario-form';
 import { UsuarioDetails } from './pages-admin/usuario/usuario-details/usuario-details';
 import { DtHome } from './pages-dt/home/dt-home/dt-home';
+import { DtEquipoDetails } from './pages-dt/equipo/dt-equipo-details/dt-equipo-details';
+import { DtJugadorDetails } from './pages-dt/jugador/dt-jugador-details/dt-jugador-details';
+import { DtJugadorList } from './pages-dt/jugador/dt-jugador-list/dt-jugador-list';
+import { DtDtDetails } from './pages-dt/dt/dt-dt-details/dt-dt-details';
+import { DtDtForm } from './pages-dt/dt/dt-dt-form/dt-dt-form';
 
 export const routes: Routes = [
     {path: '', 
@@ -80,6 +85,11 @@ export const routes: Routes = [
     {path: 'usuario-form-admin/:id', component: UsuarioForm},
     {path: 'usuario-details-admin/:id', component: UsuarioDetails},
     {path: 'dt-home', component: DtHome},
+    {path: 'dt-mi-equipo', component: DtEquipoDetails},
+    {path: 'dt-jugador-details/:id', component: DtJugadorDetails},
+    {path: 'dt-jugadores-libres', component: DtJugadorList},
+    {path: 'dt-dt-details/:id', component: DtDtDetails},
+    {path: 'dt-dt-form/:id', component: DtDtForm},
 
 
 

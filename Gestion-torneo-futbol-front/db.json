@@ -147,11 +147,12 @@
       "numeroCamiseta": 8,
       "posicion": "Mediocampista",
       "idEquipo": "e-004"
-    },{
+    },
+    {
       "id": "j-101",
       "nombre": "Carlos Sánchez",
       "foto": "assets/icons/persona.png",
-      "idEquipo": "",
+      "idEquipo": "e-001",
       "edad": 30,
       "fechaNacimiento": "1994-03-22",
       "numeroCamiseta": 5
@@ -180,7 +181,7 @@
       "id": "dt-mg-001",
       "nombre": "Marcelo Gallardo ",
       "equipoID": "e-001",
-      "estiloJuego": "Ofensivo",
+      "estiloJuego": "equilibrado",
       "usuario": "mgallardo",
       "foto": ""
     },
@@ -351,7 +352,7 @@
       "foto": ""
     }
   ],
-"usuarios": [
+  "usuarios": [
     {
       "id": "u-001",
       "nombre": "Joaquín Alegre",
@@ -380,8 +381,4 @@
       "foto": "assets/img/equipo/avatar3.jpg"
     }
   ]
-
-
-
-
 }

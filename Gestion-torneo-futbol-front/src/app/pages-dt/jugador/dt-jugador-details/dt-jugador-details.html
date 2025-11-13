@@ -1,1 +1,56 @@
-<p>dt-jugador-details works!</p>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+
+@if (jugador) {
+
+  <div class="detalle-jugador-container">
+
+    <h2 class="titulo-pagina" data-aos="fade-down"
+     data-aos-anchor-placement="top-center">{{ jugador.nombre }}</h2>
+
+    <div class="card card-detalles" data-aos="zoom-in-up">
+      
+      <div class="card-foto">
+        <img 
+          [src]="jugador.foto ? jugador.foto : 'assets/icons/persona.png'" 
+          [alt]="'Foto de ' + jugador.nombre">
+      </div>
+
+      <div class="card-info">
+        <h3>{{ 'jugadorDetalles.tituloDetalles' | transloco }}</h3>
+        <ul class="info-lista">
+          <li>
+            <b>{{ 'jugadorDetalles.etiquetaEdad' | transloco }}</b> {{ jugador.edad }}
+          </li>
+          <li>
+            <b>{{ 'jugadorDetalles.etiquetaNacimiento' | transloco }}</b> {{ jugador.fechaNacimiento | date:'dd/MM/yyyy' }}
+          </li>
+
+          <li>
+            <b>{{ 'jugadorDetalles.etiquetaEquipo' | transloco }}</b>
+              {{ equipoDelJugador?.nombre }}
+          </li>
+
+          <li>
+            <b>{{ 'jugadorDetalles.etiquetaCamiseta' | transloco }}</b> N° {{ jugador.numeroCamiseta }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    @if(estadisticaGoleador){
+      <div class="card card-estadisticas">
+        <h3>{{ 'jugadorDetalles.tituloEstadisticas' | transloco }}</h3>
+        <ul class="stats-lista">
+          <li>
+            <b>{{ 'jugadorDetalles.etiquetaGoles' | transloco }}</b>
+            <span class="stat-numero">{{ estadisticaGoleador.cantidadGoles }}</span>
+          </li>
+        </ul>
+      </div>
+    }
+
+  </div>
+
+} @else {
+  <p class="empty-list">{{ 'jugadorDetalles.cargando' | transloco }}</p>
+}

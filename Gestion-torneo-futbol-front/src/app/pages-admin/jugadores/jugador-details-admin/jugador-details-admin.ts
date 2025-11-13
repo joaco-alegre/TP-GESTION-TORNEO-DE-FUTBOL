@@ -17,7 +17,6 @@ import { EstadisticaGoleadorService } from '../../../service/estadistica-goleado
 })
 export class JugadorDetailsAdmin {
 
-  
     jugador?: Jugador;
     estadisticaGoleador?: EstadisticaGoleador;
     equipoDelJugador?: Equipo;

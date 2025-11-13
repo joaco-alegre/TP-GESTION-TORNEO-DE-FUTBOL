@@ -1,0 +1,145 @@
+.detalle-jugador-container {
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.titulo-pagina {
+  font-size: 2.8rem;
+  color: var(--color-texto);
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  position: relative; 
+}
+
+.titulo-pagina::after {
+  content: ''; 
+  display: block;
+  width: 100px; 
+  height: 3px; 
+  background-color: var(--color-accent); 
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-borde);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 25px; 
+  overflow: hidden;
+}
+
+.card-foto {
+  width: 100%;
+  height: 250px; 
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-foto img {
+  width: 250px;
+  height: 250px; 
+  object-fit: cover;  
+  border: 3px solid #ddd;
+}
+
+.card-info {
+  padding: 24px;
+}
+
+.card-info h3 {
+  font-size: 1.2rem;
+  color: var(--color-texto-tarjeta);
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.info-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info-lista li {
+  display: flex;
+  padding: 12px 5px;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  color: var(--color-texto-tarjeta);
+}
+
+.info-lista li:last-child {
+  border-bottom: none;
+}
+
+.info-lista li b {
+  color: var(--color-texto-tarjeta);
+  font-weight: 700;
+  width: 150px; 
+  flex-shrink: 0; 
+}
+
+.card-estadisticas {
+  padding: 24px;
+}
+
+.card-estadisticas h3 {
+  font-size: 1.2rem;
+  color: var(--color-texto);
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-borde);
+  padding-bottom: 10px;
+}
+
+.stats-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.stats-lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--color-texto);
+  font-weight: 700;
+}
+
+.stat-numero {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+
+.empty-list {
+  padding: 40px;
+  text-align: center;
+  color: var(--color-texto);
+  font-size: 1.1rem;
+}
+
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color:var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
+}
