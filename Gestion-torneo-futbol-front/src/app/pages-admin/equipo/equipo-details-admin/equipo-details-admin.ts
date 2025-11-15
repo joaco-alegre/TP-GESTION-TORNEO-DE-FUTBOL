@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import Torneo from '../../../model/torneo';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import { CommonModule, Location } from '@angular/common';
@@ -9,7 +9,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-equipo-details',
-  imports: [CommonModule, TranslocoPipe],
+  imports: [CommonModule, TranslocoPipe, RouterLink],
   templateUrl: './equipo-details-admin.html',
   styleUrl: './equipo-details-admin.css',
 })

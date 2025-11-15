@@ -25,13 +25,14 @@ export class TorneoFormAdmin implements OnInit{
     private location: Location
   ) {}
 
+
   ngOnInit(): void {
 
     this.torneoForm = this.fb.group({
       
       id: [''],
       nombre: ['', Validators.required],
-      logo: ['', []],
+      logo: ['', [Validators.required]],
       ultimoCampeon: ['', []],
       estadoTorneo: ['', [Validators.required]],
       fechaInicio: ['', [Validators.required]],
@@ -40,9 +41,16 @@ export class TorneoFormAdmin implements OnInit{
 
 this.torneoID = this.route.snapshot.params['id'];
     if (this.torneoID) {
+
+      this.torneoForm.get('logo')?.clearValidators();
+      this.torneoForm.get('logo')?.updateValueAndValidity();
+
       this.torneoService.getTorneoById(this.torneoID)
         .subscribe(data => {
           const datosParaFormulario = { ...data };
+
+          delete datosParaFormulario.logo;
+          delete datosParaFormulario.ultimoCampeon;
           this.torneoForm.patchValue(datosParaFormulario);
         });
 
@@ -53,7 +61,12 @@ this.torneoID = this.route.snapshot.params['id'];
 
   onSubmit(): void {
   
-    if (this.torneoForm.invalid) return;
+    if (this.torneoForm.invalid){
+
+      console.log("Completar ");
+      this.torneoForm.markAllAsTouched(); 
+      return;
+    };
 
     if (this.torneoID) {
 
@@ -83,7 +96,7 @@ this.torneoID = this.route.snapshot.params['id'];
     }
   }
 
-      goBack(): void {
+    goBack(): void {
     this.location.back();
   }
 }

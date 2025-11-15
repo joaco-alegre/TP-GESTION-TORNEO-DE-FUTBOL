@@ -98,7 +98,18 @@ form button[type="submit"]:hover {
   text-decoration: underline;
 }
 
+.validation-error p {
+  color: #dc3545; 
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 5px; 
+  margin-bottom: 0;
+}
 
+.is-invalid {
+  border-color: #dc3545 !important; 
+  box-shadow: 0 0 0 0.16rem rgba(220, 53, 69, 0.25);
+}
 
 
 .validation-error p {
@@ -115,6 +126,9 @@ form button[type="submit"]:hover {
   border-radius: 5px;
   padding: 10px;
   text-align: center;
+  color: #dc3545; 
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
 .login-error p {

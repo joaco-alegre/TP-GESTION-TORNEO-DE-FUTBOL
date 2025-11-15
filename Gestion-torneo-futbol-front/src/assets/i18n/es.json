@@ -142,6 +142,7 @@
       "botonActualizar": "Actualizar",
       "validation": {
         "nombreRequerido": "El nombre es obligatorio.",
+        "logoRequerido": "El logo es obligatorio.",
         "estadoRequerido": "Debes seleccionar un estado.",
         "fechaInicioRequerida": "La fecha de inicio es obligatoria.",
         "fechaFinRequerida": "La fecha de finalización es obligatoria."

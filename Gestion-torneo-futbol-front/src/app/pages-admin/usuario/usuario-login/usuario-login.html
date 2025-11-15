@@ -24,19 +24,42 @@
 
   <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
 
-    <label for="email">{{ 'login.etiquetaEmail' | transloco }}</label>
-    <input id="email" formControlName="email" type="email">
+  <label for="email">{{ 'login.etiquetaEmail' | transloco }}</label>
+  <input id="email" formControlName="email" type="email"
+         [class.is-invalid]="usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched">
 
-    <label for="password">{{ 'login.etiquetaPassword' | transloco }}</label>
-    <input id="password" formControlName="password" type="password">
+  @if (usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched) {
+    <div class="validation-error">
+      
+      @if (usuarioForm.get('email')?.hasError('required')) {
+        <p>El email es obligatorio.</p>
+      }
+      
+      @if (usuarioForm.get('email')?.hasError('email')) {
+        <p>El formato del email no es válido.</p>
+      }
+    </div>
+  }
 
-        @if (loginError) {
+  <label for="password">{{ 'login.etiquetaPassword' | transloco }}</label>
+  <input id="password" formControlName="password" type="password"
+         [class.is-invalid]="usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched">
+
+  @if (usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched) {
+    <div class="validation-error">
+      @if (usuarioForm.get('password')?.hasError('required')) {
+        <p>La contraseña es obligatoria.</p>
+      }
+    </div>
+  }
+
+  @if (loginError) {
     <div class="validation-error login-error">
       <p>{{ loginError }}</p>
     </div>
   }
 
-    <button type="submit" (click)="onSubmit()">{{ 'login.botonIngresar' | transloco }}</button>
-  </form>
+  <button type="submit">{{ 'login.botonIngresar' | transloco }}</button>
+</form>
 
 </div>

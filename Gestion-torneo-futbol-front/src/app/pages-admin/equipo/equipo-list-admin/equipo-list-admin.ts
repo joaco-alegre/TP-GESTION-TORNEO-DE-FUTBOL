@@ -5,10 +5,11 @@ import { ActivatedRoute, Route, RouterLink, RouterModule } from "@angular/router
 import { CommonModule, Location } from '@angular/common';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-equipo-list',
-  imports: [RouterModule, CommonModule, TranslocoPipe],
+  imports: [RouterModule, CommonModule, TranslocoPipe, LightboxModule],
   templateUrl: './equipo-list-admin.html',
   styleUrl: './equipo-list-admin.css',
 })
@@ -18,17 +19,18 @@ export class EquipoListAdmin implements OnInit{
       equipos: Equipo[] = [];
       nombreTorneo?: string;
       private todosEquipos: Equipo[] = [];
-      torneoId: string | null = null;
+      torneoId?: string;
     
       constructor(private equipoService: EquipoService,
                 private location: Location,
                 private route: ActivatedRoute,
                 private torneoService: TorneoService,
+                private lightBox: Lightbox
       ) {}
     
       ngOnInit(): void {
 
-    this.torneoId = this.route.snapshot.paramMap.get('id');
+    this.torneoId = this.route.snapshot.params['id'];
 
     if (!this.torneoId) {
       console.error('No se encontró ID de torneo en la URL');
@@ -51,15 +53,6 @@ export class EquipoListAdmin implements OnInit{
           console.log(data)
           this.equipos = data});
       }
-    
-      // deleteEquipo(id: string): void {
-      
-      //     this.equipoService.deleteEquipo(id).subscribe(() => {
-      //       this.filtrarEquiposPorTorneo(),
-      //       alert("equipo eliminado")
-      //     });
-        
-      // }
 
       deleteEquipo(id: string): void {
   
@@ -80,9 +73,6 @@ export class EquipoListAdmin implements OnInit{
 }
 
 
-
-
-
       filtrarEquiposPorTorneo(): void {
     if (this.torneoId) { 
       this.equipos = this.todosEquipos.filter(
@@ -92,6 +82,27 @@ export class EquipoListAdmin implements OnInit{
       this.equipos = [];
     }
   }
+
+
+  abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightBox.open(album, 0);
+    }
+
+
+
   
     goBack(): void {
     this.location.back();

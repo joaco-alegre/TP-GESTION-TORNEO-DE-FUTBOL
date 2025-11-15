@@ -8,8 +8,10 @@
   @for (torneo of torneos; track torneo.id) {
     <li [routerLink]="['/equipo-admin/', torneo.id]" class="fila-clickeable">
       
-      <div class="torneo-info">
-        <img [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" [alt]="torneo.nombre" class="torneo-logo">
+      <div class="torneo-info card-foto">
+        <img [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" 
+        [alt]="torneo.nombre" class="torneo-logo"
+        (click)="abrirImagen(torneo?.logo || 'assets/icons/icono.png'); $event.stopPropagation()">
         <span class="torneo-nombre">{{torneo.nombre}}</span>
       </div>
       

@@ -27,6 +27,17 @@
         <li>
           <b>ID Torneo:</b> {{ equipo.idTorneo }}
         </li>
+
+                  <button class="btn-editar"
+                  [routerLink]="['/equipo-formulario-admin/', equipo.id]" 
+                  (click)="$event.stopPropagation()">
+            Editar
+          </button>
+          
+          <!-- <button class="btn-eliminar" 
+                  (click)="deleteEquipo(equipo.id!); $event.stopPropagation()">
+            Eliminar
+          </button> -->
       </ul>
     </div>
 

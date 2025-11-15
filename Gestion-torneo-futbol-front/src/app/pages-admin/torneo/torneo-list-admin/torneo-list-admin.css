@@ -144,3 +144,23 @@ p.empty-list {
 .btn-volver:hover {
   text-decoration: underline;
 }
+
+
+.card-foto img { 
+  cursor: zoom-in;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+
+.card-foto img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9; 
+}
+
+.lightbox, 
+.lightbox-overlay, 
+.lightbox-container, 
+.lightbox-image {
+  pointer-events: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+}

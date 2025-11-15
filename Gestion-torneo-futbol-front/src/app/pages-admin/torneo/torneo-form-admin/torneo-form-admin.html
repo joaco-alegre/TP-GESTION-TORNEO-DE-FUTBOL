@@ -22,9 +22,15 @@
     </div>
   }
 
+ <label for="logo">{{ 'admin.formularioTorneo.labelLogo' | transloco }}</label>
+  <input id="logo" type="file" formControlName="logo"
+         [class.is-invalid]="torneoForm.get('logo')?.invalid && torneoForm.get('logo')?.touched">
 
-  <label for="logo">{{ 'admin.formularioTorneo.labelLogo' | transloco }}</label>
-  <input id="logo" type="file" formControlName="logo">
+  @if (torneoForm.get('logo')?.invalid && torneoForm.get('logo')?.touched) {
+    <div class="validation-error">
+      <p>{{ 'admin.formularioTorneo.validation.logoRequerido' | transloco}}</p>
+    </div>
+  }
 
   <label for="ultimoCampeon">{{ 'admin.formularioTorneo.labelCampeon' | transloco }}</label>
   <input id="ultimoCampeon" type="file" formControlName="ultimoCampeon">
@@ -70,7 +76,7 @@
     </div>
   }
 
-  <button type="submit" [disabled]="!torneoForm.valid">
+  <button type="submit">
     {{ torneoID ? ('admin.formularioTorneo.botonActualizar' | transloco) : ('admin.formularioTorneo.botonAgregar' | transloco) }}
   </button>
 </form>

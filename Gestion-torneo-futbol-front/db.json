@@ -5,16 +5,18 @@
       "nombre": "Copa del Rey",
       "logo": "",
       "ultimoCampeon": "",
-      "estadoTorneo": "Programado",
+      "estadoTorneo": "comenzado",
       "fechaInicio": "2025-11-01T18:00:00Z",
       "fechaFin": "2025-12-15T21:00:00Z"
     },
     {
       "id": "t-002",
       "nombre": "Liga Anual de Verano",
+      "logo": "",
+      "ultimoCampeon": "",
+      "estadoTorneo": "espera",
       "fechaInicio": "2025-09-10T15:00:00Z",
-      "fechaFin": "2025-10-30T22:00:00Z",
-      "estadoTorneo": "En Curso"
+      "fechaFin": "2025-10-30T22:00:00Z"
     },
     {
       "id": "t-003",
@@ -33,9 +35,11 @@
     {
       "id": "t-005",
       "nombre": "Copa de Campeones 2025",
+      "logo": "",
+      "ultimoCampeon": "",
+      "estadoTorneo": "pendiente",
       "fechaInicio": "2025-08-15T12:00:00Z",
-      "fechaFin": "2025-10-15T12:00:00Z",
-      "estadoTorneo": "Finalizado"
+      "fechaFin": "2025-10-15T12:00:00Z"
     }
   ],
   "equipos": [

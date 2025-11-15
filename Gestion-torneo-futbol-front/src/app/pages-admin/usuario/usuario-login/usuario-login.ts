@@ -37,16 +37,15 @@ export class UsuarioLogin implements OnInit{
 
   onSubmit() {
     
-    if (this.usuarioForm.valid) { 
-      
-     this.loginError = '';
+    this.loginError = '';
 
     if (this.usuarioForm.invalid) {
-      this.usuarioForm.markAllAsTouched();
-      return;
+      this.usuarioForm.markAllAsTouched(); 
+      return; 
     }
 
-     const email = this.usuarioForm.value.email;
+    //usamos esto para simular
+    const email = this.usuarioForm.value.email;
     const password = this.usuarioForm.value.password;
 
     if (email === 'joaco12-2002@hotmail.com' && password === '123') {
@@ -61,12 +60,9 @@ export class UsuarioLogin implements OnInit{
       this.loginError = "Email o contraseña inválida."; 
     }
   }
-}
 
   goBack(): void {
-
     this.router.navigate(['/']);
-
   }
 
 }

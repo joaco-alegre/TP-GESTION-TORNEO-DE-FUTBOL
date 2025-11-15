@@ -143,6 +143,7 @@
       "botonActualizar": "Update",
       "validation": {
         "nombreRequerido": "Name is required.",
+        "logoRequerido": "Logo is required",
         "estadoRequerido": "You must select a status.",
         "fechaInicioRequerida": "Start date is required.",
         "fechaFinRequerida": "End date is required."

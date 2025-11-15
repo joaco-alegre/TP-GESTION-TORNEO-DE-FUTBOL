@@ -74,43 +74,18 @@ li button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: white;
+  color: #fff;
+  background-color: var(--color-boton);
   transition: transform 0.15s ease-out, background-color 0.2s;
 }
 
 li button:hover {
   transform: scale(1.1);
+    background-color: var(--color-boton-hover);
 }
 
 li button:active {
   transform: scale(1.0);
-}
-
-.btn-detalles {
-  background-color: #0069d9;
-  border: 1px solid #0062cc;
-}
-.btn-detalles:hover {
-  background-color: #0056b3;
-}
-
-.btn-editar {
-  background-color: #ffb60a;
-  color: #212529;
-  border: 1px solid #e0a000;
-}
-
-.btn-editar:hover {
-  background-color: #e0a000;
-}
-
-.btn-eliminar {
-  background-color: #d93025;
-  border: 1px solid #c82333;
-}
-
-.btn-eliminar:hover {
-  background-color: #c82333;
 }
 
 .empty-list {
@@ -130,8 +105,8 @@ li button:active {
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  background-color: #28a745;
-  color: white;
+  background-color: var(--color-boton);
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -139,7 +114,7 @@ li button:active {
 }
 
 .btn-agregar:hover {
-  background-color: #218838;
+  background-color: var(--color-boton-hover);
   transform: scale(1.05); 
 }
 
@@ -158,4 +133,14 @@ li button:active {
 
 .btn-volver:hover {
   text-decoration: underline;
+}
+
+.card-foto img { 
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+
+.card-foto img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9; 
 }

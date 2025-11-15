@@ -9,7 +9,9 @@
       <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable">
         
         <div class="item-info">
-          <img [src]="equipo?.escudo ? equipo?.escudo : 'assets/icons/icono.png'"  [alt]="equipo.nombre" class="item-logo">
+          <img [src]="equipo?.escudo ? equipo?.escudo : 'assets/icons/icono.png'"  
+          [alt]="equipo.nombre" class="item-logo"
+          (click)="abrirImagen(equipo?.escudo || 'assets/icons/icono.png'); $event.stopPropagation()">
           <span class="item-nombre">{{equipo.nombre}}</span>
         </div>
         
@@ -18,17 +20,6 @@
                   [routerLink]="['/equipo-details-admin', equipo.id]" 
                   (click)="$event.stopPropagation()">
             Detalles
-          </button>
-          
-          <button class="btn-editar"
-                  [routerLink]="['/equipo-formulario-admin/', equipo.id]" 
-                  (click)="$event.stopPropagation()">
-            Editar
-          </button>
-          
-          <button class="btn-eliminar" 
-                  (click)="deleteEquipo(equipo.id!); $event.stopPropagation()">
-            Eliminar
           </button>
         </div>
       </li>
