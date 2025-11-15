@@ -26,9 +26,15 @@
 
     <label for="email">{{ 'login.etiquetaEmail' | transloco }}</label>
     <input id="email" formControlName="email" type="email">
-      
+
     <label for="password">{{ 'login.etiquetaPassword' | transloco }}</label>
     <input id="password" formControlName="password" type="password">
+
+        @if (loginError) {
+    <div class="validation-error login-error">
+      <p>{{ loginError }}</p>
+    </div>
+  }
 
     <button type="submit" (click)="onSubmit()">{{ 'login.botonIngresar' | transloco }}</button>
   </form>

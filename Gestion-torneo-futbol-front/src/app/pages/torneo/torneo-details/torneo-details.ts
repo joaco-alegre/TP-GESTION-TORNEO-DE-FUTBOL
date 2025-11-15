@@ -88,9 +88,6 @@ ngOnInit(): void {
     }
 
 
-
-
-
     goBack(): void {
     this.router.navigate(['es/torneos']);
   }

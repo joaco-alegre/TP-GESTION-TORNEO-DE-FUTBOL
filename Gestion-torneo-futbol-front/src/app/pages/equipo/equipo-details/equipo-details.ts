@@ -13,10 +13,11 @@ import DT from '../../../model/dt';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import Torneo from '../../../model/torneo';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-details',
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, RouterModule, TranslocoPipe, LightboxModule],
   templateUrl: './equipo-details.html',
   styleUrl: './equipo-details.css'
 })
@@ -44,7 +45,8 @@ export class EquipoDetails implements OnInit{
     private jugadorService: JugadorService,
     private fixtureService: FixtureService, 
     private tituloService: Title,
-    private location: Location 
+    private location: Location ,
+    private lightbox: Lightbox
   ) { }
 
   ngOnInit(): void {
@@ -139,6 +141,24 @@ getNombreTorneo(idTorneo: string): string {
     }
     return 'Torneo no especificado';
   }
+
+  abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album, 0);
+    }
+
 
     goBack(): void {
     this.router.navigate(['es/torneos/', this.equipo?.idTorneo]);

@@ -13,13 +13,14 @@ import { TranslocoPipe } from '@ngneat/transloco';
 export class UsuarioLogin implements OnInit{
 
   usuarioForm!: FormGroup; 
+  loginError?: string;
   
   selectedRole: 'usuario' | 'dt' = 'usuario'; 
 
 
   constructor(private router: Router,
     private location: Location,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {}
 
   ngOnInit(): void {
@@ -38,26 +39,33 @@ export class UsuarioLogin implements OnInit{
     
     if (this.usuarioForm.valid) { 
       
-      const loginData = {
-        ...this.usuarioForm.value,
-        role: this.selectedRole 
-      };
+     this.loginError = '';
 
-      console.log('Intentando iniciar sesión con:', loginData);
+    if (this.usuarioForm.invalid) {
+      this.usuarioForm.markAllAsTouched();
+      return;
+    }
 
+     const email = this.usuarioForm.value.email;
+    const password = this.usuarioForm.value.password;
+
+    if (email === 'joaco12-2002@hotmail.com' && password === '123') {
+      
       if (this.selectedRole === 'dt') {
-        this.router.navigate(['/dt-home']); 
+        this.router.navigate(['/admin-menu']); 
       } else {
         this.router.navigate(['/usuario-home']); 
-      }     
+      }
+      
     } else {
-      this.usuarioForm.markAllAsTouched();
+      this.loginError = "Email o contraseña inválida."; 
     }
   }
+}
 
   goBack(): void {
 
-    this.location.back();
+    this.router.navigate(['/']);
 
   }
 

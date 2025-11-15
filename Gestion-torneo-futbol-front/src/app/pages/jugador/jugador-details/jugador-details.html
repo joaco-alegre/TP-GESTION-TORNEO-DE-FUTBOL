@@ -12,7 +12,8 @@
       <div class="card-foto">
         <img 
           [src]="jugador.foto ? jugador.foto : 'assets/icons/persona.png'" 
-          [alt]="'Foto de ' + jugador.nombre">
+          [alt]="'Foto de ' + jugador.nombre"
+          (click)="abrirImagen(jugador?.foto || 'assets/icons/persona.png')">
       </div>
 
       <div class="card-info">

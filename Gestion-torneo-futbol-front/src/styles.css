@@ -61,7 +61,7 @@ html, body {
   --color-form-input-placeholder: #6c757d; 
   --color-borde-lista: #00334e;
   --color-boton-login: #00334e;
-
+  --color-empty-list: #3b3a3a;
 
 
 }
@@ -86,6 +86,7 @@ body.dark-mode {
   --color-borde-lista: #ffffff;
   --color-borde-lista-hover: #00334e;
   --color-boton-login: #1e1e1e;
+  --color-empty-list: #e0e0e0;
 }
 
 

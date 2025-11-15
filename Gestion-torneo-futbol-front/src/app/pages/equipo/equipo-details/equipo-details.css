@@ -95,6 +95,16 @@
   margin-bottom: 15px; 
 }
 
+.card-foto img { 
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+
+.card-foto img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9; 
+}
+
 .dt-info {
   text-align: center; 
 }
@@ -218,3 +228,8 @@
   text-decoration: underline;
 }
 
+.empty-list {
+  padding: 20px;
+  color: var(--color-empty-list);
+  text-align: center;
+}

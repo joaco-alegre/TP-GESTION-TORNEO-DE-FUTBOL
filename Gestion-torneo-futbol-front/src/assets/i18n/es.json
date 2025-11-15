@@ -100,5 +100,55 @@
     "etiquetaEmail": "Email",
     "etiquetaPassword": "Contraseña",
     "botonIngresar": "Ingresar"
+  },
+  "admin": {
+    "botones": {
+      "volver": "Volver",
+      "detalles": "Detalles",
+      "editar": "Editar",
+      "eliminar": "Eliminar"
+    },
+    "torneos": {
+      "titulo": "Lista de Torneos",
+      "empty": "No hay torneos registrados en este momento.",
+      "agregar": "Agregar Torneo"
+    },
+    "torneoDetalles": {
+      "logo": "Logo del Torneo",
+      "campeon": "Último Campeón",
+      "titulo": "Detalles del Torneo",
+      "id": "ID:",
+      "nombre": "Nombre:",
+      "estado": "Estado:",
+      "inicio": "Fecha de Inicio:",
+      "fin": "Fecha de Finalización:",
+      "cargando": "Cargando datos del torneo..."
+    },    "formularioTorneo": {
+      "tituloAgregar": "Agregar Torneo",
+      "tituloEditar": "Editar Torneo",
+      "labelId": "ID:",
+      "labelNombre": "Nombre:",
+      "labelLogo": "Logo:",
+      "labelCampeon": "Último Campeón:",
+      "labelEstado": "Estado:",
+      "estadoPlaceholder": "Selecciona un estado",
+      "estadoPendiente": "Pendiente",
+      "estadoEspera": "Espera",
+      "estadoComenzado": "Comenzado",
+      "estadoTerminado": "Terminado",
+      "labelFechaInicio": "Fecha de Inicio:",
+      "labelFechaFin": "Fecha de Finalización:",
+      "botonAgregar": "Agregar",
+      "botonActualizar": "Actualizar",
+      "validation": {
+        "nombreRequerido": "El nombre es obligatorio.",
+        "estadoRequerido": "Debes seleccionar un estado.",
+        "fechaInicioRequerida": "La fecha de inicio es obligatoria.",
+        "fechaFinRequerida": "La fecha de finalización es obligatoria."
+      }
   }
+    
+  }
+  
+
 }

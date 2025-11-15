@@ -4,7 +4,7 @@
 
   <h2 class="titulo-torneo" data-aos="fade-right" >{{torneo?.nombre}}</h2>
 
-  <div class="logo-container">
+  <div class="logo-container card-foto">
     <img 
       [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" 
       [alt]="'Logo de ' + torneo?.nombre" 
@@ -31,7 +31,7 @@
 
   <div data-aos="fade-left">
     <h3 class="section-title">{{ 'torneoDetalles.tituloUltimoCampeon' | transloco }}</h3>
-    <div class="campeon-img-wrapper"> 
+    <div class="campeon-img-wrapper card-foto"> 
       <img
         [src]="torneo?.ultimoCampeon ? torneo?.ultimoCampeon : 'assets/icons/gente.png'" 
         alt="Imagen del último campeón" 

@@ -2,7 +2,7 @@
   "torneos": [
     {
       "id": "t-001",
-      "nombre": "Copa del Rey ",
+      "nombre": "Copa del Rey",
       "logo": "",
       "ultimoCampeon": "",
       "estadoTorneo": "Programado",

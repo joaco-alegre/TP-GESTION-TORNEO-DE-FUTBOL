@@ -8,10 +8,11 @@ import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { EstadisticaGoleadorService } from '../../../service/estadistica-goleador-service/estadistica-goleador-service';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { CommonModule, Location } from '@angular/common';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-jugador-details',
-  imports: [RouterModule, TranslocoPipe, CommonModule],
+  imports: [RouterModule, TranslocoPipe, CommonModule, LightboxModule],
   templateUrl: './jugador-details.html',
   styleUrl: './jugador-details.css'
 })
@@ -27,7 +28,8 @@ export class JugadorDetails implements OnInit{
     private jugadorService: JugadorService,
     private equipoService: EquipoService,
     private estadisticaService: EstadisticaGoleadorService,
-    private location: Location 
+    private location: Location ,
+    private lightbox: Lightbox
   ) { }
 
 
@@ -62,6 +64,26 @@ export class JugadorDetails implements OnInit{
       this.estadisticaGoleador = data;
     });
   }
+
+
+   abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album, 0);
+    }
+
+
 
       goBack(): void {
     this.router.navigate(['es/equipos/', this.jugador?.idEquipo]);

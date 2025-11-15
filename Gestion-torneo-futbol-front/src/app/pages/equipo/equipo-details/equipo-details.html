@@ -10,12 +10,13 @@
 
       @if(equipo){
         <div class="details-card-wrapper"> 
-          <div class="equipo-card">
+          <div class="equipo-card card-foto">
 
             <img 
               [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
               [alt]="'Escudo de ' + equipo.nombre" 
-              class="equipo-card-logo">
+              class="equipo-card-logo"
+              (click)="abrirImagen(equipo?.escudo || 'assets/icons/icono.png')">
 
             <div class="equipo-card-info">
               <h4>{{ equipo.nombre }}</h4>
@@ -33,11 +34,12 @@
 
       @if(dt){
         <div class="dt-card-wrapper">
-          <div class="dt-card">
+          <div class="dt-card card-foto">
             <img 
               [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'" 
               alt="Foto de {{dt?.nombre}}" 
-              class="dt-foto">
+              class="dt-foto "
+              (click)="abrirImagen(dt?.foto || 'assets/icons/persona.png')">
 
             <div class="dt-info">
               <h4>{{ dt?.nombre }}</h4>

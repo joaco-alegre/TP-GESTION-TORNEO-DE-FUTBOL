@@ -100,5 +100,55 @@
     "etiquetaEmail": "Email",
     "etiquetaPassword": "Password",
     "botonIngresar": "Login"
-  }
+  },
+  "admin": {
+    "botones": {
+      "volver": "Back",
+      "detalles": "Details",
+      "editar": "Edit",
+      "eliminar": "Delete"
+    },
+    "torneos": {
+      "titulo": "Tournament List",
+      "empty": "No tournaments registered at this time.",
+      "agregar": "Add Tournament"
+    },
+      "torneoDetalles": {
+      "logo": "Tournament Logo",
+      "campeon": "Last Champion",
+      "titulo": "Tournament Details",
+      "id": "ID:",
+      "nombre": "Name:",
+      "estado": "Status:",
+      "inicio": "Start Date:",
+      "fin": "End Date:",
+      "cargando": "Loading tournament data..."
+    },
+    "formularioTorneo": {
+      "tituloAgregar": "Add Tournament",
+      "tituloEditar": "Edit Tournament",
+      "labelId": "ID:",
+      "labelNombre": "Name:",
+      "labelLogo": "Logo:",
+      "labelCampeon": "Last Champion:",
+      "labelEstado": "Status:",
+      "estadoPlaceholder": "Select a status",
+      "estadoPendiente": "Pending",
+      "estadoEspera": "Waiting",
+      "estadoComenzado": "Started",
+      "estadoTerminado": "Finished",
+      "labelFechaInicio": "Start Date:",
+      "labelFechaFin": "End Date:",
+      "botonAgregar": "Add",
+      "botonActualizar": "Update",
+      "validation": {
+        "nombreRequerido": "Name is required.",
+        "estadoRequerido": "You must select a status.",
+        "fechaInicioRequerida": "Start date is required.",
+        "fechaFinRequerida": "End date is required."
+      }
+    }
+
+}
+
 }

@@ -1,47 +1,76 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <h2 data-aos="fade-up"
-     data-aos-anchor-placement="top-center">{{ torneoID ? 'Editar Torneo' : 'Agregar Torneo' }}</h2>
+     data-aos-anchor-placement="top-center">
+  {{ torneoID ? ('admin.formularioTorneo.tituloEditar' | transloco) : ('admin.formularioTorneo.tituloAgregar' | transloco) }}
+</h2>
 
 <form [formGroup]="torneoForm" (ngSubmit)="onSubmit()" data-aos="zoom-in">
 
   @if (torneoID) {
-    <label for="nombre">ID: </label>
+    <label for="id">{{ 'admin.formularioTorneo.labelId' | transloco }}</label>
     <input id="id" type="text" formControlName="id" placeholder="id" readonly>
   }
 
-  <label for="nombre">Nombre: </label>
-  <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre">
+  <label for="nombre">{{ 'admin.formularioTorneo.labelNombre' | transloco }}</label>
+  <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre"
+         [class.is-invalid]="torneoForm.get('nombre')?.invalid && torneoForm.get('nombre')?.touched">
+  
+  @if (torneoForm.get('nombre')?.invalid && torneoForm.get('nombre')?.touched) {
+    <div class="validation-error">
+      <p>{{ 'admin.formularioTorneo.validation.nombreRequerido' | transloco }}</p>
+    </div>
+  }
 
-  <label for="logo">Logo: </label>
+
+  <label for="logo">{{ 'admin.formularioTorneo.labelLogo' | transloco }}</label>
   <input id="logo" type="file" formControlName="logo">
 
-  <label for="ultimoCampeon">Ultimo Campeon: </label>
+  <label for="ultimoCampeon">{{ 'admin.formularioTorneo.labelCampeon' | transloco }}</label>
   <input id="ultimoCampeon" type="file" formControlName="ultimoCampeon">
   
-  <!-- @if(torneoForm.get('titulo')?.invalid && movieForm.get('titulo')?.touched){
-    <p class="validation-error" >El título es obligatorio.</p>
-  } -->
 
-<label for="estado">Estado:</label>
-<select id="estado" formControlName="estadoTorneo">
+  <label for="estado">{{ 'admin.formularioTorneo.labelEstado' | transloco }}</label>
+  <select id="estado" formControlName="estadoTorneo"
+          [class.is-invalid]="torneoForm.get('estadoTorneo')?.invalid && torneoForm.get('estadoTorneo')?.touched">
+    
+    <option value="" disabled selected>{{ 'admin.formularioTorneo.estadoPlaceholder' | transloco }}</option>
+    <option value="pendiente">{{ 'admin.formularioTorneo.estadoPendiente' | transloco }}</option>
+    <option value="espera">{{ 'admin.formularioTorneo.estadoEspera' | transloco }}</option>
+    <option value="comenzado">{{ 'admin.formularioTorneo.estadoComenzado' | transloco }}</option>
+    <option value="terminado">{{ 'admin.formularioTorneo.estadoTerminado' | transloco }}</option>
   
-  <option value="" disabled selected>Selecciona un estado</option>
-  <option value="pendiente">Pendiente</option>
-  <option value="espera">Espera</option>
-  <option value="comenzado">Comenzado</option>
-  <option value="terminado">Terminado</option>
+  </select>
+  
+  @if (torneoForm.get('estadoTorneo')?.invalid && torneoForm.get('estadoTorneo')?.touched) {
+    <div class="validation-error">
+      <p>{{ 'admin.formularioTorneo.validation.estadoRequerido' | transloco }}</p>
+    </div>
+  }
 
-</select>
-  <!-- @if(movieForm.get('anio')?.invalid && movieForm.get('anio')?.touched){
-    <p class="validation-error">El año es obligatorio y debe ser mayor a 1900.</p>
-  } -->
 
-    <label for="fechaInicio">Fecha de Inicio: </label>
-  <input id="fechaInicio" type="date" formControlName="fechaInicio">
+  <label for="fechaInicio">{{ 'admin.formularioTorneo.labelFechaInicio' | transloco }}</label>
+  <input id="fechaInicio" type="date" formControlName="fechaInicio"
+         [class.is-invalid]="torneoForm.get('fechaInicio')?.invalid && torneoForm.get('fechaInicio')?.touched">
 
-    <label for="fechaFin">Fecha de Finalizacion: </label>
-  <input id="fechaFin" type="date" formControlName="fechaFin">
+  @if (torneoForm.get('fechaInicio')?.invalid && torneoForm.get('fechaInicio')?.touched) {
+    <div class="validation-error">
+      <p>{{ 'admin.formularioTorneo.validation.fechaInicioRequerida' | transloco }}</p>
+    </div>
+  }
 
-  <button type="submit">{{ torneoID ? 'Actualizar' : 'Agregar' }}</button>
+
+  <label for="fechaFin">{{ 'admin.formularioTorneo.labelFechaFin' | transloco }}</label>
+  <input id="fechaFin" type="date" formControlName="fechaFin"
+         [class.is-invalid]="torneoForm.get('fechaFin')?.invalid && torneoForm.get('fechaFin')?.touched">
+  
+  @if (torneoForm.get('fechaFin')?.invalid && torneoForm.get('fechaFin')?.touched) {
+    <div class="validation-error">
+      <p>{{ 'admin.formularioTorneo.validation.fechaFinRequerida' | transloco }}</p>
+    </div>
+  }
+
+  <button type="submit" [disabled]="!torneoForm.valid">
+    {{ torneoID ? ('admin.formularioTorneo.botonActualizar' | transloco) : ('admin.formularioTorneo.botonAgregar' | transloco) }}
+  </button>
 </form>

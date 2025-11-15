@@ -17,7 +17,7 @@ export class TorneoListAdmin implements OnInit{
 
   constructor(private torneoService: TorneoService,
               private router: Router,
-              private location: Location
+              private location: Location,
   ) {}
 
   ngOnInit(): void {
@@ -31,24 +31,12 @@ export class TorneoListAdmin implements OnInit{
       this.torneos = data});
   }
 
-  deleteTorneo(id: string): void {
-
-      if (!confirm("¿Estás seguro de que deseas eliminar este torneo?")) {
-    return; 
-  }
-  
-      this.torneoService.deleteTorneo(id).subscribe(() => {this.cargarTorneo(),
-        alert("Torneo eliminado");
-      });
-    
-  }
-
   verEquipos(torneoId: string) {
     this.router.navigate(['/equipos-admin', torneoId]);
   }
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['usuario-home/', ]);
   }
   
 }

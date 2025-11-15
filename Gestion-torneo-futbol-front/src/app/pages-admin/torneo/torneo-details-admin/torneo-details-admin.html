@@ -1,47 +1,61 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 @if (torneo) {
   <div class="card-detalle-admin" data-aos="zoom-in-up">
 
     <h2>{{ torneo.nombre }}</h2>
 
-
-<div class="detalle-imagenes">
-  
-  <div class="imagen-box">
-    <h3>Logo del Torneo</h3>
-    <img [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" [alt]="'Logo de ' + torneo.nombre">
-  </div>
-  
-  <div class="imagen-box campeon-box">
-    <h3>Último Campeón</h3>
-    <img [src]="torneo?.ultimoCampeon ? torneo?.ultimoCampeon : 'assets/icons/gente.png'" [alt]="'Escudo del último campeón'">
-  </div>
-
-</div>
+    <div class="detalle-imagenes">
+      <div class="imagen-box card-foto">
+        <h3>{{ 'admin.torneoDetalles.logo' | transloco }}</h3>
+        <img [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" 
+        [alt]="'Logo de ' + torneo.nombre"
+        (click)="abrirImagen(torneo?.logo || 'assets/icons/icono.png')">
+      </div>
+      
+      <div class="imagen-box campeon-box card-foto">
+        <h3>{{ 'admin.torneoDetalles.campeon' | transloco }}</h3>
+        <img [src]="torneo?.ultimoCampeon ? torneo?.ultimoCampeon : 'assets/icons/gente.png'" 
+        [alt]="'Escudo del último campeón'"
+        (click)="abrirImagen(torneo?.ultimoCampeon || 'assets/icons/gente.png')">
+      </div>
+    </div>
 
 
     <div class="detalle-datos">
-      <h3>Detalles del Torneo</h3>
+      <h3>{{ 'admin.torneoDetalles.titulo' | transloco }}</h3>
       <ul class="info-lista">
         <li>
-          <b>ID:</b> {{ torneo.id }}
+          <b>{{ 'admin.torneoDetalles.id' | transloco }}</b> {{ torneo.id }}
         </li>
         <li>
-          <b>Nombre:</b> {{ torneo.nombre }}
+          <b>{{ 'admin.torneoDetalles.nombre' | transloco }}</b> {{ torneo.nombre }}
         </li>
         <li>
-          <b>Estado:</b> {{ torneo.estadoTorneo }}
+          <b>{{ 'admin.torneoDetalles.estado' | transloco }}</b> {{ torneo.estadoTorneo }}
         </li>
         <li>
-          <b>Fecha de Inicio:</b> {{ torneo.fechaInicio}}
+          <b>{{ 'admin.torneoDetalles.inicio' | transloco }}</b> {{ torneo.fechaInicio | date: 'dd/MM/yyyy' }}
         </li>
         <li>
-          <b>Fecha de Finalización:</b> {{ torneo.fechaFin}}
+          <b>{{ 'admin.torneoDetalles.fin' | transloco }}</b> {{ torneo.fechaFin | date: 'dd/MM/yyyy' }}
         </li>
       </ul>
+
+          <div class="action-buttons-footer">
+        <button class="btn-editar" 
+                [routerLink]="['/torneo-formulario-admin/', torneo.id]">
+          {{ 'admin.botones.editar' | transloco }}
+        </button>
+        
+        <button class="btn-eliminar" 
+                (click)="deleteTorneo(torneo.id!)">
+          {{ 'admin.botones.eliminar' | transloco }}
+        </button>
+      </div>
+
     </div>
-</div>
+  </div>
 } @else {
-  <p class="empty-list">Cargando datos del torneo...</p>
+  <p class="empty-list">{{ 'admin.torneoDetalles.cargando' | transloco }}</p>
 }
