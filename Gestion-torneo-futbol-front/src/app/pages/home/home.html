@@ -1,5 +1,5 @@
 
-    <div class="home-container" data-aos="zoom-in">
+    <div class="home-container" data-aos="zoom-in" id="inicio">
       <h1 data-aos="fade-left" 
           data-aos-duration="3000" >{{ 'home.hero.titulo' | transloco }}</h1>
       
@@ -71,9 +71,9 @@
           <a [href]="noticia.link" target="_blank" class="card-link"> 
             <div class="card news-card h-100">
               
-              <img [src]="noticia.foto" class="card-img-top" [alt]="noticia.titulo">
+              <img [src]="noticia.foto" class="card-img-top" [alt]="noticia.tituloEs">
               <div class="card-body">
-                <h5 class="card-title">{{ noticia.titulo }}</h5>
+                <h5 class="card-title">{{ noticia.tituloEs }}</h5>
               </div>
               
             </div>

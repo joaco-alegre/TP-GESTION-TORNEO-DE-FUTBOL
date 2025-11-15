@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
 import EstadisticaGoleador from '../../model/estadistica-goleador';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +34,14 @@ export class EstadisticaGoleadorService {
 
   deleteEstadisticaGoleador(id: string): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
+  }
+
+  getEstadisticaGoleadorByIdJugador(idJugador: string): Observable<EstadisticaGoleador | undefined> {
+    return this.http.get<EstadisticaGoleador[]>(this.url).pipe(
+      map(estadisticas => 
+        estadisticas.find(stat => stat.idJugador === idJugador)
+      )
+    );
   }
 
 

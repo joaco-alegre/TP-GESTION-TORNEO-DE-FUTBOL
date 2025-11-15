@@ -1,6 +1,7 @@
 export default interface Noticia{
   id?: string;
-  titulo: string;
+  tituloEs: string;
+  tituloEn: string;
   foto: string;
   link: string;
 }

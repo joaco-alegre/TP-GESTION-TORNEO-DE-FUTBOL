@@ -2,15 +2,16 @@ import { Component, Input, OnInit } from '@angular/core';
 import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { CommonModule, Location } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import Torneo from '../../../model/torneo';
 import { Title } from '@angular/platform-browser';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-list',
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, RouterModule, TranslocoPipe, LightboxModule],
   templateUrl: './torneo-details.html',
   styleUrl: './torneo-details.css'
 })
@@ -26,8 +27,10 @@ export class TorneoDetails implements OnInit{
   constructor(private equipoService: EquipoService,
               private torneoService: TorneoService,
               private route: ActivatedRoute,
+              private router: Router,
               private tituloService: Title,
-              private location: Location
+              private location: Location,
+              private lightbox: Lightbox
   ) {}
 
 ngOnInit(): void {
@@ -67,9 +70,29 @@ ngOnInit(): void {
     }
   }
 
+    abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album, 0);
+    }
+
+
+
+
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['es/torneos']);
   }
 
   

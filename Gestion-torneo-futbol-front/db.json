@@ -180,6 +180,7 @@
     {
       "id": "dt-mg-001",
       "nombre": "Marcelo Gallardo ",
+      "fechaNacimiento": "1996-07-14",
       "equipoID": "e-001",
       "estiloJuego": "equilibrado",
       "usuario": "mgallardo",

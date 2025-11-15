@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Jugador from '../../../model/jugador';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import EstadisticaGoleador from '../../../model/estadistica-goleador';
 import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
@@ -23,6 +23,7 @@ export class JugadorDetails implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private jugadorService: JugadorService,
     private equipoService: EquipoService,
     private estadisticaService: EstadisticaGoleadorService,
@@ -57,13 +58,13 @@ export class JugadorDetails implements OnInit{
   }
 
   cargarEstadisticas(jugadorId: string): void {
-    this.estadisticaService.getEstadisticaGoleadorById(jugadorId).subscribe(data => {
+    this.estadisticaService.getEstadisticaGoleadorByIdJugador(jugadorId).subscribe(data => {
       this.estadisticaGoleador = data;
     });
   }
 
       goBack(): void {
-    this.location.back();
+    this.router.navigate(['es/equipos/', this.jugador?.idEquipo]);
   }
 
 }

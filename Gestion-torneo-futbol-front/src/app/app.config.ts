@@ -10,13 +10,13 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes, 
-      withComponentInputBinding()
+      withComponentInputBinding(),
+      
     ),
     provideHttpClient(), provideHttpClient(), provideTransloco({
         config: { 
           availableLangs: ['es', 'en'],
           defaultLang: 'es',
-          // Remove this option if your application doesn't support changing language in runtime.
           reRenderOnLangChange: true,
           prodMode: !isDevMode(),
         },

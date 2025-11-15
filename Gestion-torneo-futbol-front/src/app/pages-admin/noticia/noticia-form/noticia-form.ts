@@ -32,7 +32,8 @@ ngOnInit(): void {
   this.noticiaForm = this.fb.group({
     
     id: [''],
-    titulo: ['', Validators.required],
+    tituloEs: ['', Validators.required],
+    tituloEn: ['', Validators.required],
     link: ['', Validators.required],
     foto: [''] 
   });

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 import { DtService } from '../../../service/dt-service/dt-service';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
@@ -37,6 +37,7 @@ export class EquipoDetails implements OnInit{
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private equipoService: EquipoService,
     private dtService: DtService,
     private torneoService: TorneoService,
@@ -140,7 +141,7 @@ getNombreTorneo(idTorneo: string): string {
   }
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['es/torneos/', this.equipo?.idTorneo]);
   }
 
 }

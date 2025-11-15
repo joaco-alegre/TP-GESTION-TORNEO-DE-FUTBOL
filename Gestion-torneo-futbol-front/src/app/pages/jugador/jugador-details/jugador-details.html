@@ -39,18 +39,17 @@
       </div>
     </div>
 
-    @if(estadisticaGoleador){
+
       <div class="card card-estadisticas">
         <h3>{{ 'jugadorDetalles.tituloEstadisticas' | transloco }}</h3>
         <ul class="stats-lista">
           <li>
             <b>{{ 'jugadorDetalles.etiquetaGoles' | transloco }}</b>
-            <span class="stat-numero">{{ estadisticaGoleador.cantidadGoles }}</span>
+            <span class="stat-numero">{{ estadisticaGoleador?.cantidadGoles }}</span>
           </li>
         </ul>
       </div>
-    }
-
+    
   </div>
 
 } @else {

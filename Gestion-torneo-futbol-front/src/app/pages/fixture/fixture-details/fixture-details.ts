@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterModule } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterLink, RouterModule } from '@angular/router';
 import { FixtureService } from '../../../service/fixture-service/fixture-service';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import Equipo from '../../../model/equipo';
@@ -21,6 +21,7 @@ export class FixtureDetails implements OnInit{
 
   constructor(
     private route: ActivatedRoute, 
+    private router: Router,
     private fixtureService: FixtureService,
     private equipoService: EquipoService,
     private location: Location 

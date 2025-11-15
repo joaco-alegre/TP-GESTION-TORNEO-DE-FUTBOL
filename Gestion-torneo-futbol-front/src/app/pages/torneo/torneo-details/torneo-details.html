@@ -8,7 +8,9 @@
     <img 
       [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" 
       [alt]="'Logo de ' + torneo?.nombre" 
-      class="torneo-logo" data-aos="zoom-in">
+      class="torneo-logo" 
+      (click)="abrirImagen(torneo?.logo || 'assets/icons/icono.png')"
+      data-aos="zoom-in">
   </div>
 
 
@@ -30,10 +32,12 @@
   <div data-aos="fade-left">
     <h3 class="section-title">{{ 'torneoDetalles.tituloUltimoCampeon' | transloco }}</h3>
     <div class="campeon-img-wrapper"> 
-      <img 
+      <img
         [src]="torneo?.ultimoCampeon ? torneo?.ultimoCampeon : 'assets/icons/gente.png'" 
         alt="Imagen del último campeón" 
-        class="campeon-img">
+        class="campeon-img"
+        (click)="abrirImagen(torneo?.ultimoCampeon || 'assets/icons/gente.png')"
+        >
     </div>
   </div>
 

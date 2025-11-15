@@ -1,6 +1,6 @@
 import { CommonModule, NgClass } from '@angular/common';
 import { Component, DOCUMENT, HostListener, Inject} from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { Route, Router, RouterLink } from "@angular/router";
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 
@@ -13,7 +13,8 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 export class Header {
 
     constructor(@Inject(DOCUMENT) private document: Document,
-                private translocoService: TranslocoService) {}
+                private translocoService: TranslocoService,
+                private router: Router) {}
 
   isScrolled = false;
 
@@ -47,6 +48,15 @@ export class Header {
     this.document.body.classList.toggle('dark-mode');
     this.isMenuCollapsed = true;
 
+  }
+
+ goTo(section: string) {
+    this.router.navigate(['/']).then(() => {
+      const el = document.getElementById(section);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
   }
 
 }
