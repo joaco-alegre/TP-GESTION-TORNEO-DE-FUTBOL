@@ -49,7 +49,14 @@ export class JugadorListAdmin implements OnInit{
     }
 
       this.equipoService.getEquipoById(this.equipoId).subscribe(equipoData => {
-      this.equipoNombre = equipoData.nombre;
+        this.equipoNombre = equipoData.nombre;
+        // use equipoData.idTorneo to fetch fixtures for this equipo
+        if (equipoData.idTorneo) {
+          this.fixtureService.getFixtures(equipoData.idTorneo).subscribe(data => {
+            this.todosFixtures = data;
+            this.filtrarFixturesPorEquipo();
+          });
+        }
     });
 
     this.cargarJugadores();
@@ -92,10 +99,8 @@ export class JugadorListAdmin implements OnInit{
   }
 
   cargarFixtures(): void {
-    this.fixtureService.getFixtures().subscribe(data => {
-      this.todosFixtures = data;
-      this.filtrarFixturesPorEquipo();
-    });
+    // now fixtures are loaded after we fetch the equipo to obtain idTorneo
+    return;
   }
 
   cargarEquipos(): void {

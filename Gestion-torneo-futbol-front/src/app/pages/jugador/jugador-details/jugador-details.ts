@@ -61,8 +61,17 @@ export class JugadorDetails implements OnInit{
   }
 
   cargarEstadisticas(jugadorId: number): void {
-    this.estadisticaService.getEstadisticaGoleadorByIdJugador(jugadorId).subscribe(data => {
-      this.estadisticaGoleador = data;
+    // Primero obtenemos el jugador para saber su equipo y torneo, luego solicitamos estadísticas por torneo
+    this.jugadorService.getJugadorById(jugadorId).subscribe(jugadorData => {
+      if (jugadorData && jugadorData.idEquipo) {
+        this.equipoService.getEquipoById(jugadorData.idEquipo).subscribe(equipoData => {
+          if (equipoData && equipoData.idTorneo) {
+            this.estadisticaService.getEstadisticaGoleador(equipoData.idTorneo).subscribe(lista => {
+              this.estadisticaGoleador = lista.find(s => s.idJugador === jugadorId);
+            });
+          }
+        });
+      }
     });
   }
 

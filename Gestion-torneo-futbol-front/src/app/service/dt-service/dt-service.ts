@@ -8,13 +8,13 @@ import DT from '../../model/dt';
 })
 export class DtService {
 
-   private url = 'http://localhost:3000/DTs'; 
+  private url = 'http://localhost:8080/api/dt'; 
     //private nextId   = 1;
 
   constructor(private http: HttpClient) {}
 
   getDTs(): Observable<DT[]> {
-    return this.http.get<DT[]>(this.url);
+    return this.http.get<DT[]>(`${this.url}/listDTS`);
   }
 
   geDtById(id: string | number): Observable<DT> {

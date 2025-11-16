@@ -8,7 +8,7 @@ import Noticia from '../../model/noticia';
 })
 export class NoticiaService {
 
-  private apiUrl = 'http://localhost:3000/noticias';
+  private apiUrl = 'http://localhost:8080/api/noticia';
 
 
   constructor(private http: HttpClient) { }
@@ -22,15 +22,15 @@ export class NoticiaService {
   }
 
   postNoticia(noticia: Noticia): Observable<Noticia> {
-    return this.http.post<Noticia>(this.apiUrl, noticia);
+    return this.http.post<Noticia>(`${this.apiUrl}/addNoticia`, noticia);
   }
 
   updateNoticia(noticia: Noticia): Observable<Noticia> {
-    return this.http.put<Noticia>(`${this.apiUrl}/${noticia.id}`, noticia);
+    return this.http.put<Noticia>(`${this.apiUrl}/updateNoticia/${noticia.id}`, noticia);
   }
 
   deleteNoticia(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteNoticia/${id}`);
   }
 }
 

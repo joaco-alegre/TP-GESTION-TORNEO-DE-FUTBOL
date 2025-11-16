@@ -66,6 +66,13 @@ export class EquipoDetails implements OnInit{
       this.equipo = equipoEncontrado;
       if (equipoEncontrado) {
         this.tituloService.setTitle(equipoEncontrado.nombre);
+        // fetch fixtures for the equipo's tournament
+        if (equipoEncontrado.idTorneo) {
+          this.fixtureService.getFixtures(equipoEncontrado.idTorneo).subscribe(data => {
+            this.todosFixtures = data;
+            this.filtrarFixturesPorEquipo();
+          });
+        }
       } else {
         this.tituloService.setTitle('Equipo no encontrado');
       }
@@ -81,10 +88,7 @@ export class EquipoDetails implements OnInit{
       this.filtrarJugadoresPorEquipo();
     });
 
-    this.fixtureService.getFixtures().subscribe(data => { 
-      this.todosFixtures = data;
-      this.filtrarFixturesPorEquipo();
-    });
+    // fixture fetching moved to happen after equipo is loaded (so we know idTorneo)
 
     this.equipoService.getEquipos().subscribe((data: Equipo[]) => {
       this.todosEquipos = data;
