@@ -1,46 +1,50 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
-@if (equipo) {
-  <div class="card-detalle-admin" data-aos="fade-up">
+<div class="admin-container"> 
 
-    <h2>{{ equipo.nombre }}</h2>
-      
-    <div class="imagen-box">
-      <h3>Logo del Equipo</h3>
-      <img 
-        [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
-        [alt]="'Escudo de ' + equipo.nombre">
-    </div>
-
-    <div class="detalle-datos">
-      <h3>Detalles del Equipo</h3>
+  @if (equipo) {
+    <div class="card-detalle-admin" data-aos="fade-up">
+  
+      <h2>{{ equipo.nombre }}</h2>
+        
+      <div class="imagen-box card-foto">
+        <h3>{{ 'admin.equipoDetalles.logo' | transloco }}</h3>
+        <img 
+          [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
+          [alt]="'Escudo de ' + equipo.nombre"
+          (click)="abrirImagen(equipo?.escudo || 'assets/icons/icono.png')"
+          class="clickable-image"> </div>
+  
+      <div class="detalle-datos">
+      <h3>{{ 'admin.equipoDetalles.titulo' | transloco }}</h3>
       <ul class="info-lista">
         <li>
-          <b>ID:</b> {{ equipo.id }}
+          <b>{{ 'admin.equipoDetalles.id' | transloco }}</b> {{ equipo.id }}
         </li>
         <li>
-          <b>Nombre:</b> {{ equipo.nombre }}
+          <b>{{ 'admin.equipoDetalles.nombre' | transloco }}</b> {{ equipo.nombre }}
         </li>
         <li>
-          <b>Torneo:</b> {{ torneoDelEquipo?.nombre }}
+          <b>{{ 'admin.equipoDetalles.torneo' | transloco }}</b> {{ torneoDelEquipo?.nombre }}
         </li>
         <li>
-          <b>ID Torneo:</b> {{ equipo.idTorneo }}
+          <b>{{ 'admin.equipoDetalles.idTorneo' | transloco }}</b> {{ equipo.idTorneo }}
         </li>
+      </ul> <div class="action-buttons-footer">
+        <button class="btn-editar"
+                [routerLink]="['/equipo-formulario-admin/', equipo.id]">
+          {{ 'admin.botones.editar' | transloco }}
+        </button>
+        
+        <button class="btn-eliminar" (click)="deleteEquipo()">
+          {{ 'admin.botones.eliminar' | transloco }}
+        </button>
+      </div>
 
-                  <button class="btn-editar"
-                  [routerLink]="['/equipo-formulario-admin/', equipo.id]" 
-                  (click)="$event.stopPropagation()">
-            Editar
-          </button>
-          
-          <!-- <button class="btn-eliminar" 
-                  (click)="deleteEquipo(equipo.id!); $event.stopPropagation()">
-            Eliminar
-          </button> -->
-      </ul>
     </div>
+    </div> 
+  } @else {
+    <p class="empty-list">{{ 'admin.equipoDetalles.cargando' | transloco }}</p>
+  }
 
-  </div> } @else {
-  <p class="empty-list">Cargando datos del equipo...</p>
-}
+</div>

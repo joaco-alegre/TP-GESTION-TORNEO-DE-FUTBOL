@@ -148,6 +148,15 @@
         "fechaInicioRequerida": "Start date is required.",
         "fechaFinRequerida": "End date is required."
       }
+    },
+    "equipoDetalles": {
+      "logo": "Team Logo",
+      "titulo": "Team Details",
+      "id": "ID:",
+      "nombre": "Name:",
+      "torneo": "Tournament:",
+      "idTorneo": "Tournament ID:",
+      "cargando": "Loading team data..."
     }
 
 }

@@ -34,7 +34,6 @@ export class TorneoDetailsAdmin implements OnInit{
       if (!confirm("¿Estás seguro de que deseas eliminar este torneo?")) {
     return; 
   }
-
   this.torneoService.deleteTorneo(id).subscribe({
         next: () => {
           alert("Torneo eliminado exitosamente.");
@@ -65,7 +64,7 @@ export class TorneoDetailsAdmin implements OnInit{
       this.lightbox.open(album, 0);
     }
 
-    
+
       goBack(): void {
     this.router.navigate(['/torneos-admin', ]);
   }

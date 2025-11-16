@@ -123,7 +123,8 @@
       "inicio": "Fecha de Inicio:",
       "fin": "Fecha de Finalización:",
       "cargando": "Cargando datos del torneo..."
-    },    "formularioTorneo": {
+     }, 
+    "formularioTorneo": {
       "tituloAgregar": "Agregar Torneo",
       "tituloEditar": "Editar Torneo",
       "labelId": "ID:",
@@ -147,7 +148,16 @@
         "fechaInicioRequerida": "La fecha de inicio es obligatoria.",
         "fechaFinRequerida": "La fecha de finalización es obligatoria."
       }
-  }
+  },
+  "equipoDetalles": {
+      "logo": "Logo del Equipo",
+      "titulo": "Detalles del Equipo",
+      "id": "ID:",
+      "nombre": "Nombre:",
+      "torneo": "Torneo:",
+      "idTorneo": "ID Torneo:",
+      "cargando": "Cargando datos del equipo..."
+    }
     
   }
   

@@ -156,11 +156,3 @@ p.empty-list {
   opacity: 0.9; 
 }
 
-.lightbox, 
-.lightbox-overlay, 
-.lightbox-container, 
-.lightbox-image {
-  pointer-events: auto !important;
-  transform: none !important;
-  opacity: 1 !important;
-}
