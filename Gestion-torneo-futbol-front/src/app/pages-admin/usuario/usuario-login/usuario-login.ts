@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, ɵInternalFormsSharedModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { AuthService } from '../../../service/auth-service/auth-service';
 
 @Component({
   selector: 'app-usuario-login',
@@ -21,6 +22,7 @@ export class UsuarioLogin implements OnInit{
   constructor(private router: Router,
     private location: Location,
     private fb: FormBuilder,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -44,21 +46,24 @@ export class UsuarioLogin implements OnInit{
       return; 
     }
 
-    //usamos esto para simular
     const email = this.usuarioForm.value.email;
     const password = this.usuarioForm.value.password;
 
-    if (email === 'joaco12-2002@hotmail.com' && password === '123') {
-      
-      if (this.selectedRole === 'dt') {
-        this.router.navigate(['/admin-menu']); 
-      } else {
-        this.router.navigate(['/usuario-home']); 
+    this.authService.login(email, password).subscribe({
+      next: (res) => {
+        const role = res.role;
+        if (role === 'DT') {
+          this.router.navigate(['/dt-home']);
+        } else if (role === 'ADMINISTRADOR') {
+          this.router.navigate(['/torneos-admin']);
+        } else {
+          this.router.navigate(['/usuario-home']);
+        }
+      },
+      error: (err) => {
+        this.loginError = 'Email o contraseña inválida.';
       }
-      
-    } else {
-      this.loginError = "Email o contraseña inválida."; 
-    }
+    });
   }
 
   goBack(): void {

@@ -1,7 +1,8 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection, isDevMode } from '@angular/core';
 import { provideRouter, withComponentInputBinding} from '@angular/router';
 import { routes } from './app.routes';
-import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { HttpClient, provideHttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@ngneat/transloco';
 
@@ -22,5 +23,6 @@ export const appConfig: ApplicationConfig = {
         },
         loader: TranslocoHttpLoader
       })
+      , { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ]
 };
