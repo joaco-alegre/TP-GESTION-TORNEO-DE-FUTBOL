@@ -28,7 +28,7 @@ export class JugadorListAdmin implements OnInit{
   private todosEquipos: Equipo[] = [];
   equipoNombre?: string;
 
-  equipoId: string | null = null;
+  equipoId: number | null = null;
   
     constructor(private jugadorService: JugadorService,
                 private dtService: DtService,
@@ -40,9 +40,10 @@ export class JugadorListAdmin implements OnInit{
   
     ngOnInit(): void {
       
-      this.equipoId = this.route.snapshot.paramMap.get('id');
+      const rawId = this.route.snapshot.paramMap.get('id');
+      this.equipoId = rawId !== null ? Number(rawId) : null;
 
-    if (!this.equipoId) {
+    if (this.equipoId == null || Number.isNaN(this.equipoId)) {
       console.error('No se encontró ID de equipo en la URL');
       return;
     }
@@ -111,12 +112,12 @@ export class JugadorListAdmin implements OnInit{
     }
   }
 
-  getEscudo(equipoID: string): string {
+  getEscudo(equipoID: number): string {
     const equipo = this.todosEquipos.find(e => e.id === equipoID);
     return equipo?.escudo || 'assets/icons/icono.png'; 
   }
   
-  deleteJugador(id: string): void {
+  deleteJugador(id: number): void {
     if (!confirm("¿Estás seguro de que deseas eliminar este jugador?")) {
       return;
     }
@@ -138,15 +139,15 @@ sacarDt(dt: DT): void {
     if (!confirm(`¿Estás seguro de que deseas sacar a ${dt.nombre} de este equipo?`)) {
       return;
     }
-    const dtActualizado = { 
-      ...dt, 
-      equipoID: '' 
-    };
+    const dtActualizado = {
+      ...dt,
+      equipoID: undefined
+    } as DT;
 
     this.dtService.updateDt(dtActualizado).subscribe(() => {
       const index = this.todosDts.findIndex(d => d.id === dt.id);
       if (index > -1) {
-        this.todosDts[index].equipoID = ''; 
+        this.todosDts[index].equipoID = undefined; 
       }
       this.filtrarDtPorEquipo();   
       alert("DT desvinculado del equipo");

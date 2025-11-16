@@ -1,10 +1,12 @@
+import Usuario from "./usuario";
+
 export default interface DT{
-  id?: string;
+  id?: number;
   nombre: string;
   fechaNacimiento: Date;
-  equipoID?: string;
+  equipoID?: number;
   estiloJuego: string,
-  usuario: string;
+  usuario: Usuario;
   foto:string;
   contrasenia: string;
 }

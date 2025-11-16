@@ -1,10 +1,10 @@
 export default interface Jugador{
-    id?: string;
+    id?: number;
   nombre: string;
   edad: number;
   fechaNacimiento: Date;
   numeroCamiseta: number;
   posicion: string;
-  idEquipo: string;
+  idEquipo: number;
   foto: string;
 }

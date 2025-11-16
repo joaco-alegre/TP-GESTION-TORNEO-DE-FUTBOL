@@ -17,7 +17,7 @@ export class DtService {
     return this.http.get<DT[]>(this.url);
   }
 
-  geDtById(id: string): Observable<DT> {
+  geDtById(id: string | number): Observable<DT> {
     return this.http.get<DT>(`${this.url}/${id}`);
   }
 
@@ -31,7 +31,7 @@ export class DtService {
     return this.http.put<DT>(`${this.url}/${dt.id}`, dt);
   }
 
-  deleteDt(id: string): Observable<void> {
+  deleteDt(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 

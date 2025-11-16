@@ -30,7 +30,7 @@ export class DtListAdmin implements OnInit{
     });
   }
 
-  deleteDt(id: string): void {
+  deleteDt(id: number): void {
     
     if (!confirm("¿Estás seguro de que deseas eliminar este DT?")) {
       return; 

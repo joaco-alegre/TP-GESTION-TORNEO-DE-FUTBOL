@@ -30,16 +30,17 @@ export class DtJugadorDetails implements OnInit{
     ) {}
   
     ngOnInit(): void {
-      const id = this.route.snapshot.params['id'];
-      this.jugadorService.getJugadorById(id).subscribe(data => this.jugador = data);
-  
-  
-      this.getDatosDelJugador(id);
+      const rawId = this.route.snapshot.params['id'];
+      const idNum = rawId !== undefined && rawId !== null ? Number(rawId) : undefined;
+      if (idNum == null || Number.isNaN(idNum)) return;
+      this.jugadorService.getJugadorById(idNum).subscribe(data => this.jugador = data);
+
+      this.getDatosDelJugador(idNum);
       
-      this.cargarEstadisticas(id);
+      this.cargarEstadisticas(idNum);
     }
   
-      getDatosDelJugador(id: string): void {
+      getDatosDelJugador(id: string | number): void {
       
       this.jugadorService.getJugadorById(id).subscribe(jugadorData => {
         this.jugador = jugadorData;
@@ -52,8 +53,8 @@ export class DtJugadorDetails implements OnInit{
       });
     }
   
-      cargarEstadisticas(jugadorId: string): void {
-      this.estadisticaService.getEstadisticaGoleadorById(jugadorId).subscribe(data => {
+      cargarEstadisticas(jugadorId: number): void {
+      this.estadisticaService.getEstadisticaGoleadorByIdJugador(jugadorId).subscribe(data => {
         this.estadisticaGoleador = data;
       });
     }

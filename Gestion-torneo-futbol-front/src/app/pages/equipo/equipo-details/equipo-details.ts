@@ -28,7 +28,7 @@ export class EquipoDetails implements OnInit{
   filtrarJugadores: Jugador[] = [];
   fixtures: Fixture[] = [];
 
-  id: string | null = null; 
+  id: number | null = null; 
 
   private todosDts: DT[] = [];
   private todosJugadores: Jugador[] = [];
@@ -51,9 +51,10 @@ export class EquipoDetails implements OnInit{
 
   ngOnInit(): void {
 
-    this.id = this.route.snapshot.paramMap.get('id');
+    const rawId = this.route.snapshot.paramMap.get('id');
+    this.id = rawId !== null ? Number(rawId) : null;
 
-    if (!this.id) {
+    if (this.id == null || Number.isNaN(this.id)) {
       console.error('No se encontró ID de equipo en la URL');
       this.tituloService.setTitle('Equipo no encontrado');
       return;
@@ -89,7 +90,7 @@ export class EquipoDetails implements OnInit{
       this.todosEquipos = data;
     });
 
-    this.torneoService.getTorneo().subscribe((data: Torneo[]) => {
+    this.torneoService.getTorneos().subscribe((data: Torneo[]) => {
       this.todosTorneos = data;
     });
 
@@ -108,7 +109,7 @@ export class EquipoDetails implements OnInit{
   }
 
   filtrarJugadoresPorEquipo(): void {
-    if (this.id) {
+    if (this.id != null) {
       this.filtrarJugadores = this.todosJugadores.filter(
         (jugador) => jugador.idEquipo === this.id 
       );
@@ -117,14 +118,14 @@ export class EquipoDetails implements OnInit{
 
   
   filtrarFixturesPorEquipo(): void {
-    if (this.id) {
+    if (this.id != null) {
       this.fixtures = this.todosFixtures.filter(
         (fixture) => fixture.equipoLocalID === this.id || fixture.equipoVisitaID === this.id 
       );
     }
   }
 
-getEscudo(equipoID: string): string {
+getEscudo(equipoID: number): string {
   const equipo = this.todosEquipos.find(data => equipoID === data.id);
   
   if (equipo && equipo.escudo) {
@@ -133,7 +134,7 @@ getEscudo(equipoID: string): string {
   return 'assets/icons/icono.png'; 
 }
 
-getNombreTorneo(idTorneo: string): string {
+getNombreTorneo(idTorneo: number): string {
 
     const torneo = this.todosTorneos.find(t => t.id === idTorneo);
     if (torneo) {

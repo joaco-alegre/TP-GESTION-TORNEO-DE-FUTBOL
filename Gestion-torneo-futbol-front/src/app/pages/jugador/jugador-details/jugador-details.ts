@@ -34,19 +34,20 @@ export class JugadorDetails implements OnInit{
 
 
   ngOnInit(): void {
-    const jugadorId = this.route.snapshot.paramMap.get('id');
+    const rawId = this.route.snapshot.paramMap.get('id');
+    const jugadorIdNum = rawId !== null ? Number(rawId) : undefined;
 
-    if (!jugadorId) {
+    if (jugadorIdNum == null || Number.isNaN(jugadorIdNum)) {
       console.error('No se encontró ID de jugador');
       return;
     }
 
-    this.getDatosDelJugador(jugadorId);
+    this.getDatosDelJugador(jugadorIdNum);
     
-    this.cargarEstadisticas(jugadorId);
+    this.cargarEstadisticas(jugadorIdNum);
   }
 
-  getDatosDelJugador(id: string): void {
+  getDatosDelJugador(id: string | number): void {
     
     this.jugadorService.getJugadorById(id).subscribe(jugadorData => {
       this.jugador = jugadorData;
@@ -59,7 +60,7 @@ export class JugadorDetails implements OnInit{
     });
   }
 
-  cargarEstadisticas(jugadorId: string): void {
+  cargarEstadisticas(jugadorId: number): void {
     this.estadisticaService.getEstadisticaGoleadorByIdJugador(jugadorId).subscribe(data => {
       this.estadisticaGoleador = data;
     });

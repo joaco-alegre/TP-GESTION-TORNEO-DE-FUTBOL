@@ -15,8 +15,8 @@ import { TranslocoPipe } from '@ngneat/transloco';
 export class JugadorFormAdmin implements OnInit{
 
   jugadorForm!: FormGroup;
-  jugadorID?: string ; 
-  equipoID?: string;
+  jugadorID?: number ; 
+  equipoID?: number;
   fotoActual?: string; 
 
   constructor(
@@ -39,21 +39,23 @@ export class JugadorFormAdmin implements OnInit{
       numeroCamiseta: ['', Validators.required]
     });
 
-    this.jugadorID = this.route.snapshot.params['id'];
+    const rawJugadorId = this.route.snapshot.params['id'];
+    this.jugadorID = rawJugadorId !== undefined && rawJugadorId !== null ? Number(rawJugadorId) : undefined;
 
-    if (this.jugadorID) {
+    if (this.jugadorID != null && !Number.isNaN(this.jugadorID)) {
       this.jugadorService.getJugadorById(this.jugadorID).subscribe(data => {
-
         this.fotoActual = data.foto;
         this.equipoID = data.idEquipo;
-        const datosParaFormulario = { ...data };
+        const datosParaFormulario = { ...data } as any;
+        // Ensure idEquipo is set as string for the form control display
+        datosParaFormulario.idEquipo = String(data.idEquipo);
         this.jugadorForm.patchValue(datosParaFormulario);
       });
-
     } else {
-      this.equipoID = this.route.snapshot.params['equipoID'];
-      if (this.equipoID) {
-        this.jugadorForm.patchValue({ idEquipo: this.equipoID });
+      const rawEquipoId = this.route.snapshot.params['equipoID'];
+      this.equipoID = rawEquipoId !== undefined && rawEquipoId !== null ? Number(rawEquipoId) : undefined;
+      if (this.equipoID != null && !Number.isNaN(this.equipoID)) {
+        this.jugadorForm.patchValue({ idEquipo: String(this.equipoID) });
       }
     }
   }
@@ -66,11 +68,14 @@ export class JugadorFormAdmin implements OnInit{
 
     if (this.jugadorID) {
       const formValues = this.jugadorForm.value;
-      const jugadorData: Jugador = { 
-        ...formValues, 
-        id: this.jugadorID, 
-        foto: formValues.foto || this.fotoActual 
-      }; 
+      const jugadorData: Jugador = {
+        ...formValues,
+        id: this.jugadorID,
+        foto: formValues.foto || this.fotoActual,
+        idEquipo: Number(formValues.idEquipo),
+        edad: formValues.edad !== undefined ? Number(formValues.edad) : 0,
+        numeroCamiseta: formValues.numeroCamiseta !== undefined ? Number(formValues.numeroCamiseta) : 0
+      } as Jugador;
 
       this.jugadorService.updateJugador(jugadorData).subscribe({
         next: () => {
@@ -84,9 +89,17 @@ export class JugadorFormAdmin implements OnInit{
       });
 
     } else {
-      const jugadorData = this.jugadorForm.value; 
-      delete jugadorData.id;
-      
+      const formValues = this.jugadorForm.value;
+      const jugadorData: Jugador = {
+        nombre: formValues.nombre,
+        fechaNacimiento: formValues.fechaNacimiento,
+        foto: formValues.foto || '',
+        idEquipo: Number(formValues.idEquipo),
+        edad: formValues.edad !== undefined ? Number(formValues.edad) : 0,
+        numeroCamiseta: formValues.numeroCamiseta !== undefined ? Number(formValues.numeroCamiseta) : 0,
+        posicion: formValues.posicion || '',
+      } as Jugador;
+
       this.jugadorService.postJugador(jugadorData).subscribe({
         next: () => {
           this.router.navigate(rutaDeVuelta);

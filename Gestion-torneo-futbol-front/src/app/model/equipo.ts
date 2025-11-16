@@ -1,6 +1,6 @@
 export default interface Equipo{
-    id?: string;
+    id?: number;
   nombre: string;
-  idTorneo: string;
+  idTorneo: number;
   escudo: string;
 }

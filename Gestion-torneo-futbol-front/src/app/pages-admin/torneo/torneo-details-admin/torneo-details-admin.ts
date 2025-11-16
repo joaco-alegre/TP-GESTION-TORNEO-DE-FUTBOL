@@ -29,7 +29,7 @@ export class TorneoDetailsAdmin implements OnInit{
     this.torneoService.getTorneoById(id).subscribe(data => this.torneo = data);
   }
 
-    deleteTorneo(id: string): void {
+    deleteTorneo(id: number): void {
 
       if (!confirm("¿Estás seguro de que deseas eliminar este torneo?")) {
     return; 

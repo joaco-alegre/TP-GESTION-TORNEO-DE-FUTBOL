@@ -1,6 +1,6 @@
 export default interface EstadisticaGoleador{
-  id?: string;
-  idJugador: string;
+  id?: number;
+  idJugador: number;
   cantidadGoles: number;
-  idEquipo: string 
+  idEquipo: number 
 }

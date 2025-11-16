@@ -16,7 +16,7 @@ private apiUrl = 'http://localhost:3000/usuarios';
     return this.http.get<Usuario[]>(this.apiUrl);
   }
 
-  getUsuarioById(id: string): Observable<Usuario> {
+  getUsuarioById(id: number): Observable<Usuario> {
     return this.http.get<Usuario>(`${this.apiUrl}/${id}`);
   }
 
@@ -28,7 +28,7 @@ private apiUrl = 'http://localhost:3000/usuarios';
     return this.http.put<Usuario>(`${this.apiUrl}/${usuario.id}`, usuario);
   }
 
-  deleteUsuario(id: string): Observable<void> {
+  deleteUsuario(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

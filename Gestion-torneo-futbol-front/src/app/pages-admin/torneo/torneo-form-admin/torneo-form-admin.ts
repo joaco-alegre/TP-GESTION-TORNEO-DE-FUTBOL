@@ -15,7 +15,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
 export class TorneoFormAdmin implements OnInit{
 
   torneoForm!: FormGroup;
-  torneoID?: string;
+  torneoID?: number;
 
   constructor(
     private fb: FormBuilder,
@@ -72,7 +72,7 @@ this.torneoID = this.route.snapshot.params['id'];
 
       const torneoData: Torneo = { id: this.torneoID, ...this.torneoForm.value }; 
 
-      this.torneoService.updateTorneo(torneoData).subscribe({
+      this.torneoService.updateTorneo(this.torneoID,torneoData).subscribe({
         next: () => {this.router.navigate(['/torneos-admin']),
             alert("Torneo actualizado!")},
         error: (e) => {console.log(e), 

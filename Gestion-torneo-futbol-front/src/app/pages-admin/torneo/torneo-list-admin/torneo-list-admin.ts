@@ -28,12 +28,12 @@ export class TorneoListAdmin implements OnInit{
 
   cargarTorneo(): void {
 
-    this.torneoService.getTorneo().subscribe(data => {
-      console.log(data)
-      this.torneos = data});
+  this.torneoService.getTorneos().subscribe(data => {
+  this.torneos = data;
+});
   }
 
-  verEquipos(torneoId: string) {
+  verEquipos(torneoId: number) {
     this.router.navigate(['/equipos-admin', torneoId]);
   }
 

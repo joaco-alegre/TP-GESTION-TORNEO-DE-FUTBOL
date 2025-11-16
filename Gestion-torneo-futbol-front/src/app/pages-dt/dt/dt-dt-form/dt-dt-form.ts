@@ -16,8 +16,8 @@ export class DtDtForm implements OnInit{
 
   
   DtForm!: FormGroup;
-  DtID?: string; 
-  equipoID?: string; 
+  DtID?: number; 
+  equipoID?: number; 
 
   constructor(
     private fb: FormBuilder,
@@ -38,19 +38,22 @@ export class DtDtForm implements OnInit{
       foto: ['', []]
     });
 
-    this.DtID = this.route.snapshot.params['id'];
+    const rawId = this.route.snapshot.params['id'];
+    this.DtID = rawId !== undefined && rawId !== null ? Number(rawId) : undefined;
 
-    if (this.DtID) {
+    if (this.DtID != null && !Number.isNaN(this.DtID)) {
       this.dtService.geDtById(this.DtID).subscribe(data => {
-        const datosParaFormulario = { ...data };  
+        const datosParaFormulario = { ...data } as any;  
+        datosParaFormulario.equipoID = data.equipoID != null ? String(data.equipoID) : '';
         this.DtForm.patchValue(datosParaFormulario);
         this.equipoID = data.equipoID; 
       });
 
     } else {
-      this.equipoID = this.route.snapshot.queryParamMap.get('equipoID') || undefined;;
-      if (this.equipoID) {
-        this.DtForm.patchValue({ equipoID: this.equipoID });
+      const rawQueryEquipo = this.route.snapshot.queryParamMap.get('equipoID');
+      this.equipoID = rawQueryEquipo != null ? Number(rawQueryEquipo) : undefined;
+      if (this.equipoID != null) {
+        this.DtForm.patchValue({ equipoID: String(this.equipoID) });
       }
     }
   }
@@ -61,7 +64,8 @@ export class DtDtForm implements OnInit{
     const rutaDeVuelta = ['/dt-dt-details', this.DtID];
 
     if (this.DtID) {
-      const dtData: DT = { id: this.DtID, ...this.DtForm.value }; 
+      const formValues = this.DtForm.value;
+      const dtData: DT = { id: this.DtID, ...formValues, equipoID: formValues.equipoID ? Number(formValues.equipoID) : undefined } as DT;
 
       this.dtService.updateDt(dtData).subscribe({
         next: () => {

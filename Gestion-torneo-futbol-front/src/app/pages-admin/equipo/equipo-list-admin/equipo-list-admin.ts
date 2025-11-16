@@ -19,7 +19,7 @@ export class EquipoListAdmin implements OnInit{
       equipos: Equipo[] = [];
       nombreTorneo?: string;
       private todosEquipos: Equipo[] = [];
-      torneoId?: string;
+      torneoId?: number;
     
       constructor(private equipoService: EquipoService,
                 private location: Location,
@@ -31,10 +31,11 @@ export class EquipoListAdmin implements OnInit{
     
       ngOnInit(): void {
 
-    this.torneoId = this.route.snapshot.params['id'];
+    const rawId = this.route.snapshot.params['id'];
+    this.torneoId = rawId !== undefined && rawId !== null ? Number(rawId) : undefined;
 
-    if (!this.torneoId) {
-      console.error('No se encontró ID de torneo en la URL');
+    if (this.torneoId == null || Number.isNaN(this.torneoId)) {
+      console.error('No se encontró ID de torneo válido en la URL');
       return;
     }
 
@@ -55,7 +56,7 @@ export class EquipoListAdmin implements OnInit{
           this.equipos = data});
       }
 
-      deleteEquipo(id: string): void {
+      deleteEquipo(id: number): void {
   
   if (!confirm("¿Estás seguro de que deseas eliminar este equipo?")) {
     return; 

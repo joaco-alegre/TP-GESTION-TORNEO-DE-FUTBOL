@@ -7,33 +7,35 @@ import Torneo from '../../model/torneo';
   providedIn: 'root'
 })
 
-export class TorneoService{
+export class TorneoService {
 
-      private url = 'http://localhost:3000/torneos'; 
-    private nextId   = 1;
+  private url = 'http://localhost:8080/api/tournament'; 
 
   constructor(private http: HttpClient) {}
 
-  getTorneo(): Observable<Torneo[]> {
-    return this.http.get<Torneo[]>(this.url);
+  // GET lista de torneos
+  getTorneos(): Observable<Torneo[]> {
+    return this.http.get<Torneo[]>(`${this.url}/getListTorneo`);
   }
 
-  getTorneoById(id: string): Observable<Torneo> {
+  // GET torneo por ID
+  getTorneoById(id: string | number): Observable<Torneo> {
     return this.http.get<Torneo>(`${this.url}/${id}`);
   }
 
-
-  postTorneo(torneo: Torneo): Observable<Torneo> {
-    //torneo.id = this.nextId++;
-    return this.http.post<Torneo>(this.url, torneo);
+  // POST crear torneo
+  postTorneo(torneo: Torneo): Observable<any> {
+    return this.http.post(`${this.url}/addTournament`, torneo);
   }
 
-  updateTorneo(torneo: Torneo): Observable<Torneo> {
-    return this.http.put<Torneo>(`${this.url}/${torneo.id}`, torneo);
+  // PUT actualizar torneo
+  updateTorneo(id: number, torneo: Torneo): Observable<any> {
+    return this.http.put(`${this.url}/updateTournament/${id}`, torneo);
   }
 
-  deleteTorneo(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.url}/${id}`);
+  // DELETE torneo
+  deleteTorneo(id: number): Observable<any> {
+    return this.http.delete(`${this.url}/${id}`);
   }
 
 }

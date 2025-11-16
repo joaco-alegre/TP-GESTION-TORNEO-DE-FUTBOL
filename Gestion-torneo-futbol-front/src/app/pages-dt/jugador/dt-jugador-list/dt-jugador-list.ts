@@ -15,7 +15,7 @@ import { JugadorService } from '../../../service/jugador-service/jugador-service
 export class DtJugadorList {
 
   jugadoresLibres: Jugador[] = [];
-  dtEquipoId?: string; 
+  dtEquipoId?: number; 
   
   todosJugadores: Jugador[] = [];
 
@@ -30,7 +30,7 @@ export class DtJugadorList {
 
     this.dtService.geDtById(loggedInDtId).subscribe({
       next: (dtData) => {
-        if (dtData && dtData.equipoID && dtData.equipoID.trim() !== '') {
+        if (dtData && dtData.equipoID != null && dtData.equipoID !== 0) {
           this.dtEquipoId = dtData.equipoID;
           this.cargarJugadores(); 
         } else {
@@ -54,13 +54,13 @@ export class DtJugadorList {
 
   filtrarJugadoresLibres(): void {
     this.jugadoresLibres = this.todosJugadores.filter(
-      (jugador) => !jugador.idEquipo || jugador.idEquipo.trim() === ''
+      (jugador) => jugador.idEquipo == null || jugador.idEquipo === 0
     );
   }
 
   agregarAlEquipo(jugador: Jugador): void {
     
-    if (!this.dtEquipoId) return; 
+    if (this.dtEquipoId == null) return; 
 
     if (!confirm(`¿Estás seguro de que deseas agregar a ${jugador.nombre} a tu equipo?`)) {
       return;

@@ -16,7 +16,7 @@ import { EquipoService } from '../../../service/equipo-service/equipo-service';
 export class DtEquipoDetails implements OnInit{
 
   jugadores: Jugador[] = [];
-  equipoId?: string ;
+  equipoId?: number ;
   equipoActual?: Equipo;
   todosJugadores: Jugador[] = [];
 
@@ -33,7 +33,7 @@ export class DtEquipoDetails implements OnInit{
 
    this.dtService.geDtById(loggedInDtId).subscribe({
       next: (dtData) => {
-        if (dtData && dtData.equipoID && dtData.equipoID.trim() !== '') {
+        if (dtData && dtData.equipoID != null && dtData.equipoID !== 0) {
           this.equipoId = dtData.equipoID;
           
           this.equipoService.getEquipoById(this.equipoId).subscribe(dataEquipo => {
@@ -64,7 +64,7 @@ export class DtEquipoDetails implements OnInit{
 
 
   filtrarJugadoresPorEquipo(): void {
-    if (this.equipoId) {
+    if (this.equipoId != null) {
       this.jugadores = this.todosJugadores.filter(
         (jugador) => jugador.idEquipo === this.equipoId 
       );
@@ -81,14 +81,14 @@ export class DtEquipoDetails implements OnInit{
 
     const jugadorActualizado: Jugador = {
       ...jugador,
-      idEquipo: '' 
+      idEquipo: undefined as any
     };
 
     this.jugadorService.updateJugador(jugadorActualizado).subscribe(() => {
       
       const index = this.todosJugadores.findIndex(j => j.id === jugador.id);
       if (index > -1) {
-        this.todosJugadores[index].idEquipo = ''; 
+        this.todosJugadores[index].idEquipo = undefined as any; 
       }
       
       this.filtrarJugadoresPorEquipo();

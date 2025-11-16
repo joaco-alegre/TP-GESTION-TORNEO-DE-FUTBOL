@@ -13,7 +13,7 @@ import { CommonModule, Location } from '@angular/common';
 export class UsuarioForm implements OnInit{
 
 usuarioForm!: FormGroup;
-  usuarioID?: string;
+  usuarioID?: number;
   fotoActual: string | undefined;
 
   constructor(
@@ -35,7 +35,7 @@ usuarioForm!: FormGroup;
       password: ['', Validators.required]
     });
 
-    this.usuarioID = this.route.snapshot.params['id'];
+    this.usuarioID = Number (this.route.snapshot.params['id']);
 
     if (this.usuarioID) {
 

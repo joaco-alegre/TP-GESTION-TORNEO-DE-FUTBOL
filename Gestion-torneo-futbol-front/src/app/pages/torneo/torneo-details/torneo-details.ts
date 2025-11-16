@@ -18,7 +18,7 @@ import { Lightbox, LightboxModule } from 'ngx-lightbox';
 export class TorneoDetails implements OnInit{
 
   torneo: Torneo | undefined;
-  id: string | null = null;
+  id: number | null = null;
 
   todosEquipos: Equipo[] = [];
   filtrarEquipos: Equipo[] = [];
@@ -34,9 +34,10 @@ export class TorneoDetails implements OnInit{
   ) {}
 
 ngOnInit(): void {
-  this.id = this.route.snapshot.paramMap.get('id');
+  const rawId = this.route.snapshot.paramMap.get('id');
+  this.id = rawId !== null ? Number(rawId) : null;
 
-  if (!this.id) {
+  if (this.id == null || Number.isNaN(this.id)) {
     console.error('No se encontró ID en la URL');
     this.tituloService.setTitle('Torneo no encontrado');
     return;
@@ -62,7 +63,7 @@ ngOnInit(): void {
 
 
   filtrarEquiposPorTorneo(): void {
-    if (this.id) {
+    if (this.id != null) {
       this.filtrarEquipos = this.todosEquipos.filter(
         (equipo) => equipo.idTorneo === this.id
       );

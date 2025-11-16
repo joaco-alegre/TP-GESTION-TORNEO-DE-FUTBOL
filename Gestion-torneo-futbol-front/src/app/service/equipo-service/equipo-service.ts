@@ -18,7 +18,7 @@ export class EquipoService{
     return this.http.get<Equipo[]>(this.url);
   }
 
-  getEquipoById(id: string): Observable<Equipo> {
+  getEquipoById(id: string | number): Observable<Equipo> {
     return this.http.get<Equipo>(`${this.url}/${id}`);
   }
 
@@ -32,7 +32,7 @@ export class EquipoService{
     return this.http.put<Equipo>(`${this.url}/${equipo.id}`, equipo);
   }
 
-  deleteEquipo(id: string): Observable<void> {
+  deleteEquipo(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 

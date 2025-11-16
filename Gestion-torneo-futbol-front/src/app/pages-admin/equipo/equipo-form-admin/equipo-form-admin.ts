@@ -16,8 +16,8 @@ import { TranslocoPipe } from '@ngneat/transloco';
 export class EquipoFormAdmin implements OnInit{
 
   equipoForm!: FormGroup;
-  equipoID?: string;
-  torneoID?: string;
+  equipoID?: number;
+  torneoID?: number;
 
   constructor(
     private fb: FormBuilder,
@@ -51,7 +51,7 @@ this.equipoID = this.route.snapshot.params['id'];
 
     }else{
 
-    this.torneoID = this.route.snapshot.queryParamMap.get('idTorneo') || undefined;
+    this.torneoID = Number(this.route.snapshot.queryParamMap.get('idTorneo'));
 
     if (this.torneoID) {
       this.equipoForm.patchValue({ idTorneo: this.torneoID });

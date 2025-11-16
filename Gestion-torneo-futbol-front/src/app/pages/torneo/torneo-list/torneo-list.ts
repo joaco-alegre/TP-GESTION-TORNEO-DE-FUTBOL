@@ -26,9 +26,9 @@ export class TorneoList implements OnInit{
     }
   
     getTorneos(): void {
-      this.torneoService.getTorneo().subscribe(data => {
-        console.log(data)
-        this.torneos = data});
+      this.torneoService.getTorneos().subscribe(data => {
+  this.torneos = data;
+        });
     }
 
   //   abrirImagen(): void {

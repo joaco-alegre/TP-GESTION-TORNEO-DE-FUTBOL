@@ -15,8 +15,8 @@ import { TranslocoPipe } from '@ngneat/transloco';
 export class DtFormAdmin implements OnInit{
 
   DtForm!: FormGroup;
-  DtID?: string; 
-  equipoID?: string; 
+  DtID?: number; 
+  equipoID?: number;
 
   constructor(
     private fb: FormBuilder,
@@ -47,7 +47,7 @@ export class DtFormAdmin implements OnInit{
       });
 
     } else {
-      this.equipoID = this.route.snapshot.queryParamMap.get('equipoID') || undefined;;
+      this.equipoID = Number(this.route.snapshot.queryParamMap.get('equipoID'));
       if (this.equipoID) {
         this.DtForm.patchValue({ equipoID: this.equipoID });
       }

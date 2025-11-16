@@ -39,7 +39,7 @@ export class JugadorDetailsAdmin {
     this.cargarEstadisticas(id);
   }
 
-    getDatosDelJugador(id: string): void {
+    getDatosDelJugador(id: number): void {
     
     this.jugadorService.getJugadorById(id).subscribe(jugadorData => {
       this.jugador = jugadorData;
@@ -52,7 +52,7 @@ export class JugadorDetailsAdmin {
     });
   }
 
-    cargarEstadisticas(jugadorId: string): void {
+    cargarEstadisticas(jugadorId: number): void {
     this.estadisticaService.getEstadisticaGoleadorById(jugadorId).subscribe(data => {
       this.estadisticaGoleador = data;
     });

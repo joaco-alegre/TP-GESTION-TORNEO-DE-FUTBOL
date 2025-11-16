@@ -25,7 +25,7 @@ export class UsuarioDetails implements OnInit{
     // 3. --- ¡AQUÍ ESTÁ LA SIMULACIÓN! ---
     // Fijamos el ID del admin que (simulamos) inició sesión.
     // Usamos 'u-001' (Joaquin) del JSON que me diste.
-    const loggedInAdminId = 'u-001'; 
+    const loggedInAdminId =''; 
 
     if (loggedInAdminId) {
       this.usuarioService.getUsuarioById(loggedInAdminId).subscribe(data => {

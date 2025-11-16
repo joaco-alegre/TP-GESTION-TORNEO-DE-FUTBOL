@@ -34,11 +34,11 @@ export class JugadorLibreList implements OnInit{
 
   filtrarJugadoresLibres(): void {
     this.jugadoresLibres = this.todosJugadores.filter(
-      (data) => !data.idEquipo || data.idEquipo.trim() === ''
+      (data) => data.idEquipo == null || data.idEquipo === 0
     );
   }
 
-  deleteJugador(id: string): void {
+  deleteJugador(id: number): void {
     
     if (!confirm("¿Estás seguro de que deseas ELIMINAR a este jugador PERMANENTEMENTE?")) {
       return; 

@@ -1,5 +1,5 @@
 export default interface Torneo{
-  id?: string;
+  id?: number;
   nombre: string;
   fechaInicio: Date;
   fechaFin: Date;

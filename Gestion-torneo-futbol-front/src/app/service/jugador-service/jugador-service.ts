@@ -19,7 +19,7 @@ export class JugadorService{
     return this.http.get<Jugador[]>(this.url);
   }
 
-  getJugadorById(id: string): Observable<Jugador> {
+  getJugadorById(id: string | number): Observable<Jugador> {
     return this.http.get<Jugador>(`${this.url}/${id}`);
   }
 
@@ -33,7 +33,7 @@ export class JugadorService{
     return this.http.put<Jugador>(`${this.url}/${jugador.id}`, jugador);
   }
 
-  deleteJugador(id: string): Observable<void> {
+  deleteJugador(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 

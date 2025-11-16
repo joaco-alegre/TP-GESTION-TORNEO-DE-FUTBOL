@@ -50,7 +50,7 @@ export class Home {
     });
 
 
-    this.torneoService.getTorneo().subscribe(data => {
+    this.torneoService.getTorneos().subscribe(data => {
       this.torneos = data;
     });
   }

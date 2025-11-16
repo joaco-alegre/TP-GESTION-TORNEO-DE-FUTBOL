@@ -18,7 +18,7 @@ export class EstadisticaGoleadorService {
     return this.http.get<EstadisticaGoleador[]>(this.url);
   }
 
-  getEstadisticaGoleadorById(id: string): Observable<EstadisticaGoleador> {
+  getEstadisticaGoleadorById(id: number): Observable<EstadisticaGoleador> {
     return this.http.get<EstadisticaGoleador>(`${this.url}/${id}`);
   }
 
@@ -32,11 +32,11 @@ export class EstadisticaGoleadorService {
     return this.http.put<EstadisticaGoleador>(`${this.url}/${estadisticaGoleador.id}`, estadisticaGoleador);
   }
 
-  deleteEstadisticaGoleador(id: string): Observable<void> {
+  deleteEstadisticaGoleador(id: number): Observable<void> {
     return this.http.delete<void>(`${this.url}/${id}`);
   }
 
-  getEstadisticaGoleadorByIdJugador(idJugador: string): Observable<EstadisticaGoleador | undefined> {
+  getEstadisticaGoleadorByIdJugador(idJugador: number): Observable<EstadisticaGoleador | undefined> {
     return this.http.get<EstadisticaGoleador[]>(this.url).pipe(
       map(estadisticas => 
         estadisticas.find(stat => stat.idJugador === idJugador)
