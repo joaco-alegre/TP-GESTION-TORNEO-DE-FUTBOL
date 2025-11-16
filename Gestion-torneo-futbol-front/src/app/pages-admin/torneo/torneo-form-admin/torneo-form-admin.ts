@@ -32,7 +32,7 @@ export class TorneoFormAdmin implements OnInit{
       
       id: [''],
       nombre: ['', Validators.required],
-      logo: ['', [Validators.required]],
+      logo: [''],
       ultimoCampeon: ['', []],
       estadoTorneo: ['', [Validators.required]],
       fechaInicio: ['', [Validators.required]],
