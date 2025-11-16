@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Equipo from '../../../model/equipo';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
-import { ActivatedRoute, Route, RouterLink, RouterModule } from "@angular/router";
+import { ActivatedRoute, Route, Router, RouterLink, RouterModule } from "@angular/router";
 import { CommonModule, Location } from '@angular/common';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import { TranslocoPipe } from '@ngneat/transloco';
@@ -25,7 +25,8 @@ export class EquipoListAdmin implements OnInit{
                 private location: Location,
                 private route: ActivatedRoute,
                 private torneoService: TorneoService,
-                private lightBox: Lightbox
+                private lightBox: Lightbox,
+                private router: Router
       ) {}
     
       ngOnInit(): void {
@@ -105,7 +106,7 @@ export class EquipoListAdmin implements OnInit{
 
   
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['/torneos-admin']);
   }
 
 

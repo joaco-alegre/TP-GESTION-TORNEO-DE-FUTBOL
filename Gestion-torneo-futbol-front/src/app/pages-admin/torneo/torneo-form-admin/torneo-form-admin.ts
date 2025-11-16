@@ -97,6 +97,6 @@ this.torneoID = this.route.snapshot.params['id'];
   }
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['/torneos-admin']);
   }
 }
