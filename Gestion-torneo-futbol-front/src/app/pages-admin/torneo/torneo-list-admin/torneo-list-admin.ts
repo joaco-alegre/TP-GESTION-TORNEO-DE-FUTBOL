@@ -53,8 +53,6 @@ export class TorneoListAdmin implements OnInit{
 
       this.lightbox.open(album, 0);
 
-
-
     }
 
     goBack(): void {

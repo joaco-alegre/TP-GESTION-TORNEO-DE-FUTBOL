@@ -10,7 +10,7 @@ import Torneo from '../../model/torneo';
 export class TorneoService{
 
       private url = 'http://localhost:3000/torneos'; 
-    private nextId   = 1;
+    // private nextId   = 1;
 
   constructor(private http: HttpClient) {}
 

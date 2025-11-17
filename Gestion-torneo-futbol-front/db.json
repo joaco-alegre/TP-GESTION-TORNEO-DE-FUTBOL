@@ -31,6 +31,15 @@
       "fechaInicio": "2025-11-20T09:00:00Z",
       "fechaFin": "2025-11-21T20:00:00Z",
       "estadoTorneo": "Programado"
+    },
+    {
+      "id": "e855",
+      "nombre": "Copa Argentina",
+      "logo": "",
+      "ultimoCampeon": "",
+      "estadoTorneo": "pendiente",
+      "fechaInicio": "2025-11-16",
+      "fechaFin": "2025-11-30"
     }
   ],
   "equipos": [
@@ -81,6 +90,12 @@
       "nombre": "Sporting Club",
       "escudo": "",
       "idTorneo": "t-006"
+    },
+    {
+      "id": "eb03",
+      "nombre": "Real madrid",
+      "escudo": "",
+      "idTorneo": "e855"
     }
   ],
   "jugadores": [
