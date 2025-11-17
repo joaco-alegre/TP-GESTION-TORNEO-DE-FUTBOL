@@ -1,5 +1,6 @@
-@import 'aos/dist/aos.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
+@import 'aos/dist/aos.css';
 @import 'ngx-lightbox/lightbox.css';
 
 .lb-outerContainer,
@@ -78,8 +79,6 @@
   width: auto !important;
   height: auto !important;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 html, body {
   height: 100%;

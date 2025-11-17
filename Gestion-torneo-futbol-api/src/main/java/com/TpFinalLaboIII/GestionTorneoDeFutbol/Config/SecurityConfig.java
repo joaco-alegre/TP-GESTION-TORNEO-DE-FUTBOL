@@ -71,19 +71,21 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                     .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/api/users/addUser").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/tournament/getListTorneo").permitAll()
                     .requestMatchers(// antes
-                                "/api/estadistica/get/estadisticasGoleador/*",
-                                "/api/fixture/get/fixture/*",
-                                "/api/fixture/get/fixture/end/*",
-                                "/api/auth/login",
-                                // Swagger
-                                "/swagger-ui/**",
-                                "/v3/api-docs/**",
-                                "/swagger-ui.html",
-                                "/swagger-ui/index.html"
-                        ).permitAll()
-                        .requestMatchers("/api/dt/**").hasAnyRole("ADMINISTRADOR","DT")
-                        .anyRequest().hasAnyRole("ADMINISTRADOR")
+                        "/api/estadistica/get/estadisticasGoleador/*",
+                        "/api/fixture/get/fixture/*",
+                        "/api/fixture/get/fixture/end/*",
+                        "/api/auth/login",
+                        // Swagger
+                        "/swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/swagger-ui.html",
+                        "/swagger-ui/index.html"
+                    ).permitAll()
+                    .requestMatchers("/api/dt/**").hasAnyRole("ADMINISTRADOR","DT")
+                    .anyRequest().hasAnyRole("ADMINISTRADOR")
                 )
                 .sessionManagement(sess -> sess
                         .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

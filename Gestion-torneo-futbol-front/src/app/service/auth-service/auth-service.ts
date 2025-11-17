@@ -36,6 +36,10 @@ export class AuthService {
     return localStorage.getItem('auth_token');
   }
 
+  getEmail(): string | null {
+    return localStorage.getItem('auth_email');
+  }
+
   isLoggedIn(): boolean {
     return !!this.getToken();
   }

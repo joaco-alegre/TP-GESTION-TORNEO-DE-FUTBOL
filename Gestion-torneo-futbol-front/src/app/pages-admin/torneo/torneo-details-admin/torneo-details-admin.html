@@ -8,16 +8,16 @@
     <div class="detalle-imagenes">
       <div class="imagen-box card-foto">
         <h3>{{ 'admin.torneoDetalles.logo' | transloco }}</h3>
-        <img [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" 
+        <img [src]="torneo.logo ? torneo.logo : 'assets/icons/icono.png'" 
         [alt]="'Logo de ' + torneo.nombre"
-        (click)="abrirImagen(torneo?.logo || 'assets/icons/icono.png')">
+        (click)="abrirImagen(torneo.logo || 'assets/icons/icono.png')">
       </div>
       
       <div class="imagen-box campeon-box card-foto">
         <h3>{{ 'admin.torneoDetalles.campeon' | transloco }}</h3>
-        <img [src]="torneo?.ultimoCampeon ? torneo?.ultimoCampeon : 'assets/icons/gente.png'" 
+        <img [src]="torneo.ultimoCampeon ? torneo.ultimoCampeon : 'assets/icons/gente.png'" 
         [alt]="'Escudo del último campeón'"
-        (click)="abrirImagen(torneo?.ultimoCampeon || 'assets/icons/gente.png')">
+        (click)="abrirImagen(torneo.ultimoCampeon || 'assets/icons/gente.png')">
       </div>
     </div>
 

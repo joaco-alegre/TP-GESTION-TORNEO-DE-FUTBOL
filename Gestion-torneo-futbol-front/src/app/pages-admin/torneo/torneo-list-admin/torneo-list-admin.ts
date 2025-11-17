@@ -17,7 +17,7 @@ export class TorneoListAdmin implements OnInit{
     torneos: Torneo[] = [];
 
   constructor(private torneoService: TorneoService,
-              private router: Router,
+              public router: Router,
               private location: Location,
               private lightbox: Lightbox
   ) {}
@@ -61,4 +61,22 @@ export class TorneoListAdmin implements OnInit{
     this.router.navigate(['usuario-home/', ]);
   }
   
+  confirmDelete(id: number | undefined): void {
+    if (!id) return;
+    if (!confirm('¿Desea eliminar este torneo?')) return;
+    this.torneoService.deleteTorneo(id).subscribe({
+      next: () => {
+        alert('Torneo eliminado');
+        this.cargarTorneo();
+      },
+      error: (e) => {
+        console.error(e);
+        alert('Error al eliminar torneo');
+      }
+    });
+  }
+  
+  trackById(index: number, item: Torneo): number | undefined {
+    return item.id; // Ensure `id` is unique for each torneo
+  }
 }

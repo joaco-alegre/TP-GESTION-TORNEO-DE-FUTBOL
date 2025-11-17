@@ -14,9 +14,9 @@
   </div>
 
   <div class="score">
-    <span class="goles">{{ fixture?.golesEquipo1 }}</span>
+    <span class="goles">{{ fixture.golesEquipo1 }}</span>
     <span class="separador">-</span>
-    <span class="goles">{{ fixture?.golesEquipo2 }}</span>
+    <span class="goles">{{ fixture.golesEquipo2 }}</span>
   </div>
 
   <div class="equipo-info visitante">
@@ -32,10 +32,10 @@
 
   <div class="info-adicional">
     <p>
-      <strong>{{ 'fixtureDetalles.etiquetaEstado' | transloco }}</strong> {{ fixture?.estadoPartido }}
+      <strong>{{ 'fixtureDetalles.etiquetaEstado' | transloco }}</strong> {{ fixture.estadoPartido }}
     </p>
     <p>
-      <strong>{{ 'fixtureDetalles.etiquetaFecha' | transloco }}</strong> {{ fixture?.fechaPartido | date: 'dd/MM/yyyy HH:mm' }} hs
+      <strong>{{ 'fixtureDetalles.etiquetaFecha' | transloco }}</strong> {{ fixture.fechaPartido | date: 'dd/MM/yyyy HH:mm' }} hs
     </p>
   </div>
 

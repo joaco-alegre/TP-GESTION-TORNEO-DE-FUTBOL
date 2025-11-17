@@ -14,8 +14,11 @@
     <label for="nombre">Nombre:</label>
     <input id="nombre" formControlName="nombre" type="text">
 
-    <label for="rol">Rol (ej: Scrum Master, Developer):</label>
-    <input id="rol" formControlName="rol" type="text">
+    <label for="rol">Rol del usuario:</label>
+    <select id="rol" formControlName="rol">
+      <option value="ADMINISTRADOR">Administrador</option>
+      <option value="DT">DT</option>
+    </select>
 
     <label for="foto">Foto (URL de la imagen):</label>
     <input id="foto" formControlName="foto" type="text">

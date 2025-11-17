@@ -1,13 +1,12 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { TranslocoPipe } from '@ngneat/transloco';
 import { DtService } from '../../../service/dt-service/dt-service';
 import DT from '../../../model/dt';
 
 @Component({
   selector: 'app-dt-dt-details',
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, RouterModule],
   templateUrl: './dt-dt-details.html',
   styleUrl: './dt-dt-details.css',
 })

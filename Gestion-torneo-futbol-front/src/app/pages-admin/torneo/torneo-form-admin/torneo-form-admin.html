@@ -7,74 +7,60 @@
 
 <form [formGroup]="torneoForm" (ngSubmit)="onSubmit()" data-aos="zoom-in">
 
-  @if (torneoID) {
+  <div *ngIf="torneoID">
     <label for="id">{{ 'admin.formularioTorneo.labelId' | transloco }}</label>
     <input id="id" type="text" formControlName="id" placeholder="id" readonly>
-  }
+  </div>
 
   <label for="nombre">{{ 'admin.formularioTorneo.labelNombre' | transloco }}</label>
   <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre"
          [class.is-invalid]="torneoForm.get('nombre')?.invalid && torneoForm.get('nombre')?.touched">
   
-  @if (torneoForm.get('nombre')?.invalid && torneoForm.get('nombre')?.touched) {
-    <div class="validation-error">
-      <p>{{ 'admin.formularioTorneo.validation.nombreRequerido' | transloco }}</p>
-    </div>
-  }
+  <div class="validation-error" *ngIf="torneoForm.get('nombre')?.invalid && torneoForm.get('nombre')?.touched">
+    <p>{{ 'admin.formularioTorneo.validation.nombreRequerido' | transloco }}</p>
+  </div>
 
- <label for="logo">{{ 'admin.formularioTorneo.labelLogo' | transloco }}</label>
+  <label for="logo">{{ 'admin.formularioTorneo.labelLogo' | transloco }}</label>
   <input id="logo" type="file" formControlName="logo"
          [class.is-invalid]="torneoForm.get('logo')?.invalid && torneoForm.get('logo')?.touched">
 
-  @if (torneoForm.get('logo')?.invalid && torneoForm.get('logo')?.touched) {
-    <div class="validation-error">
-      <p>{{ 'admin.formularioTorneo.validation.logoRequerido' | transloco}}</p>
-    </div>
-  }
+  <div class="validation-error" *ngIf="torneoForm.get('logo')?.invalid && torneoForm.get('logo')?.touched">
+    <p>{{ 'admin.formularioTorneo.validation.logoRequerido' | transloco}}</p>
+  </div>
 
   <label for="ultimoCampeon">{{ 'admin.formularioTorneo.labelCampeon' | transloco }}</label>
   <input id="ultimoCampeon" type="file" formControlName="ultimoCampeon">
-  
 
   <label for="estado">{{ 'admin.formularioTorneo.labelEstado' | transloco }}</label>
   <select id="estado" formControlName="estadoTorneo"
           [class.is-invalid]="torneoForm.get('estadoTorneo')?.invalid && torneoForm.get('estadoTorneo')?.touched">
     
-    <option value="" disabled selected>{{ 'admin.formularioTorneo.estadoPlaceholder' | transloco }}</option>
+    <option value="" disabled>{{ 'admin.formularioTorneo.estadoPlaceholder' | transloco }}</option>
     <option value="pendiente">{{ 'admin.formularioTorneo.estadoPendiente' | transloco }}</option>
     <option value="espera">{{ 'admin.formularioTorneo.estadoEspera' | transloco }}</option>
     <option value="comenzado">{{ 'admin.formularioTorneo.estadoComenzado' | transloco }}</option>
     <option value="terminado">{{ 'admin.formularioTorneo.estadoTerminado' | transloco }}</option>
-  
   </select>
   
-  @if (torneoForm.get('estadoTorneo')?.invalid && torneoForm.get('estadoTorneo')?.touched) {
-    <div class="validation-error">
-      <p>{{ 'admin.formularioTorneo.validation.estadoRequerido' | transloco }}</p>
-    </div>
-  }
-
+  <div class="validation-error" *ngIf="torneoForm.get('estadoTorneo')?.invalid && torneoForm.get('estadoTorneo')?.touched">
+    <p>{{ 'admin.formularioTorneo.validation.estadoRequerido' | transloco }}</p>
+  </div>
 
   <label for="fechaInicio">{{ 'admin.formularioTorneo.labelFechaInicio' | transloco }}</label>
   <input id="fechaInicio" type="date" formControlName="fechaInicio"
          [class.is-invalid]="torneoForm.get('fechaInicio')?.invalid && torneoForm.get('fechaInicio')?.touched">
 
-  @if (torneoForm.get('fechaInicio')?.invalid && torneoForm.get('fechaInicio')?.touched) {
-    <div class="validation-error">
-      <p>{{ 'admin.formularioTorneo.validation.fechaInicioRequerida' | transloco }}</p>
-    </div>
-  }
-
+  <div class="validation-error" *ngIf="torneoForm.get('fechaInicio')?.invalid && torneoForm.get('fechaInicio')?.touched">
+    <p>{{ 'admin.formularioTorneo.validation.fechaInicioRequerida' | transloco }}</p>
+  </div>
 
   <label for="fechaFin">{{ 'admin.formularioTorneo.labelFechaFin' | transloco }}</label>
   <input id="fechaFin" type="date" formControlName="fechaFin"
          [class.is-invalid]="torneoForm.get('fechaFin')?.invalid && torneoForm.get('fechaFin')?.touched">
   
-  @if (torneoForm.get('fechaFin')?.invalid && torneoForm.get('fechaFin')?.touched) {
-    <div class="validation-error">
-      <p>{{ 'admin.formularioTorneo.validation.fechaFinRequerida' | transloco }}</p>
-    </div>
-  }
+  <div class="validation-error" *ngIf="torneoForm.get('fechaFin')?.invalid && torneoForm.get('fechaFin')?.touched">
+    <p>{{ 'admin.formularioTorneo.validation.fechaFinRequerida' | transloco }}</p>
+  </div>
 
   <button type="submit">
     {{ torneoID ? ('admin.formularioTorneo.botonActualizar' | transloco) : ('admin.formularioTorneo.botonAgregar' | transloco) }}

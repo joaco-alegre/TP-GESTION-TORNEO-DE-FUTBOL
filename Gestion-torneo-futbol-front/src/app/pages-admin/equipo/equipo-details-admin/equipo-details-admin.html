@@ -12,7 +12,7 @@
         <img 
           [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
           [alt]="'Escudo de ' + equipo.nombre"
-          (click)="abrirImagen(equipo?.escudo || 'assets/icons/icono.png')"
+          (click)="abrirImagen(equipo.escudo || 'assets/icons/icono.png')"
           class="clickable-image"> </div>
   
       <div class="detalle-datos">

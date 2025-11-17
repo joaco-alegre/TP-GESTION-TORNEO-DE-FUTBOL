@@ -1,14 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { TranslocoPipe } from '@ngneat/transloco';
 import Jugador from '../../../model/jugador';
 import { DtService } from '../../../service/dt-service/dt-service';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
 
 @Component({
   selector: 'app-dt-jugador-list',
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, RouterModule],
   templateUrl: './dt-jugador-list.html',
   styleUrl: './dt-jugador-list.css',
 })

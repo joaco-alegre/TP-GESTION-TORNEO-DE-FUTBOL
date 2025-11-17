@@ -10,6 +10,10 @@
           <img [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" [alt]="usuario.nombre" class="item-logo item-foto-jugador">
           <span class="item-nombre">{{ usuario.nombre }} - ({{ usuario.rolUser }})</span>
         </div>
+        <div class="item-actions">
+          <button (click)="router.navigate(['/usuario-form-admin', usuario.id])">Editar</button>
+          <button (click)="confirmDelete(usuario.id)">Eliminar</button>
+        </div>
       </li>
     } @empty {
       <p class="empty-list">No hay administradores creados.</p>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import Usuario from '../../../model/usuario';
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
+import { AuthService } from '../../../service/auth-service/auth-service';
 
 @Component({
   selector: 'app-usuario-details',
@@ -17,21 +18,31 @@ export class UsuarioDetails implements OnInit{
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
 
-    // 3. --- ¡AQUÍ ESTÁ LA SIMULACIÓN! ---
-    // Fijamos el ID del admin que (simulamos) inició sesión.
-    // Usamos 'u-001' (Joaquin) del JSON que me diste.
-    const loggedInAdminId =''; 
-
-    if (loggedInAdminId) {
-      this.usuarioService.getUsuarioById(loggedInAdminId).subscribe(data => {
-        this.usuario = data;
-      }, (error) => {
-        console.error("No se pudo cargar el perfil del admin:", error);
+    // Cargar usuario logueado por email desde AuthService
+    const email = this.authService.getEmail();
+    if (email) {
+      this.usuarioService.getUserByEmail(email).subscribe({
+        next: (data) => {
+          // Map ViewUserDTO to Usuario model used in frontend
+          this.usuario = {
+            id: data.idUsuario,
+            nombre: data.username,
+            username: data.username,
+            password: '',
+            email: data.email,
+            rolUser: data.roleuser,
+            foto: data.foto || ''
+          };
+        },
+        error: (err) => {
+          console.error('No se pudo cargar el perfil del admin:', err);
+        }
       });
     }
   }

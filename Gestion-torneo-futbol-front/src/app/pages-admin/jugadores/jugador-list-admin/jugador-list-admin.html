@@ -1,4 +1,3 @@
-
 <button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
 
 <div class="admin-container" data-aos="fade-up">
@@ -14,7 +13,7 @@
     <li class="fila-clickeable">
       
       <div class="item-info">
-          <img  [src]="dt?.foto ? dt?.foto : 'assets/icons/persona.png'"  [alt]="dt.nombre" class="item-logo item-foto-jugador">
+          <img  [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'"  [alt]="dt.nombre" class="item-logo item-foto-jugador">
           <span class="item-nombre">{{dt.nombre}}</span>
         </div>
       
@@ -58,7 +57,7 @@
       <li class="fila-clickeable">
         
         <div class="item-info">
-          <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" [alt]="jugador.nombre" class="item-logo item-foto-jugador">
+          <img [src]="jugador.foto ? jugador.foto : 'assets/icons/persona.png'" [alt]="jugador.nombre" class="item-logo item-foto-jugador">
           <span class="item-nombre">{{jugador.nombre}}</span>
         </div>
         

@@ -16,7 +16,7 @@
               [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
               [alt]="'Escudo de ' + equipo.nombre" 
               class="equipo-card-logo"
-              (click)="abrirImagen(equipo?.escudo || 'assets/icons/icono.png')">
+              (click)="abrirImagen(equipo.escudo || 'assets/icons/icono.png')">
 
             <div class="equipo-card-info">
               <h4>{{ equipo.nombre }}</h4>
@@ -37,14 +37,14 @@
           <div class="dt-card card-foto">
             <img 
               [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'" 
-              alt="Foto de {{dt?.nombre}}" 
+              alt="Foto de {{dt.nombre}}" 
               class="dt-foto "
-              (click)="abrirImagen(dt?.foto || 'assets/icons/persona.png')">
+              (click)="abrirImagen(dt.foto || 'assets/icons/persona.png')">
 
             <div class="dt-info">
-              <h4>{{ dt?.nombre }}</h4>
-              <p><b>{{ 'equipoDetalles.etiquetaNacimiento' | transloco }}</b> {{ dt?.fechaNacimiento}}</p>
-              <p><b>{{ 'equipoDetalles.etiquetaEstilo' | transloco }}</b> {{ dt?.estiloJuego}}</p>
+              <h4>{{ dt.nombre }}</h4>
+              <p><b>{{ 'equipoDetalles.etiquetaNacimiento' | transloco }}</b> {{ dt.fechaNacimiento }}</p>
+              <p><b>{{ 'equipoDetalles.etiquetaEstilo' | transloco }}</b> {{ dt.estiloJuego }}</p>
               </div>
           </div>
         </div>

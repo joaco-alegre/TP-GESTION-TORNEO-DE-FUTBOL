@@ -1,36 +1,60 @@
 <button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
-<div class="admin-container" >
-<h2  data-aos="fade-down"
-    data-aos-anchor-placement="top-center">{{ 'admin.torneos.titulo' | transloco }}</h2>
+<div class="admin-container">
+  <h2 data-aos="fade-down" data-aos-anchor-placement="top-center">
+    {{ 'admin.torneos.titulo' | transloco }}
+  </h2>
 
-<ul data-aos="fade-left">
-  @for (torneo of torneos; track torneo.id) {
-    <li [routerLink]="['/equipo-admin/', torneo.id]" class="fila-clickeable">
-      
+  <ul data-aos="fade-left">
+
+    <li *ngFor="let torneo of torneos; trackBy: trackById" class="fila-clickeable"
+    [routerLink]="['/equipo-admin/', torneo.id]">
+
+      <!-- Toda esta parte navega al listado de equipos -->
       <div class="torneo-info card-foto">
+
         <img [src]="torneo?.logo ? torneo?.logo : 'assets/icons/icono.png'" 
-        [alt]="torneo.nombre" class="torneo-logo"
-        (click)="abrirImagen(torneo?.logo || 'assets/icons/icono.png'); $event.stopPropagation()">
-        <span class="torneo-nombre">{{torneo.nombre}}</span>
+             [alt]="torneo.nombre"
+             class="torneo-logo"
+             (click)="abrirImagen(torneo?.logo || 'assets/icons/icono.png'); $event.stopPropagation()">
+
+        <span class="torneo-nombre">{{ torneo.nombre }}</span>
       </div>
-      
+
       <div class="action-buttons">
-        <button class="btn-detalles" 
-                [routerLink]="['/torneo-details-admin/', torneo.id]" 
+
+        <!-- Detalles -->
+        <button class="btn-detalles"
+                [routerLink]="['/torneo-details-admin', torneo.id]"
                 (click)="$event.stopPropagation()">
           {{ 'admin.botones.detalles' | transloco }}
         </button>
-      </div>
-    </li>
-  } @empty {
-    <p class="empty-list">{{ 'admin.torneos.empty' | transloco }}</p>
-  }
-</ul>
 
-<div class="agregar-container">
-  <button class="btn-add-torneo" [routerLink]="['/torneo-formulario-admin']">
-    {{ 'admin.torneos.agregar' | transloco }}
-  </button>
-</div>
+        <!-- Editar -->
+        <button class="btn-editar"
+                (click)="$event.stopPropagation(); router.navigate(['/torneo-formulario-admin', torneo.id])">
+          {{ 'admin.botones.editar' | transloco }}
+        </button>
+
+        <!-- Eliminar -->
+        <button class="btn-eliminar"
+                (click)="$event.stopPropagation(); confirmDelete(torneo.id)">
+          {{ 'admin.botones.eliminar' | transloco }}
+        </button>
+      </div>
+
+    </li>
+
+    <p *ngIf="torneos.length === 0" class="empty-list">
+      {{ 'admin.torneos.empty' | transloco }}
+    </p>
+
+  </ul>
+
+  <div class="agregar-container">
+    <button class="btn-add-torneo" [routerLink]="['/torneo-formulario-admin']">
+      {{ 'admin.torneos.agregar' | transloco }}
+    </button>
+  </div>
+
 </div>

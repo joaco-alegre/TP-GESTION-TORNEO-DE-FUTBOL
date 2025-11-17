@@ -43,9 +43,15 @@ usuarioForm!: FormGroup;
       this.usuarioForm.get('password')?.updateValueAndValidity();
 
       this.usuarioService.getUsuarioById(this.usuarioID).subscribe(data => {
+        // Map backend ViewUserDTO -> form fields
         this.fotoActual = data.foto;
-        const datosParaFormulario = { ...data };
-
+        const datosParaFormulario: any = {
+          id: data.idUsuario,
+          nombre: data.username || '',
+          rol: data.roleuser || '',
+          foto: data.foto || '',
+          usuario: data.email || ''
+        };
         this.usuarioForm.patchValue(datosParaFormulario);
       });
     }
@@ -59,7 +65,18 @@ usuarioForm!: FormGroup;
     if (this.usuarioID) {
 
       const formValues = this.usuarioForm.value;
-      const usuarioData = { ...formValues, id: this.usuarioID, foto: formValues.foto || this.fotoActual };
+      const usuarioData = {
+        idUsuario: this.usuarioID,
+        username: formValues.nombre,
+        email: formValues.usuario,
+        // password omitted if empty (not updating password)
+        roleuser: formValues.rol
+      } as any;
+
+      if (formValues.foto || this.fotoActual) {
+        // keep compatibility if backend expects foto in ViewUserDTO; otherwise ignored
+        (usuarioData as any).foto = formValues.foto || this.fotoActual;
+      }
 
       this.usuarioService.updateUsuario(usuarioData).subscribe({
 
@@ -70,7 +87,13 @@ usuarioForm!: FormGroup;
 
     } else {
 
-      const usuarioData = this.usuarioForm.value;
+      const fv = this.usuarioForm.value;
+      const usuarioData = {
+        username: fv.nombre,
+        password: fv.password,
+        email: fv.usuario,
+        roleuser: fv.rol
+      } as any;
 
       this.usuarioService.postUsuario(usuarioData).subscribe({
 

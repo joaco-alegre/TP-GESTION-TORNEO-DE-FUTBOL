@@ -18,9 +18,19 @@ export class TorneoService {
     return this.http.get<Torneo[]>(`${this.url}/getListTorneo`);
   }
 
+  private getAuthHeaders(): { [header: string]: string } {
+    const token = localStorage.getItem('authToken'); // Retrieve token from local storage
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  }
+
   // GET torneo por ID
-  getTorneoById(id: string | number): Observable<Torneo> {
-    return this.http.get<Torneo>(`${this.url}/${id}`);
+  getTorneoById(id: number): Observable<Torneo> {
+    if (!id) {
+      throw new Error('ID is required to fetch a tournament.');
+    }
+
+    const headers = this.getAuthHeaders();
+    return this.http.get<Torneo>(`${this.url}/${id}`, { headers });
   }
 
   // POST crear torneo
