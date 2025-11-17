@@ -17,6 +17,11 @@
     <span>ES </span> | <span> EN</span>
   </div>
 
+  <div class="navbar-auth">
+    <a *ngIf="!isLoggedIn()" routerLink="/login">Login</a>
+    <a *ngIf="isLoggedIn()" (click)="logout()">Logout</a>
+  </div>
+
   <button class="navbar-menu-btn">
     <span class="material-icons">
       m

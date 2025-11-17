@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
 import Jugador from '../../model/jugador';
 import { Observable } from 'rxjs';
+import { API_BASE } from '../../config/api-config';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs';
 
 export class JugadorService{
 
-      private url = 'http://localhost:3002/jugadores'; 
+      private url = `${API_BASE}/jugadores`; 
     private nextId   = 1;
 
   constructor(private http: HttpClient) {}

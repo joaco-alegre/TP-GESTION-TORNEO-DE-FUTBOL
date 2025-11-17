@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import Equipo from '../../model/equipo';
+import { API_BASE } from '../../config/api-config';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import Equipo from '../../model/equipo';
 
 export class EquipoService{
 
-      private url = 'http://localhost:3001/equipos'; 
+      private url = `${API_BASE}/equipos`; 
     //private nextId   = 1;
 
   constructor(private http: HttpClient) {}

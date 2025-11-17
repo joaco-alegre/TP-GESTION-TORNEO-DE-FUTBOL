@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import Torneo from '../../model/torneo';
+import { API_BASE } from '../../config/api-config';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import Torneo from '../../model/torneo';
 
 export class TorneoService{
 
-      private url = 'http://localhost:3000/torneos'; 
+      private url = `${API_BASE}/torneos`; 
     private nextId   = 1;
 
   constructor(private http: HttpClient) {}

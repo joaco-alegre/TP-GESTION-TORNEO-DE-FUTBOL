@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import DT from '../../model/dt';
+import { API_BASE } from '../../config/api-config';
 
 @Injectable({
   providedIn:'root'
 })
 export class DtService {
 
-   private url = 'http://localhost:3001/DTs'; 
+  private url = `${API_BASE}/DTs`; 
     //private nextId   = 1;
 
   constructor(private http: HttpClient) {}
