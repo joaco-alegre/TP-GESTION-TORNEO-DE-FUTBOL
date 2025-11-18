@@ -4,10 +4,11 @@ import { Router, RouterModule } from '@angular/router';
 import Usuario from '../../../model/usuario';
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { LightboxModule, Lightbox } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-usuario-details',
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, RouterModule, TranslocoPipe, LightboxModule],
   templateUrl: './usuario-details.html',
   styleUrl: './usuario-details.css',
 })
@@ -18,7 +19,8 @@ export class UsuarioDetails implements OnInit{
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private lightbox: Lightbox
   ) {}
 
   ngOnInit(): void {
@@ -56,9 +58,29 @@ export class UsuarioDetails implements OnInit{
     }
   }
 
+    abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album,0);
+    }
+
+
   goBack(): void {
     this.location.back();
   }
 
 
 }
+
+

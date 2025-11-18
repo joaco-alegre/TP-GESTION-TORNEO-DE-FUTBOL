@@ -45,12 +45,14 @@
   <div data-aos="fade-right">
       <h2 class="section-title">{{ 'torneoDetalles.tituloEquipos' | transloco }} {{torneo?.nombre}}</h2>
 
-      <div class="equipo-list-wrapper"> <ul class="equipo-list">
+      <div class="equipo-list-wrapper"> 
+        <ul class="equipo-list card-foto-ul">
           @for (equipo of filtrarEquipos; track equipo.id) {
             <li [routerLink]="['/es/equipos/', equipo?.id]">
 
               <img 
-                [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'" 
+                [src]="equipo.escudo ? equipo.escudo : 'assets/icons/icono.png'"
+                (click)="abrirImagen(equipo?.escudo || 'assets/icons/icono.png'); $event.stopPropagation()" 
                 [alt]="'Escudo de ' + equipo.nombre" 
                 class="team-crest">
 

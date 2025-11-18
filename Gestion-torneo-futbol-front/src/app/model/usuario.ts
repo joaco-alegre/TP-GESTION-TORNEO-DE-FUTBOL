@@ -5,5 +5,5 @@ export default interface Usuario{
   password: string;
   email: string;
   rolUser: string;
-  foto:string;
+  foto?:string;
 }

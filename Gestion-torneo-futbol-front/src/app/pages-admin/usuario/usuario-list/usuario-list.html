@@ -6,8 +6,12 @@
   <ul>
     @for (usuario of usuarios; track usuario.id) {
       <li class="fila-clickeable">
-        <div class="item-info">
-          <img [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" [alt]="usuario.nombre" class="item-logo item-foto-jugador">
+        <div class="item-info card-foto-ul">
+          <img  [src]="(usuario?.foto ? usuario.foto : 'assets/icons/persona.png')" 
+              (click)="abrirImagen(usuario?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
+          [alt]="usuario.nombre"
+          class="item-logo item-foto-jugador">
+
           <span class="item-nombre">{{ usuario.nombre }} - ({{ usuario.rolUser }})</span>
         </div>
         

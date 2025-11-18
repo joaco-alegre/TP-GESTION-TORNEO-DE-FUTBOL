@@ -153,3 +153,13 @@ li button:active {
 .btn-volver:hover {
   text-decoration: underline;
 }
+
+.card-foto-ul img{   
+  cursor: zoom-in;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+
+.card-foto-ul img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9;
+}

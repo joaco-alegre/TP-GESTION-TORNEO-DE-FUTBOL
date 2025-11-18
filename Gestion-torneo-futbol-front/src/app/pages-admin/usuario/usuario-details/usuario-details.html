@@ -12,6 +12,7 @@
         <div class="card-foto">
           <img 
             [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" 
+            (click)="abrirImagen(usuario?.foto || 'assets/icons/persona.png')"
             [alt]="'Foto de ' + usuario.nombre">
             </div>
   

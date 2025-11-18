@@ -1,10 +1,9 @@
-/* Contenedor principal (centra todo y da espacio) */
+
 .admin-container {
   max-width: 900px;
   margin: 40px auto 40px auto;
 }
 
-/* Botón Volver */
 .btn-volver {
   display: block; 
   text-align: left; 
@@ -21,13 +20,11 @@
   text-decoration: underline;
 }
 
-/* Tarjeta principal de detalles */
 .detalle-container {
-  max-width: 700px; /* Un poco más angosto para un perfil */
+  max-width: 700px; 
   margin: 0 auto;
 }
 
-/* Título de la página (nombre del admin) */
 .titulo-pagina {
   font-size: 2.5rem;
   color: var(--color-texto);
@@ -38,7 +35,6 @@
   position: relative; 
 }
 
-/* Línea de acento corta */
 .titulo-pagina::after {
   content: ''; 
   display: block;
@@ -51,9 +47,8 @@
   transform: translateX(-50%);
 }
 
-/* Estilo base para la tarjeta */
 .card-detalles {
-  background-color: var(--color-tarjeta);
+  background-color: #fff;
   border: 1px solid var(--color-borde);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -61,11 +56,10 @@
   overflow: hidden;
 }
 
-/* Área de la foto (diseño "foto arriba") */
 .card-foto {
   width: 100%;
   height: 250px; 
-  background-color: var(--color-fondo);
+  background-color:#f4f4f4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,27 +68,32 @@
 .card-foto img {
   width: 200px;
   height: 200px;
-  border-radius: 50%; /* Foto circular */
+  border-radius: 50%;
   object-fit: cover;  
-  border: 3px solid var(--color-borde);
+  border: 3px solid #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
 }
 
-/* Área de la información */
+.card-foto img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9; 
+}
+
+
 .card-info {
   padding: 24px;
 }
 
-/* Título ("Detalles del Perfil") */
 .card-info h3 {
   font-size: 1.2rem;
-  color: var(--color-texto);
+  color: var(--color-texto-tarjeta);
   margin-top: 0;
   margin-bottom: 15px;
-  border-bottom: 1px solid var(--color-borde);
+  border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
 
-/* Lista de detalles (Nombre, Rol, etc.) */
 .info-lista {
   list-style: none;
   padding: 0;
@@ -103,28 +102,27 @@
 .info-lista li {
   display: flex;
   padding: 12px 5px;
-  border-bottom: 1px solid var(--color-borde);
+  border-bottom: 1px solid #ddd;
   font-size: 1rem;
-  color: var(--color-texto);
+  color: var(--color-texto-tarjeta);
 }
 .info-lista li:last-child {
   border-bottom: none;
 }
 .info-lista li b {
-  color: var(--color-texto);
+  color: var(--color-texto-tarjeta);
   font-weight: 700;
   width: 150px; 
   flex-shrink: 0; 
 }
 
-/* --- NUEVO: Botones de Acción al final de la tarjeta --- */
 .action-buttons-footer {
   display: flex;
-  justify-content: flex-end; /* Alinea los botones a la derecha */
+  justify-content: flex-end;
   gap: 10px;
   margin-top: 30px;
   padding-top: 20px;
-  border-top: 1px solid var(--color-borde);
+  border-top: 1px solid #ddd;
 }
 
 .action-buttons-footer button {
@@ -133,7 +131,7 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: white;
+  color: #fff;
   transition: transform 0.15s ease-out, background-color 0.2s;
   font-weight: 600;
 }

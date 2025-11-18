@@ -63,10 +63,11 @@
     <div class="jugador-list-wrapper">
       <ul class="jugador-list">
         @for (jugador of filtrarJugadores; track jugador.id) {
-          <li class="jugador-item" [routerLink]="['/es/jugadores/', jugador.id]">
+          <li class="jugador-item card-foto-ul" [routerLink]="['/es/jugadores/', jugador.id]">
 
             <img 
               [src]="(jugador?.foto ? jugador.foto : 'assets/icons/persona.png')" 
+              (click)="abrirImagen(jugador?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
               [alt]="'Foto de ' + jugador?.nombre" 
               class="jugador-foto"> 
 
@@ -90,9 +91,10 @@
     <div class="fixture-list-wrapper">
       <ul class="fixture-list">
         @for (fixture of fixtures; track fixture.id) {
-          <li class="fixture-item" [routerLink]="['/es/fixture/', fixture.id]">
+          <li class="fixture-item card-foto-ul" [routerLink]="['/es/fixture/', fixture.id]">
 
-            <img [src]="getEscudo(fixture.equipoLocalID)" 
+            <img [src]="getEscudo(fixture.equipoLocalID)"
+            (click)="abrirImagen(getEscudo(fixture.equipoLocalID) || 'assets/icons/icono.png'); $event.stopPropagation()"
                  [alt]="fixture.equipoLocalID">
 
             <div class="fixture-marcador">
@@ -101,7 +103,8 @@
               <span class="fixture-goles">{{ fixture.golesEquipo2 }}</span>
             </div>
 
-            <img [src]="getEscudo(fixture.equipoVisitaID)" 
+            <img [src]="getEscudo(fixture.equipoVisitaID)"
+            (click)="abrirImagen(getEscudo(fixture.equipoVisitaID) || 'assets/icons/icono.png'); $event.stopPropagation()" 
                  [alt]="fixture.equipoVisitaID">
 
           </li>
