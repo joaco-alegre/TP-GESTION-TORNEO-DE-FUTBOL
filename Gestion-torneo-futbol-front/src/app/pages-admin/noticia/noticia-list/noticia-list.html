@@ -13,13 +13,14 @@
            (click)="$event.stopPropagation()">
           
           <div class="item-info">
-            <img [src]="noticia.foto" [alt]="noticia.tituloEs" class="item-logo">
-            <span class="item-nombre">{{ noticia.tituloEs }}</span>
+            <img [src]="noticia.foto" [alt]="getTitulo(noticia)" class="item-logo">
+            <span class="item-nombre">{{ getTitulo(noticia) }}</span>
           </div>
         </a>
+
         <div class="action-buttons">
           <button class="btn-editar"
-                  [routerLink]="['/noticia-formulario', noticia.id]" 
+                  [routerLink]="['/form-noticia-admin', noticia.id]" 
                   (click)="$event.stopPropagation()">
             {{ 'admin.botones.editar' | transloco }}
           </button>
@@ -36,7 +37,7 @@
   </ul>
   
   <div class="agregar-container">
-    <button class="btn-agregar" [routerLink]="['/noticia-formulario']">
+    <button class="btn-agregar" [routerLink]="['/form-noticia-admin']">
       {{ 'admin.panelNoticias.agregar' | transloco }}
     </button>
   </div>

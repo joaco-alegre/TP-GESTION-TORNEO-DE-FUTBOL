@@ -1,35 +1,76 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
-<h2 data-aos="fade-up"
-     data-aos-anchor-placement="top-center">{{ DtID ? 'Editar DT' : 'Agregar DT' }}</h2>
+<div class="admin-container" data-aos="zoom-in">
 
-<form [formGroup]="DtForm" (ngSubmit)="onSubmit()" data-aos="zoom-in">
+  <h2>{{ DtID ? ('dtPortal.formularioDt.tituloEditar' | transloco) : ('dtPortal.formularioDt.tituloAgregar' | transloco) }}</h2>
 
-  @if (DtID) {
-    <label for="nombre">ID: </label>
-    <input id="id" type="text" formControlName="id" placeholder="id" readonly>
-  }
+  <form [formGroup]="DtForm" (ngSubmit)="onSubmit()">
 
-  <label for="nombre">Nombre: </label>
-  <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre">
+    @if (DtID) {
+      <label for="id">{{ 'dtPortal.formularioDt.labelId' | transloco }}</label>
+      <input id="id" type="text" formControlName="id" placeholder="id" readonly>
+    }
 
-  <label for="equipoID">Equipo ID: </label>
-  <input id="equipoID" type="text" formControlName="equipoID">
+    <label for="nombre">{{ 'dtPortal.formularioDt.labelNombre' | transloco }}</label>
+    <input id="nombre" type="text" formControlName="nombre" 
+           [placeholder]="'dtPortal.formularioDt.placeholderNombre' | transloco"
+           [class.is-invalid]="DtForm.get('nombre')?.invalid && DtForm.get('nombre')?.touched">
+    
+    @if (DtForm.get('nombre')?.invalid && DtForm.get('nombre')?.touched) {
+      <div class="validation-error">
+        <p>{{ 'dtPortal.formularioDt.validation.nombreRequerido' | transloco }}</p>
+      </div>
+    }
 
-  <label for="estiloJuego">Estilo de juego: </label>
-<select id="estiloJuego" formControlName="estiloJuego">
-  
-  <option value="" disabled selected>Selecciona un estilo</option>
-  <option value="defensivo">Defensivo</option>
-  <option value="equilibrado">Equilibrado</option>
-  <option value="ofensivo">Ofensivo</option>
-</select>
+    <label for="equipoID">{{ 'dtPortal.formularioDt.labelEquipoId' | transloco }}</label>
+    <input id="equipoID" type="text" formControlName="equipoID" readonly>
 
-  <label for="usuario">Usuario: </label>
-  <input id="usuario" type="text" formControlName="usuario">
+    <label for="estiloJuego">{{ 'dtPortal.formularioDt.labelEstilo' | transloco }}</label>
+    <select id="estiloJuego" formControlName="estiloJuego"
+            [class.is-invalid]="DtForm.get('estiloJuego')?.invalid && DtForm.get('estiloJuego')?.touched">
+      
+      <option value="" disabled selected>{{ 'dtPortal.formularioDt.estiloPlaceholder' | transloco }}</option>
+      <option value="defensivo">{{ 'dtPortal.formularioDt.estiloDefensivo' | transloco }}</option>
+      <option value="equilibrado">{{ 'dtPortal.formularioDt.estiloEquilibrado' | transloco }}</option>
+      <option value="ofensivo">{{ 'dtPortal.formularioDt.estiloOfensivo' | transloco }}</option>
+    
+    </select>
 
-    <label for="foto">Foto: </label>
-  <input id="foto" type="file" formControlName="foto">
+    @if (DtForm.get('estiloJuego')?.invalid && DtForm.get('estiloJuego')?.touched) {
+      <div class="validation-error">
+        <p>{{ 'dtPortal.formularioDt.validation.estiloRequerido' | transloco }}</p>
+      </div>
+    }
 
-  <button type="submit">{{ DtID ? 'Actualizar' : 'Agregar' }}</button>
-</form>
+    <label for="usuario">{{ 'dtPortal.formularioDt.labelUsuario' | transloco }}</label>
+    <input id="usuario" type="text" formControlName="usuario" 
+           [placeholder]="'dtPortal.formularioDt.placeholderUsuario' | transloco"
+           [class.is-invalid]="DtForm.get('usuario')?.invalid && DtForm.get('usuario')?.touched">
+
+    @if (DtForm.get('usuario')?.invalid && DtForm.get('usuario')?.touched) {
+      <div class="validation-error">
+        @if (DtForm.get('usuario')?.hasError('required')) {
+          <p>{{ 'dtPortal.formularioDt.validation.usuarioRequerido' | transloco }}</p>
+        }
+        @if (DtForm.get('usuario')?.hasError('email')) {
+          <p>{{ 'dtPortal.formularioDt.validation.usuarioFormato' | transloco }}</p>
+        }
+      </div>
+    }
+
+    <label for="foto">{{ 'dtPortal.formularioDt.labelFoto' | transloco }}</label>
+    <input id="foto" type="file" formControlName="foto"
+           [class.is-invalid]="DtForm.get('foto')?.invalid && DtForm.get('foto')?.touched">
+    
+    @if (DtForm.get('foto')?.invalid && DtForm.get('foto')?.touched) {
+      <div class="validation-error">
+        <p>{{ 'dtPortal.formularioDt.validation.fotoRequerida' | transloco }}</p>
+      </div>
+    }
+
+    <button type="submit">
+      {{ DtID ? ('dtPortal.formularioDt.botonActualizar' | transloco) : ('dtPortal.formularioDt.botonAgregar' | transloco) }}
+    </button>
+
+  </form>
+</div>

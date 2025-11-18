@@ -4,6 +4,24 @@
 
   <h2>{{ 'login.titulo' | transloco }}</h2>
 
+  <div class="role-selector">
+    <button 
+      type="button" 
+      class="role-btn"
+      [class.active]="selectedRole === 'usuario'"
+      (click)="setRole('usuario')">
+      {{ 'login.soyUsuario' | transloco }}
+    </button>
+    
+    <button 
+      type="button" 
+      class="role-btn"
+      [class.active]="selectedRole === 'dt'"
+      (click)="setRole('dt')">
+      {{ 'login.soyDt' | transloco }}
+    </button>
+  </div>
+
   <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
 
     <label for="email">{{ 'login.etiquetaEmail' | transloco }}</label>

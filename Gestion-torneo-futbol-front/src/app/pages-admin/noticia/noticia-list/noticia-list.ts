@@ -3,7 +3,7 @@ import Noticia from '../../../model/noticia';
 import { NoticiaService } from '../../../service/noticia-service/noticia-service';
 import { RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
-import { TranslocoPipe } from '@ngneat/transloco';
+import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-noticia-list',
@@ -15,7 +15,9 @@ export class NoticiaList implements OnInit{
 
   noticias: Noticia[] = [];
 
-  constructor(private noticiaService: NoticiaService, private location: Location) {}
+  constructor(private noticiaService: NoticiaService, 
+    private location: Location,
+  private translocoService: TranslocoService) {}
 
   ngOnInit(): void {
     this.cargarNoticias();
@@ -37,6 +39,11 @@ export class NoticiaList implements OnInit{
       }
       alert("Noticia eliminada");
     });
+  }
+
+  getTitulo(noticia: any): string {
+    const lang = this.translocoService.getActiveLang(); // 'es' o 'en'
+    return lang === 'en' ? noticia.tituloEn : noticia.tituloEs;
   }
 
     goBack(): void {

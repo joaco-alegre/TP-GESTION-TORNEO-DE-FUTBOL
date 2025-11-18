@@ -368,11 +368,99 @@
     "panelContacto": {
       "titulo": "Panel de Contacto",
       "empty": "No hay mensajes nuevos."
+    },
+    "formularioNoticia": {
+      "tituloAgregar": "Crear Noticia",
+      "tituloEditar": "Editar Noticia",
+      "labelId": "ID Noticia:",
+      "labelTituloEs": "Título en Español:",
+      "labelTituloEn": "Título en Inglés:",
+      "labelLink": "Link (URL):",
+      "labelFoto": "Foto:",
+      "placeholderTituloEs": "Ej: Messi gana otra copa",
+      "placeholderTituloEn": "Ex: Messi wins another cup",
+      "botonGuardar": "Guardar",
+      "botonActualizar": "Actualizar",
+      "placeholderLink": "Ej: https://www.tycsports.com/nota...",
+      "validation": {
+        "tituloEsRequerido": "El título en español es obligatorio.",
+        "tituloEnRequerido": "El título en inglés es obligatorio.",
+        "linkRequerido": "El link es obligatorio.",
+        "fotoRequerida": "La foto es obligatoria (solo al agregar)."
+      }
     }
+  },
+      "dtPortal": {
+    "menu": {
+      "bienvenido": "Bienvenido",
+      "miEquipo": "Mi Equipo",
+      "jugadoresLibres": "Ver jugadores libres",
+      "misDetalles": "Mis Detalles"
+    }, 
+  "miEquipo": {
+      "titulo": "Mi Equipo",
+      "detallesTitulo": "Detalles del Equipo",
+      "labelIdEquipo": "ID Equipo:",
+      "labelIdTorneo": "ID Torneo:",
+      "tituloPlantel": "Mi Plantel",
+      "textoJugadores": "jugadores",
+      "botonDetalles": "Detalles",
+      "botonSacar": "Sacar",
+      "botonVerLibres": "Ver Jugadores Libres",
+      "empty": "No hay jugadores registrados en tu equipo."
+    },
+    "jugadoresLibres": {
+      "titulo": "Jugadores Libres",
+      "empty": "No hay jugadores libres disponibles.",
+      "botonDetalles": "Detalles",
+      "botonAgregar": "Agregar a mi Equipo"
+    },
+    "miPerfil": {
+      "titulo": "Detalles de mi Perfil",
+      "labelNombre": "Nombre:",
+      "labelFechaNacimiento": "Fecha de nacimiento:",
+      "labelEstilo": "Estilo de Juego:",
+      "labelUsuario": "Usuario (Email):",
+      "labelPassword": "Contraseña:",
+      "botonEditar": "Editar Perfil",
+      "botonEliminar": "Eliminar mi Cuenta",
+      "cargando": "Cargando perfil..."
+    },
+    "formularioDt": {
+      "tituloAgregar": "Agregar DT",
+      "tituloEditar": "Editar mi Perfil",
+      "labelId": "ID:",
+      "labelNombre": "Nombre:",
+      "labelEquipoId": "ID Equipo (Asignado):",
+      "labelEstilo": "Estilo de juego:",
+      "labelUsuario": "Usuario (Email):",
+      "labelFoto": "Foto:",
+      
+      "placeholderNombre": "Ej: Marcelo Gallardo",
+      "placeholderUsuario": "Ej: dt@mail.com",
+      
+      "estiloPlaceholder": "Selecciona un estilo",
+      "estiloDefensivo": "Defensivo",
+      "estiloEquilibrado": "Equilibrado",
+      "estiloOfensivo": "Ofensivo",
+      
+      "botonAgregar": "Agregar",
+      "botonActualizar": "Actualizar",
+      
+      "validation": {
+        "nombreRequerido": "El nombre es obligatorio.",
+        "estiloRequerido": "Debes seleccionar un estilo.",
+        "usuarioRequerido": "El email es obligatorio.",
+        "usuarioFormato": "Email inválido.",
+        "fotoRequerida": "La foto es obligatoria."
+      }
+    }
+
+
+
+
+
     
-    
-    
-  }
-  
+}
 
 }

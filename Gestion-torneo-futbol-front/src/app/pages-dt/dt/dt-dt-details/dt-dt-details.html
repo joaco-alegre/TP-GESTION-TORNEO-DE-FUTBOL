@@ -1,4 +1,4 @@
-  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container">
 
@@ -16,33 +16,35 @@
         </div>
   
         <div class="card-info">
-          <h3>Detalles de mi Perfil</h3>
+          
+          <h3>{{ 'dtPortal.miPerfil.titulo' | transloco }}</h3>
+          
           <ul class="info-lista">
             <li>
-              <b>Nombre:</b> {{ dt.nombre }}
+              <b>{{ 'dtPortal.miPerfil.labelNombre' | transloco }}</b> {{ dt.nombre }}
             </li>
             <li>
-              <b>Fecha de nacimiento:</b> {{ dt.fechaNacimiento }}
+              <b>{{ 'dtPortal.miPerfil.labelFechaNacimiento' | transloco }}</b> {{ dt.fechaNacimiento | date:'dd/MM/yyyy' }}
             </li>
             <li>
-              <b>Estilo de Juego:</b> {{ dt.estiloJuego }}
+              <b>{{ 'dtPortal.miPerfil.labelEstilo' | transloco }}</b> {{ dt.estiloJuego }}
             </li>
             <li>
-              <b>Usuario (Email):</b> {{ dt.usuario }}
+              <b>{{ 'dtPortal.miPerfil.labelUsuario' | transloco }}</b> {{ dt.usuario }}
             </li>
             <li>
-              <b>Contraseña:</b> ********
+              <b>{{ 'dtPortal.miPerfil.labelPassword' | transloco }}</b> ********
             </li>
           </ul>
 
           <div class="action-buttons-footer">
             
             <button class="btn-editar" [routerLink]="['/dt-dt-form', dt.id]">
-              Editar Perfil
+              {{ 'dtPortal.miPerfil.botonEditar' | transloco }}
             </button>
             
             <button class="btn-eliminar" (click)="deleteDT()">
-              Eliminar mi Cuenta
+              {{ 'dtPortal.miPerfil.botonEliminar' | transloco }}
             </button>
             
           </div>
@@ -53,7 +55,7 @@
     </div>
   
   } @else {
-    <p class="empty-list">Cargando perfil...</p>
+    <p class="empty-list">{{ 'dtPortal.miPerfil.cargando' | transloco }}</p>
   }
 
 </div>

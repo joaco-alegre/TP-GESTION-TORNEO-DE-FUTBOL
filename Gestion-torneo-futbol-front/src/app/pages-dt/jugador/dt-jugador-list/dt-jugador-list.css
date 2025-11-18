@@ -1,137 +1,165 @@
 
-/* Lista (ul) - solo es un contenedor */
+.admin-container {
+  max-width: 850px;
+  margin: 40px auto; 
+  padding: 0 20px; 
+}
+
+h3, h2 {
+  font-size: 2.5rem; 
+  text-align: center;
+  color: var(--color-texto);
+  font-weight: 600; 
+  margin-top: 0;
+  margin-bottom: 40px;
+  position: relative;
+  letter-spacing: -0.5px; 
+}
+
+h3::after, h2::after {
+  content: '';
+  display: block;
+  width: 600px; 
+  height: 1px; 
+  background-color: var(--color-texto); 
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%); 
+  border-radius: 2px;
+}
+
 ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Fila/Tarjeta (li) - separada, con borde y animación */
 li.fila-clickeable {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
-  padding: 20px; 
-  background-color: var(--color-tarjeta);
+  padding: 20px 25px;
+  background-color: #fff;
+  border: 1px solid var(--color-borde);
+  border-radius: 12px; 
+  margin-bottom: 15px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.3s ease-out; 
-  margin-bottom: 15px; 
-  border-radius: 8px; 
-  border: 1px solid var(--color-borde); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-li.fila-clickeable:last-child {
-  margin-bottom: 0; 
-}
-
-/* Efecto hover: se agranda suavemente */
 li.fila-clickeable:hover {
-  background-color: var(--color-tarjeta-hover, #f9f9f9);
-  transform: scale(1.02);
+  background-color:#f9f9f9;
+  transform: translateY(-3px); 
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-accent, #007bff); 
 }
 
-/* Lado izquierdo (Foto y Nombre) */
 .item-info {
   display: flex;
   align-items: center;
-  gap: 15px; 
+  gap: 20px;
 }
 
 .item-logo {
-  width: 50px;
-  height: 50px;
+  width: 60px; 
+  height: 60px;
   object-fit: contain;
-  border-radius: 8px;
-  background-color: var(--color-fondo);
+  border-radius: 50%;
+  background-color: #fff;
+  padding: 2px;
 }
 
 .item-foto-jugador {
-  border-radius: 50%; /* Redondo */
   object-fit: cover; 
 }
 
 .item-nombre {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--color-texto);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-texto-tarjeta);
 }
 
-/* Lado derecho (Botones) */
 .action-buttons {
   display: flex;
-  gap: 8px; 
+  gap: 10px;
 }
 
-/* Estilo base de los botones */
 li button {
-  font-size: 0.9rem;
-  padding: 6px 12px;
+  font-size: 0.95rem;
+  padding: 8px 16px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  color: white;
-  transition: transform 0.15s ease-out, background-color 0.2s;
+  color: #fff;
+  font-weight: 600;
+  transition: filter 0.2s ease, transform 0.1s ease;
 }
 
 li button:hover {
-  transform: scale(1.1);
+  filter: brightness(1.1); 
+  transform: translateY(-1px);
 }
 
 li button:active {
-  transform: scale(1.0);
+  transform: translateY(1px);
 }
 
-/* Botón "Detalles" (Azul Fuerte) */
 .btn-detalles {
-  background-color: #0069d9;
-  border: 1px solid #0062cc;
+  background-color: #0069d9; 
 }
-.btn-detalles:hover {
-  background-color: #0056b3;
-}
-
-/* Botón "Sacar" (Rojo Fuerte) */
 .btn-eliminar {
-  background-color: #d93025;
-  border: 1px solid #c82333;
-}
-.btn-eliminar:hover {
-  background-color: #c82333;
+  background-color: #d93025; 
 }
 
-/* Mensaje de lista vacía */
-.empty-list {
-  padding: 20px;
-  text-align: center;
-  color: #777;
-}
-
-/* Contenedor para centrar el botón "Agregar" */
 .agregar-container {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 40px;
+  padding-bottom: 20px;
 }
 
-/* Botón "Agregar" (Verde) */
-.btn-agregar { 
+.btn-agregar {
   display: inline-block;
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: 14px 30px; 
+  font-size: 1.1rem;
+  font-weight: 700;
   text-decoration: none;
   background-color: var(--color-boton, #28a745);
   color: var(--color-texto-boton, white);
   border: none;
-  border-radius: 5px;
+  border-radius: 50px; 
   cursor: pointer;
-  transition: transform 0.15s ease-out, background-color 0.2s;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3); 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-agregar:hover {
-  background-color: var(--color-boton-hover, #218838);
-  transform: scale(1.05); 
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
+  background-color: var(--color-boton-hover);
 }
 
-.btn-agregar:active {
-  transform: scale(1.0);
+.empty-list {
+  text-align: center;
+  padding: 40px;
+  color: #777;
+  font-size: 1.2rem;
+  background-color: var(--color-tarjeta);
+  border-radius: 12px;
+  border: 1px dashed var(--color-borde);
+}
+
+
+.btn-volver {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color:var(--color-texto);
+  cursor: pointer;
+  margin: 10px 0 0 10px;
+}
+
+.btn-volver:hover {
+  text-decoration: underline;
 }

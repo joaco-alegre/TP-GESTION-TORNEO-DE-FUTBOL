@@ -58,12 +58,10 @@ this.torneoID = this.route.snapshot.params['id'];
 }
 
 
-
   onSubmit(): void {
   
     if (this.torneoForm.invalid){
 
-      console.log("Completar ");
       this.torneoForm.markAllAsTouched(); 
       return;
     };

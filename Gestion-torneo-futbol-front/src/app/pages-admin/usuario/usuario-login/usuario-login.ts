@@ -48,19 +48,29 @@ export class UsuarioLogin implements OnInit{
     const email = this.usuarioForm.value.email;
     const password = this.usuarioForm.value.password;
 
-    if (email === 'joaco12-2002@hotmail.com' && password === '123') {
+    if (this.selectedRole === 'usuario') {
       
-      if (this.selectedRole === 'dt') {
-        this.router.navigate(['/admin-menu']); 
-      } else {
+      if (email === 'joaco12-2002@hotmail.com' && password === '123') {
+        console.log('Login exitoso como Usuario/Admin');
         this.router.navigate(['/usuario-home']); 
+      } else {
+        this.loginError = "Usuario o contraseña incorrectos.";
       }
-      
-    } else {
-      this.loginError = "Email o contraseña inválida."; 
-    }
-  }
 
+    } 
+    
+    else if (this.selectedRole === 'dt') {
+    
+      if (email === 'joaco12-2002@hotmail.com' && password === '123') {
+        console.log('Login exitoso como DT');
+        
+        this.router.navigate(['/dt-home', ]); 
+      } else {
+        this.loginError = "Email de DT o contraseña incorrectos.";
+      }
+    }
+
+  }
   goBack(): void {
     this.router.navigate(['/']);
   }

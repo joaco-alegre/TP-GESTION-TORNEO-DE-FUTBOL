@@ -35,7 +35,7 @@ export class DtDtForm implements OnInit{
       equipoID: [''], 
       estiloJuego: ['', Validators.required],
       usuario: ['', [Validators.required]],
-      foto: ['', []]
+      foto: ['', [Validators.required]]
     });
 
     this.DtID = this.route.snapshot.params['id'];
@@ -57,7 +57,11 @@ export class DtDtForm implements OnInit{
 
   onSubmit(): void {
 
-    if (this.DtForm.invalid) return;
+    if (this.DtForm.invalid) {
+      this.DtForm.markAllAsTouched(); 
+      return;
+    }
+    
     const rutaDeVuelta = ['/dt-dt-details', this.DtID];
 
     if (this.DtID) {

@@ -1,6 +1,8 @@
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+
 <div class="admin-container">
 
-<h2>Mi equipo</h2>
+  <h2>{{ 'dtPortal.miEquipo.titulo' | transloco }}</h2>
 
   @if (equipoActual) {
     <div class="card card-detalles" data-aos="fade-down">
@@ -13,27 +15,36 @@
       </div>
 
       <div class="detalle-datos">
-        <h3>Detalles del Equipo</h3>
+        <h3>{{ 'dtPortal.miEquipo.detallesTitulo' | transloco }}</h3>
         <ul class="info-lista">
           <li>
-            <b>ID Equipo:</b> {{ equipoActual.id }}
+            <b>{{ 'dtPortal.miEquipo.labelIdEquipo' | transloco }}</b> {{ equipoActual.id }}
           </li>
           <li>
-            <b>ID Torneo:</b> {{ equipoActual.idTorneo }}
+          <b>{{ 'admin.equipoDetalles.torneo' | transloco }}</b> {{ torneoDelEquipo?.nombre }}
+          </li>
+          <li>
+            <b>{{ 'dtPortal.miEquipo.labelIdTorneo' | transloco }}</b> {{ equipoActual.idTorneo }}
           </li>
         </ul>
       </div>
     </div>
   }
 
-  <hr class="section-divider"> <h3 class="subtitulo-seccion">Mi Plantel ({{ jugadores.length }} jugadores)</h3>
+  <hr class="section-divider"> 
+  
+  <h3 class="subtitulo-seccion">
+    {{ 'dtPortal.miEquipo.tituloPlantel' | transloco }} ({{ jugadores.length }} {{ 'dtPortal.miEquipo.textoJugadores' | transloco }})
+  </h3>
 
   <ul>
     @for (jugador of jugadores; track jugador.id) {
       <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable" data-aos="fade-up">
         
         <div class="item-info">
-          <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" [alt]="jugador.nombre" class="item-logo item-foto-jugador">
+          <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" 
+               [alt]="jugador.nombre" 
+               class="item-logo item-foto-jugador">
           <span class="item-nombre">{{jugador.nombre}}</span>
         </div>
         
@@ -41,23 +52,23 @@
           <button class="btn-detalles"
                   [routerLink]="['/dt-jugador-details/', jugador.id]" 
                   (click)="$event.stopPropagation()">
-            Detalles
+            {{ 'dtPortal.miEquipo.botonDetalles' | transloco }}
           </button>
           
           <button class="btn-eliminar" 
                   (click)="sacarJugador(jugador); $event.stopPropagation()">
-            Sacar
+            {{ 'dtPortal.miEquipo.botonSacar' | transloco }}
           </button>
         </div>
       </li>
     } @empty {
-      <p class="empty-list">No hay jugadores registrados en tu equipo.</p>
+      <p class="empty-list">{{ 'dtPortal.miEquipo.empty' | transloco }}</p>
     }
   </ul>
   
   <div class="agregar-container">
     <button class="btn-agregar" [routerLink]="['/dt-jugadores-libres']">
-      Ver Jugadores Libres
+      {{ 'dtPortal.miEquipo.botonVerLibres' | transloco }}
     </button>
   </div>
 

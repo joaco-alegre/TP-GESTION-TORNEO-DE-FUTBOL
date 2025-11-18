@@ -368,8 +368,94 @@
     "panelContacto": {
       "titulo": "Contact Panel",
       "empty": "No new messages."
+    },
+    "formularioNoticia": {
+      "tituloAgregar": "Create News",
+      "tituloEditar": "Edit News",
+      "labelId": "News ID:",
+      "labelTituloEs": "Title in Spanish:",
+      "labelTituloEn": "Title in English:",
+      "labelLink": "Link (URL):",
+      "labelFoto": "Photo:",
+      "placeholderTituloEs": "Ex: Messi gana otra copa",
+      "placeholderTituloEn": "Ex: Messi wins another cup",
+      "botonGuardar": "Save",
+      "botonActualizar": "Update",
+      "placeholderLink": "Ex: https://www.espn.com/news...",
+      "validation": {
+        "tituloEsRequerido": "Spanish title is required.",
+        "tituloEnRequerido": "English title is required.",
+        "linkRequerido": "Link is required.",
+        "fotoRequerida": "Photo is required (only when adding)."
+      }
     }
-    
+  },
+   "dtPortal": {
+    "menu": {
+      "bienvenido": "Welcome",
+      "miEquipo": "My Team",
+      "jugadoresLibres": "View Free Agents",
+      "misDetalles": "My Details"
+    },
+    "miEquipo": {
+      "titulo": "My Team",
+      "detallesTitulo": "Team Details",
+      "labelIdEquipo": "Team ID:",
+      "labelIdTorneo": "Tournament ID:",
+      "tituloPlantel": "My Squad",
+      "textoJugadores": "players",
+      "botonDetalles": "Details",
+      "botonSacar": "Remove",
+      "botonVerLibres": "View Free Agents",
+      "empty": "No players registered in your team."
+    },
+    "jugadoresLibres": {
+      "titulo": "Free Agents",
+      "empty": "No free agents available.",
+      "botonDetalles": "Details",
+      "botonAgregar": "Add to my Team"
+    },
+    "miPerfil": {
+      "titulo": "My Profile Details",
+      "labelNombre": "Name:",
+      "labelFechaNacimiento": "Date of Birth:",
+      "labelEstilo": "Play Style:",
+      "labelUsuario": "User (Email):",
+      "labelPassword": "Password:",
+      "botonEditar": "Edit Profile",
+      "botonEliminar": "Delete my Account",
+      "cargando": "Loading profile..."
+    },
+    "formularioDt": {
+      "tituloAgregar": "Add Coach",
+      "tituloEditar": "Edit Profile",
+      "labelId": "ID:",
+      "labelNombre": "Name:",
+      "labelEquipoId": "Team ID (Assigned):",
+      "labelEstilo": "Play Style:",
+      "labelUsuario": "User (Email):",
+      "labelFoto": "Photo:",
+      
+      "placeholderNombre": "Ex: Marcelo Gallardo",
+      "placeholderUsuario": "Ex: coach@mail.com",
+      
+      "estiloPlaceholder": "Select a style",
+      "estiloDefensivo": "Defensive",
+      "estiloEquilibrado": "Balanced",
+      "estiloOfensivo": "Offensive",
+      
+      "botonAgregar": "Add",
+      "botonActualizar": "Update",
+      
+      "validation": {
+        "nombreRequerido": "Name is required.",
+        "estiloRequerido": "Style selection is required.",
+        "usuarioRequerido": "Email is required.",
+        "usuarioFormato": "Invalid email format.",
+        "fotoRequerida": "Photo is required."
+      }
+    }
 }
 
 }
+    

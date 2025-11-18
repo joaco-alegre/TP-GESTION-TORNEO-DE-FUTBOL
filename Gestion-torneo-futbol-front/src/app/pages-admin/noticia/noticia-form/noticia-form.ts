@@ -4,10 +4,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NoticiaService } from '../../../service/noticia-service/noticia-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Noticia from '../../../model/noticia';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-noticia-form',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslocoPipe],
   templateUrl: './noticia-form.html',
   styleUrl: './noticia-form.css',
 })
@@ -35,7 +36,7 @@ ngOnInit(): void {
     tituloEs: ['', Validators.required],
     tituloEn: ['', Validators.required],
     link: ['', Validators.required],
-    foto: [''] 
+    foto: ['', Validators.required] 
   });
 
   this.noticiaID = this.route.snapshot.params['id'];
@@ -55,7 +56,11 @@ ngOnInit(): void {
 
 
   onSubmit(): void {
-    if (this.noticiaForm.invalid) return;
+    
+    if (this.noticiaForm.invalid) {
+      this.noticiaForm.markAllAsTouched();
+      return;
+    }
 
     const rutaDeVuelta = ['/panel-noticias-admin'];
 

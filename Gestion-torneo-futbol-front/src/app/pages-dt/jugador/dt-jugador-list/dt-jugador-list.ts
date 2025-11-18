@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
@@ -22,7 +22,8 @@ export class DtJugadorList {
   constructor(
     private dtService: DtService,
     private jugadorService: JugadorService,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -87,6 +88,10 @@ export class DtJugadorList {
       alert("No se pudo agregar al jugador al equipo.");
     });
   }
+
+            goBack(): void {
+      this.location.back();
+    }
 
 
 }

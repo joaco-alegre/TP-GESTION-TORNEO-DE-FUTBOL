@@ -1,9 +1,27 @@
-<h2  data-aos="fade-right">Bienvenido {{dt?.nombre}} !!!</h2>
+<h2 data-aos="fade-right">
+  {{ 'dtPortal.menu.bienvenido' | transloco }} {{ dt?.nombre }} !!!
+</h2>
 
 <div class="menu-container" data-aos="zoom-out-left">
   <ul class="admin-menu-grid">
-    <li><a [routerLink]="['/dt-mi-equipo']">Mi Equipo</a></li>
-    <li><a [routerLink]="['/dt-jugadores-libres']">Ver jugadores libres</a></li>
-    <li><a [routerLink]="['/dt-dt-details', IDgenerico]">Mis Detalles</a></li>
+    
+    <li>
+      <a [routerLink]="['/dt-mi-equipo']">
+        {{ 'dtPortal.menu.miEquipo' | transloco }}
+      </a>
+    </li>
+    
+    <li>
+      <a [routerLink]="['/dt-jugadores-libres']">
+        {{ 'dtPortal.menu.jugadoresLibres' | transloco }}
+      </a>
+    </li>
+    
+    <li>
+      <a [routerLink]="['/dt-dt-details', IDgenerico]"> 
+        {{ 'dtPortal.menu.misDetalles' | transloco }}
+      </a>
+    </li>
+
   </ul>
 </div>

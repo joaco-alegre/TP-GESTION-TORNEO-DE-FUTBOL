@@ -1,31 +1,61 @@
-  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container">
 
-  <h2>{{ noticiaID ? 'Editar Noticia' : 'Crear Noticia' }}</h2>
+  <h2>{{ noticiaID ? ('admin.formularioNoticia.tituloEditar' | transloco) : ('admin.formularioNoticia.tituloAgregar' | transloco) }}</h2>
 
   <form [formGroup]="noticiaForm" (ngSubmit)="onSubmit()">
 
     @if (noticiaID) {
-
-    <label for="id">ID noticia:</label>
-    <input id="id" formControlName="id" type="text" readonly>
+      <label for="id">{{ 'admin.formularioNoticia.labelId' | transloco }}</label>
+      <input id="id" formControlName="id" type="text" readonly>
     }
 
-    <label for="tituloEs">Título en Español:</label>
-    <input id="tituloEs" formControlName="tituloEs" type="text">
+    <label for="tituloEs">{{ 'admin.formularioNoticia.labelTituloEs' | transloco }}</label>
+    <input id="tituloEs" formControlName="tituloEs" type="text"
+           [placeholder]="'admin.formularioNoticia.placeholderTituloEs' | transloco"
+           [class.is-invalid]="noticiaForm.get('tituloEs')?.invalid && noticiaForm.get('tituloEs')?.touched">
+    
+    @if (noticiaForm.get('tituloEs')?.invalid && noticiaForm.get('tituloEs')?.touched) {
+      <div class="validation-error">
+        <p>{{ 'admin.formularioNoticia.validation.tituloEsRequerido' | transloco }}</p>
+      </div>
+    }
 
-        <label for="tituloEn">Título en Ingles:</label>
-    <input id="tituloEn" formControlName="tituloEn" type="text">
+    <label for="tituloEn">{{ 'admin.formularioNoticia.labelTituloEn' | transloco }}</label>
+    <input id="tituloEn" formControlName="tituloEn" type="text"
+           [placeholder]="'admin.formularioNoticia.placeholderTituloEn' | transloco"
+           [class.is-invalid]="noticiaForm.get('tituloEn')?.invalid && noticiaForm.get('tituloEn')?.touched">
+    
+    @if (noticiaForm.get('tituloEn')?.invalid && noticiaForm.get('tituloEn')?.touched) {
+      <div class="validation-error">
+        <p>{{ 'admin.formularioNoticia.validation.tituloEnRequerido' | transloco }}</p>
+      </div>
+    }
 
-    <label for="link">Link (URL) a la noticia real:</label>
-    <input id="link" formControlName="link" type="text">
+<label for="link">{{ 'admin.formularioNoticia.labelLink' | transloco }}</label>
+<input id="link" formControlName="link" type="text"
+       [placeholder]="'admin.formularioNoticia.placeholderLink' | transloco"
+       [class.is-invalid]="noticiaForm.get('link')?.invalid && noticiaForm.get('link')?.touched">
 
-    <label for="foto">Foto (URL de la imagen):</label>
-    <input id="foto" formControlName="foto" type="file">
+@if (noticiaForm.get('link')?.invalid && noticiaForm.get('link')?.touched) {
+  <div class="validation-error">
+    <p>{{ 'admin.formularioNoticia.validation.linkRequerido' | transloco }}</p>
+  </div>
+}
 
-    <button type="submit" [disabled]="!noticiaForm.valid">
-      {{ noticiaID ? 'Actualizar' : 'Guardar' }}
+    <label for="foto">{{ 'admin.formularioNoticia.labelFoto' | transloco }}</label>
+    <input id="foto" formControlName="foto" type="file"
+           [class.is-invalid]="noticiaForm.get('foto')?.invalid && noticiaForm.get('foto')?.touched">
+    
+    @if (noticiaForm.get('foto')?.invalid && noticiaForm.get('foto')?.touched) {
+      <div class="validation-error">
+        <p>{{ 'admin.formularioNoticia.validation.fotoRequerida' | transloco }}</p>
+      </div>
+    }
+
+    <button type="submit">
+      {{ noticiaID ? ('admin.formularioNoticia.botonActualizar' | transloco) : ('admin.formularioNoticia.botonGuardar' | transloco) }}
     </button>
 
   </form>
