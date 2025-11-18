@@ -1,23 +1,45 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
-<h2>{{ equipoID ? 'Editar Equipo' : 'Agregar Equipo' }}</h2>
+<h2>{{ equipoID ? ('admin.formularioEquipo.tituloEditar' | transloco) : ('admin.formularioEquipo.tituloAgregar' | transloco) }}</h2>
 
 <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
 
   @if (equipoID) {
-  <label for="id">ID: </label>
-  <input id="id" type="text" formControlName="id" readonly>
+    <label for="id">{{ 'admin.formularioEquipo.labelId' | transloco }}</label>
+    <input id="id" type="text" formControlName="id" readonly>
   }
 
-  <label for="nombre">Nombre: </label>
-  <input id="nombre" type="text" formControlName="nombre">
+  <label for="nombre">{{ 'admin.formularioEquipo.labelNombre' | transloco }}</label>
+  <input id="nombre" type="text" formControlName="nombre"
+         [placeholder]="'admin.formularioEquipo.placeholderNombre' | transloco"
+         [class.is-invalid]="equipoForm.get('nombre')?.invalid && equipoForm.get('nombre')?.touched">
+  
+  @if (equipoForm.get('nombre')?.invalid && equipoForm.get('nombre')?.touched) {
+    <div class="validation-error">
+      @if (equipoForm.get('nombre')?.hasError('required')) {
+        <p>{{ 'admin.formularioEquipo.validation.nombreRequerido' | transloco }}</p>
+      }
+    </div>
+  }
 
-  <label for="idTorneo">ID Torneo: </label>
+  <label for="idTorneo">{{ 'admin.formularioEquipo.labelIdTorneo' | transloco }}</label>
   <input id="idTorneo" type="text" formControlName="idTorneo" readonly>
 
-  <label for="escudo">Escudo: </label>
-  <input id="escudo" type="file" formControlName="escudo">
 
-  <button type="submit">{{ equipoID ? 'Actualizar' : 'Agregar' }}</button>
+<label for="escudo">{{ 'admin.formularioEquipo.labelEscudo' | transloco }}</label>
+<input id="escudo" type="file" formControlName="escudo"
+       [class.is-invalid]="equipoForm.get('escudo')?.invalid && equipoForm.get('escudo')?.touched">
+
+@if (equipoForm.get('escudo')?.invalid && equipoForm.get('escudo')?.touched) {
+  <div class="validation-error">
+    @if (equipoForm.get('escudo')?.hasError('required')) {
+      <p>{{ 'admin.formularioEquipo.validation.escudoRequerido' | transloco }}</p>
+    }
+  </div>
+}
+
+  <button type="submit">
+    {{ equipoID ? ('admin.formularioEquipo.botonActualizar' | transloco) : ('admin.formularioEquipo.botonAgregar' | transloco) }}
+  </button>
 
 </form>

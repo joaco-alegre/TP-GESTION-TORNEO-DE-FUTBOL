@@ -1,43 +1,34 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container" data-aos="zoom-out-up">
 
-    <h3>Lista de DTs</h3>
+  <h3>{{ 'admin.dtLista.titulo' | transloco }}</h3>
 
-    <ul>
-      @for (dt of dts; track dt.id) {
-        <li class="fila-clickeable">
+  <ul>
+    @for (dt of dts; track dt.id) {
+      <li class="fila-clickeable">
         
-          <div class="item-info">
-            <img [src]="dt?.foto ? dt?.foto : 'assets/icons/persona.png'" [alt]="dt.nombre" class="item-logo item-foto-jugador">
-            <span class="item-nombre">{{dt.nombre}}</span>
-          </div>
+        <div class="item-info">
+          <img [src]="dt?.foto ? dt?.foto : 'assets/icons/persona.png'" [alt]="dt.nombre" class="item-logo item-foto-jugador">
+          <span class="item-nombre">{{dt.nombre}}</span>
+        </div>
 
-          <div class="action-buttons">
-            <button class="btn-detalles"
-                    [routerLink]="['/dt-detalles-admin/', dt.id]" 
-                    (click)="$event.stopPropagation()">
-              Detalles
-                </button>
-            
-            <button class="btn-editar"
-                    [routerLink]="['/dt-formulario-admin/', dt.id]" 
-                    (click)="$event.stopPropagation()">
-              Editar
-            </button>
+        <div class="action-buttons">
+          <button class="btn-detalles"
+                  [routerLink]="['/dt-detalles-admin/', dt.id]" 
+                  (click)="$event.stopPropagation()">
+            {{ 'admin.botones.detalles' | transloco }}
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <p class="empty-list">{{ 'admin.dtLista.empty' | transloco }}</p>
+    }
+  </ul>
 
-            <button class="btn-eliminar" 
-                    (click)="deleteDt(dt.id!); $event.stopPropagation()">
-              Eliminar
-            </button>
-          </div>
-        </li>
-      } @empty {
-        <p class="empty-list">No hay DTs registrados.</p>
-      }
-    </ul>
-
-    <div class="agregar-container">
-      <button class="btn-agregar" [routerLink]="['/dt-formulario-admin']">Agregar DT</button>
-    </div>
+  <div class="agregar-container">
+    <button class="btn-agregar" [routerLink]="['/dt-formulario-admin']">
+      {{ 'admin.dtLista.agregar' | transloco }}
+    </button>
+  </div>
 </div>

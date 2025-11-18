@@ -13,7 +13,7 @@
   }
 
   <label for="nombre">{{ 'admin.formularioTorneo.labelNombre' | transloco }}</label>
-  <input id="nombre" type="text" formControlName="nombre" placeholder="Nombre"
+  <input id="nombre" type="text" formControlName="nombre" [placeholder]="'admin.formularioTorneo.validation.placeholderNombre' | transloco"
          [class.is-invalid]="torneoForm.get('nombre')?.invalid && torneoForm.get('nombre')?.touched">
   
   @if (torneoForm.get('nombre')?.invalid && torneoForm.get('nombre')?.touched) {

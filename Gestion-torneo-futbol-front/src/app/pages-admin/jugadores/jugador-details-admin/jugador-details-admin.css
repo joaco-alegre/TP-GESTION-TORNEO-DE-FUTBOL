@@ -143,3 +143,88 @@
 .btn-volver:hover {
   text-decoration: underline;
 }
+
+
+.action-buttons-footer {
+  display: flex;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-borde);
+}
+
+.action-buttons-footer button {
+  font-size: 1rem;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.15s ease-out, background-color 0.2s;
+  font-weight: 600;
+}
+
+.btn-editar {
+  background-color: #ffb60a;
+  color: #212529;
+}
+.btn-editar:hover {
+  background-color: #e0a000;
+  transform: scale(1.05);
+}
+
+.btn-eliminar {
+  background-color: #d93025;
+}
+.btn-eliminar:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.card-estadisticas {
+  padding: 24px;
+}
+.card-estadisticas h3 {
+  font-size: 1.2rem;
+  color: var(--color-texto);
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-borde);
+  padding-bottom: 10px;
+}
+.stats-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.stats-lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--color-texto);
+  font-weight: 700;
+}
+.stat-numero {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.empty-list {
+  padding: 40px;
+  text-align: center;
+  color: var(--color-texto);
+  font-size: 1.1rem;
+}
+
+.card-foto img { 
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+
+.card-foto img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9; 
+}

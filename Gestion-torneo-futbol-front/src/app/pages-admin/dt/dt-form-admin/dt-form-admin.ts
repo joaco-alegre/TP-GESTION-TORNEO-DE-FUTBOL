@@ -33,8 +33,8 @@ export class DtFormAdmin implements OnInit{
       nombre: ['', Validators.required],
       equipoID: [''], 
       estiloJuego: ['', Validators.required],
-      usuario: ['', [Validators.required]],
-      foto: ['', []]
+      usuario: ['', [Validators.required, Validators.email]],
+      foto: ['', [Validators.required]]
     });
 
     this.DtID = this.route.snapshot.params['id'];
@@ -56,7 +56,11 @@ export class DtFormAdmin implements OnInit{
 
   onSubmit(): void {
 
-    if (this.DtForm.invalid) return;
+    if (this.DtForm.invalid) {
+      this.DtForm.markAllAsTouched(); 
+      return;
+    }
+    
     const rutaDeVuelta = ['/dt-list-admin'];
 
     if (this.DtID) {

@@ -3,10 +3,11 @@ import { FormBuilder, FormGroup, Validators, ɵInternalFormsSharedModule, Reacti
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-usuario-form',
-  imports: [CommonModule, ɵInternalFormsSharedModule, ReactiveFormsModule],
+  imports: [CommonModule, ɵInternalFormsSharedModule, ReactiveFormsModule, TranslocoPipe],
   templateUrl: './usuario-form.html',
   styleUrl: './usuario-form.css',
 })
@@ -30,7 +31,7 @@ usuarioForm!: FormGroup;
       id: [''],
       nombre: ['', Validators.required],
       rol: ['', Validators.required],
-      foto: [''], 
+      foto: ['', Validators.required], 
       usuario: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
@@ -39,6 +40,8 @@ usuarioForm!: FormGroup;
 
     if (this.usuarioID) {
 
+      this.usuarioForm.get('foto')?.clearValidators();
+      this.usuarioForm.get('foto')?.updateValueAndValidity();
       this.usuarioForm.get('password')?.clearValidators();
       this.usuarioForm.get('password')?.updateValueAndValidity();
 
@@ -52,9 +55,16 @@ usuarioForm!: FormGroup;
   }
 
   onSubmit(): void {
-    if (this.usuarioForm.invalid) return;
 
-    const rutaDeVuelta = ['/panel-admin'];
+     if (this.usuarioForm.invalid){
+
+      console.log("Completar ");
+      this.usuarioForm.markAllAsTouched(); 
+      return;
+    };
+    
+
+    const rutaDeVuelta = ['/usuario-details-admin', this.usuarioID];
 
     if (this.usuarioID) {
 

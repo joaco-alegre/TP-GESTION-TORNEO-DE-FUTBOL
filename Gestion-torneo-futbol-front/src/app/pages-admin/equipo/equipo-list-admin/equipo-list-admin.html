@@ -1,37 +1,37 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
-<div class="admin-container">
+<div class="admin-container" >
+<h2  data-aos="fade-down">{{ 'admin.equipoLista.titulo' | transloco }} {{nombreTorneo}}</h2>
 
-  <h2 data-aos="fade-down">Lista de equipos de {{nombreTorneo}}</h2>
+<ul data-aos="zoom-out-down">
+  @for (equipo of equipos; track equipo.id) {
+    <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable">
+      
+      <div class="item-info card-foto">
+        <img [src]="equipo?.escudo ? equipo?.escudo : 'assets/icons/icono.png'"  
+             [alt]="equipo.nombre" class="item-logo"
+             (click)="abrirImagen(equipo?.escudo || 'assets/icons/icono.png'); $event.stopPropagation()">
+        <span class="item-nombre">{{equipo.nombre}}</span>
+      </div>
+      
+      <div class="action-buttons">
+        <button class="btn-detalles"
+                [routerLink]="['/equipo-details-admin', equipo.id]" 
+                (click)="$event.stopPropagation()">
+          {{ 'admin.botones.detalles' | transloco }}
+        </button>
+      </div>
+    </li>
+  } @empty {
+    <p class="empty-list">{{ 'admin.equipoLista.empty' | transloco }}</p>
+  }
+</ul>
 
-  <ul data-aos="zoom-out-down">
-    @for (equipo of equipos; track equipo.id) {
-      <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable">
-        
-        <div class="item-info card-foto">
-          <img [src]="equipo?.escudo ? equipo?.escudo : 'assets/icons/icono.png'"  
-          [alt]="equipo.nombre" class="item-logo"
-          (click)="abrirImagen(equipo?.escudo || 'assets/icons/icono.png'); $event.stopPropagation()">
-          <span class="item-nombre">{{equipo.nombre}}</span>
-        </div>
-        
-        <div class="action-buttons">
-          <button class="btn-detalles"
-                  [routerLink]="['/equipo-details-admin', equipo.id]" 
-                  (click)="$event.stopPropagation()">
-            Detalles
-          </button>
-        </div>
-      </li>
-    } @empty {
-      <p class="empty-list">No hay equipos registrados en este torneo.</p>
-    }
-  </ul>
-
-  <div class="agregar-container">
-    <button class="btn-agregar" 
+<div class="agregar-container">
+  <button class="btn-agregar" 
     [routerLink]="['/equipo-formulario-admin']" 
-    [queryParams]="{ idTorneo: torneoId}">Agregar Equipo</button>
-  </div>
-
+    [queryParams]="{ idTorneo: torneoId}">
+    {{ 'admin.equipoLista.agregar' | transloco }}
+  </button>
+</div>
 </div>

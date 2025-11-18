@@ -4,62 +4,47 @@
 
   <h2>{{ 'login.titulo' | transloco }}</h2>
 
-  <div class="role-selector">
-    <button 
-      type="button" 
-      class="role-btn"
-      [class.active]="selectedRole === 'usuario'"
-      (click)="setRole('usuario')">
-      {{ 'login.soyUsuario' | transloco }}
-    </button>
-    
-    <button 
-      type="button" 
-      class="role-btn"
-      [class.active]="selectedRole === 'dt'"
-      (click)="setRole('dt')">
-      {{ 'login.soyDt' | transloco }}
-    </button>
-  </div>
-
   <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
 
-  <label for="email">{{ 'login.etiquetaEmail' | transloco }}</label>
-  <input id="email" formControlName="email" type="email"
-         [class.is-invalid]="usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched">
+    <label for="email">{{ 'login.etiquetaEmail' | transloco }}</label>
+    <input id="email" formControlName="email" type="email"
+           [placeholder]="'login.placeholders.email' | transloco"
+           [class.is-invalid]="usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched">
 
-  @if (usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched) {
-    <div class="validation-error">
-      
-      @if (usuarioForm.get('email')?.hasError('required')) {
-        <p>El email es obligatorio.</p>
-      }
-      
-      @if (usuarioForm.get('email')?.hasError('email')) {
-        <p>El formato del email no es válido.</p>
-      }
-    </div>
-  }
+    @if (usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched) {
+      <div class="validation-error">
+        
+        @if (usuarioForm.get('email')?.hasError('required')) {
+          <p>{{ 'login.validation.emailRequired' | transloco }}</p>
+        }
+        
+        @if (usuarioForm.get('email')?.hasError('email')) {
+          <p>{{ 'login.validation.emailFormat' | transloco }}</p>
+        }
+      </div>
+    }
 
-  <label for="password">{{ 'login.etiquetaPassword' | transloco }}</label>
-  <input id="password" formControlName="password" type="password"
-         [class.is-invalid]="usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched">
+    <label for="password">{{ 'login.etiquetaPassword' | transloco }}</label>
+    <input id="password" formControlName="password" type="password"
+           [placeholder]="'login.placeholders.password' | transloco"
+           [class.is-invalid]="usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched">
 
-  @if (usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched) {
-    <div class="validation-error">
-      @if (usuarioForm.get('password')?.hasError('required')) {
-        <p>La contraseña es obligatoria.</p>
-      }
-    </div>
-  }
+    @if (usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched) {
+      <div class="validation-error">
+        @if (usuarioForm.get('password')?.hasError('required')) {
+          <p>{{ 'login.validation.passwordRequired' | transloco }}</p>
+        }
+      </div>
+    }
 
-  @if (loginError) {
-    <div class="validation-error login-error">
-      <p>{{ loginError }}</p>
-    </div>
-  }
+    
+    @if (loginError) {
+      <div class="validation-error login-error">
+        <p>{{ 'login.validation.loginFailed' | transloco}}</p>
+      </div>
+    }
 
-  <button type="submit">{{ 'login.botonIngresar' | transloco }}</button>
-</form>
+    <button type="submit">{{ 'login.botonIngresar' | transloco }}</button>
+  </form>
 
 </div>

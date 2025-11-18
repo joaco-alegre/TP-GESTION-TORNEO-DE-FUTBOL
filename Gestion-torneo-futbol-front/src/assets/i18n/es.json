@@ -99,9 +99,49 @@
     "soyDt": "Soy DT",
     "etiquetaEmail": "Email",
     "etiquetaPassword": "Contraseña",
-    "botonIngresar": "Ingresar"
+    "botonIngresar": "Ingresar",
+        "placeholders": {
+      "email": "Ingresa tu email",
+      "password": "Ingresa tu contraseña"
+    },
+    "validation": {
+      "emailRequired": "El email es obligatorio.",
+      "emailFormat": "El formato del email no es válido.",
+      "passwordRequired": "La contraseña es obligatoria.",
+      "loginFailed": "Email o contraseña inválida."
+    }
   },
   "admin": {
+    "adminMenu": {
+      "titulo": "Bienvenido !!!",
+      "verTorneos": "Ver Torneos",
+      "detallesCuenta": "Detalles de mi cuenta",
+      "verAdministradores": "Ver administradores",
+      "verDts": "Ver todos los DTs",
+      "verJugadoresLibres": "Ver jugadores libres",
+      "panelNoticias": "Panel Noticias",
+      "panelContacto": "Panel Contacto"
+    },
+    "equipoLista": {
+      "titulo": "Equipos de",
+      "empty": "No hay equipos registrados en este torneo.",
+      "agregar": "Agregar Equipo"
+    },
+    "formularioEquipo": {
+      "tituloAgregar": "Agregar Equipo",
+      "tituloEditar": "Editar Equipo",
+      "labelId": "ID:",
+      "labelNombre": "Nombre:",
+      "labelIdTorneo": "ID Torneo:",
+      "labelEscudo": "Escudo:",
+      "botonAgregar": "Agregar",
+      "botonActualizar": "Actualizar",
+      "placeholderNombre": "Ej: Los Halcones",
+      "validation": {
+        "nombreRequerido": "El nombre es obligatorio.",
+        "escudoRequerido": "El escudo es obligatorio."
+      }
+    },
     "botones": {
       "volver": "Volver",
       "detalles": "Detalles",
@@ -146,8 +186,11 @@
         "logoRequerido": "El logo es obligatorio.",
         "estadoRequerido": "Debes seleccionar un estado.",
         "fechaInicioRequerida": "La fecha de inicio es obligatoria.",
-        "fechaFinRequerida": "La fecha de finalización es obligatoria."
-      }
+        "fechaFinRequerida": "La fecha de finalización es obligatoria.",
+        "placeholderNombre": "Ej: Copa de Campeones 2025",
+        "placeholerLabelLogo": "Logo:",
+        "placeHolderLabelCampeon": "Foto Último Campeón (opcional):"
+    }
   },
   "equipoDetalles": {
       "logo": "Logo del Equipo",
@@ -157,7 +200,177 @@
       "torneo": "Torneo:",
       "idTorneo": "ID Torneo:",
       "cargando": "Cargando datos del equipo..."
+    },
+    "equipoPanel": {
+      "tituloDt": "Director Técnico",
+      "dtEmpty": "No hay DT asignado a este equipo.",
+      "asignarDt": "Asignar DT",
+      "tituloJugadores": "Lista de Jugadores",
+      "jugadoresEmpty": "No hay jugadores registrados en este equipo.",
+      "agregarJugador": "Agregar Jugador",
+      "tituloFixture": "Fixture del Equipo",
+      "fixtureEmpty": "No hay fixtures cargados para este equipo."
+    },
+    "dtDetalles": {
+      "titulo": "Detalles del Director Técnico",
+      "id": "ID:",
+      "usuario": "Usuario:",
+      "nombre": "Nombre:",
+      "estilo": "Estilo de juego:",
+      "idEquipo": "ID equipo:",
+      "botonSacar": "Sacar",
+      "cargando": "Cargando datos del DT..."
+    },
+    "formularioDt": {
+      "tituloAgregar": "Agregar DT",
+      "tituloEditar": "Editar DT",
+      "labelId": "ID:",
+      "labelNombre": "Nombre:",
+      "labelEquipoId": "Equipo ID:",
+      "labelEstilo": "Estilo de juego:",
+      "labelUsuario": "Usuario (Email):",
+      "labelFoto": "Foto:",
+      "placeholderNombre": "Ej: Marcelo Gallardo",
+      "placeholderUsuario": "Ej: dt@mail.com",
+      "estiloPlaceholder": "Selecciona un estilo",
+      "estiloDefensivo": "Defensivo",
+      "estiloEquilibrado": "Equilibrado",
+      "estiloOfensivo": "Ofensivo",
+      "botonAgregar": "Agregar",
+      "botonActualizar": "Actualizar",
+      "validation": {
+        "nombreRequerido": "El nombre es obligatorio.",
+        "estiloRequerido": "Debes seleccionar un estilo.",
+        "usuarioRequerido": "El email de usuario es obligatorio.",
+        "usuarioFormato": "El formato del email no es válido.",
+        "fotoRequerida": "La foto es obligatoria (solo al agregar)."
+      }
+    },
+    "jugadorDetallesAdmin": {
+      "titulo": "Detalles del Jugador",
+      "etiquetaEdad": "Edad:",
+      "etiquetaNacimiento": "Nacimiento:",
+      "etiquetaEquipo": "Equipo:",
+      "etiquetaCamiseta": "Camiseta:",
+      "tituloEstadisticas": "Estadísticas del Jugador",
+      "etiquetaGoles": "Goles Totales:",
+      "cargando": "Cargando datos del jugador..."
+    },
+    "formularioJugador": {
+      "tituloAgregar": "Agregar Jugador",
+      "tituloEditar": "Editar Jugador",
+      "labelId": "ID Jugador:",
+      "labelNombre": "Nombre:",
+      "labelEdad": "Edad (calculada):",
+      "labelNumeroCamiseta": "Número de Camiseta:",
+      "labelFechaNacimiento": "Fecha de Nacimiento:",
+      "labelFoto": "Foto:",
+      "labelIdEquipo": "ID Equipo:",
+      "botonAgregar": "Agregar",
+      "botonActualizar": "Actualizar",
+      "placeholderNombre": "Ej: Lionel Messi",
+      "placeholderCamiseta": "Ej: 10",
+      "validation": {
+        "nombreRequerido": "El nombre es obligatorio.",
+        "camisetaRequerida": "El número de camiseta es obligatorio.",
+        "fechaRequerida": "La fecha de nacimiento es obligatoria.",
+        "fotoRequerida": "La foto es obligatoria (solo al agregar)."
+      }
+    },
+    "fixtureDetallesAdmin": {
+      "etiquetaEstado": "Estado:",
+      "etiquetaFecha": "Fecha:",
+      "botonEditar": "Editar Fixture",
+      "cargando": "Cargando detalles del partido..."
+    },
+    "formularioFixture": {
+      "tituloAgregar": "Agregar Fixture",
+      "tituloEditar": "Editar Fixture",
+      "labelIdFixture": "ID Fixture:",
+      "labelIdLocal": "ID Equipo Local:",
+      "labelNombreLocal": "Nombre Local:",
+      "labelIdVisitante": "ID Equipo Visitante:",
+      "labelNombreVisitante": "Nombre Visitante:",
+      "labelGolesLocal": "Goles Local",
+      "labelGolesVisitante": "Goles Visitante",
+      "labelFecha": "Fecha del Partido:",
+      "labelEstado": "Estado:",
+      "estadoPlaceholder": "Selecciona un estado",
+      "estadoPendiente": "Pendiente",
+      "estadoEmpezado": "Empezado",
+      "estadoTerminado": "Terminado",
+      "botonActualizar": "Actualizar",
+      "botonAgregar": "Agregar",
+      "validation": {
+        "golesRequeridos": "Los goles son obligatorios.",
+        "fechaRequerida": "La fecha es obligatoria.",
+        "estadoRequerido": "El estado es obligatorio."
+      }
+    },
+    "formularioAdmin": {
+      "tituloAgregar": "Crear Administrador",
+      "tituloEditar": "Editar Administrador",
+      "labelId": "ID:",
+      "labelNombre": "Nombre:",
+      "labelRol": "Rol:",
+      "labelFoto": "Foto (URL de la imagen):",
+      "labelUsuario": "Usuario (Email):",
+      "labelPassword": "Contraseña:",
+      "placeholderNombre": "Ej: Joaquin Alegre",
+      "placeholderUsuario": "Ej: admin@mail.com",
+      "placeholderPassword": "Crear una contraseña",
+      "rolPlaceholder": "Selecciona un rol",
+      "rolDeveloper": "Developer",
+      "rolScrumMaster": "Scrum Master",
+      "botonAgregar": "Guardar",
+      "botonActualizar": "Actualizar",
+      "validation": {
+        "nombreRequerido": "El nombre es obligatorio.",
+        "rolRequerido": "El rol es obligatorio.",
+        "fotoRequerida": "La foto es obligatoria (solo al agregar).",
+        "usuarioRequerido": "El email es obligatorio.",
+        "usuarioFormato": "El formato del email no es válido.",
+        "passwordRequerido": "La contraseña es obligatoria (solo al agregar)."
+      }
+    },
+    "adminDetalles": {
+      "titulo": "Detalles del Perfil",
+      "id": "ID:",
+      "nombre": "Nombre:",
+      "usuario": "Usuario:",
+      "rol": "Rol:",
+      "email": "Email (Usuario):",
+      "password": "Contraseña:",
+      "botonEditar": "Editar Perfil",
+      "botonEliminar": "Eliminar mi Cuenta",
+      "cargando": "Cargando perfil..."
+    },
+    "adminLista": {
+      "titulo": "Lista de Administradores",
+      "empty": "No hay administradores creados.",
+      "agregar": "Agregar Administrador"
+    },
+    "jugadoresLibres": {
+      "titulo": "Lista de Jugadores Libres",
+      "empty": "No hay jugadores libres registrados.",
+      "agregar": "Agregar Jugador"
+    },
+    "dtLista": {
+      "titulo": "Lista de DTs",
+      "empty": "No hay DTs registrados.",
+      "agregar": "Agregar DT"
+    },
+    "panelNoticias": {
+      "titulo": "Panel de Noticias",
+      "empty": "No hay noticias creadas.",
+      "agregar": "Crear Noticia"
+    },
+    "panelContacto": {
+      "titulo": "Panel de Contacto",
+      "empty": "No hay mensajes nuevos."
     }
+    
+    
     
   }
   

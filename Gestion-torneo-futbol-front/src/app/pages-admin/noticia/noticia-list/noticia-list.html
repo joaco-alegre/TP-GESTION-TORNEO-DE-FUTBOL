@@ -1,7 +1,7 @@
-  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container">
-  <h3>Panel de Noticias</h3>
+  <h3>{{ 'admin.panelNoticias.titulo' | transloco }}</h3>
 
   <ul>
     @for (noticia of noticias; track noticia.id) {
@@ -19,25 +19,25 @@
         </a>
         <div class="action-buttons">
           <button class="btn-editar"
-                  [routerLink]="['/form-noticia-admin/', noticia.id]" 
+                  [routerLink]="['/noticia-formulario', noticia.id]" 
                   (click)="$event.stopPropagation()">
-            Editar
+            {{ 'admin.botones.editar' | transloco }}
           </button>
 
           <button class="btn-eliminar" 
                   (click)="deleteNoticia(noticia.id!); $event.stopPropagation()">
-            Eliminar
+            {{ 'admin.botones.eliminar' | transloco }}
           </button>
         </div>
       </li>
     } @empty {
-      <p class="empty-list">No hay noticias creadas.</p>
+      <p class="empty-list">{{ 'admin.panelNoticias.empty' | transloco }}</p>
     }
   </ul>
   
   <div class="agregar-container">
-    <button class="btn-agregar" [routerLink]="['/form-noticia-admin']">
-      Crear Noticia
+    <button class="btn-agregar" [routerLink]="['/noticia-formulario']">
+      {{ 'admin.panelNoticias.agregar' | transloco }}
     </button>
   </div>
 

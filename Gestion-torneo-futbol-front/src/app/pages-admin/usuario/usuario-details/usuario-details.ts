@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import Usuario from '../../../model/usuario';
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-usuario-details',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TranslocoPipe],
   templateUrl: './usuario-details.html',
   styleUrl: './usuario-details.css',
 })
@@ -59,17 +60,5 @@ export class UsuarioDetails implements OnInit{
     this.location.back();
   }
 
-  //   deleteUsuario(id: string): void {
-  //   if (!confirm("¿Deseas eliminar este administrador?")) return;
-
-  //   this.usuarioService.deleteUsuario(id).subscribe(() => {
-
-  //     const index = this.usuarios.findIndex(a => a.id === id);
-  //     if (index > -1) {
-  //       this.usuarios.splice(index, 1);
-  //     }
-  //     alert("Administrador eliminado");
-  //   });
-  // }
 
 }

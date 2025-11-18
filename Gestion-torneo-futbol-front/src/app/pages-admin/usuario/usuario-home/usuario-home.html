@@ -1,13 +1,27 @@
-<h2  data-aos="fade-right">Bienvenido !!!</h2>
+<h2 data-aos="fade-right">{{ 'admin.adminMenu.titulo' | transloco }}</h2>
 
 <div class="menu-container" data-aos="zoom-out-left">
   <ul class="admin-menu-grid">
-    <li><a [routerLink]="['/torneos-admin']">Ver Torneos</a></li>
-    <li><a [routerLink]="['/usuario-details-admin', IDgenerico]">Detalles de cuenta</a></li>
-    <li><a [routerLink]="['/usuario-list-admin']">Ver administradores</a></li>
-    <li><a [routerLink]="['/dt-list-admin']">Ver todos los DTs</a></li>
-    <li><a [routerLink]="['/jugadores-libres-list-admin']">Ver jugadores libres</a></li>
-    <li><a [routerLink]="['/panel-noticias-admin/']">Panel Noticias</a></li>
-    <li><a [routerLink]="['/panel-cotacto-admin/']">Panel Contacto</a></li>
+    <li>
+      <a [routerLink]="['/torneos-admin']">{{ 'admin.adminMenu.verTorneos' | transloco }}</a>
+    </li>
+    <li>
+      <a [routerLink]="['/usuario-details-admin', IDgenerico]">{{ 'admin.adminMenu.detallesCuenta' | transloco }}</a>
+    </li>
+    <li>
+      <a [routerLink]="['/usuario-list-admin']">{{ 'admin.adminMenu.verAdministradores' | transloco }}</a>
+    </li>
+    <li>
+      <a [routerLink]="['/dt-list-admin']">{{ 'admin.adminMenu.verDts' | transloco }}</a>
+    </li>
+    <li>
+      <a [routerLink]="['/jugadores-libres-list-admin']">{{ 'admin.adminMenu.verJugadoresLibres' | transloco }}</a>
+    </li>
+    <li>
+      <a [routerLink]="['/panel-noticias-admin/']">{{ 'admin.adminMenu.panelNoticias' | transloco }}</a>
+    </li>
+    <li>
+      <a [routerLink]="['/panel-cotacto-admin/']">{{ 'admin.adminMenu.panelContacto' | transloco }}</a>
+    </li>
   </ul>
 </div>

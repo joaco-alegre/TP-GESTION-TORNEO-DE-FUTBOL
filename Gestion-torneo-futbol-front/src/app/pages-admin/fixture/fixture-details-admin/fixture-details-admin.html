@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container"> 
 
@@ -34,22 +34,24 @@
   
     <div class="info-adicional">
       <p>
-        <strong>{{ 'fixtureDetalles.etiquetaEstado' | transloco }}</strong> {{ fixture?.estadoPartido }}
+        <strong>{{ 'admin.fixtureDetallesAdmin.etiquetaEstado' | transloco }}</strong> {{ fixture?.estadoPartido }}
       </p>
       <p>
-        <strong>{{ 'fixtureDetalles.etiquetaFecha' | transloco }}</strong> {{ fixture?.fechaPartido | date: 'dd/MM/yyyy HH:mm' }} hs
+        <strong>{{ 'admin.fixtureDetallesAdmin.etiquetaFecha' | transloco }}</strong> {{ fixture?.fechaPartido | date: 'dd/MM/yyyy HH:mm' }} hs
       </p>
     </div>
   
-    <div class="agregar-container"> <button class="btn-agregar" [routerLink]="['/fixture-form-admin', fixture.id]">
-        Editar Fixture
+    <div class="agregar-container"> 
+      <button class="btn-agregar" 
+              [routerLink]="['/fixture-form-admin', fixture.id]"
+              [queryParams]="{ equipoID: equipoID }"> {{ 'admin.fixtureDetallesAdmin.botonEditar' | transloco }}
       </button>
     </div>
   
   </div>
   
   <div *ngIf="!fixture" class="loading">
-    <p>{{ 'fixtureDetalles.cargando' | transloco }}</p>
+    <p>{{ 'admin.fixtureDetallesAdmin.cargando' | transloco }}</p>
   </div>
 
 </div>

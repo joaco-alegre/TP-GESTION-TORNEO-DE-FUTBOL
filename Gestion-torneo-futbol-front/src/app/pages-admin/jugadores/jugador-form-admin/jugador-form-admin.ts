@@ -32,12 +32,20 @@ export class JugadorFormAdmin implements OnInit{
     this.jugadorForm = this.fb.group({
       id: [''],
       nombre: ['', Validators.required],
-      foto: [''], 
+      foto: ['',  Validators.required], 
       idEquipo: ['', Validators.required],
-      edad: [''],
+      edad: [{ value: null, disabled: true }],
       fechaNacimiento: ['', Validators.required],
       numeroCamiseta: ['', Validators.required]
     });
+
+    this.jugadorForm.get('fechaNacimiento')?.valueChanges.subscribe(fecha => {
+      const edadCalculada = this.calcularEdad(fecha);
+      if (edadCalculada) {
+        this.jugadorForm.get('edad')?.setValue(edadCalculada, { emitEvent: false });
+      }
+    });
+
 
     this.jugadorID = this.route.snapshot.params['id'];
 
@@ -56,11 +64,37 @@ export class JugadorFormAdmin implements OnInit{
         this.jugadorForm.patchValue({ idEquipo: this.equipoID });
       }
     }
+
+    this.equipoID = this.route.snapshot.queryParamMap.get('equipoID') || undefined;
+
+    if (this.equipoID) {
+      this.jugadorForm.patchValue({ idEquipo: this.equipoID });
+    }
+
   }
+
+  private calcularEdad(birthdate: string): number | null {
+    if (!birthdate) return null;
+    
+    const hoy = new Date();
+    const fechaCumple = new Date(birthdate);
+    let age = hoy.getFullYear() - fechaCumple.getFullYear();
+    const m = hoy.getMonth() - fechaCumple.getMonth();
+    
+    if (m < 0 || (m === 0 && hoy.getDate() < fechaCumple.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+
 
   onSubmit(): void {
 
-    if (this.jugadorForm.invalid) return;
+    if (this.jugadorForm.invalid) {
+      this.jugadorForm.markAllAsTouched();
+      return;
+    }
 
     const rutaDeVuelta = ['/jugador-lista-admin', this.equipoID];
 

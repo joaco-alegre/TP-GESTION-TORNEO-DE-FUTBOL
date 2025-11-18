@@ -1,7 +1,7 @@
-  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container">
-  <h3>Lista de Administradores</h3>
+  <h3>{{ 'admin.adminLista.titulo' | transloco }}</h3>
 
   <ul>
     @for (usuario of usuarios; track usuario.id) {
@@ -10,15 +10,16 @@
           <img [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" [alt]="usuario.nombre" class="item-logo item-foto-jugador">
           <span class="item-nombre">{{ usuario.nombre }} - ({{ usuario.rolUser }})</span>
         </div>
-      </li>
+        
+        </li>
     } @empty {
-      <p class="empty-list">No hay administradores creados.</p>
+      <p class="empty-list">{{ 'admin.adminLista.empty' | transloco }}</p>
     }
   </ul>
 
   <div class="agregar-container">
     <button class="btn-agregar" [routerLink]="['/usuario-form-admin']">
-      Agregar Administrador
+      {{ 'admin.adminLista.agregar' | transloco }}
     </button>
   </div>
 </div>

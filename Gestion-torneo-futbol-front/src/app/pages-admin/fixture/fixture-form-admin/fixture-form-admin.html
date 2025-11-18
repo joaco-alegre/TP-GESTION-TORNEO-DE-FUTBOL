@@ -1,41 +1,78 @@
-  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container" data-aos="zoom-out-up">
 
-  <h2>{{ fixtureID ? 'Editar Fixture' : 'Agregar Fixture' }}</h2>
+  <h2>{{ fixtureID ? ('admin.formularioFixture.tituloEditar' | transloco) : ('admin.formularioFixture.tituloAgregar' | transloco) }}</h2>
 
   <form [formGroup]="fixtureForm" (ngSubmit)="onSubmit()">
 
-    <label for="id">ID Fixture:</label>
-    <input id="id" formControlName="id" type="text" readonly>
+    <input id="id" formControlName="id" type="hidden">
     
-    <label for="equipoLocalID">ID Equipo Local:</label>
+    <label for="equipoLocalID">{{ 'admin.formularioFixture.labelIdLocal' | transloco }}</label>
     <input id="equipoLocalID" formControlName="equipoLocalID" type="text" readonly>
     
-    <label for="equipoVisitaID">ID Equipo Visitante:</label>
+    <label for="nombreLocal">{{ 'admin.formularioFixture.labelNombreLocal' | transloco }}</label>
+    <input id="nombreLocal" [value]="nombreEquipoLocal" type="text" readonly>
+
+    <label for="equipoVisitaID">{{ 'admin.formularioFixture.labelIdVisitante' | transloco }}</label>
     <input id="equipoVisitaID" formControlName="equipoVisitaID" type="text" readonly>
+    
+    <label for="nombreVisitante">{{ 'admin.formularioFixture.labelNombreVisitante' | transloco }}</label>
+    <input id="nombreVisitante" [value]="nombreEquipoVisitante" type="text" readonly>
 
     <div class="goles-grid">
       <div>
-        <label for="golesEquipo1">Goles Local</label>
-        <input id="golesEquipo1" formControlName="golesEquipo1" type="number">
+        <label for="golesEquipo1">{{ 'admin.formularioFixture.labelGolesLocal' | transloco }}</label>
+        <input id="golesEquipo1" formControlName="golesEquipo1" type="number"
+               [class.is-invalid]="fixtureForm.get('golesEquipo1')?.invalid && fixtureForm.get('golesEquipo1')?.touched">
+        
+        @if (fixtureForm.get('golesEquipo1')?.invalid && fixtureForm.get('golesEquipo1')?.touched) {
+          <div class="validation-error">
+            <p>{{ 'admin.formularioFixture.validation.golesRequeridos' | transloco }}</p>
+          </div>
+        }
       </div>
       <div>
-        <label for="golesEquipo2">Goles Visitante</label>
-        <input id="golesEquipo2" formControlName="golesEquipo2" type="number">
+        <label for="golesEquipo2">{{ 'admin.formularioFixture.labelGolesVisitante' | transloco }}</label>
+        <input id="golesEquipo2" formControlName="golesEquipo2" type="number"
+               [class.is-invalid]="fixtureForm.get('golesEquipo2')?.invalid && fixtureForm.get('golesEquipo2')?.touched">
+        
+        @if (fixtureForm.get('golesEquipo2')?.invalid && fixtureForm.get('golesEquipo2')?.touched) {
+          <div class="validation-error">
+            <p>{{ 'admin.formularioFixture.validation.golesRequeridos' | transloco }}</p>
+          </div>
+        }
       </div>
     </div>
 
-    <label for="fechaPartido">Fecha del Partido:</label>
-    <input id="fechaPartido" formControlName="fechaPartido" type="datetime-local"> <label for="estadoPartido">Estado:</label>
-    <select id="estadoPartido" formControlName="estadoPartido">
-      <option value="" disabled>Selecciona un estado</option>
-      <option value="Por empezar">Pendiente</option>
-      <option value="En Curso">Empezado</option>
-      <option value="Finalizado">Terminado</option>
+    <label for="fechaPartido">{{ 'admin.formularioFixture.labelFecha' | transloco }}</label>
+    <input id="fechaPartido" formControlName="fechaPartido" type="datetime-local"
+           [class.is-invalid]="fixtureForm.get('fechaPartido')?.invalid && fixtureForm.get('fechaPartido')?.touched">
+    
+    @if (fixtureForm.get('fechaPartido')?.invalid && fixtureForm.get('fechaPartido')?.touched) {
+      <div class="validation-error">
+        <p>{{ 'admin.formularioFixture.validation.fechaRequerida' | transloco }}</p>
+      </div>
+    }
+
+    <label for="estadoPartido">{{ 'admin.formularioFixture.labelEstado' | transloco }}</label>
+    <select id="estadoPartido" formControlName="estadoPartido"
+            [class.is-invalid]="fixtureForm.get('estadoPartido')?.invalid && fixtureForm.get('estadoPartido')?.touched">
+      <option value="" disabled>{{ 'admin.formularioFixture.estadoPlaceholder' | transloco }}</option>
+      <option value="Por empezar">{{ 'admin.formularioFixture.estadoPendiente' | transloco }}</option>
+      <option value="En Curso">{{ 'admin.formularioFixture.estadoEmpezado' | transloco }}</option>
+      <option value="Finalizado">{{ 'admin.formularioFixture.estadoTerminado' | transloco }}
     </select>
     
-    <button type="submit" [disabled]="!fixtureForm.valid">{{ fixtureID ? 'Actualizar' : 'Agregar' }}</button>
+    @if (fixtureForm.get('estadoPartido')?.invalid && fixtureForm.get('estadoPartido')?.touched) {
+      <div class="validation-error">
+        <p>{{ 'admin.formularioFixture.validation.estadoRequerido' | transloco }}</p>
+      </div>
+    }
+    
+    <button type="submit">
+      {{ fixtureID ? ('admin.formularioFixture.botonActualizar' | transloco) : ('admin.formularioFixture.botonAgregar' | transloco) }}
+    </button>
   </form>
 
 </div>

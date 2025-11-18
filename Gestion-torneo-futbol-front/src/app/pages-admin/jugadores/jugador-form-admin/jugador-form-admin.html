@@ -1,35 +1,75 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container" data-aos="zoom-out-up">
 
-  <h2>{{ jugadorID ? 'Editar Jugador' : 'Agregar Jugador' }}</h2>
+  <h2>{{ jugadorID ? ('admin.formularioJugador.tituloEditar' | transloco) : ('admin.formularioJugador.tituloAgregar' | transloco) }}</h2>
 
   <form [formGroup]="jugadorForm" (ngSubmit)="onSubmit()">
 
     @if (jugadorID) {
-      <label for="id">ID Jugador:</label>
+      <label for="id">{{ 'admin.formularioJugador.labelId' | transloco }}</label>
       <input id="id" formControlName="id" type="text" readonly>
     }
 
-    <label for="nombre">Nombre:</label>
-    <input id="nombre" formControlName="nombre" type="text">
+    <label for="nombre">{{ 'admin.formularioJugador.labelNombre' | transloco }}</label>
+    <input id="nombre" type="text" formControlName="nombre" 
+           [placeholder]="'admin.formularioJugador.placeholderNombre' | transloco"
+           [class.is-invalid]="jugadorForm.get('nombre')?.invalid && jugadorForm.get('nombre')?.touched">
+    
+    @if (jugadorForm.get('nombre')?.invalid && jugadorForm.get('nombre')?.touched) {
+      <div class="validation-error">
+        @if (jugadorForm.get('nombre')?.hasError('required')) {
+          <p>{{ 'admin.formularioJugador.validation.nombreRequerido' | transloco }}</p>
+        }
+      </div>
+    }
 
-    <label for="edad">Edad:</label>
+    <label for="fechaNacimiento">{{ 'admin.formularioJugador.labelFechaNacimiento' | transloco }}</label>
+    <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date"
+           [class.is-invalid]="jugadorForm.get('fechaNacimiento')?.invalid && jugadorForm.get('fechaNacimiento')?.touched">
+    
+    @if (jugadorForm.get('fechaNacimiento')?.invalid && jugadorForm.get('fechaNacimiento')?.touched) {
+      <div class="validation-error">
+        @if (jugadorForm.get('fechaNacimiento')?.hasError('required')) {
+          <p>{{ 'admin.formularioJugador.validation.fechaRequerida' | transloco }}</p>
+        }
+      </div>
+    }
+
+    <label for="edad">{{ 'admin.formularioJugador.labelEdad' | transloco }}</label>
     <input id="edad" formControlName="edad" type="number" readonly>
 
-    <label for="numeroCamiseta">Número de Camiseta:</label>
-    <input id="numeroCamiseta" formControlName="numeroCamiseta" type="number">
+<label for="numeroCamiseta">{{ 'admin.formularioJugador.labelNumeroCamiseta' | transloco }}</label>
+<input id="numeroCamiseta" formControlName="numeroCamiseta" type="number"
+       [placeholder]="'admin.formularioJugador.placeholderCamiseta' | transloco"
+       [class.is-invalid]="jugadorForm.get('numeroCamiseta')?.invalid && jugadorForm.get('numeroCamiseta')?.touched">
     
-    <label for="fechaNacimiento">Fecha de Nacimiento:</label>
-    <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date">
+    @if (jugadorForm.get('numeroCamiseta')?.invalid && jugadorForm.get('numeroCamiseta')?.touched) {
+      <div class="validation-error">
+        @if (jugadorForm.get('numeroCamiseta')?.hasError('required')) {
+          <p>{{ 'admin.formularioJugador.validation.camisetaRequerida' | transloco }}</p>
+        }
+      </div>
+    }
+    
+    <label for="foto">{{ 'admin.formularioJugador.labelFoto' | transloco }}</label>
+    <input id="foto" type="file" formControlName="foto"
+           [class.is-invalid]="jugadorForm.get('foto')?.invalid && jugadorForm.get('foto')?.touched">
+    
+    @if (jugadorForm.get('foto')?.invalid && jugadorForm.get('foto')?.touched) {
+      <div class="validation-error">
+        @if (jugadorForm.get('foto')?.hasError('required')) {
+          <p>{{ 'admin.formularioJugador.validation.fotoRequerida' | transloco }}</p>
+        }
+      </div>
+    }
 
-    <label for="foto">Foto:</label>
-    <input id="foto" type="file" formControlName="foto">
-
-    <label for="idEquipo">ID Equipo:</label>
+    <label for="idEquipo">{{ 'admin.formularioJugador.labelIdEquipo' | transloco }}</label>
     <input id="idEquipo" formControlName="idEquipo" type="text" readonly>
 
-    <button type="submit" >{{ jugadorID ? 'Actualizar' : 'Agregar' }}</button>
+    <button type="submit">
+      {{ jugadorID ? ('admin.formularioJugador.botonActualizar' | transloco) : ('admin.formularioJugador.botonAgregar' | transloco) }}
+    </button>
   </form>
 
 </div>

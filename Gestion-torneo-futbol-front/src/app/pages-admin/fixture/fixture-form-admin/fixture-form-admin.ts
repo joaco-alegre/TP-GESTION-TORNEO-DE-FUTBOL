@@ -5,10 +5,11 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 import Fixture from '../../../model/fixture';
 import { FixtureService } from '../../../service/fixture-service/fixture-service';
+import { EquipoService } from '../../../service/equipo-service/equipo-service';
 
 @Component({
   selector: 'app-fixture-form',
-  imports: [CommonModule, RouterModule, ReactiveFormsModule],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, TranslocoPipe],
   templateUrl: './fixture-form-admin.html',
   styleUrl: './fixture-form-admin.css',
 })
@@ -19,12 +20,16 @@ export class FixtureFormAdmin implements OnInit{
   fixtureID?: string;; 
   equipoID?: string; 
 
+  nombreEquipoLocal: string = 'Cargando...';
+  nombreEquipoVisitante: string = 'Cargando...';
+
   constructor(
     private fb: FormBuilder,
     private fixtureService: FixtureService,
     private router: Router,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private equipoService: EquipoService
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +43,7 @@ export class FixtureFormAdmin implements OnInit{
       fechaPartido: ['', Validators.required],
       estadoPartido: ['', Validators.required] 
     });
+    
     this.fixtureID = this.route.snapshot.params['id'];
   this.equipoID = this.route.snapshot.queryParamMap.get('equipoID') || undefined;
 
@@ -53,10 +59,22 @@ export class FixtureFormAdmin implements OnInit{
           ...data,
           fechaPartido: fechaFormateada 
         };
+
         this.fixtureForm.patchValue(datosParaFormulario);
+
+        this.buscarNombreEquipos(data.equipoLocalID, data.equipoVisitaID);
       });
   }
 }
+
+buscarNombreEquipos(localId: string, visitaId: string): void {
+    this.equipoService.getEquipoById(localId).subscribe(equipo => {
+      this.nombreEquipoLocal = equipo.nombre;
+    });
+    this.equipoService.getEquipoById(visitaId).subscribe(equipo => {
+      this.nombreEquipoVisitante = equipo.nombre;
+    });
+  }
 
   onSubmit(): void {
     if (this.fixtureForm.invalid) return;

@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; Volver</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container"> 
 
@@ -13,37 +13,37 @@
           <img 
             [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" 
             [alt]="'Foto de ' + usuario.nombre">
-        </div>
+            </div>
   
         <div class="card-info">
-          <h3>Detalles del Perfil</h3>
+          <h3>{{ 'admin.adminDetalles.titulo' | transloco }}</h3>
           <ul class="info-lista">
             <li>
-              <b>ID:</b> {{ usuario.id }}
+              <b>{{ 'admin.adminDetalles.id' | transloco }}</b> {{ usuario.id }}
             </li>
             <li>
-              <b>Nombre:</b> {{ usuario.nombre }}
+              <b>{{ 'admin.adminDetalles.nombre' | transloco }}</b> {{ usuario.nombre }}
             </li>
             <li>
-              <b>Usuario:</b> {{ usuario.username }}
+              <b>{{ 'admin.adminDetalles.usuario' | transloco }}</b> {{ usuario.username }}
             </li>
             <li>
-              <b>Rol:</b> {{ usuario.rolUser }}
+              <b>{{ 'admin.adminDetalles.rol' | transloco }}</b> {{ usuario.rolUser }}
             </li>
             <li>
-              <b>Email (Usuario):</b> {{ usuario.email }}
+              <b>{{ 'admin.adminDetalles.email' | transloco }}</b> {{ usuario.email }}
             </li>
             <li>
-              <b>Contraseña:</b> ********
+              <b>{{ 'admin.adminDetalles.password' | transloco }}</b> ********
             </li>
           </ul>
 
           <div class="action-buttons-footer">
             <button class="btn-editar" [routerLink]="['/usuario-form-admin', usuario.id]">
-              Editar Perfil
+              {{ 'admin.adminDetalles.botonEditar' | transloco }}
             </button>
             <button class="btn-eliminar" (click)="deleteUsuario()">
-              Eliminar mi Cuenta
+              {{ 'admin.adminDetalles.botonEliminar' | transloco }}
             </button>
           </div>
 
@@ -53,7 +53,7 @@
     </div>
   
   } @else {
-    <p class="empty-list">Cargando perfil...</p>
+    <p class="empty-list">{{ 'admin.adminDetalles.cargando' | transloco }}</p>
   }
 
 </div>

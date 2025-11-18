@@ -34,8 +34,8 @@ export class EquipoFormAdmin implements OnInit{
       
       id: ['', []],
       nombre: ['', Validators.required],
-      escudo: ['', []],
-      idTorneo: ['', []]
+      escudo: ['', [Validators.required]],
+      idTorneo: ['', [Validators.required]]
     });
 
 this.equipoID = this.route.snapshot.params['id'];
@@ -65,7 +65,10 @@ this.equipoID = this.route.snapshot.params['id'];
 
     onSubmit(): void {
 
-if (this.equipoForm.invalid) return;
+if (this.equipoForm.invalid) {
+      this.equipoForm.markAllAsTouched();
+      return;
+    }
 
 const idTorneoParaNavegar = this.equipoForm.value.idTorneo;
 

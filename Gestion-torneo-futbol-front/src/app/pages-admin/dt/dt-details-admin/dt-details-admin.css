@@ -106,6 +106,62 @@
   margin: 10px 0 0 10px;
 }
 
+
+
 .btn-volver:hover {
   text-decoration: underline;
+}
+
+.card-foto img { 
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+
+.card-foto img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9; 
+}
+
+.action-buttons-footer {
+  display: flex;
+  justify-content: flex-end; 
+  gap: 10px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-borde);
+}
+
+.action-buttons-footer button {
+  font-size: 1rem;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.15s ease-out, background-color 0.2s;
+  font-weight: 600;
+}
+
+.btn-editar {
+  background-color: #ffb60a;
+  color: #212529;
+}
+.btn-editar:hover {
+  background-color: #e0a000;
+  transform: scale(1.05);
+}
+
+.btn-eliminar { 
+  background-color: #d93025;
+}
+.btn-eliminar:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+.empty-list {
+  padding: 40px;
+  text-align: center;
+  color: var(--color-texto);
+  font-size: 1.1rem;
 }

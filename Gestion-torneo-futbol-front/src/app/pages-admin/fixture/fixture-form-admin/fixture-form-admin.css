@@ -125,3 +125,16 @@ button[type="submit"]:disabled {
   cursor: not-allowed;
   transform: none;
 }
+
+.validation-error p {
+  color: #dc3545; 
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 5px; 
+  margin-bottom: 0;
+}
+
+.is-invalid {
+  border-color: #dc3545 !important; 
+  box-shadow: 0 0 0 0.16rem rgba(220, 53, 69, 0.25);
+}

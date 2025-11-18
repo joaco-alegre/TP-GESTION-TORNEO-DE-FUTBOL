@@ -1,8 +1,8 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container" data-aos="zoom-out-up">
 
-  <h3>Lista de Jugadores Libres</h3>
+  <h3>{{ 'admin.jugadoresLibres.titulo' | transloco }}</h3>
 
   <ul>
     @for (jugador of jugadoresLibres; track jugador.id) {
@@ -17,28 +17,19 @@
           <button class="btn-detalles"
                   [routerLink]="['/jugador-detalles-admin/', jugador.id]" 
                   (click)="$event.stopPropagation()">
-            Detalles
-          </button>
-          
-          <button class="btn-editar"
-                  [routerLink]="['/jugador-formulario-admin/', jugador.id]" 
-                  (click)="$event.stopPropagation()">
-            Editar
-          </button>
-          
-          <button class="btn-eliminar" 
-                  (click)="deleteJugador(jugador.id!); $event.stopPropagation()">
-            Eliminar
+            {{ 'admin.botones.detalles' | transloco }}
           </button>
         </div>
       </li>
     } @empty {
-      <p class="empty-list">No hay jugadores libres registrados.</p>
+      <p class="empty-list">{{ 'admin.jugadoresLibres.empty' | transloco }}</p>
     }
   </ul>
 
   <div class="agregar-container">
-    <button class="btn-agregar" [routerLink]="['/jugador-formulario-admin']">Agregar Jugador</button>
+    <button class="btn-agregar" [routerLink]="['/jugador-formulario-admin']">
+      {{ 'admin.jugadoresLibres.agregar' | transloco }}
+    </button>
   </div>
 
 </div>

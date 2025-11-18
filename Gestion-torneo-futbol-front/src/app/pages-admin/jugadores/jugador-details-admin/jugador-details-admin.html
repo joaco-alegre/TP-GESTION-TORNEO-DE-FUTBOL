@@ -1,48 +1,60 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 @if (jugador) {
 
   <div class="detalle-jugador-container">
 
     <h2 class="titulo-pagina" data-aos="fade-down"
-     data-aos-anchor-placement="top-center">{{ jugador.nombre }}</h2>
+       data-aos-anchor-placement="top-center">{{ jugador.nombre }}</h2>
 
     <div class="card card-detalles" data-aos="zoom-in-up">
       
       <div class="card-foto">
         <img 
-          [src]="jugador.foto ? jugador.foto : 'assets/icons/persona.png'" 
+          [src]="jugador.foto ? jugador.foto : 'assets/icons/persona.png'"
+          (click)="abrirImagen(jugador?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
           [alt]="'Foto de ' + jugador.nombre">
       </div>
 
       <div class="card-info">
-        <h3>{{ 'jugadorDetalles.tituloDetalles' | transloco }}</h3>
+        <h3>{{ 'admin.jugadorDetallesAdmin.titulo' | transloco }}</h3>
         <ul class="info-lista">
           <li>
-            <b>{{ 'jugadorDetalles.etiquetaEdad' | transloco }}</b> {{ jugador.edad }}
+            <b>{{ 'admin.jugadorDetallesAdmin.etiquetaEdad' | transloco }}</b> {{ jugador.edad }}
           </li>
           <li>
-            <b>{{ 'jugadorDetalles.etiquetaNacimiento' | transloco }}</b> {{ jugador.fechaNacimiento | date:'dd/MM/yyyy' }}
+            <b>{{ 'admin.jugadorDetallesAdmin.etiquetaNacimiento' | transloco }}</b> {{ jugador.fechaNacimiento | date:'dd/MM/yyyy' }}
           </li>
-
           <li>
-            <b>{{ 'jugadorDetalles.etiquetaEquipo' | transloco }}</b>
-              {{ equipoDelJugador?.nombre }}
+            <b>{{ 'admin.jugadorDetallesAdmin.etiquetaEquipo' | transloco }}</b> {{ equipoDelJugador?.nombre }}
           </li>
-
           <li>
-            <b>{{ 'jugadorDetalles.etiquetaCamiseta' | transloco }}</b> N° {{ jugador.numeroCamiseta }}
+            <b>{{ 'admin.jugadorDetallesAdmin.etiquetaCamiseta' | transloco }}</b> N° {{ jugador.numeroCamiseta }}
           </li>
         </ul>
+
+        <div class="action-buttons-footer">
+          <button class="btn-editar"
+                  [routerLink]="['/jugador-formulario-admin/', jugador.id]" 
+                  (click)="$event.stopPropagation()">
+            {{ 'admin.botones.editar' | transloco }}
+          </button>
+          
+          <button class="btn-eliminar" 
+                  (click)="deleteJugador(jugador.id!); $event.stopPropagation()">
+            {{ 'admin.botones.eliminar' | transloco }}
+          </button>
+        </div>
+
       </div>
     </div>
 
     @if(estadisticaGoleador){
       <div class="card card-estadisticas">
-        <h3>{{ 'jugadorDetalles.tituloEstadisticas' | transloco }}</h3>
+        <h3>{{ 'admin.jugadorDetallesAdmin.tituloEstadisticas' | transloco }}</h3>
         <ul class="stats-lista">
           <li>
-            <b>{{ 'jugadorDetalles.etiquetaGoles' | transloco }}</b>
+            <b>{{ 'admin.jugadorDetallesAdmin.etiquetaGoles' | transloco }}</b>
             <span class="stat-numero">{{ estadisticaGoleador.cantidadGoles }}</span>
           </li>
         </ul>
@@ -52,5 +64,5 @@
   </div>
 
 } @else {
-  <p class="empty-list">{{ 'jugadorDetalles.cargando' | transloco }}</p>
+  <p class="empty-list">{{ 'admin.jugadorDetallesAdmin.cargando' | transloco }}</p>
 }

@@ -233,9 +233,9 @@
       "id": "f-001",
       "equipoLocalID": "e-001",
       "equipoVisitaID": "e-002",
-      "golesEquipo1": 5,
-      "golesEquipo2": 5,
-      "fechaPartido": "2025-11-20T05:11",
+      "golesEquipo1": 3,
+      "golesEquipo2": 2,
+      "fechaPartido": "2025-11-20T08:11",
       "estadoPartido": "Finalizado"
     },
     {
@@ -360,12 +360,11 @@
   "usuarios": [
     {
       "id": "u-001",
-      "nombre": "Joaquín Alegre",
-      "username": "joaco",
-      "password": "password123",
-      "email": "joaquin@mail.com",
-      "rolUser": "Scrum Master & Developer",
-      "foto": "assets/img/equipo/avatar1.jpg"
+      "nombre": "Joaquin",
+      "rol": "Scrum Master",
+      "foto": "assets/img/equipo/avatar1.jpg",
+      "usuario": "joaco12-2002@hotmail.com",
+      "password": "123"
     },
     {
       "id": "u-002",

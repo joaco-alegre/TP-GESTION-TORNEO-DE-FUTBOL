@@ -1,123 +1,97 @@
-
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container" data-aos="fade-up">
 
   <h2 class="titulo-pagina-principal">{{ equipoNombre }}</h2>
-
   <hr class="section-divider">
 
-  <h3>Director Técnico</h3>
-
-<ul>
-  @if (dt) {
-    <li class="fila-clickeable">
-      
-      <div class="item-info">
-          <img  [src]="dt?.foto ? dt?.foto : 'assets/icons/persona.png'"  [alt]="dt.nombre" class="item-logo item-foto-jugador">
+  <h3 class_ ="subtitulo-seccion">{{ 'admin.equipoPanel.tituloDt' | transloco }}</h3>
+  <ul>
+    @if (dt) {
+      <li class="fila-clickeable">
+        <div class="item-info card-foto">
+          <img [src]="dt?.foto ? dt?.foto : 'assets/icons/persona.png'"
+               (click)="abrirImagen(dt?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"  
+               [alt]="dt.nombre" class="item-logo item-foto-jugador">
           <span class="item-nombre">{{dt.nombre}}</span>
         </div>
-      
-      <div class="action-buttons">
-        <button class="btn-detalles"
-                [routerLink]="['/dt-detalles-admin/', dt.id]" 
-                (click)="$event.stopPropagation()">
-          Detalles
-        </button>
-        
-        <button class="btn-editar"
-                [routerLink]="['/dt-formulario-admin/', dt.id]" 
-                (click)="$event.stopPropagation()">
-          Editar
-        </button>
-        
-        <button class="btn-eliminar" 
-                (click)="sacarDt(dt); $event.stopPropagation()">
-          Sacar
-        </button>
+        <div class="action-buttons">
+          <button class="btn-detalles"
+                  [routerLink]="['/dt-detalles-admin/', dt.id]" 
+                  (click)="$event.stopPropagation()">
+            {{ 'admin.botones.detalles' | transloco }}
+          </button>
         </div>
-    </li>
-  } @else {
-    <p class="empty-list">No hay DT asignado a este equipo.</p>
-    <div class="agregar-container">
-  <button class="btn-agregar" 
-          [routerLink]="['/dt-formulario-admin']"> 
-    Asignar DT
-  </button>
-</div>
-  }
-</ul>
-
+      </li>
+    } @else {
+      <p class="empty-list">{{ 'admin.equipoPanel.dtEmpty' | transloco }}</p>
+      <div class="agregar-container">
+        <button class="btn-agregar" 
+                [routerLink]="['/dt-formulario-admin']"
+                [queryParams]="{ equipoID: equipoId }"> {{ 'admin.equipoPanel.asignarDt' | transloco }}
+        </button>
+      </div>
+    }
+  </ul>
 
   <hr class="section-divider">
 
-  <h3>Lista de Jugadores</h3>
-
+  <h3 class_ ="subtitulo-seccion">{{ 'admin.equipoPanel.tituloJugadores' | transloco }}</h3>
   <ul>
     @for (jugador of jugadores; track jugador.id) {
       <li class="fila-clickeable">
-        
-        <div class="item-info">
-          <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" [alt]="jugador.nombre" class="item-logo item-foto-jugador">
+        <div class="item-info card-foto">
+          <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" 
+               (click)="abrirImagen(jugador?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
+               [alt]="jugador.nombre" 
+               class="item-logo item-foto-jugador">
           <span class="item-nombre">{{jugador.nombre}}</span>
         </div>
-        
         <div class="action-buttons">
           <button class="btn-detalles"
                   [routerLink]="['/jugador-detalles-admin/', jugador.id]" 
                   (click)="$event.stopPropagation()">
-            Detalles
-          </button>
-          
-          <button class="btn-editar"
-                  [routerLink]="['/jugador-formulario-admin/', jugador.id]" 
-                  (click)="$event.stopPropagation()">
-            Editar
-          </button>
-          
-          <button class="btn-eliminar" 
-                  (click)="deleteJugador(jugador.id!); $event.stopPropagation()">
-            Eliminar
+            {{ 'admin.botones.detalles' | transloco }}
           </button>
         </div>
       </li>
     } @empty {
-      <p class="empty-list">No hay jugadores registrados en este equipo.</p>
+      <p class="empty-list">{{ 'admin.equipoPanel.jugadoresEmpty' | transloco }}</p>
     }
   </ul>
 
-  <div class="agregar-container">
-    <button class="btn-agregar" [routerLink]="['/jugador-formulario-admin']"
-    [queryParams]="{ equipoID: equipoId }">Agregar Jugador</button>
-  </div>
-
-
+<div class="agregar-container">
+  <button class="btn-agregar" 
+          [routerLink]="['/jugador-formulario-admin']"
+          [queryParams]="{ equipoID: equipoId }"> {{ 'admin.equipoPanel.agregarJugador' | transloco }}
+  </button>
+</div>
 
   <hr class="section-divider">
 
-<h3>Fixture del Equipo</h3>
+  <h3 class_ ="subtitulo-seccion">{{ 'admin.equipoPanel.tituloFixture' | transloco }}</h3>
+  <div class="fixture-list-wrapper">
+    <ul class="fixture-list">
+      @for (fixture of fixtures; track fixture.id) {
+        <li class="fixture-item card-foto" 
+            [routerLink]="['/fixture-detalles-admin/', fixture.id]"
+            [queryParams]="{ equipoID: equipoId }"> <img [src]="getEscudo(fixture.equipoLocalID)"
+               (click)="abrirImagen(getEscudo(fixture.equipoLocalID) || 'assets/icons/icono.png'); $event.stopPropagation()"
+               [alt]="fixture.equipoLocalID">
+          
+          <div class="fixture-marcador">
+            <span class="fixture-goles">{{ fixture.golesEquipo1 }}</span>
+            <span class="fixture-estado">{{ fixture.estadoPartido }}</span>
+            <span class="fixture-goles">{{ fixture.golesEquipo2 }}</span>
+          </div>
 
-<div class="fixture-list-wrapper">
-  <ul class="fixture-list">
-    @for (fixture of fixtures; track fixture.id) {
-      <li class="fixture-item" [routerLink]="['/fixture-detalles-admin/', fixture.id]">
-
-        <img [src]="getEscudo(fixture.equipoLocalID)" 
-             [alt]="fixture.equipoLocalID">
-
-        <div class="fixture-marcador">
-          <span class="fixture-goles">{{ fixture.golesEquipo1 }}</span>
-          <span class="fixture-estado">{{ fixture.estadoPartido }}</span>
-          <span class="fixture-goles">{{ fixture.golesEquipo2 }}</span>
-        </div>
-
-        <img [src]="getEscudo(fixture.equipoVisitaID)" 
-             [alt]="fixture.equipoVisitaID">
-
-      </li>
-    } @empty {
-      <p class="empty-list">No hay fixtures cargados para este equipo.</p>
-    }
-  </ul>
-
+          <img [src]="getEscudo(fixture.equipoVisitaID)"
+               (click)="abrirImagen(getEscudo(fixture.equipoVisitaID) || 'assets/icons/icono.png'); $event.stopPropagation()"
+               [alt]="fixture.equipoVisitaID">
+        </li>
+      } @empty {
+        <p class="empty-list">{{ 'admin.equipoPanel.fixtureEmpty' | transloco }}</p>
+      }
+    </ul>
+  </div>
 </div>

@@ -1,7 +1,7 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 <div class="admin-container" data-aos="zoom-out">
-  <h3>Panel de Contacto</h3>
+  <h3>{{ 'admin.panelContacto.titulo' | transloco }}</h3>
 
   <ul>
     @for (mensaje of mensajes; track mensaje.id) {
@@ -14,9 +14,9 @@
             <p class="item-consulta">{{ mensaje.consulta }}</p>
           </div>
         </div>
-      </li>
+        </li>
     } @empty {
-      <p class="empty-list">No hay mensajes nuevos.</p>
+      <p class="empty-list">{{ 'admin.panelContacto.empty' | transloco }}</p>
     }
   </ul>
 

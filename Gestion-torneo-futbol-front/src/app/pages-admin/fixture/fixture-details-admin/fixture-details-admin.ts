@@ -18,6 +18,7 @@ export class FixtureDetailsAdmin implements OnInit{
     fixture?: Fixture;
     equipoLocal?: Equipo;
     equipoVisitante?: Equipo;
+    equipoID?: string | null = null;
   
     constructor(
       private route: ActivatedRoute, 
@@ -27,30 +28,32 @@ export class FixtureDetailsAdmin implements OnInit{
     ) { }
   
     ngOnInit(): void {
-      this.getDatosDelFixture();
-    }
-  
-    getDatosDelFixture(): void {
-  
+      
       const fixtureId = this.route.snapshot.paramMap.get('id');
-  
-      if (!fixtureId) {
-        console.error('No se encontró ID de fixture');
-        return;
-      }
-  
-      this.fixtureService.getFixtureById(fixtureId).subscribe(fixtureData => {
-        this.fixture = fixtureData;
-  
-        this.equipoService.getEquipoById(fixtureData.equipoLocalID).subscribe(localData => {
-          this.equipoLocal = localData;
-        });
-        
-        this.equipoService.getEquipoById(fixtureData.equipoVisitaID).subscribe(visitanteData => {
-          this.equipoVisitante = visitanteData;
-        });
-      });
+
+      this.equipoID = this.route.snapshot.queryParamMap.get('equipoID');
+
+      if (fixtureId) {
+
+      this.getDatosDelFixture(fixtureId);
+
+    } else {
+      console.error('No se encontró ID de fixture');
     }
+
+    }
+  
+    getDatosDelFixture(fixtureId: string): void {
+    this.fixtureService.getFixtureById(fixtureId).subscribe(fixtureData => {
+      this.fixture = fixtureData;
+      this.equipoService.getEquipoById(fixtureData.equipoLocalID).subscribe(localData => {
+        this.equipoLocal = localData;
+      });
+      this.equipoService.getEquipoById(fixtureData.equipoVisitaID).subscribe(visitanteData => {
+        this.equipoVisitante = visitanteData;
+      });
+    });
+  }
   
       goBack(): void {
       this.location.back();

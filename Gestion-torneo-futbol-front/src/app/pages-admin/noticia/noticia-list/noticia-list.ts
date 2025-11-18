@@ -3,10 +3,11 @@ import Noticia from '../../../model/noticia';
 import { NoticiaService } from '../../../service/noticia-service/noticia-service';
 import { RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-noticia-list',
-  imports: [RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, TranslocoPipe],
   templateUrl: './noticia-list.html',
   styleUrl: './noticia-list.css',
 })

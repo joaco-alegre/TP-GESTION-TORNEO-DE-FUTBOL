@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
 @if (dt) {
 
@@ -10,34 +10,47 @@
       
       <div class="card-foto">
         <img 
-          [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'" 
-          [alt]="'Foto de ' + dt.nombre">
-      </div>
+          [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'"
+          (click)="abrirImagen(dt?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
+          [alt]="'Foto de ' + dt.nombre"
+          class="clickable-image"> </div>
 
       <div class="card-info">
-        <h3>Detalles del Director Tecnico</h3>
+        <h3>{{ 'admin.dtDetalles.titulo' | transloco }}</h3>
         <ul class="info-lista">
           <li>
-            <b>ID:</b> {{ dt.id }}
+            <b>{{ 'admin.dtDetalles.id' | transloco }}</b> {{ dt.id }}
           </li>
           <li>
-            <b>Usuario:</b> {{ dt.usuario }}
+            <b>{{ 'admin.dtDetalles.usuario' | transloco }}</b> {{ dt.usuario }}
           </li>
           <li>
-            <b>Nombre:</b> {{ dt.nombre }}
+            <b>{{ 'admin.dtDetalles.nombre' | transloco }}</b> {{ dt.nombre }}
           </li>
           <li>
-            <b>Estilo de juego:</b> {{ dt.estiloJuego }}
+            <b>{{ 'admin.dtDetalles.estilo' | transloco }}</b> {{ dt.estiloJuego }}
           </li>
           <li>
-            <b>ID equipo:</b> {{ dt.equipoID }}
+            <b>{{ 'admin.dtDetalles.idEquipo' | transloco }}</b> {{ dt.equipoID }}
           </li>
-          </ul>
+        </ul>
+
+        <div class="action-buttons-footer">
+          <button class="btn-editar"
+                  [routerLink]="['/dt-formulario-admin/', dt.id]">
+            {{ 'admin.botones.editar' | transloco }}
+          </button>
+          
+          <button class="btn-eliminar" 
+                  (click)="sacarDt(dt); $event.stopPropagation()">
+            {{ 'admin.dtDetalles.botonSacar' | transloco }}
+          </button>
+        </div>
       </div>
     </div>
 
   </div>
 
 } @else {
-  <p class="empty-list">Cargando datos del DT...</p>
+  <p class="empty-list">{{ 'admin.dtDetalles.cargando' | transloco }}</p>
 }

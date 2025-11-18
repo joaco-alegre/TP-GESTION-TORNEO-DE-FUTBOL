@@ -4,6 +4,7 @@
   margin: 40px auto 40px auto;
 }
 
+
 h3 {
   font-size: 2rem;
   color: var(--color-texto);
@@ -15,11 +16,12 @@ h3 {
   position: relative; 
 }
 
+
 h3::after {
   content: ''; 
   display: block;
-  width: 800px; 
-  height: 2px; 
+  width: 600px; 
+  height: 3px; 
   background-color: var(--color-texto); 
   position: absolute;
   bottom: 0;
@@ -37,7 +39,7 @@ li.fila-clickeable {
   display: flex;
   justify-content: space-between; 
   align-items: center;
-  padding: 20px; 
+  padding: 25px 30px;
   background-color: #fff;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.3s ease-out; 
@@ -51,7 +53,6 @@ li.fila-clickeable:last-child {
 }
 
 li.fila-clickeable:hover {
-  background-color: var(--color-tarjeta-hover);
   transform: scale(1.02);
 }
 
@@ -66,18 +67,17 @@ li.fila-clickeable:hover {
   height: 50px;
   object-fit: contain;
   border-radius: 8px;
-  background-color: var(--color-fondo);
 }
 
-.item-foto-jugador {
-  border-radius: 50%; 
+.item-foto-jugador { 
+  border-radius: 50%;
   object-fit: cover; 
 }
 
 .item-nombre {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #000;
+  color: var(--color-texto-tarjeta);
 }
 
 .action-buttons {
@@ -103,29 +103,63 @@ li button:active {
   transform: scale(1.0);
 }
 
+.empty-list {
+  padding: 20px;
+  text-align: center;
+  color: #777;
+}
+
+.agregar-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.btn-agregar { 
+  display: inline-block;
+  padding: 20px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: var(--color-boton);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.15s ease-out, background-color 0.2s;
+}
+
+.btn-agregar:hover {
+  background-color: var(--color-boton-hover);
+  transform: scale(1.05); 
+}
+
+.btn-agregar:active {
+  transform: scale(1.0);
+}
+
+
+.btn-volver {
+  display: block; 
+  text-align: left; 
+  margin: 10px auto 0 0; 
+  width: fit-content;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-texto);
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.btn-volver:hover {
+  text-decoration: underline;
+}
+
 .btn-detalles {
-  background-color: #0069d9;
+  background-color: var(--color-boton);
   border: 1px solid #0062cc;
 }
 .btn-detalles:hover {
-  background-color: #0056b3;
-}
-
-.btn-editar {
-  background-color: #ffb60a;
-  color: #212529;
-  border: 1px solid #e0a000;
-}
-.btn-editar:hover {
-  background-color: #e0a000;
-}
-
-.btn-eliminar {
-  background-color: #d93025;
-  border: 1px solid #c82333;
-}
-.btn-eliminar:hover {
-  background-color: #c82333;
+  background-color: var(--color-boton-hover);
 }
 
 .empty-list {

@@ -99,9 +99,49 @@
     "soyDt": "I am a Coach",
     "etiquetaEmail": "Email",
     "etiquetaPassword": "Password",
-    "botonIngresar": "Login"
+    "botonIngresar": "Login",
+        "placeholders": {
+      "email": "Enter your email",
+      "password": "Enter your password"
+    },
+    "validation": {
+      "emailRequired": "Email is required.",
+      "emailFormat": "The email format is invalid.",
+      "passwordRequired": "Password is required.",
+      "loginFailed": "Invalid email or password."
+    }
   },
   "admin": {
+    "adminMenu": {
+      "titulo": "Welcome !!!",
+      "verTorneos": "View Tournaments",
+      "detallesCuenta": "My Account Details",
+      "verAdministradores": "View Administrators",
+      "verDts": "View All Coaches",
+      "verJugadoresLibres": "View Free Agents",
+      "panelNoticias": "News Panel",
+      "panelContacto": "Contact Panel"
+    },
+    "equipoLista": {
+      "titulo": "Teams in",
+      "empty": "No teams are registered in this tournament.",
+      "agregar": "Add Team"
+    },
+    "formularioEquipo": {
+      "tituloAgregar": "Add Team",
+      "tituloEditar": "Edit Team",
+      "labelId": "ID:",
+      "labelNombre": "Name:",
+      "labelIdTorneo": "Tournament ID:",
+      "labelEscudo": "Crest:",
+      "botonAgregar": "Add",
+      "botonActualizar": "Update",
+      "placeholderNombre": "Ex: The Hawks",
+      "validation": {
+        "nombreRequerido": "Name is required.",
+        "escudoRequerido": "The crest is required."
+      }
+    },
     "botones": {
       "volver": "Back",
       "detalles": "Details",
@@ -146,7 +186,10 @@
         "logoRequerido": "Logo is required",
         "estadoRequerido": "You must select a status.",
         "fechaInicioRequerida": "Start date is required.",
-        "fechaFinRequerida": "End date is required."
+        "fechaFinRequerida": "End date is required.",
+        "placeholderNombre": "Ex: Champions Cup 2025",
+        "placeholderLabelLogo": "Logo:",
+        "placeholderLabelCampeon": "Last Champion Photo (optional):"
       }
     },
     "equipoDetalles": {
@@ -157,8 +200,176 @@
       "torneo": "Tournament:",
       "idTorneo": "Tournament ID:",
       "cargando": "Loading team data..."
+    },
+    "equipoPanel": {
+      "tituloDt": "Head Coach",
+      "dtEmpty": "No Head Coach assigned to this team.",
+      "asignarDt": "Assign Coach",
+      "tituloJugadores": "Player List",
+      "jugadoresEmpty": "No players registered for this team.",
+      "agregarJugador": "Add Player",
+      "tituloFixture": "Team Fixture",
+      "fixtureEmpty": "No fixtures loaded for this team."
+    },
+    "dtDetalles": {
+      "titulo": "Head Coach Details",
+      "id": "ID:",
+      "usuario": "User:",
+      "nombre": "Name:",
+      "estilo": "Play Style:",
+      "idEquipo": "Team ID:",
+      "botonSacar": "Remove",
+      "cargando": "Loading coach data..."
+    },
+    "formularioDt": {
+      "tituloAgregar": "Add Coach",
+      "tituloEditar": "Edit Coach",
+      "labelId": "ID:",
+      "labelNombre": "Name:",
+      "labelEquipoId": "Team ID:",
+      "labelEstilo": "Play Style:",
+      "labelUsuario": "User (Email):",
+      "labelFoto": "Photo:",
+      "placeholderNombre": "Ex: Marcelo Gallardo",
+      "placeholderUsuario": "Ex: coach@mail.com",
+      "estiloPlaceholder": "Select a style",
+      "estiloDefensivo": "Defensive",
+      "estiloEquilibrado": "Balanced",
+      "estiloOfensivo": "Offensive",
+      "botonAgregar": "Add",
+      "botonActualizar": "Update",
+      "validation": {
+        "nombreRequerido": "Name is required.",
+        "estiloRequerido": "You must select a style.",
+        "usuarioRequerido": "User email is required.",
+        "usuarioFormato": "The email format is invalid.",
+        "fotoRequerida": "Photo is required (only when adding)."
+      }
+    },
+    "jugadorDetallesAdmin": {
+      "titulo": "Player Details",
+      "etiquetaEdad": "Age:",
+      "etiquetaNacimiento": "Birthdate:",
+      "etiquetaEquipo": "Team:",
+      "etiquetaCamiseta": "Jersey:",
+      "tituloEstadisticas": "Player Statistics",
+      "etiquetaGoles": "Total Goals:",
+      "cargando": "Loading player data..."
+    },
+    "formularioJugador": {
+      "tituloAgregar": "Add Player",
+      "tituloEditar": "Edit Player",
+      "labelId": "Player ID:",
+      "labelNombre": "Name:",
+      "labelEdad": "Age (calculated):",
+      "labelNumeroCamiseta": "Jersey Number:",
+      "labelFechaNacimiento": "Date of Birth:",
+      "labelFoto": "Photo:",
+      "labelIdEquipo": "Team ID:",
+      "botonAgregar": "Add",
+      "botonActualizar": "Update",
+      "placeholderNombre": "Ex: Lionel Messi",
+      "placeholderCamiseta": "Ex: 10",
+      "validation": {
+        "nombreRequerido": "Name is required.",
+        "camisetaRequerida": "Jersey number is required.",
+        "fechaRequerida": "Date of birth is required.",
+        "fotoRequerida": "Photo is required (only when adding)."
+      }
+    },
+    "fixtureDetallesAdmin": {
+      "etiquetaEstado": "Status:",
+      "etiquetaFecha": "Date:",
+      "botonEditar": "Edit Fixture",
+      "cargando": "Loading match details..."
+    },
+    "formularioFixture": {
+      "tituloAgregar": "Add Fixture",
+      "tituloEditar": "Edit Fixture",
+      "labelIdFixture": "Fixture ID:",
+      "labelIdLocal": "Local Team ID:",
+      "labelNombreLocal": "Local Name:",
+      "labelIdVisitante": "Visitor Team ID:",
+      "labelNombreVisitante": "Visitor Name:",
+      "labelGolesLocal": "Local Goals",
+      "labelGolesVisitante": "Visitor Goals",
+      "labelFecha": "Match Date:",
+      "labelEstado": "Status:",
+      "estadoPlaceholder": "Select a status",
+      "estadoPendiente": "Pending",
+      "estadoEmpezado": "Started",
+      "estadoTerminado": "Finished",
+      "botonActualizar": "Update",
+      "botonAgregar": "Add",
+      "validation": {
+        "golesRequeridos": "Goals are required.",
+        "fechaRequerida": "Date is required.",
+        "estadoRequerido": "Status is required."
+      }
+    },
+    "formularioAdmin": {
+      "tituloAgregar": "Create Administrator",
+      "tituloEditar": "Edit Administrator",
+      "labelId": "ID:",
+      "labelNombre": "Name:",
+      "labelRol": "Role:",
+      "labelFoto": "Photo (Image URL):",
+      "labelUsuario": "User (Email):",
+      "labelPassword": "Password:",
+      "placeholderNombre": "Ex: Joaquin Alegre",
+      "placeholderUsuario": "Ex: admin@mail.com",
+      "placeholderPassword": "Create a password",
+      "rolPlaceholder": "Select a role",
+      "rolDeveloper": "Developer",
+      "rolScrumMaster": "Scrum Master",
+      "botonAgregar": "Save",
+      "botonActualizar": "Update",
+      "validation": {
+        "nombreRequerido": "Name is required.",
+        "rolRequerido": "Role is required.",
+        "fotoRequerida": "Photo is required (only when adding).",
+        "usuarioRequerido": "Email is required.",
+        "usuarioFormato": "The email format is invalid.",
+        "passwordRequerido": "Password is required (only when adding)."
+      }
+    },
+    "adminDetalles": {
+      "titulo": "Profile Details",
+      "id": "ID:",
+      "nombre": "Name:",
+      "usuario": "Username:",
+      "rol": "Role:",
+      "email": "User (Email):",
+      "password": "Password:",
+      "botonEditar": "Edit Profile",
+      "botonEliminar": "Delete my Account",
+      "cargando": "Loading profile..."
+    },
+    "adminLista": {
+      "titulo": "Administrator List",
+      "empty": "No administrators have been created.",
+      "agregar": "Add Administrator"
+    },
+    "jugadoresLibres": {
+      "titulo": "Free Agent List",
+      "empty": "No free agents registered.",
+      "agregar": "Add Player"
+    },
+    "dtLista": {
+      "titulo": "Coach List",
+      "empty": "No coaches registered.",
+      "agregar": "Add Coach"
+    },
+    "panelNoticias": {
+      "titulo": "News Panel",
+      "empty": "No news created.",
+      "agregar": "Create News"
+    },
+    "panelContacto": {
+      "titulo": "Contact Panel",
+      "empty": "No new messages."
     }
-
+    
 }
 
 }

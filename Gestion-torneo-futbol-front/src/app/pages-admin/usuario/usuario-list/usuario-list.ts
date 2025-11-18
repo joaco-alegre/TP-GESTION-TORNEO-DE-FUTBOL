@@ -3,10 +3,11 @@ import Usuario from '../../../model/usuario';
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
 import { RouterLink } from "@angular/router";
 import { CommonModule, Location} from '@angular/common';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-usuario-list',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, TranslocoPipe],
   templateUrl: './usuario-list.html',
   styleUrl: './usuario-list.css',
 })

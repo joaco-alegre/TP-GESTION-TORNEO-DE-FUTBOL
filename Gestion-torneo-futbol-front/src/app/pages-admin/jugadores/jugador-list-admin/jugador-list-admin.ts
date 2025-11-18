@@ -10,10 +10,11 @@ import Fixture from '../../../model/fixture';
 import Equipo from '../../../model/equipo';
 import { FixtureService } from '../../../service/fixture-service/fixture-service';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-jugador-list',
-  imports: [RouterModule, CommonModule, TranslocoPipe],
+  imports: [RouterModule, CommonModule, TranslocoPipe, LightboxModule],
   templateUrl: './jugador-list-admin.html',
   styleUrl: './jugador-list-admin.css',
 })
@@ -35,7 +36,8 @@ export class JugadorListAdmin implements OnInit{
                 private route: ActivatedRoute,
                 private location: Location,
                 private fixtureService: FixtureService,
-                private equipoService: EquipoService
+                private equipoService: EquipoService,
+                private lightbox: Lightbox
     ) {}
   
     ngOnInit(): void {
@@ -115,49 +117,25 @@ export class JugadorListAdmin implements OnInit{
     const equipo = this.todosEquipos.find(e => e.id === equipoID);
     return equipo?.escudo || 'assets/icons/icono.png'; 
   }
-  
-  deleteJugador(id: string): void {
-    if (!confirm("¿Estás seguro de que deseas eliminar este jugador?")) {
-      return;
-    }
-  
-  this.jugadorService.deleteJugador(id).subscribe(() => {
-      const index = this.todosJugadores.findIndex(j => j.id === id);
-      if (index > -1) {
-        this.todosJugadores.splice(index, 1);
+
+
+  abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
       }
-      this.filtrarJugadoresPorEquipo();
-      
-      alert("Jugador eliminado");
-    });
-  }
-
-
-sacarDt(dt: DT): void {
     
-    if (!confirm(`¿Estás seguro de que deseas sacar a ${dt.nombre} de este equipo?`)) {
-      return;
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+
+      this.lightbox.open(album, 0);
+
     }
-    const dtActualizado = { 
-      ...dt, 
-      equipoID: '' 
-    };
-
-    this.dtService.updateDt(dtActualizado).subscribe(() => {
-      const index = this.todosDts.findIndex(d => d.id === dt.id);
-      if (index > -1) {
-        this.todosDts[index].equipoID = ''; 
-      }
-      this.filtrarDtPorEquipo();   
-      alert("DT desvinculado del equipo");
-
-    }, (error) => {
-      console.error("Error al desvincular al DT:", error);
-      alert("No se pudo sacar al DT del equipo.");
-    });
-  }
-
-      
   
     goBack(): void {
     this.location.back();

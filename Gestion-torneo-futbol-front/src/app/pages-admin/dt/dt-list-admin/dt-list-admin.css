@@ -106,28 +106,11 @@ li button:active {
 }
 
 .btn-detalles {
-  background-color: #0069d9;
+  background-color:var(--color-boton);
   border: 1px solid #0062cc;
 }
 .btn-detalles:hover {
-  background-color: #0056b3;
-}
-
-.btn-editar {
-  background-color: #ffb60a;
-  color: #212529;
-  border: 1px solid #e0a000;
-}
-.btn-editar:hover {
-  background-color: #e0a000;
-}
-
-.btn-eliminar {
-  background-color: #d93025;
-  border: 1px solid #c82333;
-}
-.btn-eliminar:hover {
-  background-color: #c82333;
+  background-color: var(--color-boton-hover);
 }
 
 .empty-list {

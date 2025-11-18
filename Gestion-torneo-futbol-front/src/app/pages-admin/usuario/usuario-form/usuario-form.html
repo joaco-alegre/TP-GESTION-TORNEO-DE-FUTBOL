@@ -1,33 +1,82 @@
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
-  <button (click)="goBack()" class="btn-volver">&larr; Volver</button>
-
-  <div class="admin-container">
-  <h2>{{ usuarioID ? 'Editar Administrador' : 'Crear Administrador' }}</h2>
+<div class="admin-container">
+  <h2>{{ usuarioID ? ('admin.formularioAdmin.tituloEditar' | transloco) : ('admin.formularioAdmin.tituloAgregar' | transloco) }}</h2>
 
   <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
 
     @if (usuarioID) {
-    <label for="id">ID:</label>
-    <input id="id" formControlName="id" type="text" readonly>
+      <label for="id">{{ 'admin.formularioAdmin.labelId' | transloco }}</label>
+      <input id="id" formControlName="id" type="text" readonly>
     }
 
-    <label for="nombre">Nombre:</label>
-    <input id="nombre" formControlName="nombre" type="text">
+    <label for="nombre">{{ 'admin.formularioAdmin.labelNombre' | transloco }}</label>
+    <input id="nombre" type="text" formControlName="nombre" 
+           [placeholder]="'admin.formularioAdmin.placeholderNombre' | transloco"
+           [class.is-invalid]="usuarioForm.get('nombre')?.invalid && usuarioForm.get('nombre')?.touched">
+    @if (usuarioForm.get('nombre')?.invalid && usuarioForm.get('nombre')?.touched) {
+      <div class="validation-error">
+        @if (usuarioForm.get('nombre')?.hasError('required')) {
+          <p>{{ 'admin.formularioAdmin.validation.nombreRequerido' | transloco }}</p>
+        }
+      </div>
+    }
 
-    <label for="rol">Rol (ej: Scrum Master, Developer):</label>
-    <input id="rol" formControlName="rol" type="text">
+    <label for="rol">{{ 'admin.formularioAdmin.labelRol' | transloco }}</label>
+    <select id="rol" formControlName="rol"
+            [class.is-invalid]="usuarioForm.get('rol')?.invalid && usuarioForm.get('rol')?.touched">
+      <option value="" disabled selected>{{ 'admin.formularioAdmin.rolPlaceholder' | transloco }}</option>
+      <option value="Developer">{{ 'admin.formularioAdmin.rolDeveloper' | transloco }}</option>
+      <option value="Scrum Master">{{ 'admin.formularioAdmin.rolScrumMaster' | transloco }}</option>
+    </select>
+    @if (usuarioForm.get('rol')?.invalid && usuarioForm.get('rol')?.touched) {
+      <div class="validation-error">
+        @if (usuarioForm.get('rol')?.hasError('required')) {
+          <p>{{ 'admin.formularioAdmin.validation.rolRequerido' | transloco }}</p>
+        }
+      </div>
+    }
 
-    <label for="foto">Foto (URL de la imagen):</label>
-    <input id="foto" formControlName="foto" type="text">
+    <label for="foto">{{ 'admin.formularioAdmin.labelFoto' | transloco }}</label>
+    <input id="foto" formControlName="foto" type="file"
+           [class.is-invalid]="usuarioForm.get('foto')?.invalid && usuarioForm.get('foto')?.touched">
+    @if (usuarioForm.get('foto')?.invalid && usuarioForm.get('foto')?.touched) {
+      <div class="validation-error">
+        @if (usuarioForm.get('foto')?.hasError('required')) {
+          <p>{{ 'admin.formularioAdmin.validation.fotoRequerida' | transloco }}</p>
+        }
+      </div>
+    }
 
-    <label for="usuario">Usuario (Email):</label>
-    <input id="usuario" formControlName="usuario" type="email">
+    <label for="usuario">{{ 'admin.formularioAdmin.labelUsuario' | transloco }}</label>
+    <input id="usuario" formControlName="usuario" type="email"
+           [placeholder]="'admin.formularioAdmin.placeholderUsuario' | transloco"
+           [class.is-invalid]="usuarioForm.get('usuario')?.invalid && usuarioForm.get('usuario')?.touched">
+    @if (usuarioForm.get('usuario')?.invalid && usuarioForm.get('usuario')?.touched) {
+      <div class="validation-error">
+        @if (usuarioForm.get('usuario')?.hasError('required')) {
+          <p>{{ 'admin.formularioAdmin.validation.usuarioRequerido' | transloco }}</p>
+        }
+        @if (usuarioForm.get('usuario')?.hasError('email')) {
+          <p>{{ 'admin.formularioAdmin.validation.usuarioFormato' | transloco }}</p>
+        }
+      </div>
+    }
 
-    <label for="password">Contraseña:</label>
-    <input id="password" formControlName="password" type="password">
+    <label for="password">{{ 'admin.formularioAdmin.labelPassword' | transloco }}</label>
+    <input id="password" formControlName="password" type="password"
+           [placeholder]="'admin.formularioAdmin.placeholderPassword' | transloco"
+           [class.is-invalid]="usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched">
+    @if (usuarioForm.get('password')?.invalid && usuarioForm.get('password')?.touched) {
+      <div class="validation-error">
+        @if (usuarioForm.get('password')?.hasError('required')) {
+          <p>{{ 'admin.formularioAdmin.validation.passwordRequerido' | transloco }}</p>
+        }
+      </div>
+    }
 
-    <button type="submit" [disabled]="!usuarioForm.valid">
-      {{ usuarioID ? 'Actualizar' : 'Guardar' }}
+    <button type="submit">
+      {{ usuarioID ? ('admin.formularioAdmin.botonActualizar' | transloco) : ('admin.formularioAdmin.botonAgregar' | transloco) }}
     </button>
   </form>
 </div>
