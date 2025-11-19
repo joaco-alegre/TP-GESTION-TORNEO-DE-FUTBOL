@@ -34,6 +34,7 @@ export class DtFormAdmin implements OnInit{
       equipoID: [''], 
       estiloJuego: ['', Validators.required],
       usuario: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
       foto: ['', [Validators.required]]
     });
 
@@ -60,11 +61,11 @@ export class DtFormAdmin implements OnInit{
       this.DtForm.markAllAsTouched(); 
       return;
     }
-    
-    const rutaDeVuelta = ['/dt-list-admin'];
 
     if (this.DtID) {
       const dtData: DT = { id: this.DtID, ...this.DtForm.value }; 
+
+      const rutaDeVuelta = ['admin/dt-detalles-admin', this.DtID];
 
       this.dtService.updateDt(dtData).subscribe({
         next: () => {
@@ -81,6 +82,8 @@ export class DtFormAdmin implements OnInit{
     } else {
       const dtData = this.DtForm.value; 
       delete dtData.id; 
+
+      const rutaDeVuelta = ['admin/dt-list-admin'];
       
       this.dtService.postDT(dtData).subscribe({
         next: () => {
@@ -102,15 +105,15 @@ export class DtFormAdmin implements OnInit{
   goBack(): void {
     
     if (this.DtID) {
-        this.router.navigate(['/dt-detalles-admin', this.DtID]);
+        this.router.navigate(['/admin/dt-detalles-admin', this.DtID]);
     } 
 
     else if (this.equipoID) {
-        this.router.navigate(['/jugador-lista-admin', this.equipoID]);
+        this.router.navigate(['/admin/jugador-lista-admin', this.equipoID]);
     }
 
     else {
-        this.router.navigate(['/dt-list-admin']);
+        this.router.navigate(['/admin/dt-list-admin']);
     }
 }
 

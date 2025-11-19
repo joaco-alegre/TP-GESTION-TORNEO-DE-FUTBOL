@@ -1,6 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import Usuario from '../../../model/usuario';
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
 import { TranslocoPipe } from '@ngneat/transloco';
@@ -15,37 +15,33 @@ import { LightboxModule, Lightbox } from 'ngx-lightbox';
 export class UsuarioDetails implements OnInit{
 
   usuario?: Usuario;
+  usuarioId: string | null = null;
 
   constructor(
     private usuarioService: UsuarioService,
     private router: Router,
     private location: Location,
-    private lightbox: Lightbox
+    private lightbox: Lightbox,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
 
-    // 3. --- ¡AQUÍ ESTÁ LA SIMULACIÓN! ---
-    // Fijamos el ID del admin que (simulamos) inició sesión.
-    // Usamos 'u-001' (Joaquin) del JSON que me diste.
-    const loggedInAdminId = 'u-001'; 
+    this.usuarioId = this.route.snapshot.paramMap.get('id');
 
-    if (loggedInAdminId) {
-      this.usuarioService.getUsuarioById(loggedInAdminId).subscribe(data => {
-        this.usuario = data;
-      }, (error) => {
-        console.error("No se pudo cargar el perfil del admin:", error);
-      });
-
+    if (this.usuarioId) {
+      console.log('ID de Usuario recibido para detalles:', this.usuarioId);
       
+       this.usuarioService.getUsuarioById(this.usuarioId).subscribe(data => {
+       this.usuario = data;
+       });
+      
+    } else {
+      console.error('Error: No se encontró el ID del usuario en la ruta.');
+
     }
-
-    
-
-    
-  }
   
-
+  }
 
   deleteUsuario(): void {
     if (!this.usuario || !this.usuario.id) return;
@@ -84,7 +80,7 @@ export class UsuarioDetails implements OnInit{
 
 
   goBack(): void {
-    this.router.navigate(['/usuario-home']);
+    this.router.navigate(['admin/usuario-home/', this.usuarioId ]);
   }
 
 

@@ -7,4 +7,5 @@ export default interface DT{
   usuario: string;
   foto:string;
   contrasenia: string;
+  role: string;
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import Usuario from '../../../model/usuario';
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
-import { Router, RouterLink } from "@angular/router";
+import { ActivatedRoute, Router, RouterLink } from "@angular/router";
 import { CommonModule, Location} from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
+import { SubscriptionLog } from 'rxjs/internal/testing/SubscriptionLog';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-usuario-list',
@@ -16,15 +18,27 @@ export class UsuarioList implements OnInit{
 
   usuarios: Usuario[] = [];
   usuario?: Usuario;
+      currentUserId: string | null = null;
+      private querySub: Subscription | undefined;
 
   constructor(private usuarioService: UsuarioService,
     private location: Location,
     private lightbox: Lightbox,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.cargarUsuarios();
+
+      this.querySub = this.route.queryParamMap.subscribe(params => {
+        const idFromQuery = params.get('referrerId'); 
+        
+        if (idFromQuery) {
+            this.currentUserId = idFromQuery;
+            console.log('ID del usuario logueado recibido por Query Param:', this.currentUserId);
+        }
+    });
 
     this.usuarioService.getUsuarios().subscribe(data => {
   this.usuarios = data;
@@ -57,7 +71,7 @@ export class UsuarioList implements OnInit{
 }
 
     goBack(): void {
-    this.router.navigate(['/usuario-home'])
+    this.router.navigate(['/admin/usuario-home', this.currentUserId])
   }
 
 

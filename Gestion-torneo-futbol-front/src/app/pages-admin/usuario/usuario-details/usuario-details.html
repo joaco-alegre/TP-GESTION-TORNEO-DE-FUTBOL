@@ -26,10 +26,7 @@
               <b>{{ 'admin.adminDetalles.nombre' | transloco }}</b> {{ usuario.nombre }}
             </li>
             <li>
-              <b>{{ 'admin.adminDetalles.usuario' | transloco }}</b> {{ usuario.username }}
-            </li>
-            <li>
-              <b>{{ 'admin.adminDetalles.rol' | transloco }}</b> {{ usuario.rolUser }}
+              <b>{{ 'admin.adminDetalles.rolScrum' | transloco }}</b> {{ usuario.rolScrum }}
             </li>
             <li>
               <b>{{ 'admin.adminDetalles.email' | transloco }}</b> {{ usuario.email }}
@@ -40,7 +37,7 @@
           </ul>
 
           <div class="action-buttons-footer">
-            <button class="btn-editar" [routerLink]="['/usuario-form-admin', usuario.id]">
+            <button class="btn-editar" [routerLink]="['/admin/usuario-form-admin', usuario.id]">
               {{ 'admin.adminDetalles.botonEditar' | transloco }}
             </button>
             <button class="btn-eliminar" (click)="deleteUsuario()">

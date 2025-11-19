@@ -144,9 +144,10 @@
     transition: background-color 0.2s ease, transform 0.1s;
 }
 
-.btn-logout {
+.btn-login {
     color: var(--color-accent, #fff); 
     font-size: 1.3rem;
+    margin-left: 29px;
 }
 
 .btn-action-icon:hover {

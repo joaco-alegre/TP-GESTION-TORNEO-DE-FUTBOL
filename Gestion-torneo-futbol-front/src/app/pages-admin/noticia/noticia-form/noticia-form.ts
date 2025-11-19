@@ -62,7 +62,7 @@ ngOnInit(): void {
       return;
     }
 
-    const rutaDeVuelta = ['/panel-noticias-admin'];
+    const rutaDeVuelta = ['/admin/panel-noticias-admin'];
 
     if (this.noticiaID) {
 
@@ -97,7 +97,7 @@ ngOnInit(): void {
   }
 
   goBack(): void {
-    this.router.navigate(['/panel-noticias-admin']);
+    this.router.navigate(['/admin/panel-noticias-admin']);
   }
 
 }

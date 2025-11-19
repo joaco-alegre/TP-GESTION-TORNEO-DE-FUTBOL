@@ -238,12 +238,15 @@
       "estiloOfensivo": "Ofensivo",
       "botonAgregar": "Agregar",
       "botonActualizar": "Actualizar",
+      "labelPassword": "Contraseña:",
+      "placeholderPassword": "Crear una contraseña",
       "validation": {
         "nombreRequerido": "El nombre es obligatorio.",
         "estiloRequerido": "Debes seleccionar un estilo.",
         "usuarioRequerido": "El email de usuario es obligatorio.",
         "usuarioFormato": "El formato del email no es válido.",
-        "fotoRequerida": "La foto es obligatoria (solo al agregar)."
+        "fotoRequerida": "La foto es obligatoria (solo al agregar).",
+        "passwordRequerido": "La contraseña es obligatoria."
       }
     },
     "jugadorDetallesAdmin": {
@@ -339,6 +342,7 @@
       "nombre": "Nombre:",
       "usuario": "Usuario:",
       "rol": "Rol:",
+      "rolScrum": "Rol Scrum",
       "email": "Email (Usuario):",
       "password": "Contraseña:",
       "botonEditar": "Editar Perfil",

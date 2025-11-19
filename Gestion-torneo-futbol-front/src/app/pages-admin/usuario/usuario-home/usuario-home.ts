@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import Usuario from '../../../model/usuario';
-import { RouterLink } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
@@ -9,10 +9,22 @@ import { TranslocoPipe } from '@ngneat/transloco';
   templateUrl: './usuario-home.html',
   styleUrl: './usuario-home.css',
 })
-export class UsuarioHome {
+export class UsuarioHome implements OnInit{
 
-  usuario!: Usuario;
+  currentUserId: string | null = null;
 
-  IDgenerico: string = 'u-001';
+  constructor(
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit(): void {
+
+  this.currentUserId = this.route.snapshot.paramMap.get('id');
+
+  if (!this.currentUserId) {
+      console.error('Error: No se pudo obtener el ID del usuario de la URL.');
+    }
+
+}
 
 }

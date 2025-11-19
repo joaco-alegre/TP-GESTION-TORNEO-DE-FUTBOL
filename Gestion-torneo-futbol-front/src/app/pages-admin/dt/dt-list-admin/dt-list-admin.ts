@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dt-list',
@@ -16,6 +17,8 @@ export class DtListAdmin implements OnInit{
 
   dts: DT[] = [];
 
+  usuarioId: string | null = null;
+  private querySub: Subscription | undefined;
 
   constructor(
     private dtService: DtService,
@@ -26,7 +29,20 @@ export class DtListAdmin implements OnInit{
   ) {}
 
   ngOnInit(): void {
+
+    this.usuarioId = this.route.snapshot.paramMap.get('id');
+
     this.cargarDts();
+
+          this.querySub = this.route.queryParamMap.subscribe(params => {
+        const idFromQuery = params.get('referrerId'); 
+        
+        if (idFromQuery) {
+            this.usuarioId = idFromQuery;
+            console.log('ID del usuario logueado recibido por Query Param:', this.usuarioId);
+        }
+    });
+
   }
 
   cargarDts(): void {
@@ -74,7 +90,7 @@ export class DtListAdmin implements OnInit{
 
     
     goBack(): void {
-    this.router.navigate(['/usuario-home']);
+    this.router.navigate(['/admin/usuario-home', this.usuarioId]);
   }
 
 

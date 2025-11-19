@@ -106,7 +106,7 @@ export class EquipoListAdmin implements OnInit{
 
   
     goBack(): void {
-    this.router.navigate(['/torneos-admin', ]);
+    this.router.navigate(['/admin/torneos-admin', ]);
   }
 
 

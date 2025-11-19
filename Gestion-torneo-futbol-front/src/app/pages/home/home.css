@@ -60,7 +60,6 @@
 }
 
 
-/*el boton de ver torneso le pongo una animacion llamativa. La saque la pagina cattocss.com*/
 .pulse {
     animation-name: pulse;
     animation-duration: 1s;
@@ -72,6 +71,7 @@
     50% {transform: scale(1.2);}
     100% {transform: scale(1);}
   }
+
 
 
 h2{
@@ -362,8 +362,6 @@ color: #fff;
         90% {transform: translate(1px, 2px) rotate(0deg);}
         100% {transform: translate(1px, -2px) rotate(-1deg);}
     }
-
-
 
 
 @media (max-width: 576px) {

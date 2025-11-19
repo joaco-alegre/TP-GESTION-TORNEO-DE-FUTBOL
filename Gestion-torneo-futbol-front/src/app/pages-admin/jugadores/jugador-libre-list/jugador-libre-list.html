@@ -17,8 +17,8 @@
         
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/jugador-detalles-admin/', jugador.id]" 
-                  [queryParams]="{ returnUrl: ('/jugadores-libres-list-admin') }"
+                  [routerLink]="['/admin/jugador-detalles-admin/', jugador.id]" 
+                  [queryParams]="{ returnUrl: ('/admin/jugadores-libres-list-admin') }"
                   (click)="$event.stopPropagation()">
             {{ 'admin.botones.detalles' | transloco }}
           </button>
@@ -30,7 +30,7 @@
   </ul>
 
   <div class="agregar-container flicker">
-    <button class="btn-agregar" [routerLink]="['/jugador-formulario-admin']">
+    <button class="btn-agregar" [routerLink]="['/admin/jugador-formulario-admin']">
       {{ 'admin.jugadoresLibres.agregar' | transloco }}
     </button>
   </div>

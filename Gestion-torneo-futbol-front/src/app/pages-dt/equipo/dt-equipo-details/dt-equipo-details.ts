@@ -10,6 +10,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import Torneo from '../../../model/torneo';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
+import { AuthService } from '../../../service/auth-service/auth-service';
 
 @Component({
   selector: 'app-dt-equipo-details',
@@ -32,34 +33,45 @@ export class DtEquipoDetails implements OnInit{
     private equipoService: EquipoService,
     private location: Location,
     private torneoService: TorneoService,
-    private lightbox: Lightbox
+    private lightbox: Lightbox,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
 
-    const loggedInDtId = 'dt-mg-001'; 
+    const user = this.authService.getUser();
+    const dtId = user?.id;
 
-   this.dtService.geDtById(loggedInDtId).subscribe({
+    if (!dtId) {
+        alert("Error de sesión: No se pudo identificar al DT.");
+        this.router.navigate(['/es/inicio-sesion']);
+        return;
+    }
+
+this.dtService.geDtById(dtId).subscribe({
       next: (dtData) => {
         
         if (dtData && dtData.equipoID && dtData.equipoID.trim() !== '') {
           
           this.equipoId = dtData.equipoID;
           
-          this.obtenerDatosDelEquipo(this.equipoId);
-
-          this.cargarJugadores();
+          this.obtenerDatosDelEquipo(this.equipoId); 
+          this.cargarJugadores(); 
 
         } else {
-          alert("No estás asignado a ningún equipo.");
-          this.router.navigate(['/es']);
+          
+          alert("No estás asignado a ningún equipo actualmente.");
+          this.router.navigate(['/dt/dt-home']); 
         }
       },
       error: (err) => {
-        alert("Error: Tu ID de DT no es válido.");
-        this.router.navigate(['/es/inicio-sesion']);
+
+        console.error("Error al buscar el DT con ID:", dtId, err);
+        alert("Error: No se encontró tu perfil de DT.");
+        this.router.navigate(['/es/inicio-sesion']); 
       }
     });
+  
 
             if(this.equipoId){
           this.equipoService.getEquipoById(this.equipoId).subscribe(equipoData => {
@@ -150,12 +162,10 @@ export class DtEquipoDetails implements OnInit{
         }
       ];
     
-      this.lightbox.open(album, 0);
+      this.lightbox.open(album, 0);
     }
 
-
-
           goBack(): void {
-    this.router.navigate(['dt-home']);
+    this.router.navigate(['/dt/dt-home']);
   }
 }

@@ -30,9 +30,9 @@ usuarioForm!: FormGroup;
     this.usuarioForm = this.fb.group({
       id: [''],
       nombre: ['', Validators.required],
-      rol: ['', Validators.required],
+      rolScrum: ['', Validators.required],
       foto: ['', Validators.required], 
-      usuario: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
 
@@ -64,9 +64,9 @@ usuarioForm!: FormGroup;
     };
     
 
-    const rutaDeVuelta = ['/usuario-details-admin', this.usuarioID];
-
     if (this.usuarioID) {
+
+      const rutaDeVuelta = ['/admin/usuario-details-admin', this.usuarioID];
 
       const formValues = this.usuarioForm.value;
       const usuarioData = { ...formValues, id: this.usuarioID, foto: formValues.foto || this.fotoActual };
@@ -79,6 +79,8 @@ usuarioForm!: FormGroup;
       });
 
     } else {
+
+      const rutaDeVuelta = ['/admin/usuario-list-admin'];
 
       const usuarioData = this.usuarioForm.value;
 
@@ -94,10 +96,10 @@ usuarioForm!: FormGroup;
 goBack(): void {
     
     if (this.usuarioID) {
-        this.router.navigate(['/usuario-details-admin', this.usuarioID]);
+        this.router.navigate(['/admin/usuario-details-admin', this.usuarioID]);
     } 
     else {
-        this.router.navigate(['/usuario-list-admin']); 
+        this.router.navigate(['/admin/usuario-list-admin']); 
     }
 }
 

@@ -37,7 +37,8 @@ import { DtDtForm } from './pages-dt/dt/dt-dt-form/dt-dt-form';
 import { ContenedorLayoutAdmin } from './component/layout/contenedor-layout-admin/contenedor-layout-admin';
 import { ContenedorLayoutDt } from './component/layout/contenedor-layout-dt/contenedor-layout-dt';
 import { ContenedorLayoutHincha } from './component/layout/contenedor-layout-hincha/contenedor-layout-hincha';
-import { authGuard } from './guards/auth-guard';
+import { authGuard } from './guards/auth-guards/auth-guard';
+import { DtTeamGuard } from './guards/dt-team-guards/dt-team-guards';
 
 
 
@@ -65,7 +66,7 @@ export const routes: Routes = [
     component: ContenedorLayoutAdmin,
     canActivate: [authGuard],
     children: [
-    {path: 'usuario-home', component: UsuarioHome},
+    {path: 'usuario-home/:id', component: UsuarioHome},
     {path: 'torneos-admin', component: TorneoListAdmin},
     {path: 'torneo-details-admin/:id', component: TorneoDetailsAdmin},
     {path: 'torneo-formulario-admin/:id', component: TorneoFormAdmin},
@@ -99,9 +100,9 @@ export const routes: Routes = [
 
     {path: 'dt',
     component: ContenedorLayoutDt,
-    canActivate: [authGuard],
+    canActivate: [DtTeamGuard],
     children: [
-    {path: 'dt-home', component: DtHome},
+    {path: 'dt-home/:id', component: DtHome},
     {path: 'dt-dt-details/:id', component: DtDtDetails},
     {path: 'dt-dt-form/:id', component: DtDtForm},
     {path: 'dt-jugador-details/:id', component: DtJugadorDetails},

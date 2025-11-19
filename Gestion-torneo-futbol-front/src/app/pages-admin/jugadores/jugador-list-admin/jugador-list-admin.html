@@ -1,6 +1,6 @@
 <button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
-<div class="admin-container" data-aos="fade-up">
+<div class="admin-container" data-aos="zoom-in-up">
 
   <h2 class="titulo-pagina-principal">{{ equipoNombre }}</h2>
   <hr class="section-divider">
@@ -17,8 +17,8 @@
         </div>
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/dt-detalles-admin/', dt.id]"
-                  [queryParams]="{ returnUrl: ('/jugador-lista-admin/' + equipoId) }"
+                  [routerLink]="['/admin/dt-detalles-admin/', dt.id]"
+                  [queryParams]="{ returnUrl: ('/admin/jugador-lista-admin/' + equipoId) }"
                   (click)="$event.stopPropagation()">
             {{ 'admin.botones.detalles' | transloco }}
           </button>
@@ -28,7 +28,7 @@
       <p class="empty-list">{{ 'admin.equipoPanel.dtEmpty' | transloco }}</p>
       <div class="agregar-container">
         <button class="btn-agregar" 
-                [routerLink]="['/dt-formulario-admin']"
+                [routerLink]="['/admin/dt-formulario-admin']"
                 [queryParams]="{ equipoID: equipoId }"> {{ 'admin.equipoPanel.asignarDt' | transloco }}
         </button>
       </div>
@@ -50,8 +50,8 @@
         </div>
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/jugador-detalles-admin/', jugador.id]" 
-                  [queryParams]="{ returnUrl: ('/jugador-lista-admin/' + equipoId) }"
+                  [routerLink]="['/admin/jugador-detalles-admin/', jugador.id]" 
+                  [queryParams]="{ returnUrl: ('admin/jugador-lista-admin/' + equipoId) }"
                   (click)="$event.stopPropagation()">
             {{ 'admin.botones.detalles' | transloco }}
           </button>
@@ -64,7 +64,7 @@
 
 <div class="agregar-container">
   <button class="btn-agregar bounce" 
-          [routerLink]="['/jugador-formulario-admin']"
+          [routerLink]="['/admin/jugador-formulario-admin']"
           [queryParams]="{ equipoID: equipoId }"> {{ 'admin.equipoPanel.agregarJugador' | transloco }}
   </button>
 </div>
@@ -76,8 +76,8 @@
     <ul class="fixture-list">
       @for (fixture of fixtures; track fixture.id) {
         <li class="fixture-item card-foto" 
-            [routerLink]="['/fixture-detalles-admin/', fixture.id]"
-            [queryParams]="{ returnUrl: ('/jugador-lista-admin/' + equipoId) }"> 
+            [routerLink]="['/admin/fixture-detalles-admin/', fixture.id]"
+            [queryParams]="{ returnUrl: ('/admin/jugador-lista-admin/' + equipoId) }"> 
             <img [src]="getEscudo(fixture.equipoLocalID)"
                (click)="abrirImagen(getEscudo(fixture.equipoLocalID) || 'assets/icons/icono.png'); $event.stopPropagation()"
                [alt]="fixture.equipoLocalID">

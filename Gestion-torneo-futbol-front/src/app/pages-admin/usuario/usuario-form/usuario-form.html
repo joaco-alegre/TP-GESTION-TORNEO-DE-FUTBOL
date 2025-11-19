@@ -23,23 +23,23 @@
       </div>
     }
 
-    <label for="rol">{{ 'admin.formularioAdmin.labelRol' | transloco }}</label>
-    <select id="rol" formControlName="rol"
-            [class.is-invalid]="usuarioForm.get('rol')?.invalid && usuarioForm.get('rol')?.touched">
+    <label for="rolScrum">{{ 'admin.formularioAdmin.labelRol' | transloco }}</label>
+    <select id="rolScrum" formControlName="rolScrum"
+            [class.is-invalid]="usuarioForm.get('rolScrum')?.invalid && usuarioForm.get('rol')?.touched">
       <option value="" disabled selected>{{ 'admin.formularioAdmin.rolPlaceholder' | transloco }}</option>
       <option value="Developer">{{ 'admin.formularioAdmin.rolDeveloper' | transloco }}</option>
       <option value="Scrum Master">{{ 'admin.formularioAdmin.rolScrumMaster' | transloco }}</option>
     </select>
-    @if (usuarioForm.get('rol')?.invalid && usuarioForm.get('rol')?.touched) {
+    @if (usuarioForm.get('rolScrum')?.invalid && usuarioForm.get('rolScrum')?.touched) {
       <div class="validation-error">
-        @if (usuarioForm.get('rol')?.hasError('required')) {
+        @if (usuarioForm.get('rolScrum')?.hasError('required')) {
           <p>{{ 'admin.formularioAdmin.validation.rolRequerido' | transloco }}</p>
         }
       </div>
     }
 
     <label for="foto">{{ 'admin.formularioAdmin.labelFoto' | transloco }}</label>
-    <input id="foto" formControlName="foto" type="file"
+    <input id="foto" formControlName="foto" type="text"
            [class.is-invalid]="usuarioForm.get('foto')?.invalid && usuarioForm.get('foto')?.touched">
     @if (usuarioForm.get('foto')?.invalid && usuarioForm.get('foto')?.touched) {
       <div class="validation-error">
@@ -49,16 +49,16 @@
       </div>
     }
 
-    <label for="usuario">{{ 'admin.formularioAdmin.labelUsuario' | transloco }}</label>
-    <input id="usuario" formControlName="usuario" type="email"
+    <label for="email">{{ 'admin.formularioAdmin.labelUsuario' | transloco }}</label>
+    <input id="email" formControlName="email" type="email"
            [placeholder]="'admin.formularioAdmin.placeholderUsuario' | transloco"
-           [class.is-invalid]="usuarioForm.get('usuario')?.invalid && usuarioForm.get('usuario')?.touched">
-    @if (usuarioForm.get('usuario')?.invalid && usuarioForm.get('usuario')?.touched) {
+           [class.is-invalid]="usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched">
+    @if (usuarioForm.get('email')?.invalid && usuarioForm.get('email')?.touched) {
       <div class="validation-error">
-        @if (usuarioForm.get('usuario')?.hasError('required')) {
+        @if (usuarioForm.get('email')?.hasError('required')) {
           <p>{{ 'admin.formularioAdmin.validation.usuarioRequerido' | transloco }}</p>
         }
-        @if (usuarioForm.get('usuario')?.hasError('email')) {
+        @if (usuarioForm.get('email')?.hasError('email')) {
           <p>{{ 'admin.formularioAdmin.validation.usuarioFormato' | transloco }}</p>
         }
       </div>

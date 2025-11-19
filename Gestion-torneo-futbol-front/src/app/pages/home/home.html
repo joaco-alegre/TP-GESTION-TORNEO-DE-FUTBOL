@@ -6,9 +6,9 @@
       <p data-aos="fade-right"
          data-aos-duration="3000">{{ 'home.hero.subtitulo' | transloco }}</p>
       
-     <a routerLink="/es/torneos" class="btn-primary pulse" 
+     <button [routerLink]="['/es/torneos']" class="btn-primary pulse" 
      data-aos="fade-left"
-     data-aos-duration="3000" >{{ 'home.hero.boton' | transloco }}</a>
+     data-aos-duration="3000" >{{ 'home.hero.boton' | transloco }}</button>
     </div>
 
 
@@ -130,7 +130,7 @@
               
             <div class="card-body text-center">
               <h5 class="card-title mt-2">{{ usuario.nombre }}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{ usuario.rolUser }}</h6> 
+              <h6 class="card-subtitle mb-2 text-muted">{{ usuario.rolScrum }}</h6> 
             </div>
           </div>
         </div>

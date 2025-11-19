@@ -66,7 +66,7 @@ export class TorneoDetailsAdmin implements OnInit{
 
 
       goBack(): void {
-    this.router.navigate(['/torneos-admin', ]);
+    this.router.navigate(['/admin/torneos-admin', ]);
   }
 
 }

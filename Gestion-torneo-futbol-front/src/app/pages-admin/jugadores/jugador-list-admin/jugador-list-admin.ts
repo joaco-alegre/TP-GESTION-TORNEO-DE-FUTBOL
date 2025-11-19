@@ -147,9 +147,9 @@ export class JugadorListAdmin implements OnInit{
   
     goBack(): void {
     if (this.torneoId) {
-      this.router.navigate(['/equipo-admin', this.torneoId]);
+      this.router.navigate(['/admin/equipo-admin', this.torneoId]);
     } else {
-      this.router.navigate(['/torneos-admin']);
+      this.router.navigate(['/admin/torneos-admin']);
     }
   }
 }

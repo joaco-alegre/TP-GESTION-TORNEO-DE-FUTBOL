@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink, RouterModule } from "@angular/router";
+import { ActivatedRoute, Router, RouterLink, RouterModule } from "@angular/router";
 import Torneo from '../../../model/torneo';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-torneo-list',
@@ -15,16 +16,30 @@ import { Lightbox, LightboxModule } from 'ngx-lightbox';
 export class TorneoListAdmin implements OnInit{
 
     torneos: Torneo[] = [];
+    currentUserId: string | null = null;
+    private querySub: Subscription | undefined;
 
   constructor(private torneoService: TorneoService,
               private router: Router,
               private location: Location,
-              private lightbox: Lightbox
+              private lightbox: Lightbox,
+              private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+
+  this.querySub = this.route.queryParamMap.subscribe(params => {
+        const idFromQuery = params.get('referrerId'); 
+        
+        if (idFromQuery) {
+            this.currentUserId = idFromQuery;
+            console.log('ID del usuario logueado recibido por Query Param:', this.currentUserId);
+        }
+    });
+
     this.cargarTorneo();
   }
+  
 
   cargarTorneo(): void {
 
@@ -34,7 +49,7 @@ export class TorneoListAdmin implements OnInit{
   }
 
   verEquipos(torneoId: string) {
-    this.router.navigate(['/equipos-admin', torneoId]);
+    this.router.navigate(['/admin/equipos-admin', torneoId]);
   }
 
   abrirImagen(url: string | null | undefined): void {
@@ -56,7 +71,7 @@ export class TorneoListAdmin implements OnInit{
     }
 
     goBack(): void {
-    this.router.navigate(['/admin/usuario-home/', ]);
+    this.router.navigate(['/admin/usuario-home/', this.currentUserId]);
   }
   
 }

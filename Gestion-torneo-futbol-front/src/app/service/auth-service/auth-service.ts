@@ -1,7 +1,9 @@
+// En: src/app/services/auth.service.ts
+
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Router } from '@angular/router'; 
+import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -15,19 +17,26 @@ login(email: string, password: string, role: string): Observable<any> {
 
     const apiUrl = role === 'dt' ? this.dtsUrl : this.usuariosUrl;
     
-return this.http.get<any[]>(`${apiUrl}?usuario=${email}&password=${password}`).pipe(
+    return this.http.get<any[]>(`${apiUrl}?email=${email}&password=${password}`).pipe(
       map(users => {
         if (users && users.length > 0) {
           const user = users[0];
-          const payload = { 
+          
+          const payload: any = { 
             id: user.id, 
             nombre: user.nombre, 
-            role: role 
+            role: role, 
           };
+
+          if (role === 'dt') {
+            payload.idEquipo = user.idEquipo || null; 
+          }
+
           localStorage.setItem('token', btoa(JSON.stringify(payload)));
           
           return payload; 
         }
+        
         throw new Error('Credenciales inválidas');
       })
     );
@@ -53,4 +62,13 @@ return this.http.get<any[]>(`${apiUrl}?usuario=${email}&password=${password}`).p
     localStorage.removeItem('token');
     this.router.navigate(['/es/inicio-sesion']); 
   }
+
 }
+
+
+
+
+
+
+
+

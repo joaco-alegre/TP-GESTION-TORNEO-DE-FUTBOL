@@ -27,7 +27,7 @@
 
 
 <label for="escudo">{{ 'admin.formularioEquipo.labelEscudo' | transloco }}</label>
-<input id="escudo" type="file" formControlName="escudo"
+<input id="escudo" type="text" formControlName="escudo"
        [class.is-invalid]="equipoForm.get('escudo')?.invalid && equipoForm.get('escudo')?.touched">
 
 @if (equipoForm.get('escudo')?.invalid && equipoForm.get('escudo')?.touched) {

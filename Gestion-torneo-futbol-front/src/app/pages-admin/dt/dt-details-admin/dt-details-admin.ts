@@ -15,7 +15,7 @@ import { LightboxModule, Lightbox } from 'ngx-lightbox';
 export class DtDetailsAdmin  implements OnInit{
 
       dt?: DT;
-      returnUrl?: string = '/usuario-home';
+      returnUrl?: string = '/admin/usuario-home';
   
     constructor(
       private dtService: DtService,
@@ -30,7 +30,7 @@ export class DtDetailsAdmin  implements OnInit{
       const id = this.route.snapshot.params['id'];
       this.dtService.geDtById(id).subscribe(data => this.dt = data);
 
-      this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/usuario-home';
+      this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/admin/usuario-home';
     }
 
 

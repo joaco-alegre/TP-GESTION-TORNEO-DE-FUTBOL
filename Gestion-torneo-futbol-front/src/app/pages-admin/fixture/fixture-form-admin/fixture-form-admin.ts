@@ -78,7 +78,7 @@ buscarNombreEquipos(localId: string, visitaId: string): void {
 
   onSubmit(): void {
     if (this.fixtureForm.invalid) return;
-    const rutaDeVuelta = ['/fixture-detalles-admin', this.fixtureID];
+    const rutaDeVuelta = ['admin/fixture-detalles-admin', this.fixtureID];
 
     if (this.fixtureID) {
       const fixtureData: Fixture = { ...this.fixtureForm.value, id: this.fixtureID }; 

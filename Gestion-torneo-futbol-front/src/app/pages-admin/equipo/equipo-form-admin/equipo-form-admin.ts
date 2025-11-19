@@ -79,11 +79,11 @@ const idTorneoParaNavegar = this.equipoForm.value.idTorneo;
       const equipoData: Equipo = { id: this.equipoID, ...this.equipoForm.value }; 
 
       this.equipoService.updateEquipo(equipoData).subscribe({
-        next: () => {this.router.navigate(['/equipo-details-admin', this.equipoID]),
+        next: () => {this.router.navigate(['admin/equipo-details-admin', this.equipoID]),
             alert("Equipo actualizado!")},
         error: (e) => {console.log(e), 
             alert("error al actualizar el equipo"),
-            this.router.navigate(['/equipo-admin/', idTorneoParaNavegar])
+            this.router.navigate(['admin/equipo-admin/', idTorneoParaNavegar])
         } });
 
     } else {
@@ -93,11 +93,11 @@ const idTorneoParaNavegar = this.equipoForm.value.idTorneo;
       delete equipoData.id;
       
       this.equipoService.postEquipo(equipoData).subscribe({
-        next: () => {this.router.navigate(['/equipo-admin/', idTorneoParaNavegar]); 
+        next: () => {this.router.navigate(['admin/equipo-admin/', idTorneoParaNavegar]); 
           alert("Equipo agregado!")},
         error: (e) => {console.log(e), 
             alert("error al cargar el equipo"),
-            this.router.navigate(['/equipo-admin/', idTorneoParaNavegar])
+            this.router.navigate(['admin/equipo-admin/', idTorneoParaNavegar])
         } });
     }
 }
@@ -105,16 +105,16 @@ const idTorneoParaNavegar = this.equipoForm.value.idTorneo;
 goBack(): void {
     
     if (this.equipoID && this.equipo) {
-        this.router.navigate(['/equipo-details-admin', this.equipoID]);
+        this.router.navigate(['/admin/equipo-details-admin', this.equipoID]);
         return;
     } 
     
     else if (this.torneoID) {
-        this.router.navigate(['/equipo-admin', this.torneoID]);
+        this.router.navigate(['/admin/equipo-admin', this.torneoID]);
         return;
     }
     
-    this.router.navigate(['/torneos-admin']); 
+    this.router.navigate(['/admin/torneos-admin', ]); 
   }
 
 

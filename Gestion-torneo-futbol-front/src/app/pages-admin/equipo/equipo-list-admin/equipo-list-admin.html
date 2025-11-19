@@ -5,7 +5,7 @@
 
 <ul data-aos="zoom-out-down">
   @for (equipo of equipos; track equipo.id) {
-    <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable"
+    <li [routerLink]="['/admin/jugador-lista-admin/', equipo.id]" class="fila-clickeable"
     [queryParams]="{ torneoId: torneoId }">
       
       <div class="item-info card-foto">
@@ -17,7 +17,7 @@
       
       <div class="action-buttons">
         <button class="btn-detalles"
-                [routerLink]="['/equipo-details-admin', equipo.id]" 
+                [routerLink]="['/admin/equipo-details-admin', equipo.id]" 
                 (click)="$event.stopPropagation()">
           {{ 'admin.botones.detalles' | transloco }}
         </button>
@@ -30,7 +30,7 @@
 
 <div class="agregar-container">
   <button class="btn-agregar pulse" 
-    [routerLink]="['/equipo-formulario-admin']" 
+    [routerLink]="['/admin/equipo-formulario-admin']" 
     [queryParams]="{ idTorneo: torneoId}">
     {{ 'admin.equipoLista.agregar' | transloco }}
   </button>

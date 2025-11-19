@@ -1,27 +1,27 @@
-<h2 data-aos="fade-right" >{{ 'admin.adminMenu.titulo' | transloco }}</h2>
+<h2 data-aos="fade-right" class="rotate">{{ 'admin.adminMenu.titulo' | transloco }}</h2>
 
 <div class="menu-container" data-aos="zoom-out-left">
   <ul class="admin-menu-grid">
     <li>
-      <a [routerLink]="['/admin/torneos-admin']">{{ 'admin.adminMenu.verTorneos' | transloco }}</a>
+      <a [routerLink]="['/admin/torneos-admin']" [queryParams]="{ referrerId: currentUserId }">{{ 'admin.adminMenu.verTorneos' | transloco }}</a>
     </li>
     <li>
-      <a [routerLink]="['/admin/usuario-details-admin', IDgenerico]">{{ 'admin.adminMenu.detallesCuenta' | transloco }}</a>
+      <a [routerLink]="['/admin/usuario-details-admin/', currentUserId]">{{ 'admin.adminMenu.detallesCuenta' | transloco }}</a>
     </li>
     <li>
-      <a [routerLink]="['/admin/usuario-list-admin']">{{ 'admin.adminMenu.verAdministradores' | transloco }}</a>
+      <a [routerLink]="['/admin/usuario-list-admin']" [queryParams]="{ referrerId: currentUserId }">{{ 'admin.adminMenu.verAdministradores' | transloco }}</a>
     </li>
     <li>
-      <a [routerLink]="['/admin/dt-list-admin']">{{ 'admin.adminMenu.verDts' | transloco }}</a>
+      <a [routerLink]="['/admin/dt-list-admin']" [queryParams]="{ referrerId: currentUserId }">{{ 'admin.adminMenu.verDts' | transloco }}</a>
     </li>
     <li>
-      <a [routerLink]="['/admin/jugadores-libres-list-admin']">{{ 'admin.adminMenu.verJugadoresLibres' | transloco }}</a>
+      <a [routerLink]="['/admin/jugadores-libres-list-admin']" [queryParams]="{ referrerId: currentUserId }">{{ 'admin.adminMenu.verJugadoresLibres' | transloco }}</a>
     </li>
     <li>
-      <a [routerLink]="['/admin/panel-noticias-admin/']">{{ 'admin.adminMenu.panelNoticias' | transloco }}</a>
+      <a [routerLink]="['/admin/panel-noticias-admin/']" [queryParams]="{ referrerId: currentUserId }" >{{ 'admin.adminMenu.panelNoticias' | transloco }}</a>
     </li>
     <li>
-      <a [routerLink]="['/admin/panel-cotacto-admin/']">{{ 'admin.adminMenu.panelContacto' | transloco }}</a>
+      <a [routerLink]="['/admin/panel-cotacto-admin/']" [queryParams]="{ referrerId: currentUserId }">{{ 'admin.adminMenu.panelContacto' | transloco }}</a>
     </li>
   </ul>
 </div>

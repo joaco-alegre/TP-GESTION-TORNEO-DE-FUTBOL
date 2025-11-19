@@ -17,7 +17,7 @@
 
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/dt-detalles-admin/', dt.id]"
+                  [routerLink]="['/admin/dt-detalles-admin/', dt.id]"
                   [queryParams]="{ returnUrl: '/dt-list-admin'}" 
                   (click)="$event.stopPropagation()">
             {{ 'admin.botones.detalles' | transloco }}
@@ -30,7 +30,7 @@
   </ul>
 
   <div class="agregar-container slide">
-    <button class="btn-agregar" [routerLink]="['/dt-formulario-admin']">
+    <button class="btn-agregar" [routerLink]="['/admin/dt-formulario-admin']">
       {{ 'admin.dtLista.agregar' | transloco }}
     </button>
   </div>

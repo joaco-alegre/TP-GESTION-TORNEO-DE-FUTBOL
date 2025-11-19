@@ -23,7 +23,7 @@
   }
 
  <label for="logo">{{ 'admin.formularioTorneo.labelLogo' | transloco }}</label>
-  <input id="logo" type="file" formControlName="logo"
+  <input id="logo" type="text" formControlName="logo"
          [class.is-invalid]="torneoForm.get('logo')?.invalid && torneoForm.get('logo')?.touched">
 
   @if (torneoForm.get('logo')?.invalid && torneoForm.get('logo')?.touched) {
@@ -33,7 +33,7 @@
   }
 
   <label for="ultimoCampeon">{{ 'admin.formularioTorneo.labelCampeon' | transloco }}</label>
-  <input id="ultimoCampeon" type="file" formControlName="ultimoCampeon">
+  <input id="ultimoCampeon" type="text" formControlName="ultimoCampeon">
   
 
   <label for="estado">{{ 'admin.formularioTorneo.labelEstado' | transloco }}</label>

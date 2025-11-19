@@ -52,6 +52,13 @@ export class JugadorFormAdmin implements OnInit{
     if (this.jugadorID) {
       this.jugadorService.getJugadorById(this.jugadorID).subscribe(data => {
 
+        const fechaObj = new Date(data.fechaNacimiento);
+        const anio = fechaObj.getFullYear();
+        const mes = String(fechaObj.getMonth() + 1).padStart(2, '0');
+        const dia = String(fechaObj.getDate()).padStart(2, '0');
+        
+        const fechaCorta = `${anio}-${mes}-${dia}`;
+
         this.fotoActual = data.foto;
         this.equipoID = data.idEquipo;
         const datosParaFormulario = { ...data };
@@ -96,8 +103,6 @@ export class JugadorFormAdmin implements OnInit{
       return;
     }
 
-    const rutaDeVuelta = ['/jugador-lista-admin', this.equipoID];
-
     if (this.jugadorID) {
       const formValues = this.jugadorForm.value;
       const jugadorData: Jugador = { 
@@ -108,12 +113,12 @@ export class JugadorFormAdmin implements OnInit{
 
       this.jugadorService.updateJugador(jugadorData).subscribe({
         next: () => {
-          this.router.navigate(['/jugador-details-admin', this.jugadorID]);
+          this.router.navigate(['/admin/jugador-detalles-admin/', this.jugadorID]);
           alert("Jugador actualizado!");
         },
         error: (e) => {
           console.log(e);
-          this.router.navigate(['/jugador-lista-admin', this.equipoID]); 
+          this.router.navigate(['/admin/jugador-lista-admin', this.equipoID]); 
           alert("Error al actualizar el jugador");
         } 
       });
@@ -125,13 +130,13 @@ export class JugadorFormAdmin implements OnInit{
       
       this.jugadorService.postJugador(jugadorData).subscribe({
         next: () => {
-          this.router.navigate(['/jugador-lista-admin', this.equipoID]);
+          this.router.navigate(['/admin/jugador-lista-admin', this.equipoID]);
           alert("Jugador agregado!");
         },
         error: (e) => {
           console.log(e); 
           alert("Error al cargar el jugador");
-          this.router.navigate(['/jugador-lista-admin', this.equipoID]);
+          this.router.navigate(['/admin/jugador-lista-admin', this.equipoID]);
         } 
       });
     }
@@ -140,14 +145,14 @@ export class JugadorFormAdmin implements OnInit{
     goBack(): void {
     
     if (this.jugadorID) {
-        this.router.navigate(['/jugador-detalles-admin', this.jugadorID]);
+        this.router.navigate(['/admin/jugador-detalles-admin', this.jugadorID]);
     } 
 
     else if (this.equipoID) {
-        this.router.navigate(['/jugador-lista-admin', this.equipoID]);
+        this.router.navigate(['/admin/jugador-lista-admin', this.equipoID]);
     }
     else {
-        this.router.navigate(['/admin-menu']);
+        this.router.navigate(['/admin/admin-menu']);
     }
 }
 

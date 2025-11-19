@@ -1,24 +1,24 @@
 <h2 data-aos="fade-right" class="">
-  {{ 'dtPortal.menu.bienvenido' | transloco }} {{ dt?.nombre }} !!!
+  {{ 'dtPortal.menu.bienvenido' | transloco }}!!!
 </h2>
 
 <div class="menu-container" data-aos="zoom-out-left">
   <ul class="admin-menu-grid">
     
     <li>
-      <a [routerLink]="['/dt-mi-equipo']">
+      <a [routerLink]="['/dt/dt-mi-equipo']">
         {{ 'dtPortal.menu.miEquipo' | transloco }}
       </a>
     </li>
     
     <li>
-      <a [routerLink]="['/dt-jugadores-libres']">
+      <a [routerLink]="['/dt/dt-jugadores-libres']">
         {{ 'dtPortal.menu.jugadoresLibres' | transloco }}
       </a>
     </li>
     
     <li>
-      <a [routerLink]="['/dt-dt-details', IDgenerico]"> 
+      <a [routerLink]="['/dt/dt-dt-details', IDgenerico]"> 
         {{ 'dtPortal.menu.misDetalles' | transloco }}
       </a>
     </li>

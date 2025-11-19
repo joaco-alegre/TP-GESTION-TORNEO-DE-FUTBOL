@@ -31,7 +31,7 @@ export class FixtureDetailsAdmin implements OnInit{
   
     ngOnInit(): void {
 
-      this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/usuario-home';
+      this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || 'admin/usuario-home';
       
       const fixtureId = this.route.snapshot.paramMap.get('id');
 

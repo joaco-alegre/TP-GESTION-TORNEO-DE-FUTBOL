@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ContactoService } from '../../../service/contacto-service/contacto-service';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-panel-contacto',
@@ -13,14 +14,31 @@ import { Router } from '@angular/router';
 export class PanelContacto implements OnInit{
 
   mensajes: any[] = [];
+      currentUserId: string | null = null;
+      private querySub: Subscription | undefined;
 
   constructor(private contactoService: ContactoService,
     private location: Location,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+
+
     this.cargarMensajes();
+
+
+                      this.querySub = this.route.queryParamMap.subscribe(params => {
+        const idFromQuery = params.get('referrerId'); 
+        
+        if (idFromQuery) {
+            this.currentUserId = idFromQuery;
+            console.log('ID del usuario logueado recibido por Query Param:', this.currentUserId);
+        }
+    });
+
+
   }
 
   cargarMensajes(): void {
@@ -30,7 +48,7 @@ export class PanelContacto implements OnInit{
   }
 
     goBack(): void {
-    this.router.navigate(['/usuario-home'])
+    this.router.navigate(['/admin/usuario-home', this.currentUserId])
   }
 
 }

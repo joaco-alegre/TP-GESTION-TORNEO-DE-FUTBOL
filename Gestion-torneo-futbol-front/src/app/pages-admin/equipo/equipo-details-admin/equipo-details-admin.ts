@@ -89,7 +89,7 @@ export class EquipoDetailsAdmin implements OnInit{
 
 
       goBack(): void {
-    this.router.navigate(['/equipo-admin', this.equipo?.idTorneo]);
+    this.router.navigate(['/admin/equipo-admin', this.equipo?.idTorneo]);
   }
 
 

@@ -46,7 +46,7 @@
 }
 
     <label for="foto">{{ 'admin.formularioNoticia.labelFoto' | transloco }}</label>
-    <input id="foto" formControlName="foto" type="file"
+    <input id="foto" formControlName="foto" type="text"
            [class.is-invalid]="noticiaForm.get('foto')?.invalid && noticiaForm.get('foto')?.touched">
     
     @if (noticiaForm.get('foto')?.invalid && noticiaForm.get('foto')?.touched) {

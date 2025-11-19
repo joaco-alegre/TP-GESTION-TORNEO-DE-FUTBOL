@@ -2,7 +2,7 @@
 
 @if (dt) {
 
-  <div class="detalle-container" data-aos="zoom-in-up"> 
+  <div class="detalle-container"  data-aos="zoom-in-up"> 
     
     <h2 class="titulo-pagina">{{ dt.nombre }}</h2>
 
@@ -37,7 +37,7 @@
 
         <div class="action-buttons-footer">
           <button class="btn-editar"
-                  [routerLink]="['/dt-formulario-admin/', dt.id]">
+                  [routerLink]="['/admin/dt-formulario-admin/', dt.id]">
             {{ 'admin.botones.editar' | transloco }}
           </button>
           

@@ -24,7 +24,7 @@ export class JugadorDetailsAdmin {
     equipoDelJugador?: Equipo;
     todosJugadores: Jugador[] = [];
     equipoId?: string;
-    returnUrl: string = '/usuario-home';
+    returnUrl: string = '/admin/usuario-home';
 
   constructor(
     private jugadorService: JugadorService,
@@ -40,7 +40,7 @@ export class JugadorDetailsAdmin {
     const id = this.route.snapshot.params['id'];
     this.jugadorService.getJugadorById(id).subscribe(data => this.jugador = data);
 
-    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/usuario-home';
+    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/admin/usuario-home';
 
     this.getDatosDelJugador(id);
     

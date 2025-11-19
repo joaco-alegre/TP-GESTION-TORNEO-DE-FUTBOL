@@ -11,7 +11,7 @@
           (click)="abrirImagen(usuario?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
           class="item-logo item-foto-jugador">
 
-          <span class="item-nombre">{{ usuario.nombre }} - ({{ usuario.rolUser }})</span>
+          <span class="item-nombre">{{ usuario.nombre }} - ({{ usuario.rolScrum }})</span>
         </div>
         
         </li>
@@ -21,7 +21,7 @@
   </ul>
 
   <div class="agregar-container heartbeat">
-    <button class="btn-agregar" [routerLink]="['/usuario-form-admin']">
+    <button class="btn-agregar" [routerLink]="['/admin/usuario-form-admin']">
       {{ 'admin.adminLista.agregar' | transloco }}
     </button>
   </div>

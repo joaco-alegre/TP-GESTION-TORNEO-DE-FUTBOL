@@ -238,12 +238,15 @@
       "estiloOfensivo": "Offensive",
       "botonAgregar": "Add",
       "botonActualizar": "Update",
+      "labelPassword": "Password:",
+      "placeholderPassword": "Create a password",
       "validation": {
         "nombreRequerido": "Name is required.",
         "estiloRequerido": "You must select a style.",
         "usuarioRequerido": "User email is required.",
         "usuarioFormato": "The email format is invalid.",
-        "fotoRequerida": "Photo is required (only when adding)."
+        "fotoRequerida": "Photo is required (only when adding).",
+        "passwordRequerido": "Password is required."
       }
     },
     "jugadorDetallesAdmin": {
@@ -339,6 +342,7 @@
       "nombre": "Name:",
       "usuario": "Username:",
       "rol": "Role:",
+      "rolScrum": "Rol Scrum",
       "email": "User (Email):",
       "password": "Password:",
       "botonEditar": "Edit Profile",

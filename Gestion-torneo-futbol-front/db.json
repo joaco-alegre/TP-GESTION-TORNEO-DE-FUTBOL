@@ -2,70 +2,113 @@
   "torneos": [
     {
       "id": "t-001",
-      "nombre": "Copa de Campeones 2025",
-      "fechaInicio": "2025-03-01T00:00:00Z",
-      "fechaFin": "2025-06-30T00:00:00Z",
-      "estadoTorneo": "Comenzado",
-      "logo": "",
-      "ultimoCampeon": ""
+      "nombre": "Serie A",
+      "logo": "https://i.ibb.co/FbzGd1NS/se1113l151-serie-a-logo-lega-serie-a-european-leagues.png",
+      "ultimoCampeon": "https://i.ibb.co/T9Ybxtg/primera-nacional-como-se-jugara-el-torneo-de-ascenso-2023-y-cuando-empieza-1102077.jpg",
+      "estadoTorneo": "comenzado",
+      "fechaInicio": "2025-11-30",
+      "fechaFin": "2025-12-25"
+    },
+    {
+      "id": "1521",
+      "nombre": "Bundesliga",
+      "logo": "https://i.ibb.co/d4KztpnM/alemania.png",
+      "ultimoCampeon": "https://i.ibb.co/0jRyPjY8/imago0047462838h-scaled.webp",
+      "estadoTorneo": "pendiente",
+      "fechaInicio": "2025-11-20",
+      "fechaFin": "2025-12-21"
+    },
+    {
+      "id": "12a6",
+      "nombre": "La liga",
+      "logo": "https://i.ibb.co/mrwYcDBL/laliga-logo1-727x1024.png",
+      "ultimoCampeon": "https://i.ibb.co/bMsjsjcc/el-fc-barcelona-es-campeon-de-laliga-espanola-41543.jpg",
+      "estadoTorneo": "comenzado",
+      "fechaInicio": "2025-11-28",
+      "fechaFin": "2025-12-26"
+    },
+    {
+      "id": "01d9",
+      "nombre": "Liga Profesional",
+      "logo": "https://i.ibb.co/60vswbzp/1.png",
+      "ultimoCampeon": "https://i.ibb.co/kVSCsK4W/i.jpg",
+      "estadoTorneo": "espera",
+      "fechaInicio": "2025-11-20",
+      "fechaFin": "2025-12-27"
+    },
+    {
+      "id": "c555",
+      "nombre": "Copa Sudamericana ",
+      "logo": "https://i.ibb.co/j9fsxCtf/copa-sulamericana-logo.png",
+      "ultimoCampeon": "https://i.ibb.co/svt5SzYq/HJPz-R8kzf-1256x620.jpg",
+      "estadoTorneo": "pendiente",
+      "fechaInicio": "2025-11-28",
+      "fechaFin": "2025-12-18"
+    },
+    {
+      "id": "4c54",
+      "nombre": "Copa Libertadores",
+      "logo": "https://i.ibb.co/8nf0NVxN/copa-libertadores-logo.png",
+      "ultimoCampeon": "https://i.ibb.co/qH9tfQ0/final-copa-libertadores-botafogo-atletico-mineiro-1440x810.webp",
+      "estadoTorneo": "terminado",
+      "fechaInicio": "2025-11-06",
+      "fechaFin": "2025-11-29"
+    },
+    {
+      "id": "3b3b",
+      "nombre": "Copa Mundial",
+      "logo": "https://i.ibb.co/pjVMPmh6/trophy-world-cup-football-free-png.webp",
+      "ultimoCampeon": "https://i.ibb.co/21Rszfp4/campeones.webp",
+      "estadoTorneo": "comenzado",
+      "fechaInicio": "2025-11-28",
+      "fechaFin": "2025-12-18"
+    },
+    {
+      "id": "e1f5",
+      "nombre": "Champions League",
+      "logo": "https://i.ibb.co/VY310P5K/uefa-champions-league-logo-0.png",
+      "ultimoCampeon": "https://i.ibb.co/fdxdvJqV/paris-saint-germain-logro-una-goleada-inolvidable-ZRQMHHGTZZCSFJVOGTKNWJRVBQ.jpg",
+      "estadoTorneo": "espera",
+      "fechaInicio": "2025-10-31",
+      "fechaFin": "2025-12-05"
     }
   ],
   "equipos": [
     {
       "id": "e-001",
-      "nombre": "Los Halcones FC",
-      "idTorneo": "t-001",
-      "escudo": ""
+      "nombre": "Roma",
+      "escudo": "https://i.ibb.co/cSsbfkwD/AS-Roma-logo-2017-svg.png",
+      "idTorneo": "t-001"
     },
     {
       "id": "e-002",
-      "nombre": "Estrella Roja",
-      "idTorneo": "t-001",
-      "escudo": ""
-    }
-  ],
-  "dts": [
-    {
-      "id": "dt-001",
-      "nombre": "Marcelo Gallardo",
-      "fechaNacimiento": "1976-01-18T00:00:00Z",
-      "equipoID": "e-001",
-      "estiloJuego": "Ofensivo",
-      "usuario": "dt@goalmanager.com",
-      "foto": "",
-      "contrasenia": "dt123"
+      "nombre": "Napoli",
+      "escudo": "https://i.ibb.co/DHKXrZ2n/SSC-Napoli-svg.png",
+      "idTorneo": "t-001"
     },
     {
-      "id": "dt-002",
-      "nombre": "Pep Guardiola",
-      "fechaNacimiento": "1971-01-18T00:00:00Z",
-      "equipoID": null,
-      "estiloJuego": "Posesión",
-      "usuario": "pep@goalmanager.com",
-      "foto": "",
-      "contrasenia": "pep123"
+      "id": "72e2",
+      "nombre": "Juventus",
+      "escudo": "https://i.ibb.co/bjVp9Bz4/Juventus-Logo.png",
+      "idTorneo": "t-001"
     }
   ],
   "jugadores": [
     {
       "id": "j-101",
       "nombre": "Lionel Messi",
-      "edad": 37,
-      "fechaNacimiento": "1987-06-24T00:00:00Z",
-      "numeroCamiseta": 10,
-      "posicion": "Delantero",
+      "foto": "https://i.ibb.co/wFBXR7XW/licensed-image-2.jpg",
       "idEquipo": "e-001",
-      "foto": ""
+      "fechaNacimiento": "1988-06-24",
+      "numeroCamiseta": 10
     },
     {
       "id": "j-102",
-      "nombre": "Ezequiel G.",
-      "edad": 25,
-      "fechaNacimiento": "1999-05-15T00:00:00Z",
-      "numeroCamiseta": 7,
-      "posicion": "Volante",
+      "nombre": "Cristian Romero",
+      "foto": "https://i.ibb.co/MD5nH3Jb/cuti-romero-1440x810-wmk.webp",
       "idEquipo": "e-001",
-      "foto": ""
+      "fechaNacimiento": "1990-06-13",
+      "numeroCamiseta": 6
     },
     {
       "id": "j-103",
@@ -76,6 +119,30 @@
       "posicion": "Defensa",
       "idEquipo": "",
       "foto": ""
+    },
+    {
+      "id": "adac",
+      "nombre": "Angel Di Maria",
+      "foto": "https://i.ibb.co/v4xpGBG3/DIMARIA-ANGEL-GRANDE.png",
+      "idEquipo": "e-001",
+      "fechaNacimiento": "1986-06-13",
+      "numeroCamiseta": 10
+    },
+    {
+      "id": "91a1",
+      "nombre": "alexis Mac Aliister",
+      "foto": "https://i.ibb.co/dJH3J9p2/alexis-mac-allister-sorprendio-a-todos-con-el-KING55-RVE5-GU7-K2-E6-JHGNE2-SIU.jpg",
+      "idEquipo": "e-001",
+      "fechaNacimiento": "1995-06-14",
+      "numeroCamiseta": 14
+    },
+    {
+      "id": "7cb2",
+      "nombre": "ErlingHaaland",
+      "foto": "https://i.ibb.co/CKBn50qJ/i-1.jpg",
+      "idEquipo": "e-002",
+      "fechaNacimiento": "2000-07-13",
+      "numeroCamiseta": 10
     }
   ],
   "fixtures": [
@@ -83,11 +150,10 @@
       "id": "f-001",
       "equipoLocalID": "e-001",
       "equipoVisitaID": "e-002",
-      "golesEquipo1": "2",
+      "golesEquipo1": 4,
       "golesEquipo2": "1",
-      "fechaPartido": "2025-05-15T19:00:00Z",
-      "estadoPartido": "Finalizado",
-      "estadoFixture": "Finalizado"
+      "fechaPartido": "2025-05-15T23:00",
+      "estadoPartido": "Finalizado"
     }
   ],
   "estadisticasGoleadores": [
@@ -101,10 +167,31 @@
   "noticias": [
     {
       "id": "n-001",
-      "tituloEs": "Los Halcones ganan el clásico de la Copa",
-      "tituloEn": "Falcons win the Cup derby",
-      "foto": "",
-      "link": "https://www.tycsports.com/detalle-noticia"
+      "tituloEs": "Messi volvió a Barcelona: visitó el nuevo Camp Nou y recordó que ahí fue \"inmensamente feliz”",
+      "tituloEn": "Messi returned to Barcelona: he visited the new Camp Nou and recalled that he was \"immensely happy\" there.",
+      "link": "http://tycsports.com/espana/la-liga/messi-nuevo-camp-nou-visita-id697914.html",
+      "foto": "https://i.ibb.co/Gfnr6gH9/leo-messi-en-el-nuevo-camp-nou-w862.webp"
+    },
+    {
+      "id": "e465",
+      "tituloEs": "Los goles y la asistencia 400 de Lionel Messi en Inter Miami vs Nashville por la MLS",
+      "tituloEn": "Lionel Messi's goals and 400th assist in Inter Miami vs Nashville in the MLS",
+      "link": "https://www.tycsports.com/estados-unidos/mls/lionel-messi-goles-inter-miami-nashville-mls-playoffs-doblete-silvetti-id697737.html",
+      "foto": "https://i.ibb.co/0Vn7m79n/messi-y-silvetti-inter-miami-w862.webp"
+    },
+    {
+      "id": "031e",
+      "tituloEs": "El plan de Messi para la última gira de la Selección Argentina en 2025",
+      "tituloEn": "Messi's plan for the Argentine National Team's final tour in 2025",
+      "link": "https://www.tycsports.com/seleccion-argentina/el-plan-de-messi-para-la-ultima-gira-de-la-seleccion-argentina-en-2025-id697213.html",
+      "foto": "https://i.ibb.co/Fb4D4szn/lionel-messi-seleccion-argentina-w862.webp"
+    },
+    {
+      "id": "0d21",
+      "tituloEs": "Pochettino se rindió ante Messi: \"Ayuda a que los niños quieran jugar al fútbol en Estados Unidos\"",
+      "tituloEn": "Pochettino surrendered to Messi: \"He helps children want to play football in the United States\"",
+      "link": "https://www.tycsports.com/estados-unidos/mls/mauricio-pochettino-lionel-messi-id697078.html",
+      "foto": "https://i.ibb.co/d0BjdNFD/lionel-messi-w862.webp"
     }
   ],
   "mensajes": [
@@ -115,33 +202,59 @@
       "consulta": "Me gustaría saber si hay torneos abiertos para mi equipo."
     }
   ],
+  "DTs": [
+    {
+      "id": "dt-001",
+      "nombre": "Marcelo Gallardo",
+      "equipoID": "e-001",
+      "estiloJuego": "ofensivo",
+      "usuario": "dt@goalmanager.com",
+      "password": "dt123",
+      "foto": "https://i.ibb.co/ynZC9XFt/licensed-image-1.jpg"
+    },
+    {
+      "id": "dt-002",
+      "nombre": "Pep Guardiola",
+      "equipoID": "e-002",
+      "estiloJuego": "equilibrado",
+      "usuario": "pep@goalmanager.com",
+      "foto": "https://i.ibb.co/wNG5vB85/licensed-image.jpg"
+    },
+    {
+      "id": "a745",
+      "nombre": "Marcelo Bielsa",
+      "equipoID": "77e2",
+      "estiloJuego": "defensivo",
+      "usuario": "marcelo@bielsa.com",
+      "password": "12345",
+      "foto": "https://i.ibb.co/4g1qyMdk/28865.jpg"
+    }
+  ],
   "usuarios": [
     {
       "id": "u-001",
       "nombre": "Joaquín",
-      "username": "admin",
-      "password": "12345",
+      "rolScrum": "Scrum Master",
+      "foto": "https://i.ibb.co/ML73mh7/Joaquin-Alegre.jpg",
       "email": "joaco12-2002@hotmail.com",
-      "rolUser": "usuario",
-      "foto": "https://i.ibb.co/ML73mh7/Joaquin-Alegre.jpg"
+      "password": "12345"
     },
-        {
+    {
       "id": "u-002",
       "nombre": "Marcos",
-      "username": "admin",
+      "role": "usuario",
+      "rolScrum": "Developer",
       "password": "12345",
       "email": "Bettinellimarcos@gmail.com",
-      "rolUser": "usuario",
-      "foto": ""
+      "foto": "https://i.ibb.co/jP88hYYj/foto-perfil-3.jpg"
     },
-            {
+    {
       "id": "u-003",
       "nombre": "Facundo",
-      "username": "admin",
-      "password": "12345",
+      "rolScrum": "Developer",
+      "foto": "https://i.ibb.co/VcHqdyLh/IMG-20220921-1801011.jpg",
       "email": "Facubustos2107@gmail.com",
-      "rolUser": "usuario",
-      "foto": ""
+      "password": "12345"
     }
   ]
 }

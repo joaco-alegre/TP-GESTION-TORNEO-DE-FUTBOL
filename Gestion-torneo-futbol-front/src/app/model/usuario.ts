@@ -1,9 +1,9 @@
 export default interface Usuario{
   id?: string;
   nombre: string;
-  username: string;
-  password: string;
+  rolScrum: string;
   email: string;
-  rolUser: string;
+  password: string;
   foto?:string;
+  role: string;
 }

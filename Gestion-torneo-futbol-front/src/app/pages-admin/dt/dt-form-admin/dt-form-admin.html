@@ -60,8 +60,21 @@
     </div>
   }
 
+    <label for="password">{{ 'admin.formularioDt.labelPassword' | transloco }}</label>
+    <input id="password" type="password" formControlName="password" 
+          [placeholder]="'admin.formularioDt.placeholderPassword' | transloco"
+          [class.is-invalid]="DtForm.get('password')?.invalid && DtForm.get('password')?.touched">
+
+    @if (DtForm.get('password')?.invalid && DtForm.get('password')?.touched) {
+      <div class="validation-error">
+        @if (DtForm.get('password')?.hasError('required')) {
+          <p>{{ 'admin.formularioDt.validation.passwordRequerido' | transloco }}</p>
+        }
+      </div>
+    }
+
   <label for="foto">{{ 'admin.formularioDt.labelFoto' | transloco }}</label>
-  <input id="foto" type="file" formControlName="foto"
+  <input id="foto" type="text" formControlName="foto"
          [class.is-invalid]="DtForm.get('foto')?.invalid && DtForm.get('foto')?.touched">
   
   @if (DtForm.get('foto')?.invalid && DtForm.get('foto')?.touched) {

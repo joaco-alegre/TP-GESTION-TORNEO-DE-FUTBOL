@@ -49,7 +49,6 @@ this.torneoID = this.route.snapshot.params['id'];
         .subscribe(data => {
           const datosParaFormulario = { ...data };
 
-          delete datosParaFormulario.ultimoCampeon;
           this.torneoForm.patchValue(datosParaFormulario);
         });
 
@@ -70,11 +69,11 @@ this.torneoID = this.route.snapshot.params['id'];
       const torneoData: Torneo = { id: this.torneoID, ...this.torneoForm.value }; 
 
       this.torneoService.updateTorneo(torneoData).subscribe({
-        next: () => {this.router.navigate(['/torneos-admin']),
+        next: () => {this.router.navigate(['/admin/torneos-admin']),
             alert("Torneo actualizado!")},
         error: (e) => {console.log(e), 
             alert("error al actualizar el torneo"),
-            this.router.navigate(['/torneos-admin'])
+            this.router.navigate(['/admin/torneos-admin'])
         } });
 
     } else {
@@ -84,11 +83,11 @@ this.torneoID = this.route.snapshot.params['id'];
       delete torneoData.id;
       
       this.torneoService.postTorneo(torneoData).subscribe({
-        next: () => {this.router.navigate(['/torneos-admin']),
+        next: () => {this.router.navigate(['/admin/torneos-admin']),
             alert("Torneo agregado!")},
         error: (e) => {console.log(e), 
             alert("error al cargar el torneo"),
-            this.router.navigate(['/torneos-admin'])
+            this.router.navigate(['/admin/torneos-admin'])
         } });
     }
   }
@@ -96,9 +95,9 @@ this.torneoID = this.route.snapshot.params['id'];
     goBack(): void {
     
     if (this.torneoID) {
-        this.router.navigate(['/torneo-details-admin', this.torneoID]);
+        this.router.navigate(['/admin/torneo-details-admin', this.torneoID]);
     } else {
-        this.router.navigate(['/torneos-admin']);
+        this.router.navigate(['/admin/torneos-admin']);
     }
   }
   

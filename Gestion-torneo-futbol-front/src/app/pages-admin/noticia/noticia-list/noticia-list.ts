@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import Noticia from '../../../model/noticia';
 import { NoticiaService } from '../../../service/noticia-service/noticia-service';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-noticia-list',
@@ -14,14 +15,27 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 export class NoticiaList implements OnInit{
 
   noticias: Noticia[] = [];
+    currentUserId: string | null = null;
+    private querySub: Subscription | undefined;
 
   constructor(private noticiaService: NoticiaService, 
     private location: Location,
   private translocoService: TranslocoService,
-private router: Router) {}
+private router: Router,
+private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+
     this.cargarNoticias();
+
+                  this.querySub = this.route.queryParamMap.subscribe(params => {
+        const idFromQuery = params.get('referrerId'); 
+        
+        if (idFromQuery) {
+            this.currentUserId = idFromQuery;
+            console.log('ID del usuario logueado recibido por Query Param:', this.currentUserId);
+        }
+    });
   }
 
   cargarNoticias(): void {
@@ -48,7 +62,7 @@ private router: Router) {}
   }
 
     goBack(): void {
-    this.router.navigate(['/usuario-home'])
+    this.router.navigate(['/admin/usuario-home', this.currentUserId])
   }
 
 }

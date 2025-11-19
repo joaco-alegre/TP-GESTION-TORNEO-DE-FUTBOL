@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-jugador-libre-list',
@@ -16,6 +17,8 @@ export class JugadorLibreList implements OnInit{
 
   jugadoresLibres: Jugador[] = [];
   todosJugadores: Jugador[] = [];
+  currentUserId: string | null = null;
+  private querySub: Subscription | undefined;
 
   constructor(
     private jugadorService: JugadorService,
@@ -27,6 +30,15 @@ export class JugadorLibreList implements OnInit{
 
   ngOnInit(): void {
     this.cargarJugadores();
+
+              this.querySub = this.route.queryParamMap.subscribe(params => {
+        const idFromQuery = params.get('referrerId'); 
+        
+        if (idFromQuery) {
+            this.currentUserId = idFromQuery;
+            console.log('ID del usuario logueado recibido por Query Param:', this.currentUserId);
+        }
+    });
   }
 
   cargarJugadores(): void {
@@ -84,7 +96,7 @@ export class JugadorLibreList implements OnInit{
 }
 
 goBack(): void {
-    this.router.navigate(['/usuario-home'])
+    this.router.navigate(['/admin/usuario-home', this.currentUserId])
   }
 
 
