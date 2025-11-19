@@ -457,6 +457,9 @@
         "usuarioFormato": "Invalid email format.",
         "fotoRequerida": "Photo is required."
       }
+    },
+        "global": { 
+      "panelDT": "DT Dashboard"
     }
 }
 

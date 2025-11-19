@@ -12,27 +12,30 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 })
 export class Header {
 
+  isScrolled = false;
+  isMenuCollapsed = true;
+  menuVisible: boolean = false;
+
     constructor(@Inject(DOCUMENT) private document: Document,
                 private translocoService: TranslocoService,
                 private router: Router) {}
 
-  isScrolled = false;
+@HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent): void {
 
-  
-  public isMenuCollapsed = true;
+    if (this.menuVisible) { 
+      const targetElement = event.target as HTMLElement;
+      const menuDesplegable = document.getElementById('menu-desplegable');
+      const menuButton = document.querySelector('.navbar-toggler'); 
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-
-    if (window.scrollY > 10) {
-      this.isScrolled = true;
-    } else {
-
-      this.isScrolled = false;
+      if (menuButton && menuDesplegable && 
+          !menuButton.contains(targetElement) && 
+          !menuDesplegable.contains(targetElement)) {
+        
+        this.menuVisible = false;
+      }
     }
   }
-
-  menuVisible = false;
 
   toggleMenu() {
     this.menuVisible = !this.menuVisible;
