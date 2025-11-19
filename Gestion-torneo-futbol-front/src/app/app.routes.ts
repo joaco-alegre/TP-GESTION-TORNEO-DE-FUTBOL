@@ -48,16 +48,16 @@ export const routes: Routes = [
   { path: '', redirectTo: 'es', pathMatch: 'full' },
 
 
-  {path: 'es',
+  {path: '',
   component: ContenedorLayoutHincha,
   children: [   
     {path: '', component: Home, title: 'Inicio - Goal Manager'},
-    {path: 'torneos/:id', component: TorneoDetails},
-    {path: 'equipos/:id', component: EquipoDetails},
-    {path: 'jugadores/:id', component: JugadorDetails},
-    {path: 'fixture/:id', component: FixtureDetails},
-    {path: 'torneos', component: TorneoList, title: 'Torneos - Goal Manager'},
-    {path: 'inicio-sesion', title: 'Iniciar sesion - Goal Manager', component: UsuarioLogin},
+    {path: 'es/torneos/:id', component: TorneoDetails},
+    {path: 'es/equipos/:id', component: EquipoDetails},
+    {path: 'es/jugadores/:id', component: JugadorDetails},
+    {path: 'es/fixture/:id', component: FixtureDetails},
+    {path: 'es/torneos', component: TorneoList, title: 'Torneos - Goal Manager'},
+    {path: 'es/inicio-sesion', title: 'Iniciar sesion - Goal Manager', component: UsuarioLogin},
   ]},
 
 
