@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Header } from './header';
+import { HeaderHincha } from './header-hincha';
 
-describe('Header', () => {
-  let component: Header;
-  let fixture: ComponentFixture<Header>;
+describe('HeaderHincha', () => {
+  let component: HeaderHincha;
+  let fixture: ComponentFixture<HeaderHincha>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Header]
+      imports: [HeaderHincha]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Header);
+    fixture = TestBed.createComponent(HeaderHincha);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

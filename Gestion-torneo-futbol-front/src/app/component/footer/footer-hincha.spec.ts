@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Footer } from './footer';
+import { FooterHincha } from './footer-hincha';
 
-describe('Footer', () => {
-  let component: Footer;
-  let fixture: ComponentFixture<Footer>;
+describe('FooterHincha', () => {
+  let component: FooterHincha;
+  let fixture: ComponentFixture<FooterHincha>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Footer]
+      imports: [FooterHincha]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Footer);
+    fixture = TestBed.createComponent(FooterHincha);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

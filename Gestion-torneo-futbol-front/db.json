@@ -319,43 +319,6 @@
       "estiloJuego": "equilibrado", 
       "password": "dt123",
       "foto": ""
-    },
-    {
-      "id": "dt-ls-002",
-      "nombre": "Lionel Scaloni",
-      "equipoID": "afa-seleccion-arg",
-      "estiloJuego": "Equilibrado",
-      "usuario": "lscaloni",
-      "foto": ""
-    },
-    {
-      "id": "dt-pg-003",
-      "nombre": "Pep Guardiola",
-      "equipoID": "club-man-city",
-      "estiloJuego": "Juego de Posición",
-      "usuario": "pep.g"
-    },
-    {
-      "id": "dt-ca-004",
-      "nombre": "Carlo Ancelotti",
-      "equipoID": "club-real-madrid",
-      "estiloJuego": "Gestión de Plantel",
-      "usuario": "carletto_a"
-    },
-    {
-      "id": "dt-mb-005",
-      "nombre": "Marcelo Bielsa",
-      "equipoID": "afa-seleccion-uru",
-      "estiloJuego": "Protagónico",
-      "usuario": "mbielsa"
-    },
-    {
-      "id": "3a7f",
-      "nombre": "Joaquin Alegre",
-      "equipoID": "",
-      "estiloJuego": "defensivo",
-      "usuario": "joaco12",
-      "foto": ""
     }
   ],
   "usuarios": [
@@ -366,24 +329,6 @@
       "password": "123", 
       "email": "joaco12-2002@hotmail.com",
       "rolUser": "usuario",
-      "foto": ""
-    },
-    {
-      "id": "u-002",
-      "nombre": "Facundo Pérez",
-      "username": "facu",
-      "password": "password456",
-      "email": "facundo@mail.com",
-      "rolUser": "Product Owner & Developer",
-      "foto": ""
-    },
-    {
-      "id": "u-003",
-      "nombre": "Marcos González",
-      "username": "marcos",
-      "password": "password789",
-      "email": "marcos@mail.com",
-      "rolUser": "Developer",
       "foto": ""
     }
   ]

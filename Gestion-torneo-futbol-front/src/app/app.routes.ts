@@ -45,20 +45,19 @@ import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
 
-  { path: '', redirectTo: 'es', pathMatch: 'full' },
-
-
-  {path: '',
+{
+  path: '',
   component: ContenedorLayoutHincha,
   children: [   
-    {path: '', component: Home, title: 'Inicio - Goal Manager'},
-    {path: 'es/torneos/:id', component: TorneoDetails},
-    {path: 'es/equipos/:id', component: EquipoDetails},
-    {path: 'es/jugadores/:id', component: JugadorDetails},
-    {path: 'es/fixture/:id', component: FixtureDetails},
-    {path: 'es/torneos', component: TorneoList, title: 'Torneos - Goal Manager'},
-    {path: 'es/inicio-sesion', title: 'Iniciar sesion - Goal Manager', component: UsuarioLogin},
-  ]},
+    { path: '', component: Home },
+    { path: 'es/torneos/:id', component: TorneoDetails },
+    { path: 'es/equipos/:id', component: EquipoDetails },
+    { path: 'es/jugadores/:id', component: JugadorDetails },
+    { path: 'es/fixture/:id', component: FixtureDetails },
+    { path: 'es/torneos', component: TorneoList },
+    { path: 'es/inicio-sesion', component: UsuarioLogin },
+  ]
+},
 
 
     {
@@ -112,7 +111,4 @@ export const routes: Routes = [
     ]
     },
 
-
-
-    {path: '**', redirectTo: 'es'},
 ];

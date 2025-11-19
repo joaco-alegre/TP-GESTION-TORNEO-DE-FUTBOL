@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="{ 'navbar-scrolled': isScrolled }">
+
+  <div class="container-fluid">
+
+    <a class="navbar-brand" routerLink="/">
+      <div class="navbar-logo">
+        <img src="/assets/img/logo.png" alt="Goal Manager Logo">
+      </div>
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            (click)="isMenuCollapsed = !isMenuCollapsed"
+            [attr.aria-expanded]="!isMenuCollapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+      
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="goTo('inicio'); isMenuCollapsed = true">
+            {{ 'header.inicio' | transloco }}
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="goTo('noticias'); isMenuCollapsed = true">
+            {{ 'header.noticias' | transloco }}
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="goTo('nosotros'); isMenuCollapsed = true">
+            {{ 'header.nosotros' | transloco }}
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="goTo('contactos'); isMenuCollapsed = true">
+            {{ 'header.contactos' | transloco }}
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="language-switcher ms-3">
+        <button (click)="cambiarIdioma('es')">ES</button>
+        <span>|</span>
+        <button (click)="cambiarIdioma('en')">EN</button>
+      </div>
+      <button class="btn btn-sm btn-light ms-3" (click)="toggleDarkMode()">
+        🌙
+      </button>
+
+    </div>
+  </div>
+
+</nav>

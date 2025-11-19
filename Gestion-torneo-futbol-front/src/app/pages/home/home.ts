@@ -9,11 +9,12 @@ import { UsuarioService } from '../../service/usuario-service/usuario-service';
 import Usuario from '../../model/usuario';
 import { TorneoService } from '../../service/torneo-service/torneo-service';
 import Torneo from '../../model/torneo';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, TranslocoPipe, ɵInternalFormsSharedModule, ReactiveFormsModule],
+  imports: [RouterLink, TranslocoPipe, ɵInternalFormsSharedModule, ReactiveFormsModule, CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })

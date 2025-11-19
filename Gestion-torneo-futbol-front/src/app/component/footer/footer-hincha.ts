@@ -3,12 +3,12 @@ import { RouterLink } from "@angular/router";
 import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
-  selector: 'app-footer',
+  selector: 'app-footer-hincha',
   imports: [TranslocoPipe],
-  templateUrl: './footer.html',
-  styleUrl: './footer.css'
+  templateUrl: './footer-hincha.html',
+  styleUrl: './footer-hincha.css'
 })
-export class Footer {
+export class FooterHincha {
 
     
 }
