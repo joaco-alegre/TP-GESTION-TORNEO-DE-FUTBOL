@@ -30,26 +30,6 @@ export class TorneoList implements OnInit{
         console.log(data)
         this.torneos = data});
     }
-
-  //   abrirImagen(): void {
-  //   const src = this.torneo.foto ? this.torneo.foto : 'assets/icons/persona.png';
-  //   const caption = this.jugador.nombre;
-    
-  //   // Creamos un "álbum" de una sola imagen
-  //   const album = {
-  //      src: src,
-  //      caption: caption,
-  //      thumb: src
-  //   };
-
-  //   // Abrimos el lightbox
-  //   this._lightbox.open([album], 0, {
-  //     // Opciones extra (opcional)
-  //     centerVertically: true,
-  //     fitImageInViewPort: true,
-  //     disableScrolling: true
-  //   });
-  // }
   
         goBack(): void {
     this.router.navigate(['/']);

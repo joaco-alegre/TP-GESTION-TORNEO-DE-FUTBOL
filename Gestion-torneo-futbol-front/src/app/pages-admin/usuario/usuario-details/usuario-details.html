@@ -1,6 +1,6 @@
 <button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
 
-<div class="admin-container"> 
+<div class="admin-container" data-aos="fade-left"> 
 
   @if (usuario) {
     <div class="detalle-container">
@@ -11,7 +11,7 @@
         
         <div class="card-foto">
           <img 
-            [src]="usuario.foto ? usuario.foto : 'assets/icons/persona.png'" 
+            [src]="usuario?.foto ? usuario?.foto : 'assets/icons/persona.png'"
             (click)="abrirImagen(usuario?.foto || 'assets/icons/persona.png')"
             [alt]="'Foto de ' + usuario.nombre">
             </div>

@@ -1,11 +1,12 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
 <div class="admin-container" >
 <h2  data-aos="fade-down">{{ 'admin.equipoLista.titulo' | transloco }} {{nombreTorneo}}</h2>
 
 <ul data-aos="zoom-out-down">
   @for (equipo of equipos; track equipo.id) {
-    <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable">
+    <li [routerLink]="['/jugador-lista-admin/', equipo.id]" class="fila-clickeable"
+    [queryParams]="{ torneoId: torneoId }">
       
       <div class="item-info card-foto">
         <img [src]="equipo?.escudo ? equipo?.escudo : 'assets/icons/icono.png'"  
@@ -28,7 +29,7 @@
 </ul>
 
 <div class="agregar-container">
-  <button class="btn-agregar" 
+  <button class="btn-agregar pulse" 
     [routerLink]="['/equipo-formulario-admin']" 
     [queryParams]="{ idTorneo: torneoId}">
     {{ 'admin.equipoLista.agregar' | transloco }}

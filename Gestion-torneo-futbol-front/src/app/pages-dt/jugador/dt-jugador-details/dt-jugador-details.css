@@ -143,3 +143,13 @@
 .btn-volver:hover {
   text-decoration: underline;
 }
+
+.card-foto img { 
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+
+.card-foto img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9; 
+}

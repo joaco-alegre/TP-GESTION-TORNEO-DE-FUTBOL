@@ -1,4 +1,5 @@
 {
+  "botonVolver": "Volver",
   "header": {
     "inicio": "Inicio",
     "noticias": "Noticias",
@@ -88,7 +89,6 @@
     "cargando": "Cargando datos del jugador..."
   },
   "fixtureDetalles": {
-    "botonVolver": "Volver",
     "etiquetaEstado": "Estado:",
     "etiquetaFecha": "Fecha:",
     "cargando": "Cargando detalles del partido..."
@@ -388,6 +388,9 @@
         "linkRequerido": "El link es obligatorio.",
         "fotoRequerida": "La foto es obligatoria (solo al agregar)."
       }
+    },
+    "global": { 
+      "panelAdministrador": "Panel Administrador"
     }
   },
       "dtPortal": {

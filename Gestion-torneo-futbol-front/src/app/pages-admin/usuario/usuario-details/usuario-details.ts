@@ -36,8 +36,15 @@ export class UsuarioDetails implements OnInit{
       }, (error) => {
         console.error("No se pudo cargar el perfil del admin:", error);
       });
+
+      
     }
+
+    
+
+    
   }
+  
 
 
   deleteUsuario(): void {
@@ -77,7 +84,7 @@ export class UsuarioDetails implements OnInit{
 
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/usuario-home']);
   }
 
 

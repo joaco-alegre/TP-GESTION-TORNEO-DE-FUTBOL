@@ -88,6 +88,7 @@ html, body {
     font-family: Arial, sans-serif;
     background-color: transparent;
     color: #333333;
+    overflow-x: hidden;
 }
 
 :root {

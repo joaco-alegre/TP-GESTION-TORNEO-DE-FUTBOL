@@ -1,6 +1,7 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
-<div class="admin-container">
+<div class="admin-container" data-aos="fade-up"
+     data-aos-duration="3000">
   <h3>{{ 'admin.panelNoticias.titulo' | transloco }}</h3>
 
   <ul>
@@ -37,7 +38,7 @@
   </ul>
   
   <div class="agregar-container">
-    <button class="btn-agregar" [routerLink]="['/form-noticia-admin']">
+    <button class="btn-agregar wobble" [routerLink]="['/form-noticia-admin']">
       {{ 'admin.panelNoticias.agregar' | transloco }}
     </button>
   </div>

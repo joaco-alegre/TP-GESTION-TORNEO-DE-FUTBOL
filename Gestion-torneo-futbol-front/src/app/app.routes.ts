@@ -34,22 +34,37 @@ import { DtJugadorDetails } from './pages-dt/jugador/dt-jugador-details/dt-jugad
 import { DtJugadorList } from './pages-dt/jugador/dt-jugador-list/dt-jugador-list';
 import { DtDtDetails } from './pages-dt/dt/dt-dt-details/dt-dt-details';
 import { DtDtForm } from './pages-dt/dt/dt-dt-form/dt-dt-form';
+import { ContenedorLayoutAdmin } from './component/layout/contenedor-layout-admin/contenedor-layout-admin';
+import { ContenedorLayoutDt } from './component/layout/contenedor-layout-dt/contenedor-layout-dt';
+import { ContenedorLayoutHincha } from './component/layout/contenedor-layout-hincha/contenedor-layout-hincha';
+
+
+
+
 
 export const routes: Routes = [
-    {path: '', 
-    component: Home,
-    title: 'Inicio - Goal Manager'},
-    {path: 'en', 
-    component: Home,
-     title: 'Home - Goal Manager'},
-    {path: 'es/torneos', 
-    component: TorneoList,
-    title: 'Torneos - Goal Manager'},
-    {path: 'es/torneos/:id',
-    component: TorneoDetails},
+  
+  { path: '', redirectTo: 'es', pathMatch: 'full' },
+
+
+  {path: '',
+  component: ContenedorLayoutHincha,
+  children: [   
+    {path: '', component: Home, title: 'Inicio - Goal Manager'},
+    {path: 'en', component: Home, title: 'Home - Goal Manager'},
+    {path: 'es/torneos', component: TorneoList, title: 'Torneos - Goal Manager'},
+    {path: 'es/torneos/:id', component: TorneoDetails},
     {path: 'es/equipos/:id', component: EquipoDetails},
     {path: 'es/jugadores/:id', component: JugadorDetails},
     {path: 'es/fixture/:id', component: FixtureDetails},
+        {path: 'es/inicio-sesion', title: 'Iniciar sesion - Goal Manager', component: UsuarioLogin},
+  ]},
+
+
+    {
+    path: 'admin',
+    component: ContenedorLayoutAdmin,
+    children: [
     {path: 'usuario-home', component: UsuarioHome},
     {path: 'torneos-admin', component: TorneoListAdmin},
     {path: 'torneo-details-admin/:id', component: TorneoDetailsAdmin},
@@ -78,31 +93,24 @@ export const routes: Routes = [
     {path: 'usuario-form-admin', component: UsuarioForm},
     {path: 'usuario-form-admin/:id', component: UsuarioForm},
     {path: 'usuario-details-admin/:id', component: UsuarioDetails},
+    ]
+  },
+
+
+    
+    {path: 'dt',
+    component: ContenedorLayoutDt,
+    children: [
     {path: 'dt-home', component: DtHome},
     {path: 'dt-mi-equipo', component: DtEquipoDetails},
     {path: 'dt-jugador-details/:id', component: DtJugadorDetails},
     {path: 'dt-jugadores-libres', component: DtJugadorList},
     {path: 'dt-dt-details/:id', component: DtDtDetails},
     {path: 'dt-dt-form/:id', component: DtDtForm},
+    ]
+    },
 
 
 
-
-
-
-
-
-
-
-
-    {path: ' ', redirectTo: 'home', pathMatch: 'full'},
-    /*{path: '**', redirectTo: 'home'},*/
-    {path: 'es/inicio-sesion',
-    title: 'Iniciar sesion - Goal Manager',
-    component: UsuarioLogin},
-     {
-    path: 'home',
-    loadComponent: () => import('./pages/home/home').then(m => m.Home),
-  }
-    // {path:' ', redirectTo: 'home'}
+    {path: '**', redirectTo: 'es'},
 ];

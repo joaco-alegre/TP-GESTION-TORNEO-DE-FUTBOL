@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
 <div class="detalle-container">
 
@@ -91,8 +91,8 @@
     <div class="fixture-list-wrapper">
       <ul class="fixture-list">
         @for (fixture of fixtures; track fixture.id) {
-          <li class="fixture-item card-foto-ul" [routerLink]="['/es/fixture/', fixture.id]">
-
+          <li class="fixture-item card-foto-ul" [routerLink]="['/es/fixture/', fixture.id]" 
+          [queryParams]="{ equipoId: equipo?.id }">
             <img [src]="getEscudo(fixture.equipoLocalID)"
             (click)="abrirImagen(getEscudo(fixture.equipoLocalID) || 'assets/icons/icono.png'); $event.stopPropagation()"
                  [alt]="fixture.equipoLocalID">

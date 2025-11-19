@@ -9,10 +9,11 @@ import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import Torneo from '../../../model/torneo';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-dt-equipo-details',
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, RouterModule, TranslocoPipe, LightboxModule],
   templateUrl: './dt-equipo-details.html',
   styleUrl: './dt-equipo-details.css',
 })
@@ -30,7 +31,8 @@ export class DtEquipoDetails implements OnInit{
     private router: Router,
     private equipoService: EquipoService,
     private location: Location,
-    private torneoService: TorneoService
+    private torneoService: TorneoService,
+    private lightbox: Lightbox
   ) {}
 
   ngOnInit(): void {
@@ -134,9 +136,26 @@ export class DtEquipoDetails implements OnInit{
     });
   }
 
+  abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album, 0);
+    }
+
 
 
           goBack(): void {
-    this.location.back();
+    this.router.navigate(['dt-home']);
   }
 }

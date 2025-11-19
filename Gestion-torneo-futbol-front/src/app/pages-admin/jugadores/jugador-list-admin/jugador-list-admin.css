@@ -252,3 +252,16 @@ hr{
   transform: scale(1.03); 
   opacity: 0.9; 
 }
+
+
+.bounce {
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes bounce {
+      0% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
+      100% {transform: translateY(0);}
+  }

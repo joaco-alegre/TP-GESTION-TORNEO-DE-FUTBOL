@@ -18,6 +18,7 @@ export class FixtureDetails implements OnInit{
   fixture?: Fixture;
   equipoLocal?: Equipo;
   equipoVisitante?: Equipo;
+  equipoId: string | null = null;
 
   constructor(
     private route: ActivatedRoute, 
@@ -29,6 +30,8 @@ export class FixtureDetails implements OnInit{
 
   ngOnInit(): void {
     this.getDatosDelFixture();
+
+    this.equipoId = this.route.snapshot.queryParamMap.get('equipoId');
   }
 
   getDatosDelFixture(): void {
@@ -54,7 +57,7 @@ export class FixtureDetails implements OnInit{
   }
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['/es/equipos/',this.equipoId]);
   }
 
 }

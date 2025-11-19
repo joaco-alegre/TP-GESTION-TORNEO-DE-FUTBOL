@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Noticia from '../../../model/noticia';
 import { NoticiaService } from '../../../service/noticia-service/noticia-service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 
@@ -17,7 +17,8 @@ export class NoticiaList implements OnInit{
 
   constructor(private noticiaService: NoticiaService, 
     private location: Location,
-  private translocoService: TranslocoService) {}
+  private translocoService: TranslocoService,
+private router: Router) {}
 
   ngOnInit(): void {
     this.cargarNoticias();
@@ -47,7 +48,7 @@ export class NoticiaList implements OnInit{
   }
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['/usuario-home'])
   }
 
 }

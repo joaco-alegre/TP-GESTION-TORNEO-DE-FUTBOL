@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
 <div class="admin-container">
 
@@ -12,6 +12,7 @@
         <div class="card-foto">
           <img 
             [src]="dt.foto ? dt.foto : 'assets/icons/persona.png'" 
+            (click)="abrirImagen(dt?.foto || 'assets/icons/persona.png')"
             [alt]="'Foto de ' + dt.nombre">
         </div>
   

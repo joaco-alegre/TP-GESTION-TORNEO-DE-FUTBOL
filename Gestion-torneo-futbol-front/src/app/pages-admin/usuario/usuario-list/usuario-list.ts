@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Usuario from '../../../model/usuario';
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { CommonModule, Location} from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
@@ -15,14 +15,21 @@ import { Lightbox, LightboxModule } from 'ngx-lightbox';
 export class UsuarioList implements OnInit{
 
   usuarios: Usuario[] = [];
+  usuario?: Usuario;
 
   constructor(private usuarioService: UsuarioService,
     private location: Location,
-    private lightbox: Lightbox
+    private lightbox: Lightbox,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.cargarUsuarios();
+
+    this.usuarioService.getUsuarios().subscribe(data => {
+  this.usuarios = data;
+  console.table(this.usuarios);
+});
   }
 
   cargarUsuarios(): void {
@@ -50,7 +57,7 @@ export class UsuarioList implements OnInit{
 }
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['/usuario-home'])
   }
 
 

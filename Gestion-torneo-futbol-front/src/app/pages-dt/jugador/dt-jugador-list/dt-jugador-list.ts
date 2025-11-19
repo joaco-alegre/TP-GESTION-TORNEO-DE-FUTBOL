@@ -5,10 +5,11 @@ import { TranslocoPipe } from '@ngneat/transloco';
 import Jugador from '../../../model/jugador';
 import { DtService } from '../../../service/dt-service/dt-service';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-dt-jugador-list',
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, RouterModule, TranslocoPipe, LightboxModule],
   templateUrl: './dt-jugador-list.html',
   styleUrl: './dt-jugador-list.css',
 })
@@ -23,7 +24,8 @@ export class DtJugadorList {
     private dtService: DtService,
     private jugadorService: JugadorService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private lightbox: Lightbox
   ) {}
 
   ngOnInit(): void {
@@ -89,8 +91,25 @@ export class DtJugadorList {
     });
   }
 
+  abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album, 0);
+    }
+
             goBack(): void {
-      this.location.back();
+      this.router.navigate(['/dt-home'])
     }
 
 

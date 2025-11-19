@@ -53,7 +53,6 @@ li.fila-clickeable:hover {
   background-color:#f9f9f9;
   transform: translateY(-3px); 
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  border-color: var(--color-accent, #007bff); 
 }
 
 .item-info {
@@ -162,4 +161,14 @@ li button:active {
 
 .btn-volver:hover {
   text-decoration: underline;
+}
+
+.card-foto-ul img{   
+  cursor: zoom-in;
+  transition: transform 0.2s ease, opacity 0.2s ease; 
+}
+
+.card-foto-ul img:hover {
+  transform: scale(1.03); 
+  opacity: 0.9;
 }

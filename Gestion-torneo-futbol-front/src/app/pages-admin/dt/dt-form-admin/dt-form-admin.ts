@@ -95,7 +95,23 @@ export class DtFormAdmin implements OnInit{
       });
     }
   }
-        goBack(): void {
-    this.location.back();
-  }
+
+
+
+
+  goBack(): void {
+    
+    if (this.DtID) {
+        this.router.navigate(['/dt-detalles-admin', this.DtID]);
+    } 
+
+    else if (this.equipoID) {
+        this.router.navigate(['/jugador-lista-admin', this.equipoID]);
+    }
+
+    else {
+        this.router.navigate(['/dt-list-admin']);
+    }
+}
+
 }

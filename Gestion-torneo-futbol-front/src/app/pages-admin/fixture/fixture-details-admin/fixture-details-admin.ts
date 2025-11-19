@@ -2,7 +2,7 @@ import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import Fixture from '../../../model/fixture';
 import Equipo from '../../../model/equipo';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FixtureService } from '../../../service/fixture-service/fixture-service';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { TranslocoPipe } from '@ngneat/transloco';
@@ -19,15 +19,19 @@ export class FixtureDetailsAdmin implements OnInit{
     equipoLocal?: Equipo;
     equipoVisitante?: Equipo;
     equipoID?: string | null = null;
+    returnUrl: string = '/usuario-home';
   
     constructor(
       private route: ActivatedRoute, 
       private fixtureService: FixtureService,
       private equipoService: EquipoService,
-      private location: Location 
+      private location: Location,
+      private router: Router
     ) { }
   
     ngOnInit(): void {
+
+      this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/usuario-home';
       
       const fixtureId = this.route.snapshot.paramMap.get('id');
 
@@ -56,7 +60,7 @@ export class FixtureDetailsAdmin implements OnInit{
   }
   
       goBack(): void {
-      this.location.back();
+      this.router.navigateByUrl(this.returnUrl);
     }
 
 }

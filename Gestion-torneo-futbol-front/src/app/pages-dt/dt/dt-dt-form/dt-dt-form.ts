@@ -83,7 +83,7 @@ export class DtDtForm implements OnInit{
   }
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['/dt-dt-details', this.DtID]);
   }
 
 }

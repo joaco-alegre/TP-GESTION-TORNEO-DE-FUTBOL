@@ -91,9 +91,15 @@ usuarioForm!: FormGroup;
     }
   }
 
-  goBack(): void {
-    this.location.back();
-  }
+goBack(): void {
+    
+    if (this.usuarioID) {
+        this.router.navigate(['/usuario-details-admin', this.usuarioID]);
+    } 
+    else {
+        this.router.navigate(['/usuario-list-admin']); 
+    }
+}
 
 
 }

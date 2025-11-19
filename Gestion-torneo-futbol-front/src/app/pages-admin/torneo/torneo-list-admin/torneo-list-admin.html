@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
 <div class="admin-container" >
 <h2  data-aos="fade-down"
@@ -29,7 +29,7 @@
 </ul>
 
 <div class="agregar-container">
-  <button class="btn-add-torneo" [routerLink]="['/torneo-formulario-admin']">
+  <button class="btn-add-torneo shake" [routerLink]="['/torneo-formulario-admin']">
     {{ 'admin.torneos.agregar' | transloco }}
   </button>
 </div>

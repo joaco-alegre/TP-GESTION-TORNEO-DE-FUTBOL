@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { DtService } from '../../../service/dt-service/dt-service';
 import DT from '../../../model/dt';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-dt-list',
-  imports: [RouterModule, CommonModule, TranslocoPipe],
+  imports: [RouterModule, CommonModule, TranslocoPipe, LightboxModule],
   templateUrl: './dt-list-admin.html',
   styleUrl: './dt-list-admin.css',
 })
@@ -15,9 +16,13 @@ export class DtListAdmin implements OnInit{
 
   dts: DT[] = [];
 
+
   constructor(
     private dtService: DtService,
-    private location: Location
+    private location: Location,
+    private lightbox: Lightbox,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,8 +55,27 @@ export class DtListAdmin implements OnInit{
     });
   }
 
-        goBack(): void {
-    this.location.back();
+  abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album, 0);
+    }
+
+    
+    goBack(): void {
+    this.router.navigate(['/usuario-home']);
   }
+
 
 }

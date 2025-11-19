@@ -1,15 +1,14 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
-<div class="admin-container">
+<div class="admin-container" data-aos="fade-up-left">
   <h3>{{ 'admin.adminLista.titulo' | transloco }}</h3>
 
-  <ul>
+  <ul  *ngIf="usuarios.length > 0">
     @for (usuario of usuarios; track usuario.id) {
       <li class="fila-clickeable">
         <div class="item-info card-foto-ul">
-          <img  [src]="(usuario?.foto ? usuario.foto : 'assets/icons/persona.png')" 
-              (click)="abrirImagen(usuario?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
-          [alt]="usuario.nombre"
+          <img [src]="usuario?.foto ? usuario?.foto : 'assets/icons/persona.png'"
+          (click)="abrirImagen(usuario?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
           class="item-logo item-foto-jugador">
 
           <span class="item-nombre">{{ usuario.nombre }} - ({{ usuario.rolUser }})</span>
@@ -21,7 +20,7 @@
     }
   </ul>
 
-  <div class="agregar-container">
+  <div class="agregar-container heartbeat">
     <button class="btn-agregar" [routerLink]="['/usuario-form-admin']">
       {{ 'admin.adminLista.agregar' | transloco }}
     </button>

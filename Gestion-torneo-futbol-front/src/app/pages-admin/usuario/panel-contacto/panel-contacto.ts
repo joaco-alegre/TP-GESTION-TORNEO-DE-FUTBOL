@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContactoService } from '../../../service/contacto-service/contacto-service';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panel-contacto',
@@ -14,7 +15,8 @@ export class PanelContacto implements OnInit{
   mensajes: any[] = [];
 
   constructor(private contactoService: ContactoService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -28,7 +30,7 @@ export class PanelContacto implements OnInit{
   }
 
     goBack(): void {
-    this.location.back();
+    this.router.navigate(['/usuario-home'])
   }
 
 }

@@ -1,6 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
 import Jugador from '../../../model/jugador';
 import { TranslocoPipe } from '@ngneat/transloco';
@@ -22,8 +22,9 @@ export class JugadorDetailsAdmin {
     jugadres: Jugador[] = [];
     estadisticaGoleador?: EstadisticaGoleador;
     equipoDelJugador?: Equipo;
-      todosJugadores: Jugador[] = [];
-        equipoId?: string;
+    todosJugadores: Jugador[] = [];
+    equipoId?: string;
+    returnUrl: string = '/usuario-home';
 
   constructor(
     private jugadorService: JugadorService,
@@ -31,13 +32,15 @@ export class JugadorDetailsAdmin {
     private location: Location,
     private equipoService: EquipoService,
     private estadisticaService:EstadisticaGoleadorService,
-    private lightbox: Lightbox
+    private lightbox: Lightbox,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this.jugadorService.getJugadorById(id).subscribe(data => this.jugador = data);
 
+    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/usuario-home';
 
     this.getDatosDelJugador(id);
     
@@ -99,8 +102,8 @@ export class JugadorDetailsAdmin {
 
 
 
-        goBack(): void {
-    this.location.back();
+    goBack(): void {
+    this.router.navigateByUrl(this.returnUrl);
   }
 
 

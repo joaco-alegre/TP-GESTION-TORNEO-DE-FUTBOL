@@ -1,6 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Route, RouterModule } from '@angular/router';
+import { ActivatedRoute, Route, Router, RouterModule } from '@angular/router';
 import Jugador from '../../../model/jugador';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
 import DT from '../../../model/dt';
@@ -27,13 +27,17 @@ export class JugadorListAdmin implements OnInit{
   fixtures: Fixture[] = [];
   private todosFixtures: Fixture[] = []; 
   private todosEquipos: Equipo[] = [];
-  equipoNombre?: string;
+  equipoNombre: string | undefined;
+  equipo?: Equipo;
 
+  torneoId: string | null = null;
+  returnUrl?: string;
   equipoId: string | null = null;
   
     constructor(private jugadorService: JugadorService,
                 private dtService: DtService,
                 private route: ActivatedRoute,
+                private router: Router,
                 private location: Location,
                 private fixtureService: FixtureService,
                 private equipoService: EquipoService,
@@ -43,6 +47,7 @@ export class JugadorListAdmin implements OnInit{
     ngOnInit(): void {
       
       this.equipoId = this.route.snapshot.paramMap.get('id');
+      this.torneoId = this.route.snapshot.queryParamMap.get('torneoId');
 
     if (!this.equipoId) {
       console.error('No se encontró ID de equipo en la URL');
@@ -50,18 +55,21 @@ export class JugadorListAdmin implements OnInit{
     }
 
       this.equipoService.getEquipoById(this.equipoId).subscribe(equipoData => {
+      this.equipo = equipoData;
       this.equipoNombre = equipoData.nombre;
+
+      if (!this.torneoId) {
+            this.torneoId = equipoData.idTorneo;
+          }
     });
 
     this.cargarJugadores();
     this.cargarDts();
     this.cargarFixtures();
     this.cargarEquipos();
-    
+
   }
 
-
-    
     cargarJugadores(): void {
     this.jugadorService.getJugadores().subscribe(data => {
       this.todosJugadores = data;
@@ -138,7 +146,11 @@ export class JugadorListAdmin implements OnInit{
     }
   
     goBack(): void {
-    this.location.back();
+    if (this.torneoId) {
+      this.router.navigate(['/equipo-admin', this.torneoId]);
+    } else {
+      this.router.navigate(['/torneos-admin']);
+    }
   }
 }
 

@@ -108,34 +108,47 @@ export class JugadorFormAdmin implements OnInit{
 
       this.jugadorService.updateJugador(jugadorData).subscribe({
         next: () => {
-          this.router.navigate(rutaDeVuelta);
+          this.router.navigate(['/jugador-details-admin', this.jugadorID]);
           alert("Jugador actualizado!");
         },
         error: (e) => {
-          console.log(e); 
+          console.log(e);
+          this.router.navigate(['/jugador-lista-admin', this.equipoID]); 
           alert("Error al actualizar el jugador");
         } 
       });
 
     } else {
+
       const jugadorData = this.jugadorForm.value; 
       delete jugadorData.id;
       
       this.jugadorService.postJugador(jugadorData).subscribe({
         next: () => {
-          this.router.navigate(rutaDeVuelta);
+          this.router.navigate(['/jugador-lista-admin', this.equipoID]);
           alert("Jugador agregado!");
         },
         error: (e) => {
           console.log(e); 
           alert("Error al cargar el jugador");
+          this.router.navigate(['/jugador-lista-admin', this.equipoID]);
         } 
       });
     }
   }
 
-  goBack(): void {
-    this.location.back();
-  }
+    goBack(): void {
+    
+    if (this.jugadorID) {
+        this.router.navigate(['/jugador-detalles-admin', this.jugadorID]);
+    } 
+
+    else if (this.equipoID) {
+        this.router.navigate(['/jugador-lista-admin', this.equipoID]);
+    }
+    else {
+        this.router.navigate(['/admin-menu']);
+    }
+}
 
 }

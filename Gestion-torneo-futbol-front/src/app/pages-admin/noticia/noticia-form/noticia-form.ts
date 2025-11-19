@@ -97,7 +97,7 @@ ngOnInit(): void {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/panel-noticias-admin']);
   }
 
 }

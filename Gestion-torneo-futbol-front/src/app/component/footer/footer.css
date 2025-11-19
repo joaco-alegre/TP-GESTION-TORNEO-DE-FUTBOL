@@ -1,120 +1,47 @@
-/*
-
-:host {
-  display: block;
-  width: 100%;
-}
-
-.main-footer {
-
-  background-color: #00334e; 
-  color: #ffffff;
-  font-family: Arial, sans-serif;
-  
-
-  padding: 40px 20px; 
-  margin-top: auto; 
-}
-
-.footer-container {
-  max-width: 1200px; 
-  margin: 0 auto; 
-  display: flex;
-  justify-content: space-between; 
-  align-items: flex-start; 
-  flex-wrap: wrap; 
-  gap: 20px; 
-}
-
-.footer-section {
-  flex: 1; 
-  min-width: 250px; 
-}
-
-.footer-section h4 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #ffffff; 
-}
-
-.footer-section p {
-  font-size: 0.9rem;
-  color: #ccc; 
-  line-height: 1.5;
-  margin: 5px 0;
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px; 
-}
-
-.social-icon {
-  color: white; 
-  font-size: 1.5rem;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-icon:hover {
-  color: #ffffff; 
-  transform: scale(1.1); 
-}*/
-
-
-/* --- Estilos del Footer (Sin Bootstrap) --- */
 
 :host {
   width: 100%;
 }
 
 .footer-dark {
-  /* Color de fondo oscuro (similar al de Riccio) */
   background-color: #1c1c24; 
-  color: #f4f4f4; /* Texto principal claro */
-  margin-top: auto; /* Mantiene el footer abajo */
-  padding: 50px 0; /* Espaciado vertical */
+  color: #f4f4f4; 
+  margin-top: auto;
+  padding: 50px 0; 
 }
 
-/* 1. Contenedor principal (centra el contenido) */
 .footer-container {
   max-width: 1200px;
-  width: 90%; /* Asegura que haya márgenes en pantallas chicas */
+  width: 90%; 
   margin: 0 auto;
 }
 
-/* 2. Fila de 3 columnas (¡La magia de Flexbox!) */
 .footer-row {
   display: flex;
-  flex-wrap: wrap; /* Permite que las columnas se apilen en móvil */
-  justify-content: space-between; /* Espacia las columnas */
-  margin-bottom: 30px; /* Espacio antes de la línea */
+  flex-wrap: wrap; 
+  justify-content: space-between; 
+  margin-bottom: 30px; 
 }
 
-/* 3. Columnas */
 .footer-col {
-  flex: 1; /* Cada columna trata de tomar el mismo espacio */
-  min-width: 250px; /* Ancho mínimo antes de apilarse */
-  margin-bottom: 20px; /* Espacio si se apilan en móvil */
+  flex: 1; 
+  min-width: 250px; 
+  margin-bottom: 20px; 
 }
 
-/* Estilo del logo */
 .footer-logo {
-  height: 130px; /* Ajustá la altura de tu logo */
+  height: 130px;
   width: auto;
   opacity: 0.9;
 }
 
-/* Títulos de las columnas */
 .footer-col h5 {
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 20px;
-  color: #ffffff; /* Color de acento naranja */
+  color: #ffffff;
 }
 
-/* Lista de links de navegación */
 .footer-nav-links {
   list-style: none;
   padding: 0;
@@ -135,7 +62,6 @@
   padding-left: 5px;
 }
 
-/* Íconos de redes sociales */
 .social-icons a {
   display: inline-block;
   font-size: 1.5rem;
@@ -149,14 +75,12 @@
   transform: scale(1.2);
 }
 
-/* Línea divisoria */
 .footer-line {
   border: none;
   border-top: 2px solid rgba(255, 255, 255, 0.40);
   margin-top: 0;
 }
 
-/* Texto de Copyright */
 .footer-copyright {
   text-align: center;
 }
@@ -167,16 +91,12 @@
   font-size: 0.9rem;
 }
 
-
-/* ... (tus otros estilos de .footer-dark, .footer-col, etc.) ... */
-
-/* Estilo para los nuevos links de contacto */
 .footer-contact-link {
   text-decoration: none;
-  color: #ccc; /* El mismo gris claro de tus otros links */
+  color: #ccc; 
   transition: all 0.2s ease;
 }
 
 .footer-contact-link:hover {
-  color: #fff; /* Blanco al pasar el mouse */
+  color: #fff; 
 }

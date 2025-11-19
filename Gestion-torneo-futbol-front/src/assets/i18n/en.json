@@ -1,4 +1,5 @@
 {
+  "botonVolver": "Back",
   "header": {
     "inicio": "Home",
     "noticias": "News",
@@ -88,7 +89,6 @@
     "cargando": "Loading player data..."
   },
   "fixtureDetalles": {
-    "botonVolver": "Back",
     "etiquetaEstado": "Status:",
     "etiquetaFecha": "Date:",
     "cargando": "Loading match details..."
@@ -388,6 +388,9 @@
         "linkRequerido": "Link is required.",
         "fotoRequerida": "Photo is required (only when adding)."
       }
+    },
+    "global": {
+      "panelAdministrador": "Admin Dashboard"
     }
   },
    "dtPortal": {

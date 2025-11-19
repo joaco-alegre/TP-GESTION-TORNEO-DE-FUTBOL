@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'fixtureDetalles.botonVolver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
 @if (jugador) {
 
@@ -12,6 +12,7 @@
       <div class="card-foto">
         <img 
           [src]="jugador.foto ? jugador.foto : 'assets/icons/persona.png'" 
+          (click)="abrirImagen(jugador?.foto || 'assets/icons/persona.png')"
           [alt]="'Foto de ' + jugador.nombre">
       </div>
 

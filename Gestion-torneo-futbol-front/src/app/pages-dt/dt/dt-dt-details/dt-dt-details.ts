@@ -4,10 +4,11 @@ import { Router, RouterModule } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { DtService } from '../../../service/dt-service/dt-service';
 import DT from '../../../model/dt';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-dt-dt-details',
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, RouterModule, TranslocoPipe, LightboxModule],
   templateUrl: './dt-dt-details.html',
   styleUrl: './dt-dt-details.css',
 })
@@ -19,7 +20,8 @@ export class DtDtDetails implements OnInit{
   constructor(
     private dtService: DtService,
     private router: Router,
-    private location: Location
+    private location: Location,
+    private lightbox: Lightbox
   ) {}
 
   ngOnInit(): void {
@@ -56,8 +58,25 @@ export class DtDtDetails implements OnInit{
     }
   }
 
+  abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album, 0);
+    }
+
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/dt-home']);
   }
 
 }

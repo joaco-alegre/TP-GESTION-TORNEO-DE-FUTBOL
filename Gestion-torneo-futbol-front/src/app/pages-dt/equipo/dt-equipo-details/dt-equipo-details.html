@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
 <div class="admin-container">
 
@@ -9,8 +9,9 @@
       
       <h3 class="titulo-pagina">{{ equipoActual.nombre }}</h3>
       
-      <div class="imagen-box">
+      <div class="imagen-box card-foto">
         <img [src]="equipoActual.escudo ? equipoActual.escudo : 'assets/icons/icono.png'" 
+        (click)="abrirImagen(equipoActual?.escudo || 'assets/icons/icono.png')"
              [alt]="'Escudo de ' + equipoActual.nombre">
       </div>
 
@@ -41,8 +42,9 @@
     @for (jugador of jugadores; track jugador.id) {
       <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable" data-aos="fade-up">
         
-        <div class="item-info">
+        <div class="item-info card-foto-ul">
           <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" 
+          (click)="abrirImagen(jugador?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
                [alt]="jugador.nombre" 
                class="item-logo item-foto-jugador">
           <span class="item-nombre">{{jugador.nombre}}</span>
@@ -50,7 +52,8 @@
         
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/dt-jugador-details/', jugador.id]" 
+                  [routerLink]="['/dt-jugador-details/', jugador.id]"
+                  [queryParams]="{ returnUrl: '/dt-mi-equipo'}"
                   (click)="$event.stopPropagation()">
             {{ 'dtPortal.miEquipo.botonDetalles' | transloco }}
           </button>
@@ -66,7 +69,7 @@
     }
   </ul>
   
-  <div class="agregar-container">
+  <div class="agregar-container pulse">
     <button class="btn-agregar" [routerLink]="['/dt-jugadores-libres']">
       {{ 'dtPortal.miEquipo.botonVerLibres' | transloco }}
     </button>

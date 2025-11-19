@@ -1,6 +1,7 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
-<div class="admin-container">
+<div class="admin-container" data-aos="fade-up"
+     data-aos-anchor-placement="top-center">
   <h2>{{ usuarioID ? ('admin.formularioAdmin.tituloEditar' | transloco) : ('admin.formularioAdmin.tituloAgregar' | transloco) }}</h2>
 
   <form [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">

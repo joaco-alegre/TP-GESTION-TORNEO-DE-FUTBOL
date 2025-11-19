@@ -49,7 +49,6 @@ this.torneoID = this.route.snapshot.params['id'];
         .subscribe(data => {
           const datosParaFormulario = { ...data };
 
-          delete datosParaFormulario.logo;
           delete datosParaFormulario.ultimoCampeon;
           this.torneoForm.patchValue(datosParaFormulario);
         });
@@ -95,6 +94,12 @@ this.torneoID = this.route.snapshot.params['id'];
   }
 
     goBack(): void {
-    this.router.navigate(['/torneos-admin']);
+    
+    if (this.torneoID) {
+        this.router.navigate(['/torneo-details-admin', this.torneoID]);
+    } else {
+        this.router.navigate(['/torneos-admin']);
+    }
   }
+  
 }

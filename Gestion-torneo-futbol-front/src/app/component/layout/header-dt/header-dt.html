@@ -1,0 +1,36 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark" [ngClass]="{'navbar-scrolled': isScrolled}">
+ 
+  <div class="container-fluid">
+    
+    <a class="navbar-brand">
+      <div class="navbar-logo">
+        <img src="/assets/img/logo.png" alt="Goal Manager Logo">
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" 
+      [attr.aria-expanded]="!isMenuCollapsed" aria-controls="navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+
+    <p class="panel-admin-title">
+      {{ 'admin.global.panelAdministrador' | transloco }}
+    </p>
+
+      <div class="language-switcher">
+        <button (click)="cambiarIdioma('es')">ES</button>
+        <span>|</span>
+        <button (click)="cambiarIdioma('en')">EN</button>
+      </div>
+
+        <div class="quick-menu-actions">
+        <button (click)="toggleDarkMode()" class="btn-action-icon">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button (click)="logout()" class="btn-action-icon btn-logout">
+            <i class="fas fa-sign-out-alt"></i>
+        </button>
+        </div>
+  </div>
+</nav>

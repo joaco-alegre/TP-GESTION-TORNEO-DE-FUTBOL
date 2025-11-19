@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
 <div class="admin-container" data-aos="zoom-out-up">
 
@@ -8,14 +8,17 @@
     @for (dt of dts; track dt.id) {
       <li class="fila-clickeable">
         
-        <div class="item-info">
-          <img [src]="dt?.foto ? dt?.foto : 'assets/icons/persona.png'" [alt]="dt.nombre" class="item-logo item-foto-jugador">
+        <div class="item-info card-foto-ul">
+          <img [src]="dt?.foto ? dt?.foto : 'assets/icons/persona.png'" 
+          (click)="abrirImagen(dt?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
+          [alt]="dt.nombre" class="item-logo item-foto-jugador">
           <span class="item-nombre">{{dt.nombre}}</span>
         </div>
 
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/dt-detalles-admin/', dt.id]" 
+                  [routerLink]="['/dt-detalles-admin/', dt.id]"
+                  [queryParams]="{ returnUrl: '/dt-list-admin'}" 
                   (click)="$event.stopPropagation()">
             {{ 'admin.botones.detalles' | transloco }}
           </button>
@@ -26,7 +29,7 @@
     }
   </ul>
 
-  <div class="agregar-container">
+  <div class="agregar-container slide">
     <button class="btn-agregar" [routerLink]="['/dt-formulario-admin']">
       {{ 'admin.dtLista.agregar' | transloco }}
     </button>

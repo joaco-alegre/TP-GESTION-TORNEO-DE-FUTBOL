@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
 import Jugador from '../../../model/jugador';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { Lightbox, LightboxModule } from 'ngx-lightbox';
 
 @Component({
   selector: 'app-jugador-libre-list',
-  imports: [RouterModule, CommonModule, TranslocoPipe],
+  imports: [RouterModule, CommonModule, TranslocoPipe, LightboxModule],
   templateUrl: './jugador-libre-list.html',
   styleUrl: './jugador-libre-list.css',
 })
@@ -18,7 +19,10 @@ export class JugadorLibreList implements OnInit{
 
   constructor(
     private jugadorService: JugadorService,
-    private location: Location
+    private location: Location,
+    private lightbox: Lightbox,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -62,8 +66,27 @@ export class JugadorLibreList implements OnInit{
   }
 
 
-    goBack(): void {
-    this.location.back();
+  abrirImagen(url: string | null | undefined): void {
+      if (!url) {
+        console.error("No hay URL de imagen para mostrar.");
+        return;
+      }
+    
+      const album = [
+        {
+          src: url,
+          caption: '',
+          thumb: url
+        }
+      ];
+    
+      this.lightbox.open(album, 0);
+}
+
+goBack(): void {
+    this.router.navigate(['/usuario-home'])
   }
+
+
 
 }

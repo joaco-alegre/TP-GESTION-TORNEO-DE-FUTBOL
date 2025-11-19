@@ -1,4 +1,4 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
 <div class="admin-container" data-aos="fade-up">
 
@@ -17,7 +17,8 @@
         </div>
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/dt-detalles-admin/', dt.id]" 
+                  [routerLink]="['/dt-detalles-admin/', dt.id]"
+                  [queryParams]="{ returnUrl: ('/jugador-lista-admin/' + equipoId) }"
                   (click)="$event.stopPropagation()">
             {{ 'admin.botones.detalles' | transloco }}
           </button>
@@ -50,6 +51,7 @@
         <div class="action-buttons">
           <button class="btn-detalles"
                   [routerLink]="['/jugador-detalles-admin/', jugador.id]" 
+                  [queryParams]="{ returnUrl: ('/jugador-lista-admin/' + equipoId) }"
                   (click)="$event.stopPropagation()">
             {{ 'admin.botones.detalles' | transloco }}
           </button>
@@ -61,7 +63,7 @@
   </ul>
 
 <div class="agregar-container">
-  <button class="btn-agregar" 
+  <button class="btn-agregar bounce" 
           [routerLink]="['/jugador-formulario-admin']"
           [queryParams]="{ equipoID: equipoId }"> {{ 'admin.equipoPanel.agregarJugador' | transloco }}
   </button>
@@ -75,7 +77,8 @@
       @for (fixture of fixtures; track fixture.id) {
         <li class="fixture-item card-foto" 
             [routerLink]="['/fixture-detalles-admin/', fixture.id]"
-            [queryParams]="{ equipoID: equipoId }"> <img [src]="getEscudo(fixture.equipoLocalID)"
+            [queryParams]="{ returnUrl: ('/jugador-lista-admin/' + equipoId) }"> 
+            <img [src]="getEscudo(fixture.equipoLocalID)"
                (click)="abrirImagen(getEscudo(fixture.equipoLocalID) || 'assets/icons/icono.png'); $event.stopPropagation()"
                [alt]="fixture.equipoLocalID">
           

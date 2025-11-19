@@ -1,6 +1,7 @@
-<button (click)="goBack()" class="btn-volver">&larr; {{ 'admin.botones.volver' | transloco }}</button>
+<button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
-<div class="admin-container">
+<div class="admin-container" data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom">
 
   <h2>{{ noticiaID ? ('admin.formularioNoticia.tituloEditar' | transloco) : ('admin.formularioNoticia.tituloAgregar' | transloco) }}</h2>
 

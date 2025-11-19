@@ -180,54 +180,6 @@
       "numeroCamiseta": 10
     }
   ],
-  "DTs": [
-    {
-      "id": "dt-mg-001",
-      "nombre": "Marcelo Gallardo ",
-      "fechaNacimiento": "1996-07-14",
-      "equipoID": "e-001",
-      "estiloJuego": "equilibrado",
-      "usuario": "mgallardo",
-      "foto": ""
-    },
-    {
-      "id": "dt-ls-002",
-      "nombre": "Lionel Scaloni",
-      "equipoID": "afa-seleccion-arg",
-      "estiloJuego": "Equilibrado",
-      "usuario": "lscaloni",
-      "foto": ""
-    },
-    {
-      "id": "dt-pg-003",
-      "nombre": "Pep Guardiola",
-      "equipoID": "club-man-city",
-      "estiloJuego": "Juego de Posición",
-      "usuario": "pep.g"
-    },
-    {
-      "id": "dt-ca-004",
-      "nombre": "Carlo Ancelotti",
-      "equipoID": "club-real-madrid",
-      "estiloJuego": "Gestión de Plantel",
-      "usuario": "carletto_a"
-    },
-    {
-      "id": "dt-mb-005",
-      "nombre": "Marcelo Bielsa",
-      "equipoID": "afa-seleccion-uru",
-      "estiloJuego": "Protagónico",
-      "usuario": "mbielsa"
-    },
-    {
-      "id": "3a7f",
-      "nombre": "Joaquin Alegre",
-      "equipoID": "",
-      "estiloJuego": "defensivo",
-      "usuario": "joaco12",
-      "foto": ""
-    }
-  ],
   "fixtures": [
     {
       "id": "f-001",
@@ -356,15 +308,65 @@
       "link": "https://www.tycsports.com/seleccion-argentina/el-jugador-de-la-seleccion-acompano-a-messi-al-camp-nou-y-le-saco-las-fotos-id697994.html",
       "foto": ""
     }
+  ],"DTs": [
+    {
+      "id": "dt-mg-001",
+      "nombre": "Marcelo Gallardo ",
+      "usuario": "dt@goalmanager.com",
+      "fechaNacimiento": "1996-07-14",
+      "equipoID": "e-001",
+      "rolUser": "dt",
+      "estiloJuego": "equilibrado", 
+      "password": "dt123",
+      "foto": ""
+    },
+    {
+      "id": "dt-ls-002",
+      "nombre": "Lionel Scaloni",
+      "equipoID": "afa-seleccion-arg",
+      "estiloJuego": "Equilibrado",
+      "usuario": "lscaloni",
+      "foto": ""
+    },
+    {
+      "id": "dt-pg-003",
+      "nombre": "Pep Guardiola",
+      "equipoID": "club-man-city",
+      "estiloJuego": "Juego de Posición",
+      "usuario": "pep.g"
+    },
+    {
+      "id": "dt-ca-004",
+      "nombre": "Carlo Ancelotti",
+      "equipoID": "club-real-madrid",
+      "estiloJuego": "Gestión de Plantel",
+      "usuario": "carletto_a"
+    },
+    {
+      "id": "dt-mb-005",
+      "nombre": "Marcelo Bielsa",
+      "equipoID": "afa-seleccion-uru",
+      "estiloJuego": "Protagónico",
+      "usuario": "mbielsa"
+    },
+    {
+      "id": "3a7f",
+      "nombre": "Joaquin Alegre",
+      "equipoID": "",
+      "estiloJuego": "defensivo",
+      "usuario": "joaco12",
+      "foto": ""
+    }
   ],
   "usuarios": [
     {
       "id": "u-001",
-      "nombre": "Joaquin",
-      "rol": "Scrum Master",
-      "foto": "assets/img/equipo/avatar1.jpg",
+      "nombre": "Joaquín Alegre",
       "usuario": "joaco12-2002@hotmail.com",
-      "password": "123"
+      "password": "123", 
+      "email": "joaco12-2002@hotmail.com",
+      "rolUser": "usuario",
+      "foto": ""
     },
     {
       "id": "u-002",
@@ -373,7 +375,7 @@
       "password": "password456",
       "email": "facundo@mail.com",
       "rolUser": "Product Owner & Developer",
-      "foto": "assets/img/equipo/avatar2.jpg"
+      "foto": ""
     },
     {
       "id": "u-003",
@@ -382,7 +384,7 @@
       "password": "password789",
       "email": "marcos@mail.com",
       "rolUser": "Developer",
-      "foto": "assets/img/equipo/avatar3.jpg"
+      "foto": ""
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DtService } from '../../../service/dt-service/dt-service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import DT from '../../../model/dt';
 import { CommonModule, Location } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
@@ -15,18 +15,22 @@ import { LightboxModule, Lightbox } from 'ngx-lightbox';
 export class DtDetailsAdmin  implements OnInit{
 
       dt?: DT;
+      returnUrl?: string = '/usuario-home';
   
     constructor(
       private dtService: DtService,
       private route: ActivatedRoute,
       private location: Location,
-      private lightbox: Lightbox
+      private lightbox: Lightbox, 
+      private router: Router,
     ) {}
   
     
     ngOnInit(): void {
       const id = this.route.snapshot.params['id'];
       this.dtService.geDtById(id).subscribe(data => this.dt = data);
+
+      this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/usuario-home';
     }
 
 
@@ -40,24 +44,6 @@ export class DtDetailsAdmin  implements OnInit{
       ...dt, 
       equipoID: '' 
     };
-
-    
-
-  //   this.dtService.updateDt(dtActualizado).subscribe(() => {
-  //     const index = this.todosDts.findIndex(d => d.id === dt.id);
-  //     if (index > -1) {
-  //       this.todosDts[index].equipoID = ''; 
-  //     }
-  //     this.filtrarDtPorEquipo();   
-  //     alert("DT desvinculado del equipo");
-
-  //   }, (error) => {
-  //     console.error("Error al desvincular al DT:", error);
-  //     alert("No se pudo sacar al DT del equipo.");
-  //   });
-  // }
-
-  //          
 
 }
 
@@ -80,7 +66,10 @@ abrirImagen(url: string | null | undefined): void {
     }
 
      goBack(): void {
-     this.location.back();
+
+      if(this.returnUrl){
+     this.router.navigateByUrl(this.returnUrl);
+      }
     }
 
 }
