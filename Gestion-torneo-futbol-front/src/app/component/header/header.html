@@ -50,10 +50,10 @@
           <ul>
             <li><a [routerLink]="['/es/inicio-sesion']">{{ 'header.iniciarSesion' | transloco }}</a></li>
             <li>
-                <button (click)="toggleDarkMode()">
-                {{ 'header.modoOscuro' | transloco }}
-                </button>
-    </li>
+              <button class="menu-toggle-btn" (click)="toggleDarkMode()">
+              {{ 'header.modoOscuro' | transloco }}
+              </button>
+            </li>
           </ul>
         </nav>
 

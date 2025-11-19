@@ -457,6 +457,10 @@
         "usuarioFormato": "Email inválido.",
         "fotoRequerida": "La foto es obligatoria."
       }
+    },
+    "global": { 
+      "panelDT": "Panel DT"
+
     }
 
 
