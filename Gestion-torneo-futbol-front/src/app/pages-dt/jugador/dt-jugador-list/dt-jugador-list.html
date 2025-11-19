@@ -3,8 +3,11 @@
 <div class="admin-container" data-aos="fade-up">
   <h3>{{ 'dtPortal.jugadoresLibres.titulo' | transloco }}</h3>
 
+
+  @if(dtEquipoId){
   <ul>
     @for (jugador of jugadoresLibres; track jugador.id) {
+
       <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable" data-aos="fade-up">
         
         <div class="item-info card-foto-ul">
@@ -16,7 +19,7 @@
         
         <div class="action-buttons">
           <button class="btn-detalles"
-                  [routerLink]="['/dt-jugador-details/', jugador.id]" 
+                  [routerLink]="['/dt/dt-jugador-details/', jugador.id]" 
                   [queryParams]="{ returnUrl: '/dt-jugadores-libres' }"
                   (click)="$event.stopPropagation()">
             {{ 'dtPortal.jugadoresLibres.botonDetalles' | transloco }}
@@ -33,4 +36,32 @@
     }
   </ul>
 
+} @else {
+
+    <ul>
+    @for (jugador of jugadoresLibres; track jugador.id) {
+
+      <li [routerLink]="['/jugador-details-admin', jugador.id]" class="fila-clickeable" data-aos="fade-up">
+        
+        <div class="item-info card-foto-ul">
+          <img [src]="jugador?.foto ? jugador?.foto : 'assets/icons/persona.png'" 
+          (click)="abrirImagen(jugador?.foto || 'assets/icons/persona.png'); $event.stopPropagation()"
+          [alt]="jugador.nombre" class="item-logo item-foto-jugador">
+          <span class="item-nombre">{{jugador.nombre}}</span>
+        </div>
+        
+        <div class="action-buttons">
+          <button class="btn-detalles"
+                  [routerLink]="['/dt/dt-jugador-details/', jugador.id]" 
+                  [queryParams]="{ returnUrl: '/dt-jugadores-libres' }"
+                  (click)="$event.stopPropagation()">
+            {{ 'dtPortal.jugadoresLibres.botonDetalles' | transloco }}
+          </button>
+        </div>
+      </li>
+    } @empty {
+      <p class="empty-list">{{ 'dtPortal.jugadoresLibres.empty' | transloco }}</p>
+    }
+  </ul>
+}
 </div>

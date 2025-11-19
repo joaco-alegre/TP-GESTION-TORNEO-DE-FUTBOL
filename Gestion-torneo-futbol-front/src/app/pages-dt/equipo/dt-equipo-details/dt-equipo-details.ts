@@ -1,6 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import Jugador from '../../../model/jugador';
 import { DtService } from '../../../service/dt-service/dt-service';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
@@ -11,6 +11,7 @@ import { TorneoService } from '../../../service/torneo-service/torneo-service';
 import Torneo from '../../../model/torneo';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
 import { AuthService } from '../../../service/auth-service/auth-service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dt-equipo-details',
@@ -26,6 +27,9 @@ export class DtEquipoDetails implements OnInit{
   todosJugadores: Jugador[] = [];
   torneoDelEquipo?: Torneo;
 
+        currentUserId: string | null = null;
+        private querySub: Subscription | undefined;
+
   constructor(
     private dtService: DtService,
     private jugadorService: JugadorService,
@@ -34,7 +38,8 @@ export class DtEquipoDetails implements OnInit{
     private location: Location,
     private torneoService: TorneoService,
     private lightbox: Lightbox,
-    private authService: AuthService
+    private authService: AuthService,
+    private route:ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -42,12 +47,21 @@ export class DtEquipoDetails implements OnInit{
     const user = this.authService.getUser();
     const dtId = user?.id;
 
+    this.querySub = this.route.queryParamMap.subscribe(params => {
+        const idFromQuery = params.get('referrerId'); 
+        
+        if (idFromQuery) {
+            this.currentUserId = idFromQuery;
+            console.log('ID del usuario logueado recibido por Query Param:', this.currentUserId);
+        }
+    });
+
     if (!dtId) {
         alert("Error de sesión: No se pudo identificar al DT.");
         this.router.navigate(['/es/inicio-sesion']);
         return;
     }
-
+  
 this.dtService.geDtById(dtId).subscribe({
       next: (dtData) => {
         
@@ -73,7 +87,7 @@ this.dtService.geDtById(dtId).subscribe({
     });
   
 
-            if(this.equipoId){
+          if(this.equipoId){
           this.equipoService.getEquipoById(this.equipoId).subscribe(equipoData => {
         this.equipoActual = equipoData;
 
@@ -166,6 +180,6 @@ this.dtService.geDtById(dtId).subscribe({
     }
 
           goBack(): void {
-    this.router.navigate(['/dt/dt-home']);
+    this.router.navigate(['/dt/dt-home', this.currentUserId]);
   }
 }

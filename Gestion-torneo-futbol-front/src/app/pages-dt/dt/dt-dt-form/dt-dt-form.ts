@@ -32,10 +32,13 @@ export class DtDtForm implements OnInit{
     this.DtForm = this.fb.group({
       id: [''],
       nombre: ['', Validators.required],
+      fechaNacimiento: ['', Validators.required],
       equipoID: [''], 
       estiloJuego: ['', Validators.required],
       usuario: ['', [Validators.required]],
-      foto: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      role: ['dt'],
+      foto: ['', [Validators.required]],
     });
 
     this.DtID = this.route.snapshot.params['id'];
@@ -62,7 +65,7 @@ export class DtDtForm implements OnInit{
       return;
     }
     
-    const rutaDeVuelta = ['/dt-dt-details', this.DtID];
+    const rutaDeVuelta = ['/dt/dt-dt-details', this.DtID];
 
     if (this.DtID) {
       const dtData: DT = { id: this.DtID, ...this.DtForm.value }; 
@@ -83,7 +86,7 @@ export class DtDtForm implements OnInit{
   }
 
     goBack(): void {
-    this.router.navigate(['/dt-dt-details', this.DtID]);
+    this.router.navigate(['/dt/dt-dt-details', this.DtID]);
   }
 
 }

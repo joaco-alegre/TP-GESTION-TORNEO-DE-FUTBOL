@@ -71,6 +71,15 @@
       "estadoTorneo": "espera",
       "fechaInicio": "2025-10-31",
       "fechaFin": "2025-12-05"
+    },
+    {
+      "id": "0e63",
+      "nombre": "Copa America",
+      "logo": "https://i.ibb.co/zW5yvZS2/39c18e2a8f8cd2a359847588f4378927.jpg",
+      "ultimoCampeon": "https://i.ibb.co/tTc5wDLH/argentina-campeon-copa-america-2021-862x485.webp",
+      "estadoTorneo": "pendiente",
+      "fechaInicio": "2002-06-19",
+      "fechaFin": "2025-11-26"
     }
   ],
   "equipos": [
@@ -91,6 +100,12 @@
       "nombre": "Juventus",
       "escudo": "https://i.ibb.co/bjVp9Bz4/Juventus-Logo.png",
       "idTorneo": "t-001"
+    },
+    {
+      "id": "cb00",
+      "nombre": "River",
+      "escudo": "https://i.ibb.co/dsSN7Www/images.png",
+      "idTorneo": "0e63"
     }
   ],
   "jugadores": [
@@ -112,13 +127,11 @@
     },
     {
       "id": "j-103",
-      "nombre": "Jugador Libre",
-      "edad": 28,
-      "fechaNacimiento": "1996-01-01T00:00:00Z",
-      "numeroCamiseta": 18,
-      "posicion": "Defensa",
-      "idEquipo": "",
-      "foto": ""
+      "nombre": "Neymar JR",
+      "foto": "https://i.ibb.co/gMsbjkND/96462612-gettyimages-659596036-jpg.webp",
+      "idEquipo": "e-001",
+      "fechaNacimiento": "1990-06-13",
+      "numeroCamiseta": 18
     },
     {
       "id": "adac",
@@ -143,6 +156,54 @@
       "idEquipo": "e-002",
       "fechaNacimiento": "2000-07-13",
       "numeroCamiseta": 10
+    },
+    {
+      "id": "3f41",
+      "nombre": "Rodrigo De Paul",
+      "foto": "https://i.ibb.co/YT89m1Wt/cnne-1298348-spain-v-switzerland-uefa-nations-league-league-path-group-2.jpg",
+      "idEquipo": "",
+      "fechaNacimiento": "1996-06-12",
+      "numeroCamiseta": 7
+    },
+    {
+      "id": "cdb1",
+      "nombre": "Enzo Fernandez",
+      "foto": "https://i.ibb.co/WNgh3fPr/uno-por-uno-quienes-son-los-26-jugadores-de-la-seleccion-argentina-para-el-mundial-EO24-WV3-UFFC3-JA.jpg",
+      "idEquipo": "",
+      "fechaNacimiento": "1996-06-12",
+      "numeroCamiseta": 8
+    },
+    {
+      "id": "f841",
+      "nombre": "Sergio Ramos",
+      "foto": "https://i.ibb.co/vGNdPSt/2020-09-06-uefa-nations-league-spain-sergio-ramos-slalciqcn0wo16nlh1cpvqrnn.jpg",
+      "idEquipo": "",
+      "fechaNacimiento": "2004-02-04",
+      "numeroCamiseta": 9
+    },
+    {
+      "id": "f842",
+      "nombre": "Julian Alvarez",
+      "foto": "https://i.ibb.co/4Z9MjQy9/6596cfae7f72c-600x390.webp",
+      "idEquipo": "e-001",
+      "fechaNacimiento": "2004-02-04",
+      "numeroCamiseta": 10
+    },
+    {
+      "id": "f843",
+      "nombre": "Gareth Bale",
+      "foto": "https://i.ibb.co/N2fs7kKc/2900930.jpg",
+      "idEquipo": "",
+      "fechaNacimiento": "2004-02-04",
+      "numeroCamiseta": 11
+    },
+    {
+      "id": "f844",
+      "nombre": "Kylian Mbappe",
+      "foto": "https://i.ibb.co/F4mWDMPB/D3-QCMHDHLZHAXPSSRN5-EEDGGVU.jpg",
+      "idEquipo": "",
+      "fechaNacimiento": "2004-02-04",
+      "numeroCamiseta": 12
     }
   ],
   "fixtures": [
@@ -150,9 +211,9 @@
       "id": "f-001",
       "equipoLocalID": "e-001",
       "equipoVisitaID": "e-002",
-      "golesEquipo1": 4,
+      "golesEquipo1": 5,
       "golesEquipo2": "1",
-      "fechaPartido": "2025-05-15T23:00",
+      "fechaPartido": "2025-05-16T02:00",
       "estadoPartido": "Finalizado"
     }
   ],
@@ -206,10 +267,12 @@
     {
       "id": "dt-001",
       "nombre": "Marcelo Gallardo",
+      "fechaNacimiento": "1980-10-16",
       "equipoID": "e-001",
       "estiloJuego": "ofensivo",
       "usuario": "dt@goalmanager.com",
       "password": "dt123",
+      "role": "dt",
       "foto": "https://i.ibb.co/ynZC9XFt/licensed-image-1.jpg"
     },
     {
@@ -218,15 +281,19 @@
       "equipoID": "e-002",
       "estiloJuego": "equilibrado",
       "usuario": "pep@goalmanager.com",
+      "password": "dt123",
+      "role": "dt",
       "foto": "https://i.ibb.co/wNG5vB85/licensed-image.jpg"
     },
     {
       "id": "a745",
       "nombre": "Marcelo Bielsa",
+      "fechaNacimiento": "1983-07-13",
       "equipoID": "77e2",
       "estiloJuego": "defensivo",
       "usuario": "marcelo@bielsa.com",
       "password": "12345",
+      "role": "dt",
       "foto": "https://i.ibb.co/4g1qyMdk/28865.jpg"
     }
   ],

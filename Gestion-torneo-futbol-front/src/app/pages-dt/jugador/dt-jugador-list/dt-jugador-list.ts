@@ -1,11 +1,12 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 import Jugador from '../../../model/jugador';
 import { DtService } from '../../../service/dt-service/dt-service';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
 import { Lightbox, LightboxModule } from 'ngx-lightbox';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-dt-jugador-list',
@@ -16,22 +17,36 @@ import { Lightbox, LightboxModule } from 'ngx-lightbox';
 export class DtJugadorList {
 
   jugadoresLibres: Jugador[] = [];
-  dtEquipoId?: string; 
+  dtEquipoId?: string;
   
   todosJugadores: Jugador[] = [];
+
+      currentUserId: string | null = null;
+      private querySub: Subscription | undefined;
 
   constructor(
     private dtService: DtService,
     private jugadorService: JugadorService,
     private router: Router,
     private location: Location,
-    private lightbox: Lightbox
+    private lightbox: Lightbox,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    const loggedInDtId = 'dt-mg-001'; 
 
-    this.dtService.geDtById(loggedInDtId).subscribe({
+  this.querySub = this.route.queryParamMap.subscribe(params => {
+        const idFromQuery = params.get('referrerId'); 
+        
+        if (idFromQuery) {
+            this.currentUserId = idFromQuery;
+            console.log('ID del usuario logueado recibido por Query Param:', this.currentUserId);
+        }
+    });
+
+    if(this.currentUserId){
+
+    this.dtService.geDtById(this.currentUserId).subscribe({
       next: (dtData) => {
         if (dtData && dtData.equipoID && dtData.equipoID.trim() !== '') {
           this.dtEquipoId = dtData.equipoID;
@@ -47,6 +62,12 @@ export class DtJugadorList {
       }
     });
   }
+
+}
+
+
+
+
 
   cargarJugadores(): void {
     this.jugadorService.getJugadores().subscribe(data => {
@@ -105,11 +126,11 @@ export class DtJugadorList {
         }
       ];
     
-      this.lightbox.open(album, 0);
-    }
+      this.lightbox.open(album,0);
+}
 
             goBack(): void {
-      this.router.navigate(['/dt-home'])
+      this.location.back();
     }
 
 

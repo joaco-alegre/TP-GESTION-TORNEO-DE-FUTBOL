@@ -22,6 +22,20 @@
       </div>
     }
 
+
+    <label for="fechaNacimiento">{{ 'dtPortal.formularioDt.labelFechaNacimiento' | transloco }}</label>
+<input id="fechaNacimiento" type="date" formControlName="fechaNacimiento" 
+       [placeholder]="'dtPortal.formularioDt.placeholderFechaNacimiento' | transloco"
+       [class.is-invalid]="DtForm.get('fechaNacimiento')?.invalid && DtForm.get('fechaNacimiento')?.touched">
+
+@if (DtForm.get('fechaNacimiento')?.invalid && DtForm.get('fechaNacimiento')?.touched) {
+  <div class="validation-error">
+    @if (DtForm.get('fechaNacimiento')?.hasError('required')) {
+      <p>{{ 'dtPortal.formularioDt.validation.fechaNacimientoRequerida' | transloco }}</p>
+    }
+  </div>
+}
+
     <label for="equipoID">{{ 'dtPortal.formularioDt.labelEquipoId' | transloco }}</label>
     <input id="equipoID" type="text" formControlName="equipoID" readonly>
 
@@ -58,8 +72,21 @@
       </div>
     }
 
+    <label for="password">{{ 'dtPortal.formularioDt.labelPassword' | transloco }}</label>
+<input id="password" type="password" formControlName="password" 
+       [placeholder]="'dtPortal.formularioDt.placeholderPassword' | transloco"
+       [class.is-invalid]="DtForm.get('password')?.invalid && DtForm.get('password')?.touched">
+
+@if (DtForm.get('password')?.invalid && DtForm.get('password')?.touched) {
+  <div class="validation-error">
+    @if (DtForm.get('password')?.hasError('required')) {
+      <p>{{ 'dtPortal.formularioDt.validation.passwordRequerido' | transloco }}</p>
+    }
+  </div>
+}
+
     <label for="foto">{{ 'dtPortal.formularioDt.labelFoto' | transloco }}</label>
-    <input id="foto" type="file" formControlName="foto"
+    <input id="foto" type="text" formControlName="foto"
            [class.is-invalid]="DtForm.get('foto')?.invalid && DtForm.get('foto')?.touched">
     
     @if (DtForm.get('foto')?.invalid && DtForm.get('foto')?.touched) {

@@ -12,8 +12,6 @@ import { DtService } from '../../../service/dt-service/dt-service';
 })
 export class DtHome implements OnInit{
   
-    IDgenerico: string = 'dt-mg-001';
-
     dtId:string | null = null;
     dtData: any;
 

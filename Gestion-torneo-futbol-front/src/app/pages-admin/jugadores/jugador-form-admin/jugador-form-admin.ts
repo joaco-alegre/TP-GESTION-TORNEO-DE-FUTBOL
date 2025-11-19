@@ -33,7 +33,7 @@ export class JugadorFormAdmin implements OnInit{
       id: [''],
       nombre: ['', Validators.required],
       foto: ['',  Validators.required], 
-      idEquipo: ['', Validators.required],
+      idEquipo: [''],
       edad: [{ value: null, disabled: true }],
       fechaNacimiento: ['', Validators.required],
       numeroCamiseta: ['', Validators.required]
@@ -152,7 +152,7 @@ export class JugadorFormAdmin implements OnInit{
         this.router.navigate(['/admin/jugador-lista-admin', this.equipoID]);
     }
     else {
-        this.router.navigate(['/admin/admin-menu']);
+        this.location.back();
     }
 }
 

@@ -71,7 +71,7 @@ export class TorneoListAdmin implements OnInit{
     }
 
     goBack(): void {
-    this.router.navigate(['/admin/usuario-home/', this.currentUserId]);
+     this.router.navigate(['/admin/usuario-home/', this.currentUserId]);
   }
   
 }

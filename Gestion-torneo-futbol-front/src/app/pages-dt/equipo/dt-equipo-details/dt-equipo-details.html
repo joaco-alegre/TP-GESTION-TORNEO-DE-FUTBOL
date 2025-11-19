@@ -1,5 +1,6 @@
 <button (click)="goBack()" class="btn-volver">&larr; {{ 'botonVolver' | transloco }}</button>
 
+@if(equipoId){
 <div class="admin-container">
 
   <h2>{{ 'dtPortal.miEquipo.titulo' | transloco }}</h2>
@@ -70,9 +71,17 @@
   </ul>
   
   <div class="agregar-container pulse">
-    <button class="btn-agregar" [routerLink]="['/dt-jugadores-libres']">
+    <button class="btn-agregar" [routerLink]="['/dt/dt-jugadores-libres']" [queryParams]="{ referrerId: currentUserId }">
       {{ 'dtPortal.miEquipo.botonVerLibres' | transloco }}
     </button>
   </div>
 
 </div>
+} @else{
+  <div class="admin-container" style="padding: 40px; text-align: center;">
+    
+    <h3 class="subtitulo-seccion" style="color: #dc3545;">
+      {{ 'dtPortal.noTeam' | transloco }}
+    </h3>
+    </div>
+}

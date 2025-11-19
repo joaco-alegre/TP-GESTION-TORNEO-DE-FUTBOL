@@ -442,29 +442,32 @@
       "labelEstilo": "Play Style:",
       "labelUsuario": "User (Email):",
       "labelFoto": "Photo:",
-      
+      "labelFechaNacimiento": "Date of Birth:", 
+      "placeholderFechaNacimiento": "Ex: 1980-01-01",
       "placeholderNombre": "Ex: Marcelo Gallardo",
       "placeholderUsuario": "Ex: coach@mail.com",
-      
       "estiloPlaceholder": "Select a style",
       "estiloDefensivo": "Defensive",
       "estiloEquilibrado": "Balanced",
       "estiloOfensivo": "Offensive",
-      
       "botonAgregar": "Add",
       "botonActualizar": "Update",
-      
+      "labelPassword": "Password:",
+      "placeholderPassword": "Create a password",
       "validation": {
         "nombreRequerido": "Name is required.",
         "estiloRequerido": "Style selection is required.",
         "usuarioRequerido": "Email is required.",
         "usuarioFormato": "Invalid email format.",
-        "fotoRequerida": "Photo is required."
+        "fotoRequerida": "Photo is required.",
+        "fechaNacimientoRequerida": "Date of birth is required.",
+        "passwordRequerido": "Password is required."
       }
     },
         "global": { 
       "panelDT": "DT Dashboard"
-    }
+    },
+    "noTeam": "You are not currently assigned to any team."
 }
 
 }

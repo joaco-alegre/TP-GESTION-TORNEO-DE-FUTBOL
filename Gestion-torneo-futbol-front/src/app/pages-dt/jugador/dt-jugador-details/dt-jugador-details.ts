@@ -21,7 +21,7 @@ export class DtJugadorDetails implements OnInit{
     jugador?: Jugador;
       estadisticaGoleador?: EstadisticaGoleador;
       equipoDelJugador?: Equipo;
-      returnUrl: string = '/dt-home';
+      returnUrl: string = '/dt/dt-home';
   
     constructor(
       private jugadorService: JugadorService,
@@ -37,7 +37,7 @@ export class DtJugadorDetails implements OnInit{
       const id = this.route.snapshot.params['id'];
       this.jugadorService.getJugadorById(id).subscribe(data => this.jugador = data);
 
-      this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/dt-home';
+      this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || 'dt/dt-home' ;
   
       this.getDatosDelJugador(id);
       
@@ -81,7 +81,7 @@ export class DtJugadorDetails implements OnInit{
 }
 
     goBack(): void {
-      this.router.navigateByUrl(this.returnUrl);
+      this.location.back();
     }
   
 

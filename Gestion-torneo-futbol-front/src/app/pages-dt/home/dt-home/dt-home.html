@@ -6,19 +6,19 @@
   <ul class="admin-menu-grid">
     
     <li>
-      <a [routerLink]="['/dt/dt-mi-equipo']">
+      <a [routerLink]="['/dt/dt-mi-equipo']" [queryParams]="{ referrerId: dtId }">
         {{ 'dtPortal.menu.miEquipo' | transloco }}
       </a>
     </li>
     
     <li>
-      <a [routerLink]="['/dt/dt-jugadores-libres']">
+      <a [routerLink]="['/dt/dt-jugadores-libres']" [queryParams]="{ referrerId: dtId }">
         {{ 'dtPortal.menu.jugadoresLibres' | transloco }}
       </a>
     </li>
     
     <li>
-      <a [routerLink]="['/dt/dt-dt-details', IDgenerico]"> 
+      <a [routerLink]="['/dt/dt-dt-details', dtId]"> 
         {{ 'dtPortal.menu.misDetalles' | transloco }}
       </a>
     </li>

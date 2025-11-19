@@ -1,6 +1,6 @@
 import { CommonModule, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { DtService } from '../../../service/dt-service/dt-service';
 import DT from '../../../model/dt';
@@ -15,25 +15,29 @@ import { Lightbox, LightboxModule } from 'ngx-lightbox';
 export class DtDtDetails implements OnInit{
 
   dt?: DT;
-  loggedInDtId = 'dt-mg-001'; 
+  usuarioId: string | null = null;
 
   constructor(
     private dtService: DtService,
     private router: Router,
     private location: Location,
-    private lightbox: Lightbox
+    private lightbox: Lightbox,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    if (this.loggedInDtId) {
-      this.dtService.geDtById(this.loggedInDtId).subscribe({
+
+    this.usuarioId = this.route.snapshot.paramMap.get('id');
+
+    if (this.usuarioId) {
+      this.dtService.geDtById(this.usuarioId).subscribe({
         next: (data) => {
           this.dt = data;
         },
         error: (err) => {
           console.error("No se pudo cargar el perfil del DT:", err);
           alert("Error al cargar el perfil. Serás redirigido.");
-          this.router.navigate(['/dt-home']); 
+          this.router.navigate(['dt/dt-home', this.usuarioId]); 
         }
       });
     }
@@ -72,11 +76,11 @@ export class DtDtDetails implements OnInit{
         }
       ];
     
-      this.lightbox.open(album, 0);
-    }
+      this.lightbox.open(album,0);
+}
 
   goBack(): void {
-    this.router.navigate(['/dt-home']);
+    this.router.navigate(['/dt/dt-home', this.usuarioId]);
   }
 
 }

@@ -246,7 +246,9 @@
         "usuarioRequerido": "El email de usuario es obligatorio.",
         "usuarioFormato": "El formato del email no es válido.",
         "fotoRequerida": "La foto es obligatoria (solo al agregar).",
-        "passwordRequerido": "La contraseña es obligatoria."
+        "passwordRequerido": "La contraseña es obligatoria.",
+        "fechaNacimientoRequerida": "La fecha de nacimiento es obligatoria."
+        
       }
     },
     "jugadorDetallesAdmin": {
@@ -331,9 +333,7 @@
         "nombreRequerido": "El nombre es obligatorio.",
         "rolRequerido": "El rol es obligatorio.",
         "fotoRequerida": "La foto es obligatoria (solo al agregar).",
-        "usuarioRequerido": "El email es obligatorio.",
-        "usuarioFormato": "El formato del email no es válido.",
-        "passwordRequerido": "La contraseña es obligatoria (solo al agregar)."
+        "usuarioRequerido": "El email es obligatorio."
       }
     },
     "adminDetalles": {
@@ -442,30 +442,31 @@
       "labelEstilo": "Estilo de juego:",
       "labelUsuario": "Usuario (Email):",
       "labelFoto": "Foto:",
-      
       "placeholderNombre": "Ej: Marcelo Gallardo",
       "placeholderUsuario": "Ej: dt@mail.com",
-      
       "estiloPlaceholder": "Selecciona un estilo",
       "estiloDefensivo": "Defensivo",
       "estiloEquilibrado": "Equilibrado",
       "estiloOfensivo": "Ofensivo",
-      
       "botonAgregar": "Agregar",
       "botonActualizar": "Actualizar",
-      
+      "labelFechaNacimiento": "Fecha de Nacimiento:", 
+      "placeholderFechaNacimiento": "Ej: 1980-01-01",
+            "labelPassword": "Contraseña:",
+      "placeholderPassword": "Crear una contraseña",
       "validation": {
         "nombreRequerido": "El nombre es obligatorio.",
         "estiloRequerido": "Debes seleccionar un estilo.",
         "usuarioRequerido": "El email es obligatorio.",
         "usuarioFormato": "Email inválido.",
-        "fotoRequerida": "La foto es obligatoria."
+        "fotoRequerida": "La foto es obligatoria.",
+        "passwordRequerido": "La contraseña es obligatoria (solo al agregar)."
       }
     },
     "global": { 
       "panelDT": "Panel DT"
-
-    }
+    },
+    "noTeam": "Usted no se encuentra asignado a ningún equipo actualmente."
 
 
 

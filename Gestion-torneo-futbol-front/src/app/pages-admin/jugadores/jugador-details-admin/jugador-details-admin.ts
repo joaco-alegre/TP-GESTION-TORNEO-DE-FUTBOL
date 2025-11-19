@@ -103,7 +103,7 @@ export class JugadorDetailsAdmin {
 
 
     goBack(): void {
-    this.router.navigateByUrl(this.returnUrl);
+    this.location.back();
   }
 
 

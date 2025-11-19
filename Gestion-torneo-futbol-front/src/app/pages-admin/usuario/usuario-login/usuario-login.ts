@@ -28,7 +28,7 @@ export class UsuarioLogin implements OnInit {
     private router: Router,
     private location: Location,
     private fb: FormBuilder,
-    private authService: AuthService 
+    private authService: AuthService,
   ) {}
 
   ngOnInit(): void {
@@ -71,6 +71,6 @@ export class UsuarioLogin implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/']);
   }
 }
