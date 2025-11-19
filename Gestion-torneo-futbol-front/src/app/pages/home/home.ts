@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from "@angular/router";
 import { TranslocoPipe } from '@ngneat/transloco';
 import { ContactoService } from '../../service/contacto-service/contacto-service';
@@ -14,9 +14,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, TranslocoPipe, ɵInternalFormsSharedModule, ReactiveFormsModule, CommonModule],
+  imports: [RouterLink, TranslocoPipe, ReactiveFormsModule, CommonModule],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrls: ['./home.css']
 })
 export class Home {
   

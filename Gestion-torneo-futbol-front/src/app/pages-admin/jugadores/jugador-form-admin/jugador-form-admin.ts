@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { JugadorService } from '../../../service/jugador-service/jugador-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Jugador from '../../../model/jugador';
@@ -8,9 +8,9 @@ import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-jugador-form',
-  imports: [CommonModule, TranslocoPipe, ɵInternalFormsSharedModule, ReactiveFormsModule],
+  imports: [CommonModule, TranslocoPipe, ReactiveFormsModule],
   templateUrl: './jugador-form-admin.html',
-  styleUrl: './jugador-form-admin.css',
+  styleUrls: ['./jugador-form-admin.css']
 })
 export class JugadorFormAdmin implements OnInit{
 

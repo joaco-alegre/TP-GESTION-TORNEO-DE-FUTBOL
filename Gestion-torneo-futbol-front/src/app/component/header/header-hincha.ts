@@ -1,4 +1,4 @@
-import { Component, Inject, HostListener } from '@angular/core';
+import { Component, Inject, HostListener, OnInit } from '@angular/core';
 import { CommonModule, DOCUMENT } from '@angular/common';
 import { RouterLink, Router } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
@@ -11,7 +11,7 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
   templateUrl: './header-hincha.html',
   styleUrls: ['./header-hincha.css'],
 })
-export class HeaderHincha {
+export class HeaderHincha implements OnInit {
   
   isScrolled = false;
   isMenuCollapsed = true;
@@ -22,9 +22,15 @@ export class HeaderHincha {
     private translocoService: TranslocoService
   ) {}
 
+  ngOnInit(): void {
+    this.isScrolled = window.scrollY > 10;
+    this.document.body.classList.toggle('header-scrolled', this.isScrolled);
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 10;
+    this.document.body.classList.toggle('header-scrolled', this.isScrolled);
   }
 
   cambiarIdioma(lang: string) {

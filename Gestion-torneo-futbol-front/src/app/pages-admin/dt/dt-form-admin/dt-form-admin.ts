@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { DtService } from '../../../service/dt-service/dt-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import DT from '../../../model/dt';
@@ -8,9 +8,9 @@ import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-dt-form',
-  imports: [CommonModule, ɵInternalFormsSharedModule, ReactiveFormsModule, TranslocoPipe],
+  imports: [CommonModule, ReactiveFormsModule, TranslocoPipe],
   templateUrl: './dt-form-admin.html',
-  styleUrl: './dt-form-admin.css',
+  styleUrls: ['./dt-form-admin.css']
 })
 export class DtFormAdmin implements OnInit{
 

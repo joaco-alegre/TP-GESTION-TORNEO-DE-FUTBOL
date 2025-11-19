@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ɵInternalFormsSharedModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { EquipoService } from '../../../service/equipo-service/equipo-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Equipo from '../../../model/equipo';
@@ -9,9 +9,9 @@ import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-equipo-form',
-  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, TranslocoPipe],
+  imports: [ReactiveFormsModule, TranslocoPipe],
   templateUrl: './equipo-form-admin.html',
-  styleUrl: './equipo-form-admin.css',
+  styleUrls: ['./equipo-form-admin.css']
 })
 export class EquipoFormAdmin implements OnInit{
 

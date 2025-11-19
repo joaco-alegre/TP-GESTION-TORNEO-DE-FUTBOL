@@ -1,15 +1,15 @@
 import { CommonModule, Location} from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, ɵInternalFormsSharedModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { AuthService } from '../../../service/auth-service/auth-service';
 
 @Component({
   selector: 'app-usuario-login',
-  imports: [ɵInternalFormsSharedModule, ReactiveFormsModule, TranslocoPipe, CommonModule],
+  imports: [ReactiveFormsModule, TranslocoPipe, CommonModule],
   templateUrl: './usuario-login.html',
-  styleUrl: './usuario-login.css',
+  styleUrls: ['./usuario-login.css']
 })
 export class UsuarioLogin implements OnInit{
 

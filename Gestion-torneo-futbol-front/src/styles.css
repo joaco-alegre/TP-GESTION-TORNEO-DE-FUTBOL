@@ -175,3 +175,24 @@ app-root {
   z-index: 1;
   display: block; 
 }
+
+/* Permanent fix: cuando el header está fijo, reservar espacio para el contenido */
+
+/* Evita que AOS oculte elementos por defecto al cargar (visibilidad por defecto) */
+.aos-init {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Cuando el header se hace pequeño (fixed), reducimos el padding para evitar hueco visible */
+
+/* Ajusta la altura real del host del header para eliminar el hueco
+   cuando la barra se vuelve fija y se reduce (navbar-scrolled). */
+/* El header controla su propia altura (:host en header-hincha.css)
+   No forzamos padding en el main para evitar duplicar espacios. */
+
+/* Cuando el header se hace pequeño (fixed), reduciendo el host para evitar hueco */
+body.header-scrolled app-header-hincha {
+  height: 60px; /* coincide con .navbar-scrolled height */
+}
+ 

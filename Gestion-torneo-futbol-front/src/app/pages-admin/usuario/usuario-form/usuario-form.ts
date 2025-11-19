@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ɵInternalFormsSharedModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UsuarioService } from '../../../service/usuario-service/usuario-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule, Location } from '@angular/common';
@@ -7,9 +7,9 @@ import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-usuario-form',
-  imports: [CommonModule, ɵInternalFormsSharedModule, ReactiveFormsModule, TranslocoPipe],
+  imports: [CommonModule, ReactiveFormsModule, TranslocoPipe],
   templateUrl: './usuario-form.html',
-  styleUrl: './usuario-form.css',
+  styleUrls: ['./usuario-form.css'],
 })
 export class UsuarioForm implements OnInit{
 

@@ -86,53 +86,6 @@
   display: inline-block; 
 }
 
-
-
-#menu-desplegable {
-  position: absolute;
-  top: 110%; 
-  right: 0;  
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.375rem; 
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
-  min-width: 180px; 
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(10px);
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out, visibility 0.2s;
-}
-
-#menu-desplegable.visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-  z-index: 1000; 
-}
-
-#menu-desplegable ul {
-  list-style: none;
-  margin: 0;
-  padding: 0.5rem 0; 
-}
-
-#menu-desplegable li a {
-  display: block;
-  padding: 0.5rem 1.5rem; 
-  text-decoration: none;
-  color: #212529; 
-  white-space: nowrap; 
-}
-
-#menu-desplegable li a:hover {
-  background-color: #f8f9fa; 
-}
-
-#menu-desplegable hr {
-  margin: 0.
-}
-
-
 .navbar .nav-link,
 .language-switcher button,
 .contenedor-menu > button {
@@ -168,23 +121,60 @@
   user-select: none;
 }
 
-.menu-toggle-btn {
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-    margin: 5px 0;
-      background-color: #fff; 
-    color: #212529;
-    border: none;
-    border-top: 1px solid var(--color-borde);
-    
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-align: left;
-    transition: background-color 0.2s, transform 0.1s;
+.panel-admin{
+    font-size: 1.9rem;
 }
 
-.menu-toggle-btn:hover {
-    background-color: #f8f9fa; 
+.quick-menu-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    padding-left: 15px; 
+    border-left: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+.btn-action-icon {
+    background: none;
+    border: none;
+    color: white; 
+    font-size: 1.3rem; 
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, transform 0.1s;
+}
+
+.btn-logout {
+    color: var(--color-accent, #fff); 
+    font-size: 1.3rem;
+}
+
+.btn-action-icon:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.btn-logout:hover {
+    background-color: var(--color-boton-hover, #0056b3); 
+}
+
+.panel-admin-title {
+    color: var(--color-texto-header);
+    font-size: 1.5rem;
+    font-weight: 800;
+    flex-grow: 1; 
+    text-align: center; 
+    margin: 0; 
+    text-transform: uppercase;
+}
+
+.container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+}
+
+.navbar-brand {
+    flex-shrink: 0; 
 }

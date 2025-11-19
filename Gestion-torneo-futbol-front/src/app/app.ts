@@ -12,7 +12,7 @@ import { FooterAdmin } from './component/layout/footer-admin/footer-admin';
   selector: 'app-root',
   imports: [RouterOutlet, HeaderHincha, FooterHincha, HeaderAdmin, HeaderDt, FooterDt, FooterAdmin],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App implements AfterViewInit{
   protected readonly title = signal('Goal Manager');
