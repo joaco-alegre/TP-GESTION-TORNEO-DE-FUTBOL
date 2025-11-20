@@ -80,25 +80,22 @@
       "estadoTorneo": "pendiente",
       "fechaInicio": "2002-06-19",
       "fechaFin": "2025-11-26"
+    },
+    {
+      "id": "a4be",
+      "nombre": "Copa Surugabak",
+      "logo": "https://i.ibb.co/B5H2DgZy/Suruga-Bank.webp",
+      "ultimoCampeon": "https://i.ibb.co/fVxwzMkP/i.jpg",
+      "estadoTorneo": "pendiente",
+      "fechaInicio": "2025-11-20",
+      "fechaFin": "2025-11-14"
     }
   ],
   "equipos": [
     {
-      "id": "e-001",
-      "nombre": "Roma",
-      "escudo": "https://i.ibb.co/cSsbfkwD/AS-Roma-logo-2017-svg.png",
-      "idTorneo": "t-001"
-    },
-    {
       "id": "e-002",
       "nombre": "Napoli",
       "escudo": "https://i.ibb.co/DHKXrZ2n/SSC-Napoli-svg.png",
-      "idTorneo": "t-001"
-    },
-    {
-      "id": "72e2",
-      "nombre": "Juventus",
-      "escudo": "https://i.ibb.co/bjVp9Bz4/Juventus-Logo.png",
       "idTorneo": "t-001"
     },
     {
@@ -177,7 +174,7 @@
       "id": "f841",
       "nombre": "Sergio Ramos",
       "foto": "https://i.ibb.co/vGNdPSt/2020-09-06-uefa-nations-league-spain-sergio-ramos-slalciqcn0wo16nlh1cpvqrnn.jpg",
-      "idEquipo": "",
+      "idEquipo": "e-001",
       "fechaNacimiento": "2004-02-04",
       "numeroCamiseta": 9
     },
@@ -185,7 +182,7 @@
       "id": "f842",
       "nombre": "Julian Alvarez",
       "foto": "https://i.ibb.co/4Z9MjQy9/6596cfae7f72c-600x390.webp",
-      "idEquipo": "e-001",
+      "idEquipo": "",
       "fechaNacimiento": "2004-02-04",
       "numeroCamiseta": 10
     },
@@ -227,15 +224,8 @@
   ],
   "noticias": [
     {
-      "id": "n-001",
-      "tituloEs": "Messi volvió a Barcelona: visitó el nuevo Camp Nou y recordó que ahí fue \"inmensamente feliz”",
-      "tituloEn": "Messi returned to Barcelona: he visited the new Camp Nou and recalled that he was \"immensely happy\" there.",
-      "link": "http://tycsports.com/espana/la-liga/messi-nuevo-camp-nou-visita-id697914.html",
-      "foto": "https://i.ibb.co/Gfnr6gH9/leo-messi-en-el-nuevo-camp-nou-w862.webp"
-    },
-    {
       "id": "e465",
-      "tituloEs": "Los goles y la asistencia 400 de Lionel Messi en Inter Miami vs Nashville por la MLS",
+      "tituloEs": "Los goles y la asistencia 410 de Lionel Messi en Inter Miami vs Nashville por la MLS",
       "tituloEn": "Lionel Messi's goals and 400th assist in Inter Miami vs Nashville in the MLS",
       "link": "https://www.tycsports.com/estados-unidos/mls/lionel-messi-goles-inter-miami-nashville-mls-playoffs-doblete-silvetti-id697737.html",
       "foto": "https://i.ibb.co/0Vn7m79n/messi-y-silvetti-inter-miami-w862.webp"
@@ -253,6 +243,13 @@
       "tituloEn": "Pochettino surrendered to Messi: \"He helps children want to play football in the United States\"",
       "link": "https://www.tycsports.com/estados-unidos/mls/mauricio-pochettino-lionel-messi-id697078.html",
       "foto": "https://i.ibb.co/d0BjdNFD/lionel-messi-w862.webp"
+    },
+    {
+      "id": "eeaf",
+      "tituloEs": "Laporta reveló el especial homenaje que planea para Messi en el Camp Nou: \"Se merece lo más bonito del mundo\"",
+      "tituloEn": "Laporta revealed the special tribute he is planning for Messi at Camp Nou: \"He deserves the most beautiful thing in the world\"",
+      "link": "https://www.tycsports.com/espana/la-liga/laporta-revelo-el-especial-homenaje-que-planea-para-messi-en-el-camp-nou-estatua-id698653.html",
+      "foto": "https://i.ibb.co/RGSpvgNF/6596cfae7f72c-600x390.webp"
     }
   ],
   "mensajes": [
@@ -261,6 +258,12 @@
       "nombre": "Visitante Curioso",
       "email": "consulta@visitante.com",
       "consulta": "Me gustaría saber si hay torneos abiertos para mi equipo."
+    },
+    {
+      "id": "5434",
+      "nombre": "Joaquin",
+      "mail": "joaco12@hotmail.com",
+      "consulta": "hola son los mejores"
     }
   ],
   "DTs": [
@@ -269,7 +272,7 @@
       "nombre": "Marcelo Gallardo",
       "fechaNacimiento": "1980-10-16",
       "equipoID": "e-001",
-      "estiloJuego": "ofensivo",
+      "estiloJuego": "equilibrado",
       "usuario": "dt@goalmanager.com",
       "password": "dt123",
       "role": "dt",
