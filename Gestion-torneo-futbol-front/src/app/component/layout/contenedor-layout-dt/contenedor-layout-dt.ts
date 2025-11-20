@@ -3,7 +3,6 @@ import { FooterDt } from '../footer-dt/footer-dt';
 import { HeaderDt } from '../header-dt/header-dt';
 import { RouterModule } from "@angular/router";
 
-
 @Component({
   selector: 'app-contenedor-layout-dt',
   imports: [FooterDt, HeaderDt, RouterModule],
